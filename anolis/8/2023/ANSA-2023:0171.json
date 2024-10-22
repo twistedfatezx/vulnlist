@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20230171",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0171: harfbuzz security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0171",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0171",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-33068:\nAn integer overflow in the component hb-ot-shape-fallback.cc of Harfbuzz v4.3.0 allows attackers to cause a Denial of Service (DoS) via unspecified vectors.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-05-22"
+      },
+      "Updated": {
+        "Date": "2023-05-24"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-33068",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-33068",
+          "CWE": "CWE-190",
+          "Public": "20230522"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "harfbuzz is earlier than 0:2.7.4-8.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230171001"
+          },
+          {
+            "Comment": "harfbuzz-devel is earlier than 0:devel-2.7.4-8.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230171002"
+          },
+          {
+            "Comment": "harfbuzz-icu is earlier than 0:icu-2.7.4-8.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230171003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

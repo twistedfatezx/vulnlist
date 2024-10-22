@@ -1,0 +1,197 @@
+{
+  "ID": "oval:cn.openanolis:def:20220133",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0133: mariadb:10.5 security, bug fix, and enhancement update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0133",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0133",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-2154:\nVulnerability in the MySQL Server product of Oracle MySQL (component: Server: DML). Supported versions that are affected are 5.7.33 and prior. Easily exploitable vulnerability allows high privileged attacker with network access via multiple protocols to compromise MySQL Server. Successful attacks of this vulnerability can result in unauthorized ability to cause a hang or frequently repeatable crash (complete DOS) of MySQL Server. CVSS 3.1 Base Score 4.9 (Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H).\n\nCVE-2021-2166:\nVulnerability in the MySQL Server product of Oracle MySQL (component: Server: DML). Supported versions that are affected are 5.7.33 and prior and 8.0.23 and prior. Easily exploitable vulnerability allows high privileged attacker with network access via multiple protocols to compromise MySQL Server. Successful attacks of this vulnerability can result in unauthorized ability to cause a hang or frequently repeatable crash (complete DOS) of MySQL Server. CVSS 3.1 Base Score 4.9 (Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H).\n\nCVE-2021-2372:\nVulnerability in the MySQL Server product of Oracle MySQL (component: InnoDB). Supported versions that are affected are 5.7.34 and prior and 8.0.25 and prior. Difficult to exploit vulnerability allows high privileged attacker with network access via multiple protocols to compromise MySQL Server. Successful attacks of this vulnerability can result in unauthorized ability to cause a hang or frequently repeatable crash (complete DOS) of MySQL Server. CVSS 3.1 Base Score 4.4 (Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:H).\n\nCVE-2021-2389:\nVulnerability in the MySQL Server product of Oracle MySQL (component: InnoDB). Supported versions that are affected are 5.7.34 and prior and 8.0.25 and prior. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise MySQL Server. Successful attacks of this vulnerability can result in unauthorized ability to cause a hang or frequently repeatable crash (complete DOS) of MySQL Server. CVSS 3.1 Base Score 5.9 (Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H).\n\nCVE-2021-35604:\nVulnerability in the MySQL Server product of Oracle MySQL (component: InnoDB). Supported versions that are affected are 5.7.35 and prior and 8.0.26 and prior. Easily exploitable vulnerability allows high privileged attacker with network access via multiple protocols to compromise MySQL Server. Successful attacks of this vulnerability can result in unauthorized ability to cause a hang or frequently repeatable crash (complete DOS) of MySQL Server as well as unauthorized update, insert or delete access to some of MySQL Server accessible data. CVSS 3.1 Base Score 5.5 (Integrity and Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:H).\n\nCVE-2021-46657:\nget_sort_by_table in MariaDB before 10.6.2 allows an application crash via certain subquery uses of ORDER BY.\n\nCVE-2021-46658:\nsave_window_function_values in MariaDB before 10.6.3 allows an application crash because of incorrect handling of with_window_func=true for a subquery.\n\nCVE-2021-46662:\nMariaDB through 10.5.9 allows a set_var.cc application crash via certain uses of an UPDATE statement in conjunction with a nested subquery.\n\nCVE-2021-46666:\nMariaDB before 10.6.2 allows an application crash because of mishandling of a pushdown from a HAVING clause to a WHERE clause.\n\nCVE-2021-46667:\nMariaDB before 10.6.5 has a sql_lex.cc integer overflow, leading to an application crash.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-05-06"
+      },
+      "Updated": {
+        "Date": "2022-10-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-2154",
+          "CVSS3": "4.9/CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-2154",
+          "CWE": "",
+          "Public": "20220429"
+        },
+        {
+          "ID": "CVE-2021-35604",
+          "CVSS3": "5.5/CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-35604",
+          "CWE": "",
+          "Public": "20220429"
+        },
+        {
+          "ID": "CVE-2021-2166",
+          "CVSS3": "4.9/CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-2166",
+          "CWE": "",
+          "Public": "20220303"
+        },
+        {
+          "ID": "CVE-2021-46657",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-46657",
+          "CWE": "CWE-20",
+          "Public": "20220429"
+        },
+        {
+          "ID": "CVE-2021-46658",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-46658",
+          "CWE": "CWE-20",
+          "Public": "20220429"
+        },
+        {
+          "ID": "CVE-2021-46662",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-46662",
+          "CWE": "CWE-20",
+          "Public": "20220429"
+        },
+        {
+          "ID": "CVE-2021-46666",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-46666",
+          "CWE": "CWE-20",
+          "Public": "20220429"
+        },
+        {
+          "ID": "CVE-2021-46667",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-46667",
+          "CWE": "CWE-190",
+          "Public": "20220429"
+        },
+        {
+          "ID": "CVE-2021-2372",
+          "CVSS3": "4.4/CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-2372",
+          "CWE": "",
+          "Public": "20220303"
+        },
+        {
+          "ID": "CVE-2021-2389",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-2389",
+          "CWE": "",
+          "Public": "20220303"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "Judy is earlier than 0:1.0.5-18.module+an8.4.0+10235+e9e1d7fd",
+            "TestRef": "oval:cn.openanolis:tst:20220133001"
+          },
+          {
+            "Comment": "galera is earlier than 0:26.4.9-4.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133002"
+          },
+          {
+            "Comment": "mariadb is earlier than 0:10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133003"
+          },
+          {
+            "Comment": "mariadb-backup is earlier than 0:backup-10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133004"
+          },
+          {
+            "Comment": "mariadb-common is earlier than 0:common-10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133005"
+          },
+          {
+            "Comment": "mariadb-devel is earlier than 0:devel-10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133006"
+          },
+          {
+            "Comment": "mariadb-embedded is earlier than 0:embedded-10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133007"
+          },
+          {
+            "Comment": "mariadb-embedded-devel is earlier than 0:embedded-devel-10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133008"
+          },
+          {
+            "Comment": "mariadb-errmsg is earlier than 0:errmsg-10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133009"
+          },
+          {
+            "Comment": "mariadb-gssapi-server is earlier than 0:gssapi-server-10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133010"
+          },
+          {
+            "Comment": "mariadb-oqgraph-engine is earlier than 0:oqgraph-engine-10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133011"
+          },
+          {
+            "Comment": "mariadb-pam is earlier than 0:pam-10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133012"
+          },
+          {
+            "Comment": "mariadb-server is earlier than 0:server-10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133013"
+          },
+          {
+            "Comment": "mariadb-server-galera is earlier than 0:server-galera-10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133014"
+          },
+          {
+            "Comment": "mariadb-server-utils is earlier than 0:server-utils-10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133015"
+          },
+          {
+            "Comment": "mariadb-test is earlier than 0:test-10.5.13-1.module+an8.5.0+10728+7a83b741",
+            "TestRef": "oval:cn.openanolis:tst:20220133016"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

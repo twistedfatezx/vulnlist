@@ -1,0 +1,113 @@
+{
+  "ID": "oval:cn.openanolis:def:20220146",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0146: .NET 5.0 security and bugfix update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0146",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0146",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-8927:\nA buffer overflow exists in the Brotli library versions prior to 1.0.8 where an attacker controlling the input length of a \"one-shot\" decompression request to a script can trigger a crash, which happens when copying over chunks of data larger than 2 GiB. It is recommended to update your Brotli library to 1.0.8 or later. If one cannot update, we recommend to use the \"streaming\" API as opposed to the \"one-shot\" API, and impose chunk size limits.\n\nCVE-2022-24464:\n.NET and Visual Studio Denial of Service Vulnerability.\n\nCVE-2022-24512:\n.NET and Visual Studio Remote Code Execution Vulnerability.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-05-18"
+      },
+      "Updated": {
+        "Date": "2022-05-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-24512",
+          "CVSS3": "6.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-24512",
+          "CWE": "CWE-120",
+          "Public": "20220311"
+        },
+        {
+          "ID": "CVE-2020-8927",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-8927",
+          "CWE": "CWE-130",
+          "Public": "20220312"
+        },
+        {
+          "ID": "CVE-2022-24464",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-24464",
+          "CWE": "CWE-1173",
+          "Public": "20220311"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "aspnetcore-runtime-5.0 is earlier than 0:runtime-5.0-5.0.15-1.0.1.an8_5",
+            "TestRef": "oval:cn.openanolis:tst:20220146001"
+          },
+          {
+            "Comment": "aspnetcore-targeting-pack-5.0 is earlier than 0:targeting-pack-5.0-5.0.15-1.0.1.an8_5",
+            "TestRef": "oval:cn.openanolis:tst:20220146002"
+          },
+          {
+            "Comment": "dotnet-apphost-pack-5.0 is earlier than 0:apphost-pack-5.0-5.0.15-1.0.1.an8_5",
+            "TestRef": "oval:cn.openanolis:tst:20220146003"
+          },
+          {
+            "Comment": "dotnet-hostfxr-5.0 is earlier than 0:hostfxr-5.0-5.0.15-1.0.1.an8_5",
+            "TestRef": "oval:cn.openanolis:tst:20220146004"
+          },
+          {
+            "Comment": "dotnet-runtime-5.0 is earlier than 0:runtime-5.0-5.0.15-1.0.1.an8_5",
+            "TestRef": "oval:cn.openanolis:tst:20220146005"
+          },
+          {
+            "Comment": "dotnet-sdk-5.0 is earlier than 0:sdk-5.0-5.0.212-1.0.1.an8_5",
+            "TestRef": "oval:cn.openanolis:tst:20220146006"
+          },
+          {
+            "Comment": "dotnet-targeting-pack-5.0 is earlier than 0:targeting-pack-5.0-5.0.15-1.0.1.an8_5",
+            "TestRef": "oval:cn.openanolis:tst:20220146007"
+          },
+          {
+            "Comment": "dotnet-templates-5.0 is earlier than 0:templates-5.0-5.0.212-1.0.1.an8_5",
+            "TestRef": "oval:cn.openanolis:tst:20220146008"
+          },
+          {
+            "Comment": "dotnet5.0 is earlier than 0:5.0.212-1.0.1.an8_5",
+            "TestRef": "oval:cn.openanolis:tst:20220146009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

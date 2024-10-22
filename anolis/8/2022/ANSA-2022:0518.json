@@ -1,0 +1,89 @@
+{
+  "ID": "oval:cn.openanolis:def:20220518",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0518: cups security and bug fix update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0518",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0518",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-26691:\nA logic issue was addressed with improved state management. This issue is fixed in Security Update 2022-003 Catalina, macOS Monterey 12.3, macOS Big Sur 11.6.5. An application may be able to gain elevated privileges.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-06-17"
+      },
+      "Updated": {
+        "Date": "2022-06-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-26691",
+          "CVSS3": "8.1/CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-26691",
+          "CWE": "CWE-288",
+          "Public": "20220617"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "cups is earlier than 1:2.2.6-45.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220518001"
+          },
+          {
+            "Comment": "cups-client is earlier than 1:client-2.2.6-45.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220518002"
+          },
+          {
+            "Comment": "cups-devel is earlier than 1:devel-2.2.6-45.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220518003"
+          },
+          {
+            "Comment": "cups-ipptool is earlier than 1:ipptool-2.2.6-45.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220518004"
+          },
+          {
+            "Comment": "cups-libs is earlier than 1:libs-2.2.6-45.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220518005"
+          },
+          {
+            "Comment": "cups-lpd is earlier than 1:lpd-2.2.6-45.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220518006"
+          },
+          {
+            "Comment": "cups-filesystem is earlier than 1:filesystem-2.2.6-45.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220518007"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "ID": "oval:cn.openanolis:def:20230593",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0593: php security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0593",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0593",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-3823:\nIn PHP versions 8.0.* before 8.0.30, 8.1.* before 8.1.22, and 8.2.* before 8.2.8 various XML functions rely on libxml global state to track configuration variables, like whether external entities are loaded. This state is assumed to be unchanged unless the user explicitly changes it by calling appropriate function. However, since the state is process-global, other modules - such as ImageMagick - may also use this library within the same process, and change that global state for their internal purposes, and leave it in a state where external entities loading is enabled. This can lead to the situation where external XML is parsed with external entities loaded, which can lead to disclosure of any local files accessible to PHP. This vulnerable state may persist in the same process across many requests, until the process is shut down.\n\nCVE-2023-3824:\nIn PHP version 8.0.* before 8.0.30, 8.1.* before 8.1.22, and 8.2.* before 8.2.8, when loading phar file, while reading PHAR directory entries, insufficient length checking may lead to a stack buffer overflow, leading potentially to memory corruption or RCE.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-10-19"
+      },
+      "Updated": {
+        "Date": "2023-10-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-3823",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-3823",
+          "CWE": "CWE-611",
+          "Public": "20230810"
+        },
+        {
+          "ID": "CVE-2023-3824",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-3824",
+          "CWE": "CWE-119",
+          "Public": "20230810"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "php is earlier than 0:8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593001"
+          },
+          {
+            "Comment": "php-bcmath is earlier than 0:bcmath-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593002"
+          },
+          {
+            "Comment": "php-cli is earlier than 0:cli-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593003"
+          },
+          {
+            "Comment": "php-common is earlier than 0:common-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593004"
+          },
+          {
+            "Comment": "php-dba is earlier than 0:dba-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593005"
+          },
+          {
+            "Comment": "php-dbg is earlier than 0:dbg-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593006"
+          },
+          {
+            "Comment": "php-devel is earlier than 0:devel-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593007"
+          },
+          {
+            "Comment": "php-embedded is earlier than 0:embedded-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593008"
+          },
+          {
+            "Comment": "php-enchant is earlier than 0:enchant-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593009"
+          },
+          {
+            "Comment": "php-ffi is earlier than 0:ffi-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593010"
+          },
+          {
+            "Comment": "php-fpm is earlier than 0:fpm-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593011"
+          },
+          {
+            "Comment": "php-gd is earlier than 0:gd-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593012"
+          },
+          {
+            "Comment": "php-gmp is earlier than 0:gmp-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593013"
+          },
+          {
+            "Comment": "php-intl is earlier than 0:intl-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593014"
+          },
+          {
+            "Comment": "php-ldap is earlier than 0:ldap-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593015"
+          },
+          {
+            "Comment": "php-mbstring is earlier than 0:mbstring-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593016"
+          },
+          {
+            "Comment": "php-mysqlnd is earlier than 0:mysqlnd-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593017"
+          },
+          {
+            "Comment": "php-odbc is earlier than 0:odbc-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593018"
+          },
+          {
+            "Comment": "php-opcache is earlier than 0:opcache-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593019"
+          },
+          {
+            "Comment": "php-pdo is earlier than 0:pdo-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593020"
+          },
+          {
+            "Comment": "php-pgsql is earlier than 0:pgsql-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593021"
+          },
+          {
+            "Comment": "php-process is earlier than 0:process-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593022"
+          },
+          {
+            "Comment": "php-snmp is earlier than 0:snmp-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593023"
+          },
+          {
+            "Comment": "php-soap is earlier than 0:soap-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593024"
+          },
+          {
+            "Comment": "php-sodium is earlier than 0:sodium-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593025"
+          },
+          {
+            "Comment": "php-xml is earlier than 0:xml-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593026"
+          },
+          {
+            "Comment": "php-zip is earlier than 0:zip-8.2.10-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230593027"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

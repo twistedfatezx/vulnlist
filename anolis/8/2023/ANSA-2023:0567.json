@@ -1,0 +1,193 @@
+{
+  "ID": "oval:cn.openanolis:def:20230567",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0567: mariadb:10.5 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0567",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0567",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-32081:\nMariaDB v10.4 to v10.7 was discovered to contain an use-after-poison in prepare_inplace_add_virtual at /storage/innobase/handler/handler0alter.cc.\n\nCVE-2022-32082:\nMariaDB v10.5 to v10.7 was discovered to contain an assertion failure at table-\u003eget_ref_count() == 0 in dict0dict.cc.\n\nCVE-2022-32084:\nMariaDB v10.2 to v10.7 was discovered to contain a segmentation fault via the component sub_select.\n\nCVE-2022-32089:\nMariaDB v10.5 to v10.7 was discovered to contain a segmentation fault via the component st_select_lex_unit::exclude_level.\n\nCVE-2022-32091:\nMariaDB v10.7 was discovered to contain an use-after-poison in in __interceptor_memset at /libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc.\n\nCVE-2022-38791:\nIn MariaDB before 10.9.2, compress_write in extra/mariabackup/ds_compress.cc does not release data_mutex upon a stream write failure, which allows local users to trigger a deadlock.\n\nCVE-2022-47015:\nMariaDB Server before 10.3.34 thru 10.9.3 is vulnerable to Denial of Service. It is possible for function spider_db_mbase::print_warnings to dereference a null pointer.\n\nCVE-2023-5157:\nA vulnerability was found in MariaDB. An OpenVAS port scan on ports 3306 and 4567 allows a malicious remote client to cause a denial of service.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-10-16"
+      },
+      "Updated": {
+        "Date": "2023-10-17"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-32081",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-32081",
+          "CWE": "CWE-229",
+          "Public": "20220701"
+        },
+        {
+          "ID": "CVE-2022-32082",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-32082",
+          "CWE": "CWE-617",
+          "Public": "20231016"
+        },
+        {
+          "ID": "CVE-2022-32084",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-32084",
+          "CWE": "CWE-229",
+          "Public": "20231016"
+        },
+        {
+          "ID": "CVE-2022-32089",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-32089",
+          "CWE": "CWE-229",
+          "Public": "20231016"
+        },
+        {
+          "ID": "CVE-2022-32091",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-32091",
+          "CWE": "CWE-229",
+          "Public": "20231016"
+        },
+        {
+          "ID": "CVE-2022-38791",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-38791",
+          "CWE": "CWE-667",
+          "Public": "20220827"
+        },
+        {
+          "ID": "CVE-2022-47015",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-47015",
+          "CWE": "CWE-476",
+          "Public": "20230120"
+        },
+        {
+          "ID": "CVE-2023-5157",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5157",
+          "CWE": "CWE-400",
+          "Public": "20230927"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "Judy is earlier than 0:1.0.5-18.module+an8.7.0+10981+9e87950e",
+            "TestRef": "oval:cn.openanolis:tst:20230567001"
+          },
+          {
+            "Comment": "Judy-devel is earlier than 0:devel-1.0.5-18.module+an8.7.0+10981+9e87950e",
+            "TestRef": "oval:cn.openanolis:tst:20230567002"
+          },
+          {
+            "Comment": "asio-devel is earlier than 0:devel-1.10.8-7.module+an8.7.0+10981+9e87950e",
+            "TestRef": "oval:cn.openanolis:tst:20230567003"
+          },
+          {
+            "Comment": "galera is earlier than 0:26.4.14-1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567004"
+          },
+          {
+            "Comment": "mariadb is earlier than 3:10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567005"
+          },
+          {
+            "Comment": "mariadb-backup is earlier than 3:backup-10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567006"
+          },
+          {
+            "Comment": "mariadb-common is earlier than 3:common-10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567007"
+          },
+          {
+            "Comment": "mariadb-devel is earlier than 3:devel-10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567008"
+          },
+          {
+            "Comment": "mariadb-embedded is earlier than 3:embedded-10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567009"
+          },
+          {
+            "Comment": "mariadb-embedded-devel is earlier than 3:embedded-devel-10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567010"
+          },
+          {
+            "Comment": "mariadb-errmsg is earlier than 3:errmsg-10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567011"
+          },
+          {
+            "Comment": "mariadb-gssapi-server is earlier than 3:gssapi-server-10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567012"
+          },
+          {
+            "Comment": "mariadb-oqgraph-engine is earlier than 3:oqgraph-engine-10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567013"
+          },
+          {
+            "Comment": "mariadb-pam is earlier than 3:pam-10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567014"
+          },
+          {
+            "Comment": "mariadb-server is earlier than 3:server-10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567015"
+          },
+          {
+            "Comment": "mariadb-server-galera is earlier than 3:server-galera-10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567016"
+          },
+          {
+            "Comment": "mariadb-server-utils is earlier than 3:server-utils-10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567017"
+          },
+          {
+            "Comment": "mariadb-test is earlier than 3:test-10.5.22-1.0.1.module+an8.8.0+11119+ca2ddadb",
+            "TestRef": "oval:cn.openanolis:tst:20230567018"
+          },
+          {
+            "Comment": "asio is earlier than 0:1.10.8-7.module+an8.7.0+10981+9e87950e",
+            "TestRef": "oval:cn.openanolis:tst:20230567019"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

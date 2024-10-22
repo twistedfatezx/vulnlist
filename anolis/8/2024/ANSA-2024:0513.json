@@ -1,0 +1,161 @@
+{
+  "ID": "oval:cn.openanolis:def:20240513",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0513: thunderbird security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0513",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0513",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-4367:\nA type check was missing when handling fonts in PDF.js, which would allow arbitrary JavaScript execution in the PDF.js context. This vulnerability affects Firefox \u003c 126, Firefox ESR \u003c 115.11, and Thunderbird \u003c 115.11.\n\nCVE-2024-4767:\nIf the `browser.privatebrowsing.autostart` preference is enabled, IndexedDB files were not properly deleted when the window was closed. This preference is disabled by default in Firefox. This vulnerability affects Firefox \u003c 126, Firefox ESR \u003c 115.11, and Thunderbird \u003c 115.11.\n\nCVE-2024-4768:\nA bug in popup notifications' interaction with WebAuthn made it easier for an attacker to trick a user into granting permissions. This vulnerability affects Firefox \u003c 126, Firefox ESR \u003c 115.11, and Thunderbird \u003c 115.11.\n\nCVE-2024-4769:\nWhen importing resources using Web Workers, error messages would distinguish the difference between `application/javascript` responses and non-script responses.  This could have been abused to learn information cross-origin. This vulnerability affects Firefox \u003c 126, Firefox ESR \u003c 115.11, and Thunderbird \u003c 115.11.\n\nCVE-2024-4770:\nWhen saving a page to PDF, certain font styles could have led to a potential use-after-free crash. This vulnerability affects Firefox \u003c 126, Firefox ESR \u003c 115.11, and Thunderbird \u003c 115.11.\n\nCVE-2024-4777:\nMemory safety bugs present in Firefox 125, Firefox ESR 115.10, and Thunderbird 115.10. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code. This vulnerability affects Firefox \u003c 126, Firefox ESR \u003c 115.11, and Thunderbird \u003c 115.11.\n\nCVE-2024-5688:\nIf a garbage collection was triggered at the right time, a use-after-free could have occurred during object transplant. This vulnerability affects Firefox \u003c 127, Firefox ESR \u003c 115.12, and Thunderbird \u003c 115.12.\n\nCVE-2024-5690:\nBy monitoring the time certain operations take, an attacker could have guessed which external protocol handlers were functional on a user's system. This vulnerability affects Firefox \u003c 127, Firefox ESR \u003c 115.12, and Thunderbird \u003c 115.12.\n\nCVE-2024-5691:\nBy tricking the browser with a `X-Frame-Options` header, a sandboxed iframe could have presented a button that, if clicked by a user, would bypass restrictions to open a new window. This vulnerability affects Firefox \u003c 127, Firefox ESR \u003c 115.12, and Thunderbird \u003c 115.12.\n\nCVE-2024-5693:\nOffscreen Canvas did not properly track cross-origin tainting, which could be used to access image data from another site in violation of same-origin policy. This vulnerability affects Firefox \u003c 127, Firefox ESR \u003c 115.12, and Thunderbird \u003c 115.12.\n\nCVE-2024-5696:\nBy manipulating the text in an `\u0026lt;input\u0026gt;` tag, an attacker could have caused corrupt memory leading to a potentially exploitable crash. This vulnerability affects Firefox \u003c 127, Firefox ESR \u003c 115.12, and Thunderbird \u003c 115.12.\n\nCVE-2024-5700:\nMemory safety bugs present in Firefox 126, Firefox ESR 115.11, and Thunderbird 115.11. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code. This vulnerability affects Firefox \u003c 127, Firefox ESR \u003c 115.12, and Thunderbird \u003c 115.12.\n\nCVE-2024-5702:\nMemory corruption in the networking stack could have led to a potentially exploitable crash. This vulnerability affects Firefox \u003c 125, Firefox ESR \u003c 115.12, and Thunderbird \u003c 115.12.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-26"
+      },
+      "Updated": {
+        "Date": "2024-06-26"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-4367",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-4367",
+          "CWE": "CWE-754",
+          "Public": "20240619"
+        },
+        {
+          "ID": "CVE-2024-4767",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-4767",
+          "CWE": "CWE-212",
+          "Public": "20240619"
+        },
+        {
+          "ID": "CVE-2024-4768",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-4768",
+          "CWE": "CWE-451",
+          "Public": "20240619"
+        },
+        {
+          "ID": "CVE-2024-4769",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-4769",
+          "CWE": "CWE-829",
+          "Public": "20240619"
+        },
+        {
+          "ID": "CVE-2024-4770",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-4770",
+          "CWE": "CWE-416",
+          "Public": "20240619"
+        },
+        {
+          "ID": "CVE-2024-4777",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-4777",
+          "CWE": "CWE-120",
+          "Public": "20240619"
+        },
+        {
+          "ID": "CVE-2024-5688",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-5688",
+          "CWE": "CWE-416",
+          "Public": "20240619"
+        },
+        {
+          "ID": "CVE-2024-5690",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-5690",
+          "CWE": "CWE-385",
+          "Public": "20240619"
+        },
+        {
+          "ID": "CVE-2024-5691",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-5691",
+          "CWE": "CWE-284",
+          "Public": "20240619"
+        },
+        {
+          "ID": "CVE-2024-5693",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-5693",
+          "CWE": "CWE-829",
+          "Public": "20240619"
+        },
+        {
+          "ID": "CVE-2024-5696",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-5696",
+          "CWE": "CWE-1287",
+          "Public": "20240619"
+        },
+        {
+          "ID": "CVE-2024-5700",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-5700",
+          "CWE": "CWE-120",
+          "Public": "20240619"
+        },
+        {
+          "ID": "CVE-2024-5702",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-5702",
+          "CWE": "CWE-416",
+          "Public": "20240619"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "thunderbird is earlier than 0:115.12.1-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240513001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

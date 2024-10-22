@@ -1,0 +1,133 @@
+{
+  "ID": "oval:cn.openanolis:def:20240904",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0904: bind security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0904",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0904",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2024-1737:\nResolver caches and authoritative zone databases that hold significant numbers of RRs for the same hostname (of any RTYPE) can suffer from degraded performance as content is being added or updated, and also when handling client queries for this name.\nThis issue affects BIND 9 versions 9.11.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.4-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.\n\nCVE-2024-1975:\nIf a server hosts a zone containing a \"KEY\" Resource Record, or a resolver DNSSEC-validates a \"KEY\" Resource Record from a DNSSEC-signed domain in cache, a client can exhaust resolver CPU resources by sending a stream of SIG(0) signed requests.\nThis issue affects BIND 9 versions 9.0.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.9.3-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.49-S1, and 9.18.11-S1 through 9.18.27-S1.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-09-19"
+      },
+      "Updated": {
+        "Date": "2024-09-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-1737",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-1737",
+          "CWE": "CWE-400",
+          "Public": "20240827"
+        },
+        {
+          "ID": "CVE-2024-1975",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-1975",
+          "CWE": "CWE-400",
+          "Public": "20240815"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bind is earlier than 0:9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904001"
+          },
+          {
+            "Comment": "bind-chroot is earlier than 0:chroot-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904002"
+          },
+          {
+            "Comment": "bind-devel is earlier than 0:devel-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904003"
+          },
+          {
+            "Comment": "bind-export-devel is earlier than 0:export-devel-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904004"
+          },
+          {
+            "Comment": "bind-export-libs is earlier than 0:export-libs-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904005"
+          },
+          {
+            "Comment": "bind-libs is earlier than 0:libs-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904006"
+          },
+          {
+            "Comment": "bind-libs-lite is earlier than 0:libs-lite-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904007"
+          },
+          {
+            "Comment": "bind-lite-devel is earlier than 0:lite-devel-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904008"
+          },
+          {
+            "Comment": "bind-pkcs11 is earlier than 0:pkcs11-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904009"
+          },
+          {
+            "Comment": "bind-pkcs11-devel is earlier than 0:pkcs11-devel-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904010"
+          },
+          {
+            "Comment": "bind-pkcs11-libs is earlier than 0:pkcs11-libs-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904011"
+          },
+          {
+            "Comment": "bind-pkcs11-utils is earlier than 0:pkcs11-utils-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904012"
+          },
+          {
+            "Comment": "bind-sdb is earlier than 0:sdb-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904013"
+          },
+          {
+            "Comment": "bind-sdb-chroot is earlier than 0:sdb-chroot-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904014"
+          },
+          {
+            "Comment": "bind-utils is earlier than 0:utils-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904015"
+          },
+          {
+            "Comment": "bind-license is earlier than 0:license-9.11.4-26.P2.an7.17",
+            "TestRef": "oval:cn.openanolis:tst:20240904016"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

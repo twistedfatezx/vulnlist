@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20220831",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0831: prometheus-jmx-exporter security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0831",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0831",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-1471:\nSnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization. Deserializing yaml content provided by an attacker can lead to remote code execution. We recommend using SnakeYaml's SafeConsturctor when parsing untrusted content to restrict deserialization.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-12-17"
+      },
+      "Updated": {
+        "Date": "2022-12-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-1471",
+          "CVSS3": "8.3/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1471",
+          "CWE": "CWE-20-\u003eCWE-1066-\u003eCWE-502",
+          "Public": "20221217"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "prometheus-jmx-exporter is earlier than 0:jmx-exporter-0.12.0-9.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220831001"
+          },
+          {
+            "Comment": "prometheus-jmx-exporter-openjdk11 is earlier than 0:jmx-exporter-openjdk11-0.12.0-9.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220831002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

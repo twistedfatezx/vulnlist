@@ -1,0 +1,97 @@
+{
+  "ID": "oval:cn.openanolis:def:20220828",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0828: pki-core security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0828",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0828",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-2414:\nAccess to external entities when parsing XML documents can lead to XML external entity (XXE) attacks. This flaw allows a remote attacker to potentially retrieve the content of arbitrary files by sending specially crafted HTTP requests.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-12-09"
+      },
+      "Updated": {
+        "Date": "2022-12-09"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-2414",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-2414",
+          "CWE": "CWE-611",
+          "Public": "20221110"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "pki-symkey is earlier than 0:symkey-10.5.18-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220828001"
+          },
+          {
+            "Comment": "pki-tools is earlier than 0:tools-10.5.18-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220828002"
+          },
+          {
+            "Comment": "pki-core is earlier than 0:core-10.5.18-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220828003"
+          },
+          {
+            "Comment": "pki-base is earlier than 0:base-10.5.18-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220828004"
+          },
+          {
+            "Comment": "pki-base-java is earlier than 0:base-java-10.5.18-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220828005"
+          },
+          {
+            "Comment": "pki-ca is earlier than 0:ca-10.5.18-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220828006"
+          },
+          {
+            "Comment": "pki-javadoc is earlier than 0:javadoc-10.5.18-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220828007"
+          },
+          {
+            "Comment": "pki-kra is earlier than 0:kra-10.5.18-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220828008"
+          },
+          {
+            "Comment": "pki-server is earlier than 0:server-10.5.18-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220828009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

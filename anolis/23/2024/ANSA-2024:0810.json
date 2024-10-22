@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20240810",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0810: openssl security update (Low)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0810",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0810",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2024-4603:\nIssue summary: Checking excessively long DSA keys or parameters may be very\nslow.\nImpact summary: Applications that use the functions EVP_PKEY_param_check()\nor EVP_PKEY_public_check() to check a DSA public key or DSA parameters may\nexperience long delays. Where the key or parameters that are being checked\nhave been obtained from an untrusted source this may lead to a Denial of\nService.\nThe functions EVP_PKEY_param_check() or EVP_PKEY_public_check() perform\nvarious checks on DSA parameters. Some of those computations take a long time\nif the modulus (`p` parameter) is too large.\nTrying to use a very large modulus is slow and OpenSSL will not allow using\npublic keys with a modulus which is over 10,000 bits in length for signature\nverification. However the key and parameter check functions do not limit\nthe modulus size when performing the checks.\nAn application that calls EVP_PKEY_param_check() or EVP_PKEY_public_check()\nand supplies a key or parameters obtained from an untrusted source could be\nvulnerable to a Denial of Service attack.\nThese functions are not called by OpenSSL itself on untrusted DSA keys so\nonly applications that directly call these functions may be vulnerable.\nAlso vulnerable are the OpenSSL pkey and pkeyparam command line applications\nwhen using the `-check` option.\nThe OpenSSL SSL/TLS implementation is not affected by this issue.\nThe OpenSSL 3.0 and 3.1 FIPS providers are affected by this issue.",
+    "Advisory": {
+      "Severity": "Low",
+      "Issued": {
+        "Date": "2024-08-15"
+      },
+      "Updated": {
+        "Date": "2024-08-16"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-4603",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-4603",
+          "CWE": "",
+          "Public": "20240815"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "openssl is earlier than 1:3.0.12-6.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240810001"
+          },
+          {
+            "Comment": "openssl-devel is earlier than 1:devel-3.0.12-6.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240810002"
+          },
+          {
+            "Comment": "openssl-libs is earlier than 1:libs-3.0.12-6.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240810003"
+          },
+          {
+            "Comment": "openssl-perl is earlier than 1:perl-3.0.12-6.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240810004"
+          },
+          {
+            "Comment": "openssl-doc is earlier than 1:doc-3.0.12-6.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240810005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

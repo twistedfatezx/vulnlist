@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20210167",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0167: python3 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0167",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0167",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-26116:\nhttp.client in Python 3.x before 3.5.10, 3.6.x before 3.6.12, 3.7.x before 3.7.9, and 3.8.x before 3.8.5 allows CRLF injection if the attacker controls the HTTP request method, as demonstrated by inserting CR and LF control characters in the first argument of HTTPConnection.request.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2021-11-25"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-26116",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-26116",
+          "CWE": "CWE-113",
+          "Public": "20220830"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "platform-python is earlier than 0:python-3.6.8-24.0.1.an8_2",
+            "TestRef": "oval:cn.openanolis:tst:20210167001"
+          },
+          {
+            "Comment": "platform-python-debug is earlier than 0:python-debug-3.6.8-24.0.1.an8_2",
+            "TestRef": "oval:cn.openanolis:tst:20210167002"
+          },
+          {
+            "Comment": "platform-python-devel is earlier than 0:python-devel-3.6.8-24.0.1.an8_2",
+            "TestRef": "oval:cn.openanolis:tst:20210167003"
+          },
+          {
+            "Comment": "python3-idle is earlier than 0:idle-3.6.8-24.0.1.an8_2",
+            "TestRef": "oval:cn.openanolis:tst:20210167004"
+          },
+          {
+            "Comment": "python3-libs is earlier than 0:libs-3.6.8-24.0.1.an8_2",
+            "TestRef": "oval:cn.openanolis:tst:20210167005"
+          },
+          {
+            "Comment": "python3-test is earlier than 0:test-3.6.8-24.0.1.an8_2",
+            "TestRef": "oval:cn.openanolis:tst:20210167006"
+          },
+          {
+            "Comment": "python3-tkinter is earlier than 0:tkinter-3.6.8-24.0.1.an8_2",
+            "TestRef": "oval:cn.openanolis:tst:20210167007"
+          },
+          {
+            "Comment": "python3 is earlier than 0:3.6.8-24.0.1.an8_2",
+            "TestRef": "oval:cn.openanolis:tst:20210167008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

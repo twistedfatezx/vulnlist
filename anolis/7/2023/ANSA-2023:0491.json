@@ -1,0 +1,89 @@
+{
+  "ID": "oval:cn.openanolis:def:20230491",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0491: cups security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0491",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0491",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2023-32360:\nAn authentication issue was addressed with improved state management. This issue is fixed in macOS Big Sur 11.7.7, macOS Monterey 12.6.6, macOS Ventura 13.4. An unauthenticated user may be able to access recently printed documents.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-09-01"
+      },
+      "Updated": {
+        "Date": "2023-09-04"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-32360",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32360",
+          "CWE": "CWE-200",
+          "Public": "20230623"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "cups is earlier than 1:1.6.3-52.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230491001"
+          },
+          {
+            "Comment": "cups-client is earlier than 1:client-1.6.3-52.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230491002"
+          },
+          {
+            "Comment": "cups-devel is earlier than 1:devel-1.6.3-52.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230491003"
+          },
+          {
+            "Comment": "cups-ipptool is earlier than 1:ipptool-1.6.3-52.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230491004"
+          },
+          {
+            "Comment": "cups-libs is earlier than 1:libs-1.6.3-52.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230491005"
+          },
+          {
+            "Comment": "cups-lpd is earlier than 1:lpd-1.6.3-52.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230491006"
+          },
+          {
+            "Comment": "cups-filesystem is earlier than 1:filesystem-1.6.3-52.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230491007"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

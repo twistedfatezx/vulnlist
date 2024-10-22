@@ -1,0 +1,249 @@
+{
+  "ID": "oval:cn.openanolis:def:20220024",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0024: kernel security and bug fix update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0024",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0024",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-3501:\nA flaw was found in the Linux kernel in versions before 5.12. The value of internal.ndata, in the KVM API, is mapped to an array index, which can be updated by a user process at anytime which could lead to an out-of-bounds write. The highest threat from this vulnerability is to data integrity and system availability.\n\nCVE-2021-3543:\nA flaw null pointer dereference in the Nitro Enclaves kernel driver was found in the way that Enclaves VMs forces closures on the enclave file descriptor. A local user of a host machine could use this flaw to crash the system or escalate their privileges on the system.\n\nCVE-2021-3609:\nA flaw was found in the CAN BCM networking protocol in the Linux kernel, where a local attacker can abuse a flaw in the CAN subsystem to corrupt memory, crash the system or escalate privileges.\n\nCVE-2021-4155:\nA data leak flaw was found in the way XFS_IOC_ALLOCSP IOCTL in the XFS filesystem allowed for size increase of files with unaligned size. A local attacker could use this flaw to leak data on the XFS filesystem otherwise not accessible to them.\n\nCVE-2021-20321:\nA race condition accessing file object in the Linux kernel OverlayFS subsystem was found in the way users do rename in specific way with OverlayFS. A local user could use this flaw to crash the system.\n\nCVE-2021-22543:\nAn issue was discovered in Linux: KVM through Improper handling of VM_IO|VM_PFNMAP vmas in KVM can bypass RO checks and can lead to pages being freed while still accessible by the VMM and guest. This allows users with the ability to start and control a VM to read/write random pages of memory and can result in local privilege escalation.\n\nCVE-2021-22555:\nA heap out-of-bounds write affecting Linux since v2.6.19-rc1 was discovered in net/netfilter/x_tables.c. This allows an attacker to gain privileges or cause a DoS (via heap memory corruption) through user name space\n\nCVE-2021-20317:\nA flaw was found in the Linux kernel. A corrupted timer tree caused the task wakeup to be missing in the timerqueue_add function in lib/timerqueue.c. This flaw allows a local attacker with special user privileges to cause a denial of service, slowing and eventually stopping the system while running OSP.\n\nCVE-2021-32399:\nnet/bluetooth/hci_request.c in the Linux kernel through 5.12.2 has a race condition for removal of the HCI controller.\n\nCVE-2021-33909:\nfs/seq_file.c in the Linux kernel 3.16 through 5.13.x before 5.13.4 does not properly restrict seq buffer allocations, leading to an integer overflow, an Out-of-bounds Write, and escalation to root by an unprivileged user, aka CID-8cae8cd89f05.\n\nCVE-2021-37576:\narch/powerpc/kvm/book3s_rtas.c in the Linux kernel through 5.13.5 on the powerpc platform allows KVM guest OS users to cause host OS memory corruption via rtas_args.nargs, aka CID-f62f3c20647e.\n\nCVE-2021-38201:\nnet/sunrpc/xdr.c in the Linux kernel before 5.13.4 allows remote attackers to cause a denial of service (xdr_set_page_base slab-out-of-bounds access) by performing many NFS 4.2 READ_PLUS operations.\n\nCVE-2021-43267:\nAn issue was discovered in net/tipc/crypto.c in the Linux kernel before 5.14.16. The Transparent Inter-Process Communication (TIPC) functionality allows remote attackers to exploit insufficient validation of user-supplied sizes for the MSG_CRYPTO message type.\n\nCVE-2022-0185:\nA heap-based buffer overflow flaw was found in the way the legacy_parse_param function in the Filesystem Context functionality of the Linux kernel verified the supplied parameters length. An unprivileged (in case of unprivileged user namespaces enabled, otherwise needs namespaced CAP_SYS_ADMIN privilege) local user able to open a filesystem that does not support the Filesystem Context API (and thus fallbacks to legacy handling) could use this flaw to escalate their privileges on the system.\n\nCVE-2021-47080:\nIn the Linux kernel, the following vulnerability has been resolved:\n\nRDMA/core: Prevent divide-by-zero error triggered by the user\n\nThe user_entry_size is supplied by the user and later used as a\ndenominator to calculate number of entries. The zero supplied by the user\nwill trigger the following divide-by-zero error:\n\n divide error: 0000 [#1] SMP KASAN PTI\n CPU: 4 PID: 497 Comm: c_repro Not tainted 5.13.0-rc1+ #281\n Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.13.0-0-gf21b5a4aeb02-prebuilt.qemu.org 04/01/2014\n RIP: 0010:ib_uverbs_handler_UVERBS_METHOD_QUERY_GID_TABLE+0x1b1/0x510\n Code: 87 59 03 00 00 e8 9f ab 1e ff 48 8d bd a8 00 00 00 e8 d3 70 41 ff 44 0f b7 b5 a8 00 00 00 e8 86 ab 1e ff 31 d2 4c 89 f0 31 ff \u003c49\u003e f7 f5 48 89 d6 48 89 54 24 10 48 89 04 24 e8 1b ad 1e ff 48 8b\n RSP: 0018:ffff88810416f828 EFLAGS: 00010246\n RAX: 0000000000000008 RBX: 1ffff1102082df09 RCX: ffffffff82183f3d\n RDX: 0000000000000000 RSI: ffff888105f2da00 RDI: 0000000000000000\n RBP: ffff88810416fa98 R08: 0000000000000001 R09: ffffed102082df5f\n R10: ffff88810416faf7 R11: ffffed102082df5e R12: 0000000000000000\n R13: 0000000000000000 R14: 0000000000000008 R15: ffff88810416faf0\n FS:  00007f5715efa740(0000) GS:ffff88811a700000(0000) knlGS:0000000000000000\n CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\n CR2: 0000000020000840 CR3: 000000010c2e0001 CR4: 0000000000370ea0\n DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000\n DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400\n Call Trace:\n  ? ib_uverbs_handler_UVERBS_METHOD_INFO_HANDLES+0x4b0/0x4b0\n  ib_uverbs_cmd_verbs+0x1546/0x1940\n  ib_uverbs_ioctl+0x186/0x240\n  __x64_sys_ioctl+0x38a/0x1220\n  do_syscall_64+0x3f/0x80\n  entry_SYSCALL_64_after_hwframe+0x44/0xae",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-02-28"
+      },
+      "Updated": {
+        "Date": "2024-09-24"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-22555",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-22555",
+          "CWE": "CWE-787",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-32399",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-32399",
+          "CWE": "CWE-362",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-33909",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-33909",
+          "CWE": "CWE-787",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-38201",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-38201",
+          "CWE": "CWE-20-\u003eCWE-119",
+          "Public": "20220228"
+        },
+        {
+          "ID": "CVE-2021-37576",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-37576",
+          "CWE": "CWE-20-\u003eCWE-119",
+          "Public": "20211108"
+        },
+        {
+          "ID": "CVE-2022-0185",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-0185",
+          "CWE": "CWE-191",
+          "Public": "20220228"
+        },
+        {
+          "ID": "CVE-2021-43267",
+          "CVSS3": "8.8/CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43267",
+          "CWE": "CWE-20",
+          "Public": "20211123"
+        },
+        {
+          "ID": "CVE-2021-20317",
+          "CVSS3": "4.4/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-20317",
+          "CWE": "CWE-665",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-3501",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3501",
+          "CWE": "CWE-787",
+          "Public": "20220228"
+        },
+        {
+          "ID": "CVE-2021-3543",
+          "CVSS3": "6.7/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3543",
+          "CWE": "(CWE-416|CWE-476)",
+          "Public": "20220228"
+        },
+        {
+          "ID": "CVE-2021-3609",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3609",
+          "CWE": "CWE-362",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-4155",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-4155",
+          "CWE": "CWE-131",
+          "Public": "20220228"
+        },
+        {
+          "ID": "CVE-2021-20321",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-20321",
+          "CWE": "CWE-362",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-22543",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-22543",
+          "CWE": "CWE-863",
+          "Public": "20220228"
+        },
+        {
+          "ID": "CVE-2021-47080",
+          "CVSS3": "4.4/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-47080",
+          "CWE": "CWE-369",
+          "Public": "20240302"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024001"
+          },
+          {
+            "Comment": "kernel is earlier than 0:4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024002"
+          },
+          {
+            "Comment": "kernel-core is earlier than 0:core-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024003"
+          },
+          {
+            "Comment": "kernel-cross-headers is earlier than 0:cross-headers-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024004"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024005"
+          },
+          {
+            "Comment": "kernel-debug-core is earlier than 0:debug-core-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024006"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024007"
+          },
+          {
+            "Comment": "kernel-debug-modules is earlier than 0:debug-modules-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024008"
+          },
+          {
+            "Comment": "kernel-debug-modules-extra is earlier than 0:debug-modules-extra-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024009"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024010"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024011"
+          },
+          {
+            "Comment": "kernel-modules is earlier than 0:modules-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024012"
+          },
+          {
+            "Comment": "kernel-modules-extra is earlier than 0:modules-extra-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024013"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024014"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024015"
+          },
+          {
+            "Comment": "perf is earlier than 0:4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024016"
+          },
+          {
+            "Comment": "python3-perf is earlier than 0:perf-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024017"
+          },
+          {
+            "Comment": "kernel(RHCK)4.18 (Anolis OS 8.5) is earlier than 0:4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024018"
+          },
+          {
+            "Comment": "kernel-doc is earlier than 0:doc-4.18.0-348.12.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220024019"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

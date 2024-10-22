@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20230097",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0097: openssl security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0097",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0097",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2023-0286:\nThere is a type confusion vulnerability relating to X.400 address processing inside an X.509 GeneralName. X.400 addresses were parsed as an ASN1_STRING but the public structure definition for GENERAL_NAME incorrectly specified the type of the x400Address field as ASN1_TYPE. This field is subsequently interpreted by the OpenSSL function GENERAL_NAME_cmp as an ASN1_TYPE rather than an ASN1_STRING. When CRL checking is enabled (i.e. the application sets the X509_V_FLAG_CRL_CHECK flag), this vulnerability may allow an attacker to pass arbitrary pointers to a memcmp call, enabling them to read memory contents or enact a denial of service. In most cases, the attack requires the attacker to provide both the certificate chain and CRL, neither of which need to have a valid signature. If the attacker only controls one of these inputs, the other input must already contain an X.400 address as a CRL distribution point, which is uncommon. As such, this vulnerability is most likely to only affect applications which have implemented their own functionality for retrieving CRLs over a network.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-03-27"
+      },
+      "Updated": {
+        "Date": "2023-03-27"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-0286",
+          "CVSS3": "7.4/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-0286",
+          "CWE": "CWE-704",
+          "Public": "20230209"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "openssl is earlier than 1:1.0.2k-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230097001"
+          },
+          {
+            "Comment": "openssl-devel is earlier than 1:devel-1.0.2k-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230097002"
+          },
+          {
+            "Comment": "openssl-libs is earlier than 1:libs-1.0.2k-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230097003"
+          },
+          {
+            "Comment": "openssl-perl is earlier than 1:perl-1.0.2k-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230097004"
+          },
+          {
+            "Comment": "openssl-static is earlier than 1:static-1.0.2k-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230097005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

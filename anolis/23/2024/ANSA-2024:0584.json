@@ -1,0 +1,261 @@
+{
+  "ID": "oval:cn.openanolis:def:20240584",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0584: qemu security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0584",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0584",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2024-3446:\nA double free vulnerability was found in QEMU virtio devices (virtio-gpu, virtio-serial-bus, virtio-crypto), where the mem_reentrancy_guard flag insufficiently protects against DMA reentrancy issues. This issue could allow a malicious privileged guest user to crash the QEMU process on the host, resulting in a denial of service or allow arbitrary code execution within the context of the QEMU process on the host.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-07-08"
+      },
+      "Updated": {
+        "Date": "2024-07-08"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-3446",
+          "CVSS3": "8.2/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-3446",
+          "CWE": "CWE-415",
+          "Public": "20240708"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "qemu is earlier than 2:8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584001"
+          },
+          {
+            "Comment": "qemu-audio-alsa is earlier than 2:audio-alsa-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584002"
+          },
+          {
+            "Comment": "qemu-audio-dbus is earlier than 2:audio-dbus-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584003"
+          },
+          {
+            "Comment": "qemu-audio-oss is earlier than 2:audio-oss-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584004"
+          },
+          {
+            "Comment": "qemu-audio-pa is earlier than 2:audio-pa-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584005"
+          },
+          {
+            "Comment": "qemu-audio-spice is earlier than 2:audio-spice-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584006"
+          },
+          {
+            "Comment": "qemu-block-curl is earlier than 2:block-curl-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584007"
+          },
+          {
+            "Comment": "qemu-block-dmg is earlier than 2:block-dmg-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584008"
+          },
+          {
+            "Comment": "qemu-block-gluster is earlier than 2:block-gluster-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584009"
+          },
+          {
+            "Comment": "qemu-block-iscsi is earlier than 2:block-iscsi-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584010"
+          },
+          {
+            "Comment": "qemu-block-ssh is earlier than 2:block-ssh-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584011"
+          },
+          {
+            "Comment": "qemu-char-baum is earlier than 2:char-baum-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584012"
+          },
+          {
+            "Comment": "qemu-char-spice is earlier than 2:char-spice-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584013"
+          },
+          {
+            "Comment": "qemu-common is earlier than 2:common-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584014"
+          },
+          {
+            "Comment": "qemu-device-display-qxl is earlier than 2:device-display-qxl-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584015"
+          },
+          {
+            "Comment": "qemu-device-display-virtio-gpu is earlier than 2:device-display-virtio-gpu-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584016"
+          },
+          {
+            "Comment": "qemu-device-display-virtio-gpu-ccw is earlier than 2:device-display-virtio-gpu-ccw-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584017"
+          },
+          {
+            "Comment": "qemu-device-display-virtio-gpu-pci is earlier than 2:device-display-virtio-gpu-pci-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584018"
+          },
+          {
+            "Comment": "qemu-device-display-virtio-vga is earlier than 2:device-display-virtio-vga-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584019"
+          },
+          {
+            "Comment": "qemu-device-display-virtio-vga-gl is earlier than 2:device-display-virtio-vga-gl-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584020"
+          },
+          {
+            "Comment": "qemu-device-usb-host is earlier than 2:device-usb-host-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584021"
+          },
+          {
+            "Comment": "qemu-device-usb-redirect is earlier than 2:device-usb-redirect-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584022"
+          },
+          {
+            "Comment": "qemu-device-usb-smartcard is earlier than 2:device-usb-smartcard-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584023"
+          },
+          {
+            "Comment": "qemu-docs is earlier than 2:docs-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584024"
+          },
+          {
+            "Comment": "qemu-guest-agent is earlier than 2:guest-agent-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584025"
+          },
+          {
+            "Comment": "qemu-img is earlier than 2:img-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584026"
+          },
+          {
+            "Comment": "qemu-kvm is earlier than 2:kvm-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584027"
+          },
+          {
+            "Comment": "qemu-kvm-core is earlier than 2:kvm-core-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584028"
+          },
+          {
+            "Comment": "qemu-pr-helper is earlier than 2:pr-helper-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584029"
+          },
+          {
+            "Comment": "qemu-system-aarch64 is earlier than 2:system-aarch64-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584030"
+          },
+          {
+            "Comment": "qemu-system-aarch64-core is earlier than 2:system-aarch64-core-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584031"
+          },
+          {
+            "Comment": "qemu-system-arm is earlier than 2:system-arm-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584032"
+          },
+          {
+            "Comment": "qemu-system-arm-core is earlier than 2:system-arm-core-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584033"
+          },
+          {
+            "Comment": "qemu-system-loongarch64 is earlier than 2:system-loongarch64-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584034"
+          },
+          {
+            "Comment": "qemu-system-loongarch64-core is earlier than 2:system-loongarch64-core-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584035"
+          },
+          {
+            "Comment": "qemu-system-riscv is earlier than 2:system-riscv-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584036"
+          },
+          {
+            "Comment": "qemu-system-riscv-core is earlier than 2:system-riscv-core-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584037"
+          },
+          {
+            "Comment": "qemu-system-x86 is earlier than 2:system-x86-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584038"
+          },
+          {
+            "Comment": "qemu-system-x86-core is earlier than 2:system-x86-core-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584039"
+          },
+          {
+            "Comment": "qemu-tests is earlier than 2:tests-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584040"
+          },
+          {
+            "Comment": "qemu-tools is earlier than 2:tools-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584041"
+          },
+          {
+            "Comment": "qemu-ui-curses is earlier than 2:ui-curses-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584042"
+          },
+          {
+            "Comment": "qemu-ui-dbus is earlier than 2:ui-dbus-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584043"
+          },
+          {
+            "Comment": "qemu-ui-egl-headless is earlier than 2:ui-egl-headless-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584044"
+          },
+          {
+            "Comment": "qemu-ui-gtk is earlier than 2:ui-gtk-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584045"
+          },
+          {
+            "Comment": "qemu-ui-opengl is earlier than 2:ui-opengl-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584046"
+          },
+          {
+            "Comment": "qemu-ui-spice-app is earlier than 2:ui-spice-app-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584047"
+          },
+          {
+            "Comment": "qemu-ui-spice-core is earlier than 2:ui-spice-core-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584048"
+          },
+          {
+            "Comment": "qemu-user is earlier than 2:user-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584049"
+          },
+          {
+            "Comment": "qemu-user-binfmt is earlier than 2:user-binfmt-8.2.0-15.an23_1",
+            "TestRef": "oval:cn.openanolis:tst:20240584050"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

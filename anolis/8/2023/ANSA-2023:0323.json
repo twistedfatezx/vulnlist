@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20230323",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0323: dnsmasq security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0323",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0323",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-28450:\nAn issue was discovered in Dnsmasq before 2.90. The default maximum EDNS.0 UDP packet size was set to 4096 but should be 1232 because of DNS Flag Day 2020.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-06-29"
+      },
+      "Updated": {
+        "Date": "2023-07-01"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-28450",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-28450",
+          "CWE": "CWE-770",
+          "Public": "20230316"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "dnsmasq is earlier than 0:2.79-27.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230323001"
+          },
+          {
+            "Comment": "dnsmasq-utils is earlier than 0:utils-2.79-27.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230323002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

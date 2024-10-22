@@ -1,0 +1,105 @@
+{
+  "ID": "oval:cn.openanolis:def:20220064",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0064: log4j security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0064",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0064",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-23302:\nJMSSink in all versions of Log4j 1.x is vulnerable to deserialization of untrusted data when the attacker has write access to the Log4j configuration or if the configuration references an LDAP service the attacker has access to. The attacker can provide a TopicConnectionFactoryBindingName configuration causing JMSSink to perform JNDI requests that result in remote code execution in a similar fashion to CVE-2021-4104. Note this issue only affects Log4j 1.x when specifically configured to use JMSSink, which is not the default. Apache Log4j 1.2 reached end of life in August 2015. Users should upgrade to Log4j 2 as it addresses numerous other issues from the previous versions.\n\nCVE-2022-23305:\nBy design, the JDBCAppender in Log4j 1.2.x accepts an SQL statement as a configuration parameter where the values to be inserted are converters from PatternLayout. The message converter, %m, is likely to always be included. This allows attackers to manipulate the SQL by entering crafted strings into input fields or headers of an application that are logged allowing unintended SQL queries to be executed. Note this issue only affects Log4j 1.x when specifically configured to use the JDBCAppender, which is not the default. Beginning in version 2.0-beta8, the JDBCAppender was re-introduced with proper support for parameterized SQL queries and further customization over the columns written to in logs. Apache Log4j 1.2 reached end of life in August 2015. Users should upgrade to Log4j 2 as it addresses numerous other issues from the previous versions.\n\nCVE-2022-23307:\nCVE-2020-9493 identified a deserialization issue that was present in Apache Chainsaw. Prior to Chainsaw V2.0 Chainsaw was a component of Apache Log4j 1.2.x where the same issue exists.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-02-08"
+      },
+      "Updated": {
+        "Date": "2022-08-09"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-23307",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-23307",
+          "CWE": "CWE-502",
+          "Public": "20220116"
+        },
+        {
+          "ID": "CVE-2022-23305",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-23305",
+          "CWE": "CWE-89",
+          "Public": "20220116"
+        },
+        {
+          "ID": "CVE-2021-4104",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-4104",
+          "CWE": "CWE-20",
+          "Public": "20220116"
+        },
+        {
+          "ID": "CVE-2022-23302",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-23302",
+          "CWE": "CWE-502",
+          "Public": "20220116"
+        },
+        {
+          "ID": "CVE-2019-17571",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-17571",
+          "CWE": "CWE-502",
+          "Public": "20191220"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "log4j is earlier than 0:1.2.17-18.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220064001"
+          },
+          {
+            "Comment": "log4j-javadoc is earlier than 0:javadoc-1.2.17-18.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220064002"
+          },
+          {
+            "Comment": "log4j-manual is earlier than 0:manual-1.2.17-18.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220064003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

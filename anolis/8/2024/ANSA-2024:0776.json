@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20240776",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0776: xmlrpc-c security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0776",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0776",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-52425:\nlibexpat through 2.5.0 allows a denial of service (resource consumption) because many full reparsings are required in the case of a large token for which multiple buffer fills are needed.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-08-07"
+      },
+      "Updated": {
+        "Date": "2024-08-08"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-52425",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-52425",
+          "CWE": "CWE-400",
+          "Public": "20240204"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "xmlrpc-c is earlier than 0:c-1.51.0-9.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240776001"
+          },
+          {
+            "Comment": "xmlrpc-c-c++ is earlier than 0:c-c++-1.51.0-9.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240776002"
+          },
+          {
+            "Comment": "xmlrpc-c-client++ is earlier than 0:c-client++-1.51.0-9.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240776003"
+          },
+          {
+            "Comment": "xmlrpc-c-client is earlier than 0:c-client-1.51.0-9.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240776004"
+          },
+          {
+            "Comment": "xmlrpc-c-devel is earlier than 0:c-devel-1.51.0-9.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240776005"
+          },
+          {
+            "Comment": "xmlrpc-c-doc is earlier than 0:c-doc-1.51.0-9.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240776006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

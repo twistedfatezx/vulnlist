@@ -1,0 +1,161 @@
+{
+  "ID": "oval:cn.openanolis:def:20230183",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0183: git security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0183",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0183",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-22490:\nGit is a revision control system. Using a specially-crafted repository, Git prior to versions 2.39.2, 2.38.4, 2.37.6, 2.36.5, 2.35.7, 2.34.7, 2.33.7, 2.32.6, 2.31.7, and 2.30.8 can be tricked into using its local clone optimization even when using a non-local transport. Though Git will abort local clones whose source `$GIT_DIR/objects` directory contains symbolic links, the `objects` directory itself may still be a symbolic link. These two may be combined to include arbitrary files based on known paths on the victim's filesystem within the malicious repository's working copy, allowing for data exfiltration in a similar manner as CVE-2022-39253. A fix has been prepared and will appear in v2.39.2 v2.38.4 v2.37.6 v2.36.5 v2.35.7 v2.34.7 v2.33.7 v2.32.6, v2.31.7 and v2.30.8. If upgrading is impractical, two short-term workarounds are available. Avoid cloning repositories from untrusted sources with `--recurse-submodules`. Instead, consider cloning repositories without recursively cloning their submodules, and instead run `git submodule update` at each layer. Before doing so, inspect each new `.gitmodules` file to ensure that it does not contain suspicious module URLs.\n\nCVE-2023-23946:\nGit, a revision control system, is vulnerable to path traversal prior to versions 2.39.2, 2.38.4, 2.37.6, 2.36.5, 2.35.7, 2.34.7, 2.33.7, 2.32.6, 2.31.7, and 2.30.8. By feeding a crafted input to `git apply`, a path outside the working tree can be overwritten as the user who is running `git apply`. A fix has been prepared and will appear in v2.39.2, v2.38.4, v2.37.6, v2.36.5, v2.35.7, v2.34.7, v2.33.7, v2.32.6, v2.31.7, and v2.30.8. As a workaround, use `git apply --stat` to inspect a patch before applying; avoid applying one that creates a symbolic link and then creates a file beyond the symbolic link.\n\nCVE-2023-25652:\nGit is a revision control system. Prior to versions 2.30.9, 2.31.8, 2.32.7, 2.33.8, 2.34.8, 2.35.8, 2.36.6, 2.37.7, 2.38.5, 2.39.3, and 2.40.1, by feeding specially crafted input to `git apply --reject`, a path outside the working tree can be overwritten with partially controlled contents (corresponding to the rejected hunk(s) from the given patch). A fix is available in versions 2.30.9, 2.31.8, 2.32.7, 2.33.8, 2.34.8, 2.35.8, 2.36.6, 2.37.7, 2.38.5, 2.39.3, and 2.40.1. As a workaround, avoid using `git apply` with `--reject` when applying patches from an untrusted source. Use `git apply --stat` to inspect a patch before applying; avoid applying one that create a conflict where a link corresponding to the `*.rej` file exists.\n\nCVE-2023-25815:\nIn Git for Windows, the Windows port of Git, no localized messages are shipped with the installer. As a consequence, Git is expected not to localize messages at all, and skips the gettext initialization. However, due to a change in MINGW-packages, the `gettext()` function's implicit initialization no longer uses the runtime prefix but uses the hard-coded path `C:\\mingw64\\share\\locale` to look for localized messages. And since any authenticated user has the permission to create folders in `C:\\` (and since `C:\\mingw64` does not typically exist), it is possible for low-privilege users to place fake messages in that location where `git.exe` will pick them up in version 2.40.1. This vulnerability is relatively hard to exploit and requires social engineering. For example, a legitimate message at the end of a clone could be maliciously modified to ask the user to direct their web browser to a malicious website, and the user might think that the message comes from Git and is legitimate. It does require local write access by the attacker, though, which makes this attack vector less likely. Version 2.40.1 contains a patch for this issue. Some workarounds are available. Do not work on a Windows machine with shared accounts, or alternatively create a `C:\\mingw64` folder and leave it empty. Users who have administrative rights may remove the permission to create folders in `C:\\`.\n\nCVE-2023-29007:\nGit is a revision control system. Prior to versions 2.30.9, 2.31.8, 2.32.7, 2.33.8, 2.34.8, 2.35.8, 2.36.6, 2.37.7, 2.38.5, 2.39.3, and 2.40.1, a specially crafted `.gitmodules` file with submodule URLs that are longer than 1024 characters can used to exploit a bug in `config.c::git_config_copy_or_rename_section_in_file()`. This bug can be used to inject arbitrary configuration into a user's `$GIT_DIR/config` when attempting to remove the configuration section associated with that submodule. When the attacker injects configuration values which specify executables to run (such as `core.pager`, `core.editor`, `core.sshCommand`, etc.) this can lead to a remote code execution. A fix A fix is available in versions 2.30.9, 2.31.8, 2.32.7, 2.33.8, 2.34.8, 2.35.8, 2.36.6, 2.37.7, 2.38.5, 2.39.3, and 2.40.1. As a workaround, avoid running `git submodule deinit` on untrusted repositories or without prior inspection of any submodule sections in `$GIT_DIR/config`.\n\nCVE-2022-24765：\nGit for Windows is a fork of Git containing Windows-specific patches. This vulnerability affects users working on multi-user machines, where untrusted parties have write access to the same hard disk. Those untrusted parties could create the folder `C:\\.git`, which would be picked up by Git operations run supposedly outside a repository while searching for a Git directory. Git would then respect any config in said Git directory. Git Bash users who set `GIT_PS1_SHOWDIRTYSTATE` are vulnerable as well. Users who installed posh-gitare vulnerable simply by starting a PowerShell. Users of IDEs such as Visual Studio are vulnerable: simply creating a new project would already read and respect the config specified in `C:\\.git\\config`. Users of the Microsoft fork of Git are vulnerable simply by starting a Git Bash. The problem has been patched in Git for Windows v2.35.2. Users unable to upgrade may create the folder `.git` on all drives where Git commands are run, and remove read/write access from those folders as a workaround. Alternatively, define or extend `GIT_CEILING_DIRECTORIES` to cover the _parent_ directory of the user profile, e.g. `C:\\Users` if the user profile is located in `C:\\Users\\my-user-name`.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-05-24"
+      },
+      "Updated": {
+        "Date": "2023-07-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-22490",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-22490",
+          "CWE": "CWE-402",
+          "Public": "20230215"
+        },
+        {
+          "ID": "CVE-2023-23946",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-23946",
+          "CWE": "CWE-22",
+          "Public": "20230215"
+        },
+        {
+          "ID": "CVE-2023-25652",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-25652",
+          "CWE": "",
+          "Public": "20230426"
+        },
+        {
+          "ID": "CVE-2023-25815",
+          "CVSS3": "2.2/CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:N/I:L/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-25815",
+          "CWE": "",
+          "Public": "20230524"
+        },
+        {
+          "ID": "CVE-2023-29007",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-29007",
+          "CWE": "",
+          "Public": "20230524"
+        },
+        {
+          "ID": "CVE-2022-24765",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-24765",
+          "CWE": "CWE-427",
+          "Public": "20220412"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "git is earlier than 0:2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183001"
+          },
+          {
+            "Comment": "git-core is earlier than 0:core-2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183002"
+          },
+          {
+            "Comment": "git-credential-libsecret is earlier than 0:credential-libsecret-2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183003"
+          },
+          {
+            "Comment": "git-daemon is earlier than 0:daemon-2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183004"
+          },
+          {
+            "Comment": "git-subtree is earlier than 0:subtree-2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183005"
+          },
+          {
+            "Comment": "git-all is earlier than 0:all-2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183006"
+          },
+          {
+            "Comment": "git-core-doc is earlier than 0:core-doc-2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183007"
+          },
+          {
+            "Comment": "git-email is earlier than 0:email-2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183008"
+          },
+          {
+            "Comment": "git-gui is earlier than 0:gui-2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183009"
+          },
+          {
+            "Comment": "git-instaweb is earlier than 0:instaweb-2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183010"
+          },
+          {
+            "Comment": "git-svn is earlier than 0:svn-2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183011"
+          },
+          {
+            "Comment": "gitk is earlier than 0:2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183012"
+          },
+          {
+            "Comment": "gitweb is earlier than 0:2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183013"
+          },
+          {
+            "Comment": "perl-Git is earlier than 0:Git-2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183014"
+          },
+          {
+            "Comment": "perl-Git-SVN is earlier than 0:Git-SVN-2.39.3-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230183015"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

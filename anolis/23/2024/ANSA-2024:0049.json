@@ -1,0 +1,101 @@
+{
+  "ID": "oval:cn.openanolis:def:20240049",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0049: qt5-qtbase security update (Critical)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0049",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0049",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-51714:\nAn integer overflow vulnerability was found in Qt. An incorrect HPack integer overflow check can lead to denial of service.",
+    "Advisory": {
+      "Severity": "Critical",
+      "Issued": {
+        "Date": "2024-02-06"
+      },
+      "Updated": {
+        "Date": "2024-02-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-51714",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-51714",
+          "CWE": "CWE-190",
+          "Public": "20240206"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "qt5-qtbase is earlier than 0:qtbase-5.15.11-3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240049001"
+          },
+          {
+            "Comment": "qt5-qtbase-devel is earlier than 0:qtbase-devel-5.15.11-3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240049002"
+          },
+          {
+            "Comment": "qt5-qtbase-examples is earlier than 0:qtbase-examples-5.15.11-3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240049003"
+          },
+          {
+            "Comment": "qt5-qtbase-gui is earlier than 0:qtbase-gui-5.15.11-3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240049004"
+          },
+          {
+            "Comment": "qt5-qtbase-mysql is earlier than 0:qtbase-mysql-5.15.11-3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240049005"
+          },
+          {
+            "Comment": "qt5-qtbase-odbc is earlier than 0:qtbase-odbc-5.15.11-3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240049006"
+          },
+          {
+            "Comment": "qt5-qtbase-postgresql is earlier than 0:qtbase-postgresql-5.15.11-3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240049007"
+          },
+          {
+            "Comment": "qt5-qtbase-private-devel is earlier than 0:qtbase-private-devel-5.15.11-3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240049008"
+          },
+          {
+            "Comment": "qt5-qtbase-static is earlier than 0:qtbase-static-5.15.11-3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240049009"
+          },
+          {
+            "Comment": "qt5-qtbase-common is earlier than 0:qtbase-common-5.15.11-3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240049010"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

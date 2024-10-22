@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20230109",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0109: gnutls security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0109",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0109",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-0361:\nA timing side-channel in the handling of RSA ClientKeyExchange messages was discovered in GnuTLS. This side-channel can be sufficient to recover the key encrypted in the RSA ciphertext across a network in a Bleichenbacher style attack. To achieve a successful decryption the attacker would need to send a large amount of specially crafted messages to the vulnerable server. By recovering the secret from the ClientKeyExchange message, the attacker would be able to decrypt the application data exchanged over that connection.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-04-11"
+      },
+      "Updated": {
+        "Date": "2023-04-12"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-0361",
+          "CVSS3": "7.4/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-0361",
+          "CWE": "CWE-1300-\u003eCWE-203",
+          "Public": "20230214"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "gnutls is earlier than 0:3.6.16-6.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230109001"
+          },
+          {
+            "Comment": "gnutls-c++ is earlier than 0:c++-3.6.16-6.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230109002"
+          },
+          {
+            "Comment": "gnutls-dane is earlier than 0:dane-3.6.16-6.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230109003"
+          },
+          {
+            "Comment": "gnutls-devel is earlier than 0:devel-3.6.16-6.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230109004"
+          },
+          {
+            "Comment": "gnutls-utils is earlier than 0:utils-3.6.16-6.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230109005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

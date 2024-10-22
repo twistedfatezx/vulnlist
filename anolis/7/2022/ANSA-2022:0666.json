@@ -1,0 +1,133 @@
+{
+  "ID": "oval:cn.openanolis:def:20220666",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0666: kernel security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0666",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0666",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-21123:\nIncomplete cleanup of multi-core shared buffers for some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.\n\nCVE-2022-21125:\nIncomplete cleanup of microarchitectural fill buffers on some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.\n\nCVE-2022-21166:\nIncomplete cleanup in specific special register write operations for some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-08-30"
+      },
+      "Updated": {
+        "Date": "2022-09-30"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-21123",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21123",
+          "CWE": "CWE-459",
+          "Public": "20220616"
+        },
+        {
+          "ID": "CVE-2022-21125",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21125",
+          "CWE": "CWE-459",
+          "Public": "20220614"
+        },
+        {
+          "ID": "CVE-2022-21166",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21166",
+          "CWE": "CWE-459",
+          "Public": "20220614"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666001"
+          },
+          {
+            "Comment": "kernel (RHCK) is earlier than 0:3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666002"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666003"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666004"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666005"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666006"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666007"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666008"
+          },
+          {
+            "Comment": "kernel-tools-libs-devel is earlier than 0:tools-libs-devel-3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666009"
+          },
+          {
+            "Comment": "perf is earlier than 0:3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666010"
+          },
+          {
+            "Comment": "python-perf is earlier than 0:perf-3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666011"
+          },
+          {
+            "Comment": "kernel(RHCK)3.10 is earlier than 0:3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666012"
+          },
+          {
+            "Comment": "kernel-abi-whitelists is earlier than 0:abi-whitelists-3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666013"
+          },
+          {
+            "Comment": "kernel-doc is earlier than 0:doc-3.10.0-1160.76.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220666014"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

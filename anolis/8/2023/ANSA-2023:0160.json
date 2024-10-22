@@ -1,0 +1,253 @@
+{
+  "ID": "oval:cn.openanolis:def:20230160",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0160: webkit2gtk3 security and bug fix update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0160",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0160",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-32886:\nA buffer overflow issue was addressed with improved memory handling. This issue is fixed in Safari 16, iOS 16, iOS 15.7 and iPadOS 15.7. Processing maliciously crafted web content may lead to arbitrary code execution.\n\nCVE-2022-32888:\nAn out-of-bounds write issue was addressed with improved bounds checking. This issue is fixed in macOS Big Sur 11.7, macOS Ventura 13, iOS 16, iOS 15.7 and iPadOS 15.7, watchOS 9, macOS Monterey 12.6, tvOS 16. Processing maliciously crafted web content may lead to arbitrary code execution.\n\nCVE-2022-32923:\nA correctness issue in the JIT was addressed with improved checks. This issue is fixed in tvOS 16.1, iOS 15.7.1 and iPadOS 15.7.1, macOS Ventura 13, watchOS 9.1, Safari 16.1, iOS 16.1 and iPadOS 16. Processing maliciously crafted web content may disclose internal states of the app.\n\nCVE-2022-42799:\nThe issue was addressed with improved UI handling. This issue is fixed in tvOS 16.1, macOS Ventura 13, watchOS 9.1, Safari 16.1, iOS 16.1 and iPadOS 16. Visiting a malicious website may lead to user interface spoofing.\n\nCVE-2022-42823:\nA type confusion issue was addressed with improved memory handling. This issue is fixed in tvOS 16.1, macOS Ventura 13, watchOS 9.1, Safari 16.1, iOS 16.1 and iPadOS 16. Processing maliciously crafted web content may lead to arbitrary code execution.\n\nCVE-2022-42824:\nA logic issue was addressed with improved state management. This issue is fixed in tvOS 16.1, macOS Ventura 13, watchOS 9.1, Safari 16.1, iOS 16.1 and iPadOS 16. Processing maliciously crafted web content may disclose sensitive user information.\n\nCVE-2022-42826:\nA use after free issue was addressed with improved memory management. This issue is fixed in macOS Ventura 13, iOS 16.1 and iPadOS 16, Safari 16.1. Processing maliciously crafted web content may lead to arbitrary code execution.\n\nCVE-2022-42852:\nThe issue was addressed with improved memory handling. This issue is fixed in Safari 16.2, tvOS 16.2, macOS Ventura 13.1, iOS 15.7.2 and iPadOS 15.7.2, iOS 16.2 and iPadOS 16.2, watchOS 9.2. Processing maliciously crafted web content may result in the disclosure of process memory.\n\nCVE-2022-42863:\nA memory corruption issue was addressed with improved state management. This issue is fixed in Safari 16.2, tvOS 16.2, macOS Ventura 13.1, iOS 16.2 and iPadOS 16.2, watchOS 9.2. Processing maliciously crafted web content may lead to arbitrary code execution.\n\nCVE-2022-42867:\nA use after free issue was addressed with improved memory management. This issue is fixed in Safari 16.2, tvOS 16.2, macOS Ventura 13.1, iOS 16.2 and iPadOS 16.2, watchOS 9.2. Processing maliciously crafted web content may lead to arbitrary code execution.\n\nCVE-2022-46691:\nA memory consumption issue was addressed with improved memory handling. This issue is fixed in Safari 16.2, tvOS 16.2, macOS Ventura 13.1, iOS 15.7.2 and iPadOS 15.7.2, iOS 16.2 and iPadOS 16.2, watchOS 9.2. Processing maliciously crafted web content may lead to arbitrary code execution.\n\nCVE-2022-46692:\nA logic issue was addressed with improved state management. This issue is fixed in Safari 16.2, tvOS 16.2, iCloud for Windows 14.1, iOS 15.7.2 and iPadOS 15.7.2, macOS Ventura 13.1, iOS 16.2 and iPadOS 16.2, watchOS 9.2. Processing maliciously crafted web content may bypass Same Origin Policy.\n\nCVE-2022-46698:\nA logic issue was addressed with improved checks. This issue is fixed in Safari 16.2, tvOS 16.2, iCloud for Windows 14.1, macOS Ventura 13.1, iOS 16.2 and iPadOS 16.2, watchOS 9.2. Processing maliciously crafted web content may disclose sensitive user information.\n\nCVE-2022-46699:\nA memory corruption issue was addressed with improved state management. This issue is fixed in Safari 16.2, tvOS 16.2, macOS Ventura 13.1, iOS 16.2 and iPadOS 16.2, watchOS 9.2. Processing maliciously crafted web content may lead to arbitrary code execution.\n\nCVE-2022-46700:\nA memory corruption issue was addressed with improved input validation. This issue is fixed in Safari 16.2, tvOS 16.2, macOS Ventura 13.1, iOS 15.7.2 and iPadOS 15.7.2, iOS 16.2 and iPadOS 16.2, watchOS 9.2. Processing maliciously crafted web content may lead to arbitrary code execution.\n\nCVE-2023-23517:\nThe issue was addressed with improved memory handling. This issue is fixed in macOS Ventura 13.2, macOS Monterey 12.6.3, tvOS 16.3, Safari 16.3, watchOS 9.3, iOS 16.3 and iPadOS 16.3, macOS Big Sur 11.7.3. Processing maliciously crafted web content may lead to arbitrary code execution.\n\nCVE-2023-23518:\nThe issue was addressed with improved memory handling. This issue is fixed in macOS Ventura 13.2, macOS Monterey 12.6.3, tvOS 16.3, Safari 16.3, watchOS 9.3, iOS 16.3 and iPadOS 16.3, macOS Big Sur 11.7.3. Processing maliciously crafted web content may lead to arbitrary code execution.\n\nCVE-2023-25358:\nA use-after-free vulnerability in WebCore::RenderLayer::addChild in WebKitGTK before 2.36.8 allows attackers to execute code remotely.\n\nCVE-2023-25360:\nA use-after-free vulnerability in WebCore::RenderLayer::renderer in WebKitGTK before 2.36.8 allows attackers to execute code remotely.\n\nCVE-2023-25361:\nA use-after-free vulnerability in WebCore::RenderLayer::setNextSibling in WebKitGTK before 2.36.8 allows attackers to execute code remotely.\n\nCVE-2023-25362:\nA use-after-free vulnerability in WebCore::RenderLayer::repaintBlockSelectionGaps in WebKitGTK before 2.36.8 allows attackers to execute code remotely.\n\nCVE-2023-25363:\nA use-after-free vulnerability in WebCore::RenderLayer::updateDescendantDependentFlags in WebKitGTK before 2.36.8 allows attackers to execute code remotely.\n\nCVE-2023-2203：\nA flaw was found in the WebKitGTK package. An improper input validation issue may lead to a use-after-free vulnerability. This flaw allows attackers with network access to pass specially crafted web content files, causing a denial of service or arbitrary code execution. This CVE exists because of a CVE-2023-28205 security regression for the WebKitGTK package in Red Hat Enterprise Linux 8.8 and Red Hat Enterprise Linux 9.2.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-05-18"
+      },
+      "Updated": {
+        "Date": "2023-07-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-32886",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-32886",
+          "CWE": "CWE-119",
+          "Public": "20230518"
+        },
+        {
+          "ID": "CVE-2022-32888",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-32888",
+          "CWE": "CWE-787",
+          "Public": "20230518"
+        },
+        {
+          "ID": "CVE-2022-32923",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-32923",
+          "CWE": "CWE-119",
+          "Public": "20230518"
+        },
+        {
+          "ID": "CVE-2022-42799",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-42799",
+          "CWE": "CWE-1021",
+          "Public": "20230518"
+        },
+        {
+          "ID": "CVE-2022-42823",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-42823",
+          "CWE": "CWE-843",
+          "Public": "20230518"
+        },
+        {
+          "ID": "CVE-2022-42824",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-42824",
+          "CWE": "",
+          "Public": "20230518"
+        },
+        {
+          "ID": "CVE-2022-42826",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-42826",
+          "CWE": "CWE-416",
+          "Public": "20230228"
+        },
+        {
+          "ID": "CVE-2022-42852",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-42852",
+          "CWE": "",
+          "Public": "20221216"
+        },
+        {
+          "ID": "CVE-2022-42863",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-42863",
+          "CWE": "CWE-787",
+          "Public": "20221216"
+        },
+        {
+          "ID": "CVE-2022-42867",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-42867",
+          "CWE": "CWE-416",
+          "Public": "20221216"
+        },
+        {
+          "ID": "CVE-2022-46691",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-46691",
+          "CWE": "CWE-787",
+          "Public": "20221216"
+        },
+        {
+          "ID": "CVE-2022-46692",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-46692",
+          "CWE": "",
+          "Public": "20221216"
+        },
+        {
+          "ID": "CVE-2022-46698",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-46698",
+          "CWE": "CWE-200",
+          "Public": "20221216"
+        },
+        {
+          "ID": "CVE-2022-46699",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-46699",
+          "CWE": "CWE-787",
+          "Public": "20221216"
+        },
+        {
+          "ID": "CVE-2022-46700",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-46700",
+          "CWE": "CWE-787",
+          "Public": "20221216"
+        },
+        {
+          "ID": "CVE-2023-23517",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-23517",
+          "CWE": "CWE-119",
+          "Public": "20230228"
+        },
+        {
+          "ID": "CVE-2023-23518",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-23518",
+          "CWE": "CWE-119",
+          "Public": "20230228"
+        },
+        {
+          "ID": "CVE-2023-25358",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-25358",
+          "CWE": "CWE-94-\u003eCWE-416",
+          "Public": "20230518"
+        },
+        {
+          "ID": "CVE-2023-25360",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-25360",
+          "CWE": "CWE-94-\u003eCWE-416",
+          "Public": "20230518"
+        },
+        {
+          "ID": "CVE-2023-25361",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-25361",
+          "CWE": "CWE-94-\u003eCWE-416",
+          "Public": "20230518"
+        },
+        {
+          "ID": "CVE-2023-25362",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-25362",
+          "CWE": "CWE-94-\u003eCWE-416",
+          "Public": "20230518"
+        },
+        {
+          "ID": "CVE-2023-25363",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-25363",
+          "CWE": "CWE-94-\u003eCWE-416",
+          "Public": "20230518"
+        },
+        {
+          "ID": "CVE-2023-2203",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-2203",
+          "CWE": "CWE-416",
+          "Public": "20230517"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "webkit2gtk3 is earlier than 0:2.38.5-1.0.1.an8.3",
+            "TestRef": "oval:cn.openanolis:tst:20230160001"
+          },
+          {
+            "Comment": "webkit2gtk3-devel is earlier than 0:devel-2.38.5-1.0.1.an8.3",
+            "TestRef": "oval:cn.openanolis:tst:20230160002"
+          },
+          {
+            "Comment": "webkit2gtk3-jsc is earlier than 0:jsc-2.38.5-1.0.1.an8.3",
+            "TestRef": "oval:cn.openanolis:tst:20230160003"
+          },
+          {
+            "Comment": "webkit2gtk3-jsc-devel is earlier than 0:jsc-devel-2.38.5-1.0.1.an8.3",
+            "TestRef": "oval:cn.openanolis:tst:20230160004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

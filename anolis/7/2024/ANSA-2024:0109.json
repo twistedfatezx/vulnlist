@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20240109",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0109: python-pillow security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0109",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0109",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2023-50447:\nPillow through 10.1.0 allows PIL.ImageMath.eval Arbitrary Code Execution via the environment parameter, a different vulnerability than CVE-2022-22817 (which was about the expression parameter).",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-03-14"
+      },
+      "Updated": {
+        "Date": "2024-04-11"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-50447",
+          "CVSS3": "9.0/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-50447",
+          "CWE": "CWE-77",
+          "Public": "20240314"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python-pillow is earlier than 0:pillow-2.0.0-25.gitd1c6db8.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240109001"
+          },
+          {
+            "Comment": "python-pillow-devel is earlier than 0:pillow-devel-2.0.0-25.gitd1c6db8.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240109002"
+          },
+          {
+            "Comment": "python-pillow-doc is earlier than 0:pillow-doc-2.0.0-25.gitd1c6db8.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240109003"
+          },
+          {
+            "Comment": "python-pillow-qt is earlier than 0:pillow-qt-2.0.0-25.gitd1c6db8.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240109004"
+          },
+          {
+            "Comment": "python-pillow-sane is earlier than 0:pillow-sane-2.0.0-25.gitd1c6db8.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240109005"
+          },
+          {
+            "Comment": "python-pillow-tk is earlier than 0:pillow-tk-2.0.0-25.gitd1c6db8.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240109006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

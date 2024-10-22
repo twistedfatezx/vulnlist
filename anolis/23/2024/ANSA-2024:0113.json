@@ -1,0 +1,149 @@
+{
+  "ID": "oval:cn.openanolis:def:20240113",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0113: glibc security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0113",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0113",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-6246:\nA heap-based buffer overflow was found in the __vsyslog_internal function of the glibc library. This function is called by the syslog and vsyslog functions. This issue occurs when the openlog function was not called, or called with the ident argument set to NULL, and the program name (the basename of argv[0]) is bigger than 1024 bytes, resulting in an application crash or local privilege escalation. This issue affects glibc 2.36 and newer.\n\nCVE-2023-6779:\nAn off-by-one heap-based buffer overflow was found in the __vsyslog_internal function of the glibc library. This function is called by the syslog and vsyslog functions. This issue occurs when these functions are called with a message bigger than INT_MAX bytes, leading to an incorrect calculation of the buffer size to store the message, resulting in an application crash. This issue affects glibc 2.37 and newer.\n\nCVE-2023-6780:\nAn integer overflow was found in the __vsyslog_internal function of the glibc library. This function is called by the syslog and vsyslog functions. This issue occurs when these functions are called with a very long message, leading to an incorrect calculation of the buffer size to store the message, resulting in undefined behavior. This issue affects glibc 2.37 and newer.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-03-27"
+      },
+      "Updated": {
+        "Date": "2024-03-28"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-6246",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6246",
+          "CWE": "CWE-122",
+          "Public": "20240129"
+        },
+        {
+          "ID": "CVE-2023-6779",
+          "CVSS3": "8.2/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6779",
+          "CWE": "CWE-193-\u003eCWE-122",
+          "Public": "20240327"
+        },
+        {
+          "ID": "CVE-2023-6780",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6780",
+          "CWE": "CWE-131-\u003eCWE-190",
+          "Public": "20240327"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "compat-libpthread-nonshared is earlier than 0:libpthread-nonshared-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113001"
+          },
+          {
+            "Comment": "glibc is earlier than 0:2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113002"
+          },
+          {
+            "Comment": "glibc-all-langpacks is earlier than 0:all-langpacks-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113003"
+          },
+          {
+            "Comment": "glibc-benchtests is earlier than 0:benchtests-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113004"
+          },
+          {
+            "Comment": "glibc-common is earlier than 0:common-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113005"
+          },
+          {
+            "Comment": "glibc-devel is earlier than 0:devel-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113006"
+          },
+          {
+            "Comment": "glibc-gconv-extra is earlier than 0:gconv-extra-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113007"
+          },
+          {
+            "Comment": "glibc-langpack-en is earlier than 0:langpack-en-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113008"
+          },
+          {
+            "Comment": "glibc-langpack-zh is earlier than 0:langpack-zh-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113009"
+          },
+          {
+            "Comment": "glibc-locale-source is earlier than 0:locale-source-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113010"
+          },
+          {
+            "Comment": "glibc-minimal-langpack is earlier than 0:minimal-langpack-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113011"
+          },
+          {
+            "Comment": "glibc-nss-devel is earlier than 0:nss-devel-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113012"
+          },
+          {
+            "Comment": "glibc-static is earlier than 0:static-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113013"
+          },
+          {
+            "Comment": "glibc-utils is earlier than 0:utils-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113014"
+          },
+          {
+            "Comment": "libnsl is earlier than 0:2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113015"
+          },
+          {
+            "Comment": "nss_db is earlier than 0:2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113016"
+          },
+          {
+            "Comment": "nss_hesiod is earlier than 0:2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113017"
+          },
+          {
+            "Comment": "glibc-doc is earlier than 0:doc-2.36-13.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240113018"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

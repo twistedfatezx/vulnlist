@@ -1,0 +1,129 @@
+{
+  "ID": "oval:cn.openanolis:def:20210210",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0210: firefox security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0210",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0210",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-43536:\nUnder certain circumstances, asynchronous functions could have caused a navigation to fail but expose the target URL. This vulnerability affects Thunderbird \u0026lt; 91.4.0, Firefox ESR \u0026lt; 91.4.0, and Firefox \u0026lt; 95.\n\nCVE-2021-43537:\nAn incorrect type conversion of sizes from 64bit to 32bit integers allowed an attacker to corrupt memory leading to a potentially exploitable crash. This vulnerability affects Thunderbird \u0026lt; 91.4.0, Firefox ESR \u0026lt; 91.4.0, and Firefox \u0026lt; 95.\n\nCVE-2021-43538:\nBy misusing a race in our notification code, an attacker could have forcefully hidden the notification for pages that had received full screen and pointer lock access, which could have been used for spoofing attacks. This vulnerability affects Thunderbird \u0026lt; 91.4.0, Firefox ESR \u0026lt; 91.4.0, and Firefox \u0026lt; 95.\n\nCVE-2021-43539:\nFailure to correctly record the location of live pointers across wasm instance calls resulted in a GC occurring within the call not tracing those live pointers. This could have led to a use-after-free causing a potentially exploitable crash. This vulnerability affects Thunderbird \u0026lt; 91.4.0, Firefox ESR \u0026lt; 91.4.0, and Firefox \u0026lt; 95.\n\nCVE-2021-43541:\nWhen invoking protocol handlers for external protocols, a supplied parameter URL containing spaces was not properly escaped. This vulnerability affects Thunderbird \u0026lt; 91.4.0, Firefox ESR \u0026lt; 91.4.0, and Firefox \u0026lt; 95.\n\nCVE-2021-43542:\nUsing XMLHttpRequest, an attacker could have identified installed applications by probing error messages for loading external protocols. This vulnerability affects Thunderbird \u0026lt; 91.4.0, Firefox ESR \u0026lt; 91.4.0, and Firefox \u0026lt; 95.\n\nCVE-2021-43543:\nDocuments loaded with the CSP sandbox directive could have escaped the sandbox's script restriction by embedding additional content. This vulnerability affects Thunderbird \u0026lt; 91.4.0, Firefox ESR \u0026lt; 91.4.0, and Firefox \u0026lt; 95.\n\nCVE-2021-43545:\nUsing the Location API in a loop could have caused severe application hangs and crashes. This vulnerability affects Thunderbird \u0026lt; 91.4.0, Firefox ESR \u0026lt; 91.4.0, and Firefox \u0026lt; 95.\n\nCVE-2021-43546:\nIt was possible to recreate previous cursor spoofing attacks against users with a zoomed native cursor. This vulnerability affects Thunderbird \u0026lt; 91.4.0, Firefox ESR \u0026lt; 91.4.0, and Firefox \u0026lt; 95.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-12-17"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-43541",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43541",
+          "CWE": "CWE-428",
+          "Public": "20211217"
+        },
+        {
+          "ID": "CVE-2021-43542",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43542",
+          "CWE": "CWE-209",
+          "Public": "20211217"
+        },
+        {
+          "ID": "CVE-2021-43543",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43543",
+          "CWE": "CWE-79",
+          "Public": "20211217"
+        },
+        {
+          "ID": "CVE-2021-43545",
+          "CVSS3": "4.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43545",
+          "CWE": "CWE-835",
+          "Public": "20211217"
+        },
+        {
+          "ID": "CVE-2021-43546",
+          "CVSS3": "5.4/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43546",
+          "CWE": "CWE-1021",
+          "Public": "20211217"
+        },
+        {
+          "ID": "CVE-2021-43536",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43536",
+          "CWE": "CWE-1021",
+          "Public": "20211217"
+        },
+        {
+          "ID": "CVE-2021-43537",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43537",
+          "CWE": "CWE-120",
+          "Public": "20211217"
+        },
+        {
+          "ID": "CVE-2021-43538",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43538",
+          "CWE": "CWE-1021",
+          "Public": "20211217"
+        },
+        {
+          "ID": "CVE-2021-43539",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43539",
+          "CWE": "CWE-416",
+          "Public": "20211217"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "firefox is earlier than 0:91.4.0-1.0.1.an8_2",
+            "TestRef": "oval:cn.openanolis:tst:20210210001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

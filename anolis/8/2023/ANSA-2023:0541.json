@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20230541",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0541: open-vm-tools security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0541",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0541",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-20900:\nA malicious actor that has been granted Guest Operation Privileges https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-security/GUID-6A952214-0E5E-4CCF-9D2A-90948FF643EC.html in a target virtual machine may be able to elevate their privileges if that target virtual machine has been assigned a more privileged Guest Alias https://vdc-download.vmware.com/vmwb-repository/dcr-public/d1902b0e-d479-46bf-8ac9-cee0e31e8ec0/07ce8dbd-db48-4261-9b8f-c6d3ad8ba472/vim.vm.guest.AliasManager.html .",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-09-28"
+      },
+      "Updated": {
+        "Date": "2023-09-29"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-20900",
+          "CVSS3": "7.5/CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-20900",
+          "CWE": "CWE-347",
+          "Public": "20230831"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "open-vm-tools is earlier than 0:vm-tools-12.1.5-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230541001"
+          },
+          {
+            "Comment": "open-vm-tools-desktop is earlier than 0:vm-tools-desktop-12.1.5-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230541002"
+          },
+          {
+            "Comment": "open-vm-tools-sdmp is earlier than 0:vm-tools-sdmp-12.1.5-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230541003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

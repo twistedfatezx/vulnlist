@@ -1,0 +1,189 @@
+{
+  "ID": "oval:cn.openanolis:def:20230456",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0456: samba security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0456",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0456",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-3347:\nA vulnerability was found in Samba's SMB2 packet signing mechanism. The SMB2 packet signing is not enforced if an admin configured \"server signing = required\" or for SMB2 connections to Domain Controllers where SMB2 packet signing is mandatory. This flaw allows an attacker to perform attacks, such as a man-in-the-middle attack, by intercepting the network traffic and modifying the SMB2 messages between client and server, affecting the integrity of the data.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-08-02"
+      },
+      "Updated": {
+        "Date": "2023-08-03"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-3347",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-3347",
+          "CWE": "",
+          "Public": "20230802"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "ctdb is earlier than 0:4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456001"
+          },
+          {
+            "Comment": "libnetapi is earlier than 0:4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456002"
+          },
+          {
+            "Comment": "libsmbclient is earlier than 0:4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456003"
+          },
+          {
+            "Comment": "libsmbclient-devel is earlier than 0:devel-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456004"
+          },
+          {
+            "Comment": "libwbclient is earlier than 0:4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456005"
+          },
+          {
+            "Comment": "libwbclient-devel is earlier than 0:devel-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456006"
+          },
+          {
+            "Comment": "python3-samba is earlier than 0:samba-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456007"
+          },
+          {
+            "Comment": "python3-samba-dc is earlier than 0:samba-dc-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456008"
+          },
+          {
+            "Comment": "python3-samba-devel is earlier than 0:samba-devel-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456009"
+          },
+          {
+            "Comment": "python3-samba-test is earlier than 0:samba-test-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456010"
+          },
+          {
+            "Comment": "samba is earlier than 0:4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456011"
+          },
+          {
+            "Comment": "samba-client is earlier than 0:client-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456012"
+          },
+          {
+            "Comment": "samba-client-libs is earlier than 0:client-libs-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456013"
+          },
+          {
+            "Comment": "samba-common-libs is earlier than 0:common-libs-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456014"
+          },
+          {
+            "Comment": "samba-common-tools is earlier than 0:common-tools-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456015"
+          },
+          {
+            "Comment": "samba-dc-libs is earlier than 0:dc-libs-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456016"
+          },
+          {
+            "Comment": "samba-dcerpc is earlier than 0:dcerpc-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456017"
+          },
+          {
+            "Comment": "samba-devel is earlier than 0:devel-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456018"
+          },
+          {
+            "Comment": "samba-krb5-printing is earlier than 0:krb5-printing-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456019"
+          },
+          {
+            "Comment": "samba-ldb-ldap-modules is earlier than 0:ldb-ldap-modules-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456020"
+          },
+          {
+            "Comment": "samba-libs is earlier than 0:libs-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456021"
+          },
+          {
+            "Comment": "samba-test is earlier than 0:test-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456022"
+          },
+          {
+            "Comment": "samba-test-libs is earlier than 0:test-libs-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456023"
+          },
+          {
+            "Comment": "samba-tools is earlier than 0:tools-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456024"
+          },
+          {
+            "Comment": "samba-vfs-iouring is earlier than 0:vfs-iouring-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456025"
+          },
+          {
+            "Comment": "samba-winbind is earlier than 0:winbind-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456026"
+          },
+          {
+            "Comment": "samba-winbind-clients is earlier than 0:winbind-clients-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456027"
+          },
+          {
+            "Comment": "samba-winbind-krb5-locator is earlier than 0:winbind-krb5-locator-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456028"
+          },
+          {
+            "Comment": "samba-winbind-modules is earlier than 0:winbind-modules-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456029"
+          },
+          {
+            "Comment": "samba-winexe is earlier than 0:winexe-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456030"
+          },
+          {
+            "Comment": "samba-common is earlier than 0:common-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456031"
+          },
+          {
+            "Comment": "samba-pidl is earlier than 0:pidl-4.17.5-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230456032"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

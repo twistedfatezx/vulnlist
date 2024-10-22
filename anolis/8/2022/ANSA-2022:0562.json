@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20220562",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0562: squid:4 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0562",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0562",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-46784:\nA vulnerability was found in squid (Web proxy cache server). This issue occurs due to improper buffer management while processing Gopher server responses. This flaw leads to a remote denial of service or a crash if it receives specially crafted network traffic, either by mistake or a malicious actor.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-07-08"
+      },
+      "Updated": {
+        "Date": "2022-10-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-46784",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-46784",
+          "CWE": "CWE-617",
+          "Public": "20220708"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libecap is earlier than 0:1.0.1-2.0.1.module+an8.6.0+10684+3c879d80",
+            "TestRef": "oval:cn.openanolis:tst:20220562001"
+          },
+          {
+            "Comment": "libecap-devel is earlier than 0:devel-1.0.1-2.0.1.module+an8.6.0+10684+3c879d80",
+            "TestRef": "oval:cn.openanolis:tst:20220562002"
+          },
+          {
+            "Comment": "squid is earlier than 7:4.15-3.module+an8.6.0+10812+0eeb7497.1",
+            "TestRef": "oval:cn.openanolis:tst:20220562003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "ID": "oval:cn.openanolis:def:20210213",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0213: kernel security and bug fix update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0213",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0213",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "An update for kernel package is now avaiable for Anolis OS 8.2 that fix following CVEs:\n\nCVE-2019-12378:\n** DISPUTED ** An issue was discovered in ip6_ra_control in net/ipv6/ipv6_sockglue.c in the Linux kernel through 5.1.5. There is an unchecked kmalloc of new_ra, which might allow an attacker to cause a denial of service (NULL pointer dereference and system crash). NOTE: This has been disputed as not an issue.\n\nCVE-2019-12380:\n**DISPUTED** An issue was discovered in the efi subsystem in the Linux kernel through 5.1.5. phys_efi_set_virtual_address_map in arch/x86/platform/efi/efi.c and efi_call_phys_prolog in arch/x86/platform/efi/efi_64.c mishandle memory allocation failures. NOTE: This id is disputed as not being an issue because “All the code touched by the referenced commit runs only at boot, before any user processes are started. Therefore, there is no possibility for an unprivileged user to control it.”.\n\nCVE-2019-12381:\n** DISPUTED ** An issue was discovered in ip_ra_control in net/ipv4/ip_sockglue.c in the Linux kernel through 5.1.5. There is an unchecked kmalloc of new_ra, which might allow an attacker to cause a denial of service (NULL pointer dereference and system crash). NOTE: this is disputed because new_ra is never used if it is NULL.\n\nCVE-2019-12455:\n** DISPUTED ** An issue was discovered in sunxi_divs_clk_setup in drivers/clk/sunxi/clk-sunxi.c in the Linux kernel through 5.1.5. There is an unchecked kstrndup of derived_name, which might allow an attacker to cause a denial of service (NULL pointer dereference and system crash). NOTE: This id is disputed as not being an issue because “The memory allocation that was not checked is part of a code that only runs at boot time, before user processes are started. Therefore, there is no possibility for an unprivileged user to control it, and no denial of service.”.\n\nCVE-2019-18808:\nA memory leak in the ccp_run_sha_cmd() function in drivers/crypto/ccp/ccp-ops.c in the Linux kernel through 5.3.9 allows attackers to cause a denial of service (memory consumption), aka CID-128c66429247.\n\nCVE-2019-19046:\n** DISPUTED ** A memory leak in the __ipmi_bmc_register() function in drivers/char/ipmi/ipmi_msghandler.c in the Linux kernel through 5.3.11 allows attackers to cause a denial of service (memory consumption) by triggering ida_simple_get() failure, aka CID-4aa7afb0ee20. NOTE: third parties dispute the relevance of this because an attacker cannot realistically control this failure at probe time.\n\nCVE-2019-19077:\nA memory leak in the bnxt_re_create_srq() function in drivers/infiniband/hw/bnxt_re/ib_verbs.c in the Linux kernel through 5.3.11 allows attackers to cause a denial of service (memory consumption) by triggering copy to udata failures, aka CID-4a9d46a9fe14.\n\nCVE-2019-19462:\nrelay_open in kernel/relay.c in the Linux kernel through 5.4.1 allows local users to cause a denial of service (such as relay blockage) by triggering a NULL alloc_percpu result.\n\nCVE-2019-19770:\n** DISPUTED ** In the Linux kernel 4.19.83, there is a use-after-free (read) in the debugfs_remove function in fs/debugfs/inode.c (which is used to remove a file or directory in debugfs that was previously created with a call to another debugfs function such as debugfs_create_file). NOTE: Linux kernel developers dispute this issue as not being an issue with debugfs, instead this is an issue with misuse of debugfs within blktrace.\n\nCVE-2019-19947:\nIn the Linux kernel through 5.4.6, there are information leaks of uninitialized memory to a USB device in the drivers/net/can/usb/kvaser_usb/kvaser_usb_leaf.c driver, aka CID-da2311a6385c.\n\nCVE-2019-19965:\nIn the Linux kernel through 5.4.6, there is a NULL pointer dereference in drivers/scsi/libsas/sas_discover.c because of mishandling of port disconnection during discovery, related to a PHY down race condition, aka CID-f70267f379b5.\n\nCVE-2019-20096:\nIn the Linux kernel before 5.1, there is a memory leak in __feat_register_sp() in net/dccp/feat.c, which may cause denial of service, aka CID-1d3ff0950e2b.\n\nCVE-2020-10732:\nA flaw was found in the Linux kernel's implementation of Userspace core dumps. This flaw allows an attacker with a local account to crash a trivial program and exfiltrate private kernel data.\n\nCVE-2020-11565:\n** DISPUTED ** An issue was discovered in the Linux kernel through 5.6.2. mpol_parse_str in mm/mempolicy.c has a stack-based out-of-bounds write because an empty nodelist is mishandled during mount option parsing, aka CID-aa9f7d5172fa. NOTE: Someone in the security community disagrees that this is a vulnerability because the issue “is a bug in parsing mount options which can only be specified by a privileged user, so triggering the bug does not grant any powers not already held.”.\n\nCVE-2020-12888:\nThe VFIO PCI driver in the Linux kernel through 5.6.13 mishandles attempts to access disabled memory space.\n\nCVE-2020-13974:\nAn issue was discovered in the Linux kernel 4.4 through 5.7.1. drivers/tty/vt/keyboard.c has an integer overflow if k_ascii is called several times in a row, aka CID-b86dab054059. NOTE: Members in the community argue that the integer overflow does not lead to a security issue in this case.\n\nCVE-2020-16166:\nThe Linux kernel through 5.7.11 allows remote attackers to make observations that help to obtain sensitive information about the internal state of the network RNG, aka CID-f227e3ec3b5c. This is related to drivers/char/random.c and kernel/time/timer.c.\n\nCVE-2020-8647:\nThere is a use-after-free vulnerability in the Linux kernel through 5.5.2 in the vc_do_resize function in drivers/tty/vt/vt.c.\n\nCVE-2020-8648:\nThere is a use-after-free vulnerability in the Linux kernel through 5.5.2 in the n_tty_receive_buf_common function in drivers/tty/n_tty.c.\n\nCVE-2020-8649:\nThere is a use-after-free vulnerability in the Linux kernel through 5.5.2 in the vgacon_invert_region function in drivers/video/console/vgacon.c.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-12-30"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2019-12378",
+          "CVSS3": "5.7/CVSS:3.0/AV:A/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-12378",
+          "CWE": "CWE-476",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2019-12380",
+          "CVSS3": "6.2/CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-12380",
+          "CWE": "CWE-252",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2019-12381",
+          "CVSS3": "5.5/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-12381",
+          "CWE": "CWE-476",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2019-18808",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-18808",
+          "CWE": "CWE-400",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2019-19046",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-19046",
+          "CWE": "CWE-401-\u003eCWE-400",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2019-19077",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-19077",
+          "CWE": "CWE-400",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2019-19462",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-19462",
+          "CWE": "CWE-476",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2019-19770",
+          "CVSS3": "5.1/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-19770",
+          "CWE": "CWE-416",
+          "Public": "20211230"
+        },
+        {
+          "ID": "CVE-2019-19947",
+          "CVSS3": "4.3/CVSS:3.1/AV:P/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-19947",
+          "CWE": "CWE-200",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2020-10732",
+          "CVSS3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-10732",
+          "CWE": "CWE-908",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2020-11565",
+          "CVSS3": "6.0/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11565",
+          "CWE": "CWE-787",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2020-12888",
+          "CVSS3": "5.3/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:C/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-12888",
+          "CWE": "CWE-248",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2020-16166",
+          "CVSS3": "3.7/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-16166",
+          "CWE": "CWE-200",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2020-8647",
+          "CVSS3": "6.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-8647",
+          "CWE": "CWE-200",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2020-8648",
+          "CVSS3": "7.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-8648",
+          "CWE": "CWE-416",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2020-13974",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-13974",
+          "CWE": "CWE-190",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2020-8649",
+          "CVSS3": "5.9/CVSS:3.1/AV:P/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-8649",
+          "CWE": "CWE-416",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2019-19965",
+          "CVSS3": "4.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-19965",
+          "CWE": "CWE-362-\u003eCWE-476",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2019-20096",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-20096",
+          "CWE": "CWE-772",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2019-12455",
+          "CVSS3": "4.1/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-12455",
+          "CWE": "CWE-476-\u003eCWE-400",
+          "Public": "20220624"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213001"
+          },
+          {
+            "Comment": "kernel is earlier than 0:4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213002"
+          },
+          {
+            "Comment": "kernel-core is earlier than 0:core-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213003"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213004"
+          },
+          {
+            "Comment": "kernel-debug-core is earlier than 0:debug-core-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213005"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213006"
+          },
+          {
+            "Comment": "kernel-debug-modules is earlier than 0:debug-modules-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213007"
+          },
+          {
+            "Comment": "kernel-debug-modules-extra is earlier than 0:debug-modules-extra-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213008"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213009"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213010"
+          },
+          {
+            "Comment": "kernel-modules is earlier than 0:modules-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213011"
+          },
+          {
+            "Comment": "kernel-modules-extra is earlier than 0:modules-extra-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213012"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213013"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213014"
+          },
+          {
+            "Comment": "kernel-tools-libs-devel is earlier than 0:tools-libs-devel-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213015"
+          },
+          {
+            "Comment": "perf is earlier than 0:4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213016"
+          },
+          {
+            "Comment": "python3-perf is earlier than 0:perf-4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213017"
+          },
+          {
+            "Comment": "kernel(ANCK)4.19 is earlier than 0:4.19.91-23.4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210213018"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

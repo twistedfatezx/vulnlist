@@ -1,0 +1,65 @@
+{
+  "ID": "oval:cn.openanolis:def:20230607",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0607: tang security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0607",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0607",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-1672:\nA race condition exists in the Tang server functionality for key generation and key rotation. This flaw results in a small time window where Tang private keys become readable by other processes on the same host.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-10-19"
+      },
+      "Updated": {
+        "Date": "2023-10-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-1672",
+          "CVSS3": "5.3/CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-1672",
+          "CWE": "CWE-362",
+          "Public": "20230711"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "tang is earlier than 0:14-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230607001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

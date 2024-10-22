@@ -1,0 +1,173 @@
+{
+  "ID": "oval:cn.openanolis:def:20210139",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0139: perl security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0139",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0139",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-10543:\nPerl before 5.30.3 on 32-bit platforms allows a heap-based buffer overflow because nested regular expression quantifiers have an integer overflow.\n\nCVE-2020-10878:\nPerl before 5.30.3 has an integer overflow related to mishandling of a \"PL_regkind[OP(n)] == NOTHING\" situation. A crafted regular expression could lead to malformed bytecode with a possibility of instruction injection.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2021-08-18"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-10543",
+          "CVSS3": "8.2/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-10543",
+          "CWE": "CWE-190-\u003eCWE-122-\u003eCWE-787",
+          "Public": "20210818"
+        },
+        {
+          "ID": "CVE-2020-10878",
+          "CVSS3": "8.6/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-10878",
+          "CWE": "CWE-190-\u003eCWE-185",
+          "Public": "20200602"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "perl is earlier than 4:5.26.3-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139001"
+          },
+          {
+            "Comment": "perl-Devel-Peek is earlier than 0:Devel-Peek-1.26-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139002"
+          },
+          {
+            "Comment": "perl-Errno is earlier than 0:Errno-1.28-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139003"
+          },
+          {
+            "Comment": "perl-IO is earlier than 0:IO-1.38-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139004"
+          },
+          {
+            "Comment": "perl-Time-Piece is earlier than 0:Time-Piece-1.31-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139005"
+          },
+          {
+            "Comment": "perl-devel is earlier than 4:devel-5.26.3-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139006"
+          },
+          {
+            "Comment": "perl-interpreter is earlier than 4:interpreter-5.26.3-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139007"
+          },
+          {
+            "Comment": "perl-libs is earlier than 4:libs-5.26.3-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139008"
+          },
+          {
+            "Comment": "perl-macros is earlier than 4:macros-5.26.3-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139009"
+          },
+          {
+            "Comment": "perl-tests is earlier than 4:tests-5.26.3-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139010"
+          },
+          {
+            "Comment": "perl-Attribute-Handlers is earlier than 0:Attribute-Handlers-0.99-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139011"
+          },
+          {
+            "Comment": "perl-Devel-SelfStubber is earlier than 0:Devel-SelfStubber-1.06-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139012"
+          },
+          {
+            "Comment": "perl-ExtUtils-Embed is earlier than 0:ExtUtils-Embed-1.34-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139013"
+          },
+          {
+            "Comment": "perl-ExtUtils-Miniperl is earlier than 0:ExtUtils-Miniperl-1.06-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139014"
+          },
+          {
+            "Comment": "perl-IO-Zlib is earlier than 1:IO-Zlib-1.10-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139015"
+          },
+          {
+            "Comment": "perl-Locale-Maketext-Simple is earlier than 1:Locale-Maketext-Simple-0.21-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139016"
+          },
+          {
+            "Comment": "perl-Math-Complex is earlier than 0:Math-Complex-1.59-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139017"
+          },
+          {
+            "Comment": "perl-Memoize is earlier than 0:Memoize-1.03-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139018"
+          },
+          {
+            "Comment": "perl-Module-Loaded is earlier than 1:Module-Loaded-0.08-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139019"
+          },
+          {
+            "Comment": "perl-Net-Ping is earlier than 0:Net-Ping-2.55-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139020"
+          },
+          {
+            "Comment": "perl-Pod-Html is earlier than 0:Pod-Html-1.22.02-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139021"
+          },
+          {
+            "Comment": "perl-SelfLoader is earlier than 0:SelfLoader-1.23-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139022"
+          },
+          {
+            "Comment": "perl-Test is earlier than 0:Test-1.30-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139023"
+          },
+          {
+            "Comment": "perl-libnetcfg is earlier than 4:libnetcfg-5.26.3-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139024"
+          },
+          {
+            "Comment": "perl-open is earlier than 0:open-1.11-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139025"
+          },
+          {
+            "Comment": "perl-utils is earlier than 0:utils-5.26.3-418.an8_2.1",
+            "TestRef": "oval:cn.openanolis:tst:20210139026"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

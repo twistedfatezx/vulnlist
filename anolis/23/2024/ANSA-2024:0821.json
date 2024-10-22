@@ -1,0 +1,89 @@
+{
+  "ID": "oval:cn.openanolis:def:20240821",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0821: libxml2 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0821",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0821",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2024-25062:\nAn issue was discovered in libxml2 before 2.11.7 and 2.12.x before 2.12.5. When using the XML Reader interface with DTD validation and XInclude expansion enabled, processing crafted XML documents can lead to an xmlValidatePopElement use-after-free.\n\nCVE-2024-34459:\nAn issue was discovered in xmllint (from libxml2) before 2.11.8 and 2.12.x before 2.12.7. Formatting error messages with xmllint --htmlout can result in a buffer over-read in xmlHTMLPrintFileContext in xmllint.c.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-08-15"
+      },
+      "Updated": {
+        "Date": "2024-08-16"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-25062",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-25062",
+          "CWE": "CWE-416",
+          "Public": "20240618"
+        },
+        {
+          "ID": "CVE-2024-34459",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-34459",
+          "CWE": "CWE-126",
+          "Public": "20240815"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libxml2 is earlier than 0:2.11.5-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240821001"
+          },
+          {
+            "Comment": "libxml2-devel is earlier than 0:devel-2.11.5-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240821002"
+          },
+          {
+            "Comment": "libxml2-static is earlier than 0:static-2.11.5-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240821003"
+          },
+          {
+            "Comment": "python3-libxml2 is earlier than 0:libxml2-2.11.5-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240821004"
+          },
+          {
+            "Comment": "libxml2-doc is earlier than 0:doc-2.11.5-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240821005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

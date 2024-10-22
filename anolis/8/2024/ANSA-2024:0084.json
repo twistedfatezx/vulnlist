@@ -1,0 +1,125 @@
+{
+  "ID": "oval:cn.openanolis:def:20240084",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0084: postgresql:12 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0084",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0084",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-0985:\nA flaw was found in PostgreSQL. A late privilege drop in REFRESH MATERIALIZED VIEW CONCURRENTLY in PostgreSQL can allow an object creator to execute arbitrary SQL functions as the command issuer. The command intends to run SQL functions as the owner of the materialized view, enabling a safe refresh of untrusted materialized views. The attack requires luring the victim, a superuser or member of one of the attacker's roles, into running REFRESH MATERIALIZED VIEW CONCURRENTLY on the attacker's materialized view.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-03-05"
+      },
+      "Updated": {
+        "Date": "2024-03-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-0985",
+          "CVSS3": "8.0/CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-0985",
+          "CWE": "CWE-271",
+          "Public": "20240208"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "pg_repack is earlier than 0:1.4.6-3.module+an8.7.0+10998+db03f438",
+            "TestRef": "oval:cn.openanolis:tst:20240084001"
+          },
+          {
+            "Comment": "pgaudit is earlier than 0:1.4.0-7.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084002"
+          },
+          {
+            "Comment": "postgres-decoderbufs is earlier than 0:decoderbufs-0.10.0-2.module+an8.7.0+10998+db03f438",
+            "TestRef": "oval:cn.openanolis:tst:20240084003"
+          },
+          {
+            "Comment": "postgresql is earlier than 0:12.18-1.0.1.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084004"
+          },
+          {
+            "Comment": "postgresql-contrib is earlier than 0:contrib-12.18-1.0.1.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084005"
+          },
+          {
+            "Comment": "postgresql-docs is earlier than 0:docs-12.18-1.0.1.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084006"
+          },
+          {
+            "Comment": "postgresql-plperl is earlier than 0:plperl-12.18-1.0.1.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084007"
+          },
+          {
+            "Comment": "postgresql-plpython3 is earlier than 0:plpython3-12.18-1.0.1.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084008"
+          },
+          {
+            "Comment": "postgresql-pltcl is earlier than 0:pltcl-12.18-1.0.1.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084009"
+          },
+          {
+            "Comment": "postgresql-server is earlier than 0:server-12.18-1.0.1.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084010"
+          },
+          {
+            "Comment": "postgresql-server-devel is earlier than 0:server-devel-12.18-1.0.1.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084011"
+          },
+          {
+            "Comment": "postgresql-static is earlier than 0:static-12.18-1.0.1.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084012"
+          },
+          {
+            "Comment": "postgresql-test is earlier than 0:test-12.18-1.0.1.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084013"
+          },
+          {
+            "Comment": "postgresql-upgrade is earlier than 0:upgrade-12.18-1.0.1.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084014"
+          },
+          {
+            "Comment": "postgresql-upgrade-devel is earlier than 0:upgrade-devel-12.18-1.0.1.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084015"
+          },
+          {
+            "Comment": "postgresql-test-rpm-macros is earlier than 0:test-rpm-macros-12.18-1.0.1.module+an8.9.0+11179+4e202cde",
+            "TestRef": "oval:cn.openanolis:tst:20240084016"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

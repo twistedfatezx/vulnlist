@@ -1,0 +1,229 @@
+{
+  "ID": "oval:cn.openanolis:def:20220145",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0145: cloud-kernel security, bug fix, and enhancement update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0145",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0145",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-36516:\nAn issue was discovered in the Linux kernel through 5.16.11. The mixed IPID assignment method with the hash-based IPID assignment policy allows an off-path attacker to inject data into a victim's TCP session or terminate that session.\n\nCVE-2021-22600:\nA double free bug in packet_set_ring() in net/packet/af_packet.c can be exploited by a local user through crafted syscalls to escalate privileges or deny service. We recommend upgrading kernel past the effected versions or rebuilding past ec6af094ea28f0f2dda1a6a33b14cd57e36a9755\n\nCVE-2021-4135:\nA flaw memory leak in the Linux kernel's eBPF for the Simulated networking device driver in the way user uses BPF for the device such that function nsim_map_alloc_elem being called. A local user could use this flaw to get unauthorized access to some data.\n\nCVE-2021-4204:\nAn out-of-bounds (OOB) memory access flaw was found in the Linux kernel's eBPF due to an Improper Input Validation. This flaw allows a local attacker with a special privilege to crash the system or leak internal information.\n\nCVE-2021-44879:\nIn gc_data_segment in fs/f2fs/gc.c in the Linux kernel before 5.16.3, special files are not considered, leading to a move_data_page NULL pointer dereference.\n\nCVE-2021-45402:\nThe check_alu_op() function in kernel/bpf/verifier.c in the Linux kernel through v5.16-rc5 did not properly update bounds while handling the mov32 instruction, which allows local users to obtain potentially sensitive address information, aka a \"pointer leak.\"\n\nCVE-2022-0995:\nAn out-of-bounds (OOB) memory write flaw was found in the Linux kernel’s watch_queue event notification subsystem. This flaw can overwrite parts of the kernel state, potentially allowing a local user to gain privileged access or cause a denial of service on the system.\n\nCVE-2022-1011:\nA use-after-free flaw was found in the Linux kernel’s FUSE filesystem in the way a user triggers write(). This flaw allows a local user to gain unauthorized access to data from the FUSE filesystem, resulting in privilege escalation.\n\nCVE-2022-1016:\nA flaw was found in the Linux kernel in net/netfilter/nf_tables_core.c:nft_do_chain, which can cause a use-after-free. This issue needs to handle 'return' with proper preconditions, as it can lead to a kernel information leak problem caused by a local, unprivileged attacker.\n\nCVE-2022-23222:\nkernel/bpf/verifier.c in the Linux kernel through 5.15.14 allows local users to gain privileges because of the availability of pointer arithmetic via certain *_OR_NULL pointer types.\n\nCVE-2022-24448:\nAn issue was discovered in fs/nfs/dir.c in the Linux kernel before 5.16.5. If an application sets the O_DIRECTORY flag, and tries to open a regular file, nfs_atomic_open() performs a regular lookup. If a regular file is found, ENOTDIR should occur, but the server instead returns uninitialized data in the file descriptor.\n\nCVE-2022-25636:\nnet/netfilter/nf_dup_netdev.c in the Linux kernel 5.4 through 5.6.10 allows local users to gain privileges because of a heap out-of-bounds write. This is related to nf_tables_offload.\n\nCVE-2022-27666:\nA heap buffer overflow flaw was found in IPsec ESP transformation code in net/ipv4/esp4.c and net/ipv6/esp6.c. This flaw allows a local attacker with a normal user privilege to overwrite kernel heap objects and may cause a local privilege escalation threat.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-05-16"
+      },
+      "Updated": {
+        "Date": "2024-10-21"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-36516",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:H/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-36516",
+          "CWE": "CWE-290",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-22600",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-22600",
+          "CWE": "CWE-416",
+          "Public": "20220516"
+        },
+        {
+          "ID": "CVE-2021-4135",
+          "CVSS3": "4.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-4135",
+          "CWE": "CWE-401",
+          "Public": "20220516"
+        },
+        {
+          "ID": "CVE-2021-4204",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-4204",
+          "CWE": "CWE-119",
+          "Public": "20220516"
+        },
+        {
+          "ID": "CVE-2021-44879",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-44879",
+          "CWE": "CWE-476",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-45402",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-45402",
+          "CWE": "CWE-120",
+          "Public": "20220516"
+        },
+        {
+          "ID": "CVE-2022-0995",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-0995",
+          "CWE": "CWE-787",
+          "Public": "20220325"
+        },
+        {
+          "ID": "CVE-2022-1011",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1011",
+          "CWE": "CWE-416",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2022-1016",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1016",
+          "CWE": "CWE-909",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2022-23222",
+          "CVSS3": "6.7/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-23222",
+          "CWE": "CWE-763",
+          "Public": "20220516"
+        },
+        {
+          "ID": "CVE-2022-24448",
+          "CVSS3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-24448",
+          "CWE": "CWE-908",
+          "Public": "20220516"
+        },
+        {
+          "ID": "CVE-2022-25636",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25636",
+          "CWE": "CWE-787",
+          "Public": "20220428"
+        },
+        {
+          "ID": "CVE-2022-27666",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-27666",
+          "CWE": "CWE-122",
+          "Public": "20220624"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145001"
+          },
+          {
+            "Comment": "kernel is earlier than 0:4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145002"
+          },
+          {
+            "Comment": "kernel-core is earlier than 0:core-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145003"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145004"
+          },
+          {
+            "Comment": "kernel-debug-core is earlier than 0:debug-core-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145005"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145006"
+          },
+          {
+            "Comment": "kernel-debug-modules is earlier than 0:debug-modules-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145007"
+          },
+          {
+            "Comment": "kernel-debug-modules-extra is earlier than 0:debug-modules-extra-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145008"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145009"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145010"
+          },
+          {
+            "Comment": "kernel-modules is earlier than 0:modules-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145011"
+          },
+          {
+            "Comment": "kernel-modules-extra is earlier than 0:modules-extra-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145012"
+          },
+          {
+            "Comment": "kernel-modules-internal is earlier than 0:modules-internal-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145013"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145014"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145015"
+          },
+          {
+            "Comment": "kernel-tools-libs-devel is earlier than 0:tools-libs-devel-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145016"
+          },
+          {
+            "Comment": "perf is earlier than 0:4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145017"
+          },
+          {
+            "Comment": "python3-perf is earlier than 0:perf-4.19.91-25.8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220145018"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

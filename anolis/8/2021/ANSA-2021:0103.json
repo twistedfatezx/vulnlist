@@ -1,0 +1,349 @@
+{
+  "ID": "oval:cn.openanolis:def:20210103",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0103: virt:an and virt-devel:an security update (Low)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0103",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0103",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-25723:\nA reachable assertion issue was found in the USB EHCI emulation code of QEMU. It could occur while processing USB requests due to missing handling of DMA memory map failure. A malicious privileged user within the guest may abuse this flaw to send bogus USB requests and crash the QEMU process on the host, resulting in a denial of service.",
+    "Advisory": {
+      "Severity": "Low",
+      "Issued": {
+        "Date": "2021-05-06"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-25723",
+          "CVSS3": "3.2/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-25723",
+          "CWE": "CWE-617",
+          "Public": "20210506"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "hivex is earlier than 0:1.3.15-7.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103001"
+          },
+          {
+            "Comment": "hivex-devel is earlier than 0:devel-1.3.15-7.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103002"
+          },
+          {
+            "Comment": "libguestfs is earlier than 1:1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103003"
+          },
+          {
+            "Comment": "libguestfs-benchmarking is earlier than 1:benchmarking-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103004"
+          },
+          {
+            "Comment": "libguestfs-devel is earlier than 1:devel-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103005"
+          },
+          {
+            "Comment": "libguestfs-gfs2 is earlier than 1:gfs2-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103006"
+          },
+          {
+            "Comment": "libguestfs-gobject is earlier than 1:gobject-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103007"
+          },
+          {
+            "Comment": "libguestfs-gobject-devel is earlier than 1:gobject-devel-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103008"
+          },
+          {
+            "Comment": "libguestfs-java is earlier than 1:java-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103009"
+          },
+          {
+            "Comment": "libguestfs-java-devel is earlier than 1:java-devel-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103010"
+          },
+          {
+            "Comment": "libguestfs-rescue is earlier than 1:rescue-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103011"
+          },
+          {
+            "Comment": "libguestfs-rsync is earlier than 1:rsync-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103012"
+          },
+          {
+            "Comment": "libguestfs-tools-c is earlier than 1:tools-c-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103013"
+          },
+          {
+            "Comment": "libguestfs-winsupport is earlier than 0:winsupport-8.0-4.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103014"
+          },
+          {
+            "Comment": "libguestfs-xfs is earlier than 1:xfs-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103015"
+          },
+          {
+            "Comment": "libiscsi is earlier than 0:1.18.0-8.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103016"
+          },
+          {
+            "Comment": "libiscsi-devel is earlier than 0:devel-1.18.0-8.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103017"
+          },
+          {
+            "Comment": "libiscsi-utils is earlier than 0:utils-1.18.0-8.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103018"
+          },
+          {
+            "Comment": "libvirt-dbus is earlier than 0:dbus-1.2.0-3.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103019"
+          },
+          {
+            "Comment": "lua-guestfs is earlier than 1:guestfs-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103020"
+          },
+          {
+            "Comment": "nbdkit is earlier than 0:1.4.2-5.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103021"
+          },
+          {
+            "Comment": "nbdkit-basic-plugins is earlier than 0:basic-plugins-1.4.2-5.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103022"
+          },
+          {
+            "Comment": "nbdkit-devel is earlier than 0:devel-1.4.2-5.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103023"
+          },
+          {
+            "Comment": "nbdkit-example-plugins is earlier than 0:example-plugins-1.4.2-5.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103024"
+          },
+          {
+            "Comment": "nbdkit-plugin-gzip is earlier than 0:plugin-gzip-1.4.2-5.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103025"
+          },
+          {
+            "Comment": "nbdkit-plugin-python-common is earlier than 0:plugin-python-common-1.4.2-5.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103026"
+          },
+          {
+            "Comment": "nbdkit-plugin-python3 is earlier than 0:plugin-python3-1.4.2-5.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103027"
+          },
+          {
+            "Comment": "nbdkit-plugin-xz is earlier than 0:plugin-xz-1.4.2-5.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103028"
+          },
+          {
+            "Comment": "netcf is earlier than 0:0.2.8-12.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103029"
+          },
+          {
+            "Comment": "netcf-devel is earlier than 0:devel-0.2.8-12.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103030"
+          },
+          {
+            "Comment": "netcf-libs is earlier than 0:libs-0.2.8-12.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103031"
+          },
+          {
+            "Comment": "ocaml-hivex is earlier than 0:hivex-1.3.15-7.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103032"
+          },
+          {
+            "Comment": "ocaml-hivex-devel is earlier than 0:hivex-devel-1.3.15-7.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103033"
+          },
+          {
+            "Comment": "ocaml-libguestfs is earlier than 1:libguestfs-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103034"
+          },
+          {
+            "Comment": "ocaml-libguestfs-devel is earlier than 1:libguestfs-devel-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103035"
+          },
+          {
+            "Comment": "perl-Sys-Guestfs is earlier than 1:Sys-Guestfs-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103036"
+          },
+          {
+            "Comment": "perl-Sys-Virt is earlier than 0:Sys-Virt-4.5.0-5.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103037"
+          },
+          {
+            "Comment": "perl-hivex is earlier than 0:hivex-1.3.15-7.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103038"
+          },
+          {
+            "Comment": "python3-hivex is earlier than 0:hivex-1.3.15-7.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103039"
+          },
+          {
+            "Comment": "python3-libguestfs is earlier than 1:libguestfs-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103040"
+          },
+          {
+            "Comment": "python3-libvirt is earlier than 0:libvirt-4.5.0-2.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103041"
+          },
+          {
+            "Comment": "qemu-guest-agent is earlier than 15:guest-agent-2.12.0-99.module+el8.2.0+10179+a7144e8a.5",
+            "TestRef": "oval:cn.openanolis:tst:20210103042"
+          },
+          {
+            "Comment": "qemu-img is earlier than 15:img-2.12.0-99.module+el8.2.0+10179+a7144e8a.5",
+            "TestRef": "oval:cn.openanolis:tst:20210103043"
+          },
+          {
+            "Comment": "qemu-kvm is earlier than 15:kvm-2.12.0-99.module+el8.2.0+10179+a7144e8a.5",
+            "TestRef": "oval:cn.openanolis:tst:20210103044"
+          },
+          {
+            "Comment": "qemu-kvm-block-curl is earlier than 15:kvm-block-curl-2.12.0-99.module+el8.2.0+10179+a7144e8a.5",
+            "TestRef": "oval:cn.openanolis:tst:20210103045"
+          },
+          {
+            "Comment": "qemu-kvm-block-iscsi is earlier than 15:kvm-block-iscsi-2.12.0-99.module+el8.2.0+10179+a7144e8a.5",
+            "TestRef": "oval:cn.openanolis:tst:20210103046"
+          },
+          {
+            "Comment": "qemu-kvm-block-rbd is earlier than 15:kvm-block-rbd-2.12.0-99.module+el8.2.0+10179+a7144e8a.5",
+            "TestRef": "oval:cn.openanolis:tst:20210103047"
+          },
+          {
+            "Comment": "qemu-kvm-block-ssh is earlier than 15:kvm-block-ssh-2.12.0-99.module+el8.2.0+10179+a7144e8a.5",
+            "TestRef": "oval:cn.openanolis:tst:20210103048"
+          },
+          {
+            "Comment": "qemu-kvm-common is earlier than 15:kvm-common-2.12.0-99.module+el8.2.0+10179+a7144e8a.5",
+            "TestRef": "oval:cn.openanolis:tst:20210103049"
+          },
+          {
+            "Comment": "qemu-kvm-core is earlier than 15:kvm-core-2.12.0-99.module+el8.2.0+10179+a7144e8a.5",
+            "TestRef": "oval:cn.openanolis:tst:20210103050"
+          },
+          {
+            "Comment": "qemu-kvm-tests is earlier than 15:kvm-tests-2.12.0-99.module+el8.2.0+10179+a7144e8a.5",
+            "TestRef": "oval:cn.openanolis:tst:20210103051"
+          },
+          {
+            "Comment": "ruby-hivex is earlier than 0:hivex-1.3.15-7.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103052"
+          },
+          {
+            "Comment": "ruby-libguestfs is earlier than 1:libguestfs-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103053"
+          },
+          {
+            "Comment": "supermin is earlier than 0:5.1.19-9.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103054"
+          },
+          {
+            "Comment": "supermin-devel is earlier than 0:devel-5.1.19-9.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103055"
+          },
+          {
+            "Comment": "virt-dib is earlier than 1:dib-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103056"
+          },
+          {
+            "Comment": "nbdkit-plugin-vddk is earlier than 0:plugin-vddk-1.4.2-5.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103057"
+          },
+          {
+            "Comment": "qemu-kvm-block-gluster is earlier than 15:kvm-block-gluster-2.12.0-99.module+el8.2.0+10179+a7144e8a.5",
+            "TestRef": "oval:cn.openanolis:tst:20210103058"
+          },
+          {
+            "Comment": "seabios is earlier than 0:1.11.1-4.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103059"
+          },
+          {
+            "Comment": "sgabios is earlier than 1:0.20170427git-3.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103060"
+          },
+          {
+            "Comment": "virt-v2v is earlier than 1:v2v-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103061"
+          },
+          {
+            "Comment": "libvirt-python is earlier than 0:python-4.5.0-2.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103062"
+          },
+          {
+            "Comment": "libguestfs-bash-completion is earlier than 1:bash-completion-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103063"
+          },
+          {
+            "Comment": "libguestfs-inspect-icons is earlier than 1:inspect-icons-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103064"
+          },
+          {
+            "Comment": "libguestfs-javadoc is earlier than 1:javadoc-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103065"
+          },
+          {
+            "Comment": "libguestfs-man-pages-ja is earlier than 1:man-pages-ja-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103066"
+          },
+          {
+            "Comment": "libguestfs-man-pages-uk is earlier than 1:man-pages-uk-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103067"
+          },
+          {
+            "Comment": "libguestfs-tools is earlier than 1:tools-1.38.4-15.0.1.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103068"
+          },
+          {
+            "Comment": "nbdkit-bash-completion is earlier than 0:bash-completion-1.4.2-5.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103069"
+          },
+          {
+            "Comment": "seabios-bin is earlier than 0:bin-1.11.1-4.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103070"
+          },
+          {
+            "Comment": "seavgabios-bin is earlier than 0:bin-1.11.1-4.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103071"
+          },
+          {
+            "Comment": "sgabios-bin is earlier than 1:bin-0.20170427git-3.module+el8.2.0+10179+a7144e8a",
+            "TestRef": "oval:cn.openanolis:tst:20210103072"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

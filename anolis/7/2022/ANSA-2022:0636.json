@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20220636",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0636: firefox security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0636",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0636",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-2505:\nA flaw was found in Mozilla. The Mozilla Foundation Security Advisory describes the issue of Mozilla developers and the Mozilla Fuzzing Team reporting memory safety bugs in Firefox 102. Some of these bugs showed evidence of memory corruption, and we presume that with enough effort, some of these could have been exploited to run arbitrary code.\n\nCVE-2022-36318:\nA flaw was found in Mozilla. The Mozilla Foundation Security Advisory describes the issue of when visiting directory listings for `chrome://` URLs as source text, some parameters were reflected.\n\nCVE-2022-36319:\nA flaw was found in Mozilla. The Mozilla Foundation Security Advisory describes the issue of when combining CSS properties for overflow and transform, the mouse cursor could interact with different coordinates than displayed.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-08-11"
+      },
+      "Updated": {
+        "Date": "2022-08-15"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-2505",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-2505",
+          "CWE": "CWE-120",
+          "Public": "20220803"
+        },
+        {
+          "ID": "CVE-2022-36318",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-36318",
+          "CWE": "CWE-79",
+          "Public": "20220803"
+        },
+        {
+          "ID": "CVE-2022-36319",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-36319",
+          "CWE": "CWE-1021",
+          "Public": "20220803"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "firefox is earlier than 0:91.12.0-2.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220636001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

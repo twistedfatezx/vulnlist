@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20210095",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0095: libldb security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0095",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0095",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-20277:\nA flaw was found in Samba's libldb. Multiple, consecutive leading spaces in an LDAP attribute can lead to an out-of-bounds memory write, leading to a crash of the LDAP server process handling the request. The highest threat from this vulnerability is to system availability.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-04-21"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-20277",
+          "CVSS3": "7.1/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-20277",
+          "CWE": "CWE-125",
+          "Public": "20210421"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "ldb-tools is earlier than 0:tools-2.0.7-4.el8",
+            "TestRef": "oval:cn.openanolis:tst:20210095001"
+          },
+          {
+            "Comment": "libldb is earlier than 0:2.0.7-4.el8",
+            "TestRef": "oval:cn.openanolis:tst:20210095002"
+          },
+          {
+            "Comment": "libldb-devel is earlier than 0:devel-2.0.7-4.el8",
+            "TestRef": "oval:cn.openanolis:tst:20210095003"
+          },
+          {
+            "Comment": "python3-ldb is earlier than 0:ldb-2.0.7-4.el8",
+            "TestRef": "oval:cn.openanolis:tst:20210095004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

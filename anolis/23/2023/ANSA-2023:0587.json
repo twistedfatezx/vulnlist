@@ -1,0 +1,97 @@
+{
+  "ID": "oval:cn.openanolis:def:20230587",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0587: python3.10 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0587",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0587",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-40217:\nAn issue was discovered in Python before 3.8.18, 3.9.x before 3.9.18, 3.10.x before 3.10.13, and 3.11.x before 3.11.5. It primarily affects servers (such as HTTP servers) that use TLS client authentication. If a TLS server-side socket is created, receives data into the socket buffer, and then is closed quickly, there is a brief window where the SSLSocket instance will detect the socket as \"not connected\" and won't initiate a handshake, but buffered data will still be readable from the socket buffer. This data will not be authenticated if the server-side TLS peer is expecting client certificate authentication, and is indistinguishable from valid TLS stream data. Data is limited in size to the amount that will fit in the buffer. (The TLS connection cannot directly be used for data exfiltration because the vulnerable code path requires that the connection be closed on initialization of the SSLSocket.)",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-10-18"
+      },
+      "Updated": {
+        "Date": "2023-10-18"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-40217",
+          "CVSS3": "8.6/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-40217",
+          "CWE": "CWE-305",
+          "Public": "20230824"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python3 is earlier than 0:3.10.13-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230587001"
+          },
+          {
+            "Comment": "python3-debug is earlier than 0:debug-3.10.13-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230587002"
+          },
+          {
+            "Comment": "python3-devel is earlier than 0:devel-3.10.13-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230587003"
+          },
+          {
+            "Comment": "python3-idle is earlier than 0:idle-3.10.13-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230587004"
+          },
+          {
+            "Comment": "python3-libs is earlier than 0:libs-3.10.13-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230587005"
+          },
+          {
+            "Comment": "python3-test is earlier than 0:test-3.10.13-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230587006"
+          },
+          {
+            "Comment": "python3-tkinter is earlier than 0:tkinter-3.10.13-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230587007"
+          },
+          {
+            "Comment": "python3.10 is earlier than 0:3.10.13-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230587008"
+          },
+          {
+            "Comment": "python-unversioned-command is earlier than 0:unversioned-command-3.10.13-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230587009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "ID": "oval:cn.openanolis:def:20240432",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0432: grafana-pcp security and bug fix update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0432",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0432",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-1394:\nA memory leak flaw was found in Golang in the RSA encrypting/decrypting code, which might lead to a resource exhaustion vulnerability using attacker-controlled inputs​. The memory leak happens in github.com/golang-fips/openssl/openssl/rsa.go#L113. The objects leaked are pkey​ and ctx​. That function uses named return parameters to free pkey​ and ctx​ if there is an error initializing the context or setting the different properties. All return statements related to error cases follow the \"return nil, nil, fail(...)\" pattern, meaning that pkey​ and ctx​ will be nil inside the deferred function that should free them.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-05"
+      },
+      "Updated": {
+        "Date": "2024-06-05"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-1394",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-1394",
+          "CWE": "CWE-401",
+          "Public": "20240320"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "grafana-pcp is earlier than 0:pcp-5.1.1-2.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240432001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

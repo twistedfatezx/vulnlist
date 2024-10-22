@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20240790",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0790: systemd security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0790",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0790",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-7008:\nA vulnerability was found in systemd-resolved. This issue may allow systemd-resolved to accept records of DNSSEC-signed domains even when they have no signature, allowing man-in-the-middles (or the upstream DNS resolver) to manipulate records.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-08-13"
+      },
+      "Updated": {
+        "Date": "2024-08-13"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-7008",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-7008",
+          "CWE": "CWE-300",
+          "Public": "20240813"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "systemd is earlier than 0:239-78.0.7.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240790001"
+          },
+          {
+            "Comment": "systemd-container is earlier than 0:container-239-78.0.7.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240790002"
+          },
+          {
+            "Comment": "systemd-devel is earlier than 0:devel-239-78.0.7.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240790003"
+          },
+          {
+            "Comment": "systemd-journal-remote is earlier than 0:journal-remote-239-78.0.7.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240790004"
+          },
+          {
+            "Comment": "systemd-libs is earlier than 0:libs-239-78.0.7.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240790005"
+          },
+          {
+            "Comment": "systemd-pam is earlier than 0:pam-239-78.0.7.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240790006"
+          },
+          {
+            "Comment": "systemd-tests is earlier than 0:tests-239-78.0.7.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240790007"
+          },
+          {
+            "Comment": "systemd-udev is earlier than 0:udev-239-78.0.7.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240790008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

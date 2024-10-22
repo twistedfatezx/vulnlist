@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20240019",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0019: perl-HTTP-Tiny security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0019",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0019",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-31486:\nHTTP::Tiny before 0.083, a Perl core module since 5.13.9 and available standalone on CPAN, has an insecure default TLS configuration where users must opt in to verify certificates.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-01-09"
+      },
+      "Updated": {
+        "Date": "2024-01-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-31486",
+          "CVSS3": "7.4/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-31486",
+          "CWE": "CWE-1188",
+          "Public": "20230508"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "perl-HTTP-Tiny is earlier than 0:HTTP-Tiny-0.074-2.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240019001"
+          },
+          {
+            "Comment": "perl-HTTP-Tiny-doc is earlier than 0:HTTP-Tiny-doc-0.074-2.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240019002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

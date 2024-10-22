@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20220793",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0793: 389-ds-base security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0793",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0793",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-2850:\nA flaw was found In 389-ds-base. When the Content Synchronization plugin is enabled, an authenticated user can reach a NULL pointer dereference using a specially crafted query. This flaw allows an authenticated attacker to cause a denial of service. This CVE is assigned against an incomplete fix of CVE-2021-3514.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-11-08"
+      },
+      "Updated": {
+        "Date": "2022-11-08"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-2850",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-2850",
+          "CWE": "CWE-476",
+          "Public": "20221108"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "389-ds-base is earlier than 0:ds-base-1.3.10.2-17.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220793001"
+          },
+          {
+            "Comment": "389-ds-base-devel is earlier than 0:ds-base-devel-1.3.10.2-17.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220793002"
+          },
+          {
+            "Comment": "389-ds-base-libs is earlier than 0:ds-base-libs-1.3.10.2-17.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220793003"
+          },
+          {
+            "Comment": "389-ds-base-snmp is earlier than 0:ds-base-snmp-1.3.10.2-17.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220793004"
+          },
+          {
+            "Comment": "389-ds-base-tests is earlier than 0:ds-base-tests-1.3.10.2-17.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220793005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

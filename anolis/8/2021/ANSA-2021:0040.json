@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20210040",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0040: dhcp security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0040",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0040",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-25217:\nIn ISC DHCP 4.1-ESV-R1 -\u003e 4.1-ESV-R16, ISC DHCP 4.4.0 -\u003e 4.4.2 (Other branches of ISC DHCP (i.e., releases in the 4.0.x series or lower and releases in the 4.3.x series) are beyond their End-of-Life (EOL) and no longer supported by ISC. From inspection it is clear that the defect is also present in releases from those series, but they have not been officially tested for the vulnerability), The outcome of encountering the defect while reading a lease that will trigger it varies, according to: the component being affected (i.e., dhclient or dhcpd) whether the package was built as a 32-bit or 64-bit binary whether the compiler flag -fstack-protection-strong was used when compiling In dhclient, ISC has not successfully reproduced the error on a 64-bit system. However, on a 32-bit system it is possible to cause dhclient to crash when reading an improper lease, which could cause network connectivity problems for an affected system due to the absence of a running DHCP client process. In dhcpd, when run in DHCPv4 or DHCPv6 mode: if the dhcpd server binary was built for a 32-bit architecture AND the -fstack-protection-strong flag was specified to the compiler, dhcpd may exit while parsing a lease file containing an objectionable lease, resulting in lack of service to clients. Additionally, the offending lease and the lease immediately following it in the lease database may be improperly deleted. if the dhcpd server binary was built for a 64-bit architecture OR if the -fstack-protection-strong compiler flag was NOT specified, the crash will not occur, but it is possible for the offending lease and the lease which immediately followed it to be improperly deleted.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-07-20"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-25217",
+          "CVSS3": "8.8/CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-25217",
+          "CWE": "CWE-119",
+          "Public": "20210715"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "dhcp-client is earlier than 12:client-4.3.6-44.0.1.an8_4.1",
+            "TestRef": "oval:cn.openanolis:tst:20210040001"
+          },
+          {
+            "Comment": "dhcp-libs is earlier than 12:libs-4.3.6-44.0.1.an8_4.1",
+            "TestRef": "oval:cn.openanolis:tst:20210040002"
+          },
+          {
+            "Comment": "dhcp-relay is earlier than 12:relay-4.3.6-44.0.1.an8_4.1",
+            "TestRef": "oval:cn.openanolis:tst:20210040003"
+          },
+          {
+            "Comment": "dhcp-server is earlier than 12:server-4.3.6-44.0.1.an8_4.1",
+            "TestRef": "oval:cn.openanolis:tst:20210040004"
+          },
+          {
+            "Comment": "dhcp (Anolis OS 8.4) is earlier than 12:4.3.6-44.0.1.an8_4.1",
+            "TestRef": "oval:cn.openanolis:tst:20210040005"
+          },
+          {
+            "Comment": "dhcp-common is earlier than 12:common-4.3.6-44.0.1.an8_4.1",
+            "TestRef": "oval:cn.openanolis:tst:20210040006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

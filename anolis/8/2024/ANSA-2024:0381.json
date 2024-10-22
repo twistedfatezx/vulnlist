@@ -1,0 +1,121 @@
+{
+  "ID": "oval:cn.openanolis:def:20240381",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0381: firefox security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0381",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0381",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-2609:\nThe permission prompt input delay could expire while the window is not in focus. This makes it vulnerable to clickjacking by malicious websites. This vulnerability affects Firefox \u003c 124, Firefox ESR \u003c 115.10, and Thunderbird \u003c 115.10.\n\nCVE-2024-3302:\nThere was no limit to the number of HTTP/2 CONTINUATION frames that would be processed. A server could abuse this to create an Out of Memory condition in the browser. This vulnerability affects Firefox \u003c 125 and Firefox ESR \u003c 115.10.\n\nCVE-2024-3852:\nGetBoundName could return the wrong version of an object when JIT optimizations were applied. This vulnerability affects Firefox \u003c 125, Firefox ESR \u003c 115.10, and Thunderbird \u003c 115.10.\n\nCVE-2024-3854:\nIn some code patterns the JIT incorrectly optimized switch statements and generated code with out-of-bounds-reads. This vulnerability affects Firefox \u003c 125, Firefox ESR \u003c 115.10, and Thunderbird \u003c 115.10.\n\nCVE-2024-3857:\nThe JIT created incorrect code for arguments in certain cases. This led to potential use-after-free crashes during garbage collection. This vulnerability affects Firefox \u003c 125, Firefox ESR \u003c 115.10, and Thunderbird \u003c 115.10.\n\nCVE-2024-3859:\nOn 32-bit versions there were integer-overflows that led to an out-of-bounds-read that potentially could be triggered by a malformed OpenType font. This vulnerability affects Firefox \u003c 125, Firefox ESR \u003c 115.10, and Thunderbird \u003c 115.10.\n\nCVE-2024-3861:\nIf an AlignedBuffer were assigned to itself, the subsequent self-move could result in an incorrect reference count and later use-after-free. This vulnerability affects Firefox \u003c 125, Firefox ESR \u003c 115.10, and Thunderbird \u003c 115.10.\n\nCVE-2024-3864:\nMemory safety bug present in Firefox 124, Firefox ESR 115.9, and Thunderbird 115.9. This bug showed evidence of memory corruption and we presume that with enough effort this could have been exploited to run arbitrary code. This vulnerability affects Firefox \u003c 125 and Firefox ESR \u003c 115.10.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-04-25"
+      },
+      "Updated": {
+        "Date": "2024-04-25"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-2609",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-2609",
+          "CWE": "CWE-356",
+          "Public": "20240319"
+        },
+        {
+          "ID": "CVE-2024-3302",
+          "CVSS3": "3.7/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-3302",
+          "CWE": "CWE-400",
+          "Public": "20240425"
+        },
+        {
+          "ID": "CVE-2024-3852",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-3852",
+          "CWE": "CWE-843",
+          "Public": "20240416"
+        },
+        {
+          "ID": "CVE-2024-3854",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-3854",
+          "CWE": "CWE-125",
+          "Public": "20240416"
+        },
+        {
+          "ID": "CVE-2024-3857",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-3857",
+          "CWE": "CWE-416",
+          "Public": "20240416"
+        },
+        {
+          "ID": "CVE-2024-3859",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-3859",
+          "CWE": "CWE-190-\u003eCWE-125",
+          "Public": "20240416"
+        },
+        {
+          "ID": "CVE-2024-3861",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-3861",
+          "CWE": "CWE-416",
+          "Public": "20240416"
+        },
+        {
+          "ID": "CVE-2024-3864",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-3864",
+          "CWE": "CWE-120",
+          "Public": "20240416"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "firefox is earlier than 0:115.10.0-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240381001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

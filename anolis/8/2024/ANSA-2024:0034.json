@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20240034",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0034: libssh security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0034",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0034",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-48795:\nThe SSH transport protocol with certain OpenSSH extensions, found in OpenSSH before 9.6 and other products, allows remote attackers to bypass integrity checks such that some packets are omitted (from the extension negotiation message), and a client and server may consequently end up with a connection for which some security features have been downgraded or disabled, aka a Terrapin attack. This occurs because the SSH Binary Packet Protocol (BPP), implemented by these extensions, mishandles the handshake phase and mishandles use of sequence numbers. For example, there is an effective attack against SSH's use of ChaCha20-Poly1305 (and CBC with Encrypt-then-MAC). The bypass occurs in chacha20-poly1305@openssh.com and (if CBC is used) the -etm@openssh.com MAC algorithms. This also affects Maverick Synergy Java SSH API before 3.1.0-SNAPSHOT, Dropbear through 2022.83, Ssh before 5.1.1 in Erlang/OTP, PuTTY before 0.80, AsyncSSH before 2.14.2, golang.org/x/crypto before 0.17.0, libssh before 0.10.6, and libssh2 through 1.11.0; and there could be effects on Bitvise SSH through 9.31.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-01-18"
+      },
+      "Updated": {
+        "Date": "2024-01-18"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-48795",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-48795",
+          "CWE": "CWE-222",
+          "Public": "20231221"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libssh is earlier than 0:0.9.6-11.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240034001"
+          },
+          {
+            "Comment": "libssh-devel is earlier than 0:devel-0.9.6-11.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240034002"
+          },
+          {
+            "Comment": "libssh-config is earlier than 0:config-0.9.6-11.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240034003"
+          },
+          {
+            "Comment": "libssh-doc is earlier than 0:doc-0.9.6-11.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240034004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

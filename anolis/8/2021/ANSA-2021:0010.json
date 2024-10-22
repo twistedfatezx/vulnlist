@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20210010",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0010: dovecot security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0010",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0010",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-12100:\nIn Dovecot before 2.3.11.3, uncontrolled recursion in submission, lmtp, and lda allows remote attackers to cause a denial of service (resource consumption) via a crafted e-mail message with deeply nested MIME parts.\n\nCVE-2020-12673:\nIn Dovecot before 2.3.11.3, sending a specially formatted NTLM request will crash the auth service because of an out-of-bounds read.\n\nCVE-2020-12674:\nIn Dovecot before 2.3.11.3, sending a specially formatted RPA request will crash the auth service because a length of zero is mishandled.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-04-21"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-12100",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-12100",
+          "CWE": "CWE-674",
+          "Public": "20210421"
+        },
+        {
+          "ID": "CVE-2020-12673",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-12673",
+          "CWE": "CWE-125",
+          "Public": "20210421"
+        },
+        {
+          "ID": "CVE-2020-12674",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-12674",
+          "CWE": "CWE-125",
+          "Public": "20210421"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "dovecot is earlier than 1:2.3.8-2.el8.2",
+            "TestRef": "oval:cn.openanolis:tst:20210010001"
+          },
+          {
+            "Comment": "dovecot-mysql is earlier than 1:mysql-2.3.8-2.el8.2",
+            "TestRef": "oval:cn.openanolis:tst:20210010002"
+          },
+          {
+            "Comment": "dovecot-pgsql is earlier than 1:pgsql-2.3.8-2.el8.2",
+            "TestRef": "oval:cn.openanolis:tst:20210010003"
+          },
+          {
+            "Comment": "dovecot-pigeonhole is earlier than 1:pigeonhole-2.3.8-2.el8.2",
+            "TestRef": "oval:cn.openanolis:tst:20210010004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

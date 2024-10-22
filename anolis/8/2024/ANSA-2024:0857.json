@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20240857",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0857: wget security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0857",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0857",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-38428:\nurl.c in GNU Wget through 1.24.5 mishandles semicolons in the userinfo subcomponent of a URI, and thus there may be insecure behavior in which data that was supposed to be in the userinfo subcomponent is misinterpreted to be part of the host subcomponent.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-08-27"
+      },
+      "Updated": {
+        "Date": "2024-08-27"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-38428",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-38428",
+          "CWE": "CWE-115",
+          "Public": "20240827"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "wget is earlier than 0:1.19.5-12.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240857001"
+          },
+          {
+            "Comment": "wget-doc is earlier than 0:doc-1.19.5-12.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240857002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

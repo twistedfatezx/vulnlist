@@ -1,0 +1,157 @@
+{
+  "ID": "oval:cn.openanolis:def:20210162",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0162: kernel security and bug fix update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0162",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0162",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-0512:\nIn __hidinput_change_resolution_multipliers of hid-input.c, there is a possible out of bounds write due to a heap buffer overflow. This could lead to local escalation of privilege with no additional execution privileges needed. User interaction is not needed for exploitation.Product: AndroidVersions: Android kernelAndroid ID: A-173843328References: Upstream kernel\n\nCVE-2021-3715:\nA flaw was found in the \"Routing decision\" classifier in the Linux kernel's Traffic Control networking subsystem in the way it handled changing of classification filters, leading to a use-after-free condition. This flaw allows unprivileged local users to escalate their privileges on the system. The highest threat from this vulnerability is to confidentiality, integrity, as well as system availability.\n\nCVE-2021-37576:\narch/powerpc/kvm/book3s_rtas.c in the Linux kernel through 5.13.5 on the powerpc platform allows KVM guest OS users to cause host OS memory corruption via rtas_args.nargs, aka CID-f62f3c20647e.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-11-08"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-0512",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-0512",
+          "CWE": "CWE-120-\u003eCWE-787",
+          "Public": "20211108"
+        },
+        {
+          "ID": "CVE-2021-3715",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3715",
+          "CWE": "CWE-416",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-37576",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-37576",
+          "CWE": "CWE-20-\u003eCWE-119",
+          "Public": "20211108"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162001"
+          },
+          {
+            "Comment": "kernel is earlier than 0:4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162002"
+          },
+          {
+            "Comment": "kernel-core is earlier than 0:core-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162003"
+          },
+          {
+            "Comment": "kernel-cross-headers is earlier than 0:cross-headers-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162004"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162005"
+          },
+          {
+            "Comment": "kernel-debug-core is earlier than 0:debug-core-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162006"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162007"
+          },
+          {
+            "Comment": "kernel-debug-modules is earlier than 0:debug-modules-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162008"
+          },
+          {
+            "Comment": "kernel-debug-modules-extra is earlier than 0:debug-modules-extra-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162009"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162010"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162011"
+          },
+          {
+            "Comment": "kernel-modules is earlier than 0:modules-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162012"
+          },
+          {
+            "Comment": "kernel-modules-extra is earlier than 0:modules-extra-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162013"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162014"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162015"
+          },
+          {
+            "Comment": "perf is earlier than 0:4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162016"
+          },
+          {
+            "Comment": "python3-perf is earlier than 0:perf-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162017"
+          },
+          {
+            "Comment": "kernel(RHCK)4.18 (Anolis OS 8.2) is earlier than 0:4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162018"
+          },
+          {
+            "Comment": "kernel-abi-whitelists is earlier than 0:abi-whitelists-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162019"
+          },
+          {
+            "Comment": "kernel-doc is earlier than 0:doc-4.18.0-193.65.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210162020"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

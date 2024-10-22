@@ -1,0 +1,121 @@
+{
+  "ID": "oval:cn.openanolis:def:20240920",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0920: firefox security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0920",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0920",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-7652:\nAn error in the ECMA-262 specification relating to Async Generators could have resulted in a type confusion, potentially leading to memory corruption and an exploitable crash. This vulnerability affects Firefox \u003c 128, Firefox ESR \u003c 115.13, Thunderbird \u003c 115.13, and Thunderbird \u003c 128.\n\nCVE-2024-8381:\nA potentially exploitable type confusion could be triggered when looking up a property name on an object being used as the `with` environment. This vulnerability affects Firefox \u003c 130, Firefox ESR \u003c 128.2, Firefox ESR \u003c 115.15, Thunderbird \u003c 128.2, and Thunderbird \u003c 115.15.\n\nCVE-2024-8382:\nInternal browser event interfaces were exposed to web content when privileged EventHandler listener callbacks ran for those events. Web content that tried to use those interfaces would not be able to use them with elevated privileges, but their presence would indicate certain browser features had been used, such as when a user opened the Dev Tools console. This vulnerability affects Firefox \u003c 130, Firefox ESR \u003c 128.2, Firefox ESR \u003c 115.15, Thunderbird \u003c 128.2, and Thunderbird \u003c 115.15.\n\nCVE-2024-8383:\nFirefox normally asks for confirmation before asking the operating system to find an application to handle a scheme that the browser does not support. It did not ask before doing so for the Usenet-related schemes news: and snews:. Since most operating systems don't have a trusted newsreader installed by default, an unscrupulous program that the user downloaded could register itself as a handler. The website that served the application download could then launch that application at will. This vulnerability affects Firefox \u003c 130, Firefox ESR \u003c 128.2, and Firefox ESR \u003c 115.15.\n\nCVE-2024-8384:\nThe JavaScript garbage collector could mis-color cross-compartment objects if OOM conditions were detected at the right point between two passes. This could have led to memory corruption. This vulnerability affects Firefox \u003c 130, Firefox ESR \u003c 128.2, Firefox ESR \u003c 115.15, Thunderbird \u003c 128.2, and Thunderbird \u003c 115.15.\n\nCVE-2024-8385:\nA difference in the handling of StructFields and ArrayTypes in WASM could be used to trigger an exploitable type confusion vulnerability. This vulnerability affects Firefox \u003c 130, Firefox ESR \u003c 128.2, and Thunderbird \u003c 128.2.\n\nCVE-2024-8386:\nIf a site had been granted the permission to open popup windows, it could cause Select elements to appear on top of another site to perform a spoofing attack. This vulnerability affects Firefox \u003c 130, Firefox ESR \u003c 128.2, and Thunderbird \u003c 128.2.\n\nCVE-2024-8387:\nMemory safety bugs present in Firefox 129, Firefox ESR 128.1, and Thunderbird 128.1. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code. This vulnerability affects Firefox \u003c 130, Firefox ESR \u003c 128.2, and Thunderbird \u003c 128.2.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-09-26"
+      },
+      "Updated": {
+        "Date": "2024-09-27"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-7652",
+          "CVSS3": "8.6/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-7652",
+          "CWE": "CWE-843",
+          "Public": "20240906"
+        },
+        {
+          "ID": "CVE-2024-8381",
+          "CVSS3": "7.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-8381",
+          "CWE": "CWE-704",
+          "Public": "20240903"
+        },
+        {
+          "ID": "CVE-2024-8382",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-8382",
+          "CWE": "CWE-497",
+          "Public": "20240903"
+        },
+        {
+          "ID": "CVE-2024-8383",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-8383",
+          "CWE": "CWE-862",
+          "Public": "20240903"
+        },
+        {
+          "ID": "CVE-2024-8384",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-8384",
+          "CWE": "CWE-787",
+          "Public": "20240903"
+        },
+        {
+          "ID": "CVE-2024-8385",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-8385",
+          "CWE": "CWE-843",
+          "Public": "20240903"
+        },
+        {
+          "ID": "CVE-2024-8386",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-8386",
+          "CWE": "CWE-358",
+          "Public": "20240903"
+        },
+        {
+          "ID": "CVE-2024-8387",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-8387",
+          "CWE": "CWE-120",
+          "Public": "20240903"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "firefox is earlier than 0:128.2.0-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240920001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

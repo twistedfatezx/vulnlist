@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20240460",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0460: python-idna security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0460",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0460",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2024-3651:\nA flaw was found in the python-idna library. A malicious argument was sent to the idna.encode() function can trigger an uncontrolled resource consumption, resulting in a denial of service.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-07"
+      },
+      "Updated": {
+        "Date": "2024-06-07"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-3651",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-3651",
+          "CWE": "CWE-400",
+          "Public": "20240603"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python-idna is earlier than 0:idna-3.7-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240460001"
+          },
+          {
+            "Comment": "python-idna-doc is earlier than 0:idna-doc-3.7-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240460002"
+          },
+          {
+            "Comment": "python3-idna is earlier than 0:idna-3.7-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240460003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

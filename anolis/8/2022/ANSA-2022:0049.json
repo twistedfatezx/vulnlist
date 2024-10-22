@@ -1,0 +1,137 @@
+{
+  "ID": "oval:cn.openanolis:def:20220049",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0049: firefox security update (Critical)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0049",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0049",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-25235:\nxmltok_impl.c in Expat (aka libexpat) before 2.4.5 lacks certain validation of encoding, such as checks for whether a UTF-8 character is valid in a certain context.\n\nCVE-2022-25236:\nxmlparse.c in Expat (aka libexpat) before 2.4.5 allows attackers to insert namespace-separator characters into namespace URIs.\n\nCVE-2022-25315:\nIn Expat (aka libexpat) before 2.4.5, there is an integer overflow in storeRawNames.\n\nCVE-2022-26381:\nNo description is available for this CVE.\n\nCVE-2022-26383:\nNo description is available for this CVE.\n\nCVE-2022-26384:\nNo description is available for this CVE.\n\nCVE-2022-26386:\nNo description is available for this CVE.\n\nCVE-2022-26387:\nNo description is available for this CVE.\n\nCVE-2022-26485:\nNo description is available for this CVE.\n\nCVE-2022-26486:\nNo description is available for this CVE.",
+    "Advisory": {
+      "Severity": "Critical",
+      "Issued": {
+        "Date": "2022-03-11"
+      },
+      "Updated": {
+        "Date": "2022-03-28"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-25235",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25235",
+          "CWE": "CWE-838",
+          "Public": "20220311"
+        },
+        {
+          "ID": "CVE-2022-25236",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25236",
+          "CWE": "CWE-179",
+          "Public": "20220311"
+        },
+        {
+          "ID": "CVE-2022-25315",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25315",
+          "CWE": "CWE-190-\u003eCWE-787",
+          "Public": "20220311"
+        },
+        {
+          "ID": "CVE-2022-26381",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-26381",
+          "CWE": "CWE-416",
+          "Public": "20220311"
+        },
+        {
+          "ID": "CVE-2022-26383",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-26383",
+          "CWE": "CWE-449",
+          "Public": "20220311"
+        },
+        {
+          "ID": "CVE-2022-26384",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-26384",
+          "CWE": "CWE-179",
+          "Public": "20220311"
+        },
+        {
+          "ID": "CVE-2022-26386",
+          "CVSS3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-26386",
+          "CWE": "CWE-281",
+          "Public": "20220311"
+        },
+        {
+          "ID": "CVE-2022-26387",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-26387",
+          "CWE": "CWE-367",
+          "Public": "20220311"
+        },
+        {
+          "ID": "CVE-2022-26485",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-26485",
+          "CWE": "CWE-416",
+          "Public": "20220311"
+        },
+        {
+          "ID": "CVE-2022-26486",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-26486",
+          "CWE": "CWE-416",
+          "Public": "20220311"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "firefox is earlier than 0:91.7.0-3.0.1.an8_5",
+            "TestRef": "oval:cn.openanolis:tst:20220049001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

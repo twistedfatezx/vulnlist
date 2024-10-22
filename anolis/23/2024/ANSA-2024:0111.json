@@ -1,0 +1,265 @@
+{
+  "ID": "oval:cn.openanolis:def:20240111",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0111: kernel security and bug fix update: kernel-5.10.134-16.3 (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0111",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0111",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-20588:\nA division-by-zero error on some AMD processors can potentially return speculative data resulting in loss of confidentiality. \n\nCVE-2024-24860:\nA race condition was found in the Linux kernel's bluetooth device driver in {min,max}_key_size_set() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.\n \nCVE-2024-26597:\nIn the Linux kernel, the following vulnerability has been resolved: net: qualcomm: rmnet: fix global oob in rmnet_policy The variable rmnet_link_ops assign a *bigger* maxtype which leads to a global out-of-bounds read when parsing the netlink attributes. See bug trace below:\n================================================================== \nBUG: KASAN: global-out-of-bounds in validate_nla lib/nlattr.c:386 [inline] \nBUG: KASAN: global-out-of-bounds in __nla_validate_parse+0x24af/0x2750 lib/nlattr.c:600 Read of size 1 at addr ffffffff92c438d0 by task syz-executor.6/84207 CPU: 0 PID: 84207 Comm: syz-executor.6 Tainted: G N 6.1.0 #3 Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014 Call Trace: \u003cTASK\u003e __dump_stack lib/dump_stack.c:88 [inline] dump_stack_lvl+0x8b/0xb3 lib/dump_stack.c:106 print_address_description mm/kasan/report.c:284 [inline] print_report+0x172/0x475 mm/kasan/report.c:395 kasan_report+0xbb/0x1c0 mm/kasan/report.c:495 validate_nla lib/nlattr.c:386 [inline] __nla_validate_parse+0x24af/0x2750 lib/nlattr.c:600 __nla_parse+0x3e/0x50 lib/nlattr.c:697 nla_parse_nested_deprecated include/net/netlink.h:1248 [inline] __rtnl_newlink+0x50a/0x1880 net/core/rtnetlink.c:3485 rtnl_newlink+0x64/0xa0 net/core/rtnetlink.c:3594 rtnetlink_rcv_msg+0x43c/0xd70 net/core/rtnetlink.c:6091 netlink_rcv_skb+0x14f/0x410 net/netlink/af_netlink.c:2540 netlink_unicast_kernel net/netlink/af_netlink.c:1319 [inline] netlink_unicast+0x54e/0x800 net/netlink/af_netlink.c:1345 netlink_sendmsg+0x930/0xe50 net/netlink/af_netlink.c:1921 sock_sendmsg_nosec net/socket.c:714 [inline] sock_sendmsg+0x154/0x190 net/socket.c:734 ____sys_sendmsg+0x6df/0x840 net/socket.c:2482 ___sys_sendmsg+0x110/0x1b0 net/socket.c:2536 __sys_sendmsg+0xf3/0x1c0 net/socket.c:2565 do_syscall_x64 arch/x86/entry/common.c:50 [inline] do_syscall_64+0x3b/0x90 arch/x86/entry/common.c:80 entry_SYSCALL_64_after_hwframe+0x63/0xcd RIP: 0033:0x7fdcf2072359 Code: 28 00 00 00 75 05 48 83 c4 28 c3 e8 f1 19 00 00 90 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 48 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b8 ff ff ff f7 d8 64 89 01 48 RSP: 002b:00007fdcf13e3168 EFLAGS: 00000246 ORIG_RAX: 000000000000002e RAX: ffffffffffffffda RBX: 00007fdcf219ff80 RCX: 00007fdcf2072359 RDX: 0000000000000000 RSI: 0000000020000200 RDI: 0000000000000003 RBP: 00007fdcf20bd493 R08: 0000000000000000 R09: 0000000000000000 R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000 R13: 00007fffbb8d7bdf R14: 00007fdcf13e3300 R15: 0000000000022000 \u003c/TASK\u003e The buggy address belongs to the variable: rmnet_policy+0x30/0xe0 The buggy address belongs to the physical page: page:0000000065bdeb3c refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x155243 flags: 0x200000000001000(reserved|node=0|zone=2) raw: 0200000000001000 ffffea00055490c8 ffffea00055490c8 0000000000000000 raw: 0000000000000000 0000000000000000 00000001ffffffff 0000000000000000 page dumped because: kasan: bad access detected Memory state around the buggy address: ffffffff92c43780: f9 f9 f9 f9 00 00 00 02 f9 f9 f9 f9 00 00 00 07 ffffffff92c43800: f9 f9 f9 f9 00 00 00 05 f9 f9 f9 f9 06 f9 f9 f9 \u003effffffff92c43880: f9 f9 f9 f9 00 00 00 00 00 00 f9 f9 f9 f9 f9 f9 ^ ffffffff92c43900: 00 00 00 00 00 00 00 00 07 f9 f9 f9 f9 f9 f9 f9 ffffffff92c43980: 00 00 00 07 f9 f9 f9 f9 00 00 00 05 f9 f9 f9 f9 According to the comment of `nla_parse_nested_deprecated`, the maxtype should be len(destination array) - 1. Hence use `IFLA_RMNET_MAX` here.\n\nCVE-2023-28464:\nhci_conn_cleanup in net/bluetooth/hci_conn.c in the Linux kernel through 6.2.9 has a use-after-free (observed in hci_conn_hash_flush) because of calls to hci_dev_put and hci_conn_put. There is a double free that may lead to privilege escalation.\n\nCVE-2023-39192:\nA flaw was found in the Netfilter subsystem in the Linux kernel. The xt_u32 module did not validate the fields in the xt_u32 structure. This flaw allows a local privileged attacker to trigger an out-of-bounds read by setting the size fields with a value beyond the array boundaries, leading to a crash or information disclosure.\n\nCVE-2023-45863:\nAn issue was discovered in lib/kobject.c in the Linux kernel before 6.2.3. With root access, an attacker can trigger a race condition that results in a fill_kobj_path out-of-bounds write.\n\nCVE-2023-45871:\nAn issue was discovered in drivers/net/ethernet/intel/igb/igb_main.c in the IGB driver in the Linux kernel before 6.5.3. A buffer size may not be adequate for frames larger than the MTU.\n\nCVE-2023-4622:\nA use-after-free vulnerability in the Linux kernel's af_unix component can be exploited to achieve local privilege escalation.\nThe unix_stream_sendpage() function tries to add data to the last skb in the peer's recv queue without locking the queue. Thus there is a race where unix_stream_sendpage() could access an skb locklessly that is being released by garbage collection, resulting in use-after-free.\nWe recommend upgrading past commit 790c2f9d15b594350ae9bca7b236f2b1859de02c.\n\nCVE-2023-51779:\nbt_sock_recvmsg in net/bluetooth/af_bluetooth.c in the Linux kernel through 6.6.8 has a use-after-free because of a bt_sock_ioctl race condition.\n\nCVE-2023-5178:\nA use-after-free vulnerability was found in drivers/nvme/target/tcp.c` in `nvmet_tcp_free_crypto` due to a logical bug in the NVMe/TCP subsystem in the Linux kernel. This issue may allow a malicious user to cause a use-after-free and double-free problem, which may permit remote code execution or lead to local privilege escalation.\n\nCVE-2023-52438:\nIn the Linux kernel, the following vulnerability has been resolved:\nbinder: fix use-after-free in shinker's callback\nThe mmap read lock is used during the shrinker's callback, which means\nthat using alloc-\u003evma pointer isn't safe as it can race with munmap().\nAs of commit dd2283f2605e (\"mm: mmap: zap pages with read mmap_sem in\nmunmap\") the mmap lock is downgraded after the vma has been isolated.\nI was able to reproduce this issue by manually adding some delays and\ntriggering page reclaiming through the shrinker's debug sysfs. The\nfollowing KASAN report confirms the UAF:\n==================================================================\nBUG: KASAN: slab-use-after-free in zap_page_range_single+0x470/0x4b8\nRead of size 8 at addr ffff356ed50e50f0 by task bash/478\nCPU: 1 PID: 478 Comm: bash Not tainted 6.6.0-rc5-00055-g1c8b86a3799f-dirty #70\nHardware name: linux,dummy-virt (DT)\nCall trace:\nzap_page_range_single+0x470/0x4b8\nbinder_alloc_free_page+0x608/0xadc\n__list_lru_walk_one+0x130/0x3b0\nlist_lru_walk_node+0xc4/0x22c\nbinder_shrink_scan+0x108/0x1dc\nshrinker_debugfs_scan_write+0x2b4/0x500\nfull_proxy_write+0xd4/0x140\nvfs_write+0x1ac/0x758\nksys_write+0xf0/0x1dc\n__arm64_sys_write+0x6c/0x9c\nAllocated by task 492:\nkmem_cache_alloc+0x130/0x368\nvm_area_alloc+0x2c/0x190\nmmap_region+0x258/0x18bc\ndo_mmap+0x694/0xa60\nvm_mmap_pgoff+0x170/0x29c\nksys_mmap_pgoff+0x290/0x3a0\n__arm64_sys_mmap+0xcc/0x144\nFreed by task 491:\nkmem_cache_free+0x17c/0x3c8\nvm_area_free_rcu_cb+0x74/0x98\nrcu_core+0xa38/0x26d4\nrcu_core_si+0x10/0x1c\n__do_softirq+0x2fc/0xd24\nLast potentially related work creation:\n__call_rcu_common.constprop.0+0x6c/0xba0\ncall_rcu+0x10/0x1c\nvm_area_free+0x18/0x24\nremove_vma+0xe4/0x118\ndo_vmi_align_munmap.isra.0+0x718/0xb5c\ndo_vmi_munmap+0xdc/0x1fc\n__vm_munmap+0x10c/0x278\n__arm64_sys_munmap+0x58/0x7c\nFix this issue by performing instead a vma_lookup() which will fail to\nfind the vma that was isolated before the mmap lock downgrade. Note that\nthis option has better performance than upgrading to a mmap write lock\nwhich would increase contention. Plus, mmap_write_trylock() has been\nrecently removed anyway.\n\nCVE-2023-5717:\nA heap out-of-bounds write vulnerability in the Linux kernel's Linux Kernel Performance Events (perf) component can be exploited to achieve local privilege escalation.\nIf perf_read_group() is called while an event's sibling_list is smaller than its child's sibling_list, it can increment or write to memory locations outside of the allocated buffer.\nWe recommend upgrading past commit 32671e3799ca2e4590773fd0e63aaa4229e50c06.\n\nCVE-2023-6176:\nA null pointer dereference flaw was found in the Linux kernel API for the cryptographic algorithm scatterwalk functionality. This issue occurs when a user constructs a malicious packet with specific socket configuration, which could allow a local user to crash the system or escalate their privileges on the system.\n\nCVE-2023-6931:\nA heap out-of-bounds write vulnerability in the Linux kernel's Performance Events system component can be exploited to achieve local privilege escalation.\nA perf_event's read_size can overflow, leading to an heap out-of-bounds increment or write in perf_read_group().\nWe recommend upgrading past commit 382c27f4ed28f803b1f1473ac2d8db0afc795a1b.\n\nCVE-2023-6932:\nA use-after-free vulnerability in the Linux kernel's ipv4: igmp component can be exploited to achieve local privilege escalation.\nA race condition can be exploited to cause a timer be mistakenly registered on a RCU read locked object which is freed by another thread.\nWe recommend upgrading past commit e2b706c691905fe78468c361aaabc719d0a496f1.\n\nCVE-2024-1086:\nA use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.\nThe nft_verdict_init() function allows positive values as drop error within the hook verdict, and hence the nf_hook_slow() function can cause a double free vulnerability when NF_DROP is issued with a drop error which resembles NF_ACCEPT.\nWe recommend upgrading past commit f342de4e2f33e0e39165d8639387aa6c19dff660.\n\nCVE-2024-22099:\nNULL Pointer Dereference vulnerability in Linux Linux kernel kernel on Linux, x86, ARM (net, bluetooth modules) allows Overflow Buffers. This vulnerability is associated with program files /net/bluetooth/rfcomm/core.C.\nThis issue affects Linux kernel: v2.6.12-rc2.\n\nCVE-2024-24855:\nA race condition was found in the Linux kernel's scsi device driver in lpfc_unregister_fcf_rescan() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-03-27"
+      },
+      "Updated": {
+        "Date": "2024-03-28"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-20588",
+          "CVSS3": "6.0/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-20588",
+          "CWE": "CWE-369",
+          "Public": "20230819"
+        },
+        {
+          "ID": "CVE-2024-24860",
+          "CVSS3": "5.3/CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-24860",
+          "CWE": "",
+          "Public": "20240205"
+        },
+        {
+          "ID": "CVE-2024-26597",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-26597",
+          "CWE": "",
+          "Public": "20240222"
+        },
+        {
+          "ID": "CVE-2023-28464",
+          "CVSS3": "7.1/CVSS:3.1/AV:A/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-28464",
+          "CWE": "CWE-415",
+          "Public": "20230328"
+        },
+        {
+          "ID": "CVE-2023-39192",
+          "CVSS3": "6.7/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-39192",
+          "CWE": "CWE-125",
+          "Public": "20231009"
+        },
+        {
+          "ID": "CVE-2023-45863",
+          "CVSS3": "6.4/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45863",
+          "CWE": "",
+          "Public": "20231014"
+        },
+        {
+          "ID": "CVE-2023-45871",
+          "CVSS3": "7.5/CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45871",
+          "CWE": "CWE-120",
+          "Public": "20231031"
+        },
+        {
+          "ID": "CVE-2023-4622",
+          "CVSS3": "6.6/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-4622",
+          "CWE": "CWE-416",
+          "Public": "20230906"
+        },
+        {
+          "ID": "CVE-2023-51779",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-51779",
+          "CWE": "CWE-362-\u003eCWE-416",
+          "Public": "20240123"
+        },
+        {
+          "ID": "CVE-2023-5178",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5178",
+          "CWE": "CWE-415-\u003eCWE-416",
+          "Public": "20231031"
+        },
+        {
+          "ID": "CVE-2023-52438",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-52438",
+          "CWE": "CWE-416",
+          "Public": "20240219"
+        },
+        {
+          "ID": "CVE-2023-5717",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5717",
+          "CWE": "CWE-787",
+          "Public": "20231025"
+        },
+        {
+          "ID": "CVE-2023-6176",
+          "CVSS3": "4.4/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6176",
+          "CWE": "",
+          "Public": "20231115"
+        },
+        {
+          "ID": "CVE-2023-6931",
+          "CVSS3": "5.8/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6931",
+          "CWE": "CWE-787",
+          "Public": "20231219"
+        },
+        {
+          "ID": "CVE-2023-6932",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6932",
+          "CWE": "CWE-416",
+          "Public": "20231218"
+        },
+        {
+          "ID": "CVE-2024-1086",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-1086",
+          "CWE": "CWE-416",
+          "Public": "20240130"
+        },
+        {
+          "ID": "CVE-2024-22099",
+          "CVSS3": "6.3/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-22099",
+          "CWE": "CWE-476",
+          "Public": "20240125"
+        },
+        {
+          "ID": "CVE-2024-24855",
+          "CVSS3": "4.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-24855",
+          "CWE": "CWE-367",
+          "Public": "20240205"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111001"
+          },
+          {
+            "Comment": "kernel is earlier than 0:5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111002"
+          },
+          {
+            "Comment": "kernel-core is earlier than 0:core-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111003"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111004"
+          },
+          {
+            "Comment": "kernel-debug-core is earlier than 0:debug-core-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111005"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111006"
+          },
+          {
+            "Comment": "kernel-debug-modules is earlier than 0:debug-modules-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111007"
+          },
+          {
+            "Comment": "kernel-debug-modules-extra is earlier than 0:debug-modules-extra-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111008"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111009"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111010"
+          },
+          {
+            "Comment": "kernel-modules is earlier than 0:modules-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111011"
+          },
+          {
+            "Comment": "kernel-modules-extra is earlier than 0:modules-extra-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111012"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111013"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111014"
+          },
+          {
+            "Comment": "kernel-tools-libs-devel is earlier than 0:tools-libs-devel-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111015"
+          },
+          {
+            "Comment": "perf is earlier than 0:5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111016"
+          },
+          {
+            "Comment": "python3-perf is earlier than 0:perf-5.10.134-16.3.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240111017"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

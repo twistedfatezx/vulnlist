@@ -1,0 +1,141 @@
+{
+  "ID": "oval:cn.openanolis:def:20210153",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0153: microcode_ctl security, bug fix and enhancement update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0153",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0153",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-0543:\nIncomplete cleanup from specific special register read operations in some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.\n\nCVE-2020-0548:\nCleanup errors in some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.\n\nCVE-2020-0549:\nCleanup errors in some data cache evictions for some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.\n\nCVE-2020-24489:\nIncomplete cleanup in some Intel(R) VT-d products may allow an authenticated user to potentially enable escalation of privilege via local access.\n\nCVE-2020-24511:\nImproper isolation of shared resources in some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.\n\nCVE-2020-24512:\nObservable timing discrepancy in some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.\n\nCVE-2020-24513:\nDomain-bypass transient execution vulnerability in some Intel Atom(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.\n\nCVE-2020-8695:\nObservable discrepancy in the RAPL interface for some Intel(R) Processors may allow a privileged user to potentially enable information disclosure via local access.\n\nCVE-2020-8696:\nImproper removal of sensitive information before storage or transfer in some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.\n\nCVE-2020-8698:\nImproper isolation of shared resources in some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-10-09"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-0543",
+          "CVSS3": "6.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-0543",
+          "CWE": "",
+          "Public": "20211009"
+        },
+        {
+          "ID": "CVE-2020-0548",
+          "CVSS3": "2.8/CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:C/C:L/I:N/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-0548",
+          "CWE": "CWE-203-\u003eCWE-200",
+          "Public": "20211009"
+        },
+        {
+          "ID": "CVE-2020-0549",
+          "CVSS3": "6.5/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-0549",
+          "CWE": "CWE-203-\u003eCWE-200",
+          "Public": "20211009"
+        },
+        {
+          "ID": "CVE-2020-24489",
+          "CVSS3": "8.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-24489",
+          "CWE": "CWE-459",
+          "Public": "20211009"
+        },
+        {
+          "ID": "CVE-2020-24511",
+          "CVSS3": "5.6/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-24511",
+          "CWE": "CWE-200",
+          "Public": "20211009"
+        },
+        {
+          "ID": "CVE-2020-24512",
+          "CVSS3": "2.8/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:L/I:N/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-24512",
+          "CWE": "CWE-200",
+          "Public": "20211009"
+        },
+        {
+          "ID": "CVE-2020-24513",
+          "CVSS3": "5.6/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-24513",
+          "CWE": "CWE-200",
+          "Public": "20211009"
+        },
+        {
+          "ID": "CVE-2020-8695",
+          "CVSS3": "5.1/CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-8695",
+          "CWE": "CWE-200",
+          "Public": "20211009"
+        },
+        {
+          "ID": "CVE-2020-8696",
+          "CVSS3": "2.8/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:L/I:N/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-8696",
+          "CWE": "CWE-212",
+          "Public": "20211009"
+        },
+        {
+          "ID": "CVE-2020-8698",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-8698",
+          "CWE": "CWE-212",
+          "Public": "20211009"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "microcode_ctl is earlier than 4:20191115-4.20210608.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210153001"
+          },
+          {
+            "Comment": "microcode_ctl (Anolis OS 8.2) is earlier than 4:20191115-4.20210608.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210153002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

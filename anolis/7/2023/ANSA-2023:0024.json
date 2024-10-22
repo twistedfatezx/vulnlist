@@ -1,0 +1,205 @@
+{
+  "ID": "oval:cn.openanolis:def:20230024",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0024: sssd security and bug fix update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0024",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0024",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2021-25220:\nBIND 9.11.0 -\u003e 9.11.36 9.12.0 -\u003e 9.16.26 9.17.0 -\u003e 9.18.0 BIND Supported Preview Editions: 9.11.4-S1 -\u003e 9.11.36-S1 9.16.8-S1 -\u003e 9.16.26-S1 Versions of BIND 9 earlier than those shown - back to 9.1.0, including Supported Preview Editions - are also believed to be affected but have not been tested as they are EOL. The cache could become poisoned with incorrect records leading to queries being made to the wrong servers, which might also result in false information being returned to clients.\n\nCVE-2022-2795:\nBy flooding the target resolver with queries exploiting this flaw an attacker can significantly impair the resolver's performance, effectively denying legitimate clients access to the DNS resolution service.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-02-03"
+      },
+      "Updated": {
+        "Date": "2023-02-07"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-25220",
+          "CVSS3": "6.8/CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-25220",
+          "CWE": "CWE-444",
+          "Public": "20220323"
+        },
+        {
+          "ID": "CVE-2022-2795",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-2795",
+          "CWE": "CWE-20-\u003eCWE-400",
+          "Public": "20220921"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libipa_hbac is earlier than 0:1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024001"
+          },
+          {
+            "Comment": "libipa_hbac-devel is earlier than 0:devel-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024002"
+          },
+          {
+            "Comment": "libsss_autofs is earlier than 0:1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024003"
+          },
+          {
+            "Comment": "libsss_certmap is earlier than 0:1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024004"
+          },
+          {
+            "Comment": "libsss_certmap-devel is earlier than 0:devel-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024005"
+          },
+          {
+            "Comment": "libsss_idmap is earlier than 0:1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024006"
+          },
+          {
+            "Comment": "libsss_idmap-devel is earlier than 0:devel-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024007"
+          },
+          {
+            "Comment": "libsss_nss_idmap is earlier than 0:1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024008"
+          },
+          {
+            "Comment": "libsss_nss_idmap-devel is earlier than 0:devel-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024009"
+          },
+          {
+            "Comment": "libsss_simpleifp is earlier than 0:1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024010"
+          },
+          {
+            "Comment": "libsss_simpleifp-devel is earlier than 0:devel-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024011"
+          },
+          {
+            "Comment": "libsss_sudo is earlier than 0:1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024012"
+          },
+          {
+            "Comment": "python-libipa_hbac is earlier than 0:libipa_hbac-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024013"
+          },
+          {
+            "Comment": "python-libsss_nss_idmap is earlier than 0:libsss_nss_idmap-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024014"
+          },
+          {
+            "Comment": "python-sss is earlier than 0:sss-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024015"
+          },
+          {
+            "Comment": "python-sss-murmur is earlier than 0:sss-murmur-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024016"
+          },
+          {
+            "Comment": "sssd is earlier than 0:1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024017"
+          },
+          {
+            "Comment": "sssd-ad is earlier than 0:ad-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024018"
+          },
+          {
+            "Comment": "sssd-client is earlier than 0:client-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024019"
+          },
+          {
+            "Comment": "sssd-common is earlier than 0:common-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024020"
+          },
+          {
+            "Comment": "sssd-common-pac is earlier than 0:common-pac-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024021"
+          },
+          {
+            "Comment": "sssd-dbus is earlier than 0:dbus-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024022"
+          },
+          {
+            "Comment": "sssd-ipa is earlier than 0:ipa-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024023"
+          },
+          {
+            "Comment": "sssd-kcm is earlier than 0:kcm-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024024"
+          },
+          {
+            "Comment": "sssd-krb5 is earlier than 0:krb5-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024025"
+          },
+          {
+            "Comment": "sssd-krb5-common is earlier than 0:krb5-common-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024026"
+          },
+          {
+            "Comment": "sssd-ldap is earlier than 0:ldap-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024027"
+          },
+          {
+            "Comment": "sssd-libwbclient is earlier than 0:libwbclient-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024028"
+          },
+          {
+            "Comment": "sssd-libwbclient-devel is earlier than 0:libwbclient-devel-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024029"
+          },
+          {
+            "Comment": "sssd-polkit-rules is earlier than 0:polkit-rules-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024030"
+          },
+          {
+            "Comment": "sssd-proxy is earlier than 0:proxy-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024031"
+          },
+          {
+            "Comment": "sssd-tools is earlier than 0:tools-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024032"
+          },
+          {
+            "Comment": "sssd-winbind-idmap is earlier than 0:winbind-idmap-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024033"
+          },
+          {
+            "Comment": "python-sssdconfig is earlier than 0:sssdconfig-1.16.5-10.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230024034"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

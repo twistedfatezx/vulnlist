@@ -1,0 +1,213 @@
+{
+  "ID": "oval:cn.openanolis:def:20230844",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0844: samba security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0844",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0844",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2018-14628:\nAn information leak vulnerability was discovered in Samba's LDAP server. Due to missing access control checks, an authenticated but unprivileged attacker could discover the names and preserved attributes of deleted objects in the LDAP store.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-12-13"
+      },
+      "Updated": {
+        "Date": "2023-12-13"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2018-14628",
+          "CVSS3": "4.3/CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2018-14628",
+          "CWE": "CWE-862",
+          "Public": "20230117"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "ctdb is earlier than 0:4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844001"
+          },
+          {
+            "Comment": "libnetapi is earlier than 0:4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844002"
+          },
+          {
+            "Comment": "libnetapi-devel is earlier than 0:devel-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844003"
+          },
+          {
+            "Comment": "libsmbclient is earlier than 0:4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844004"
+          },
+          {
+            "Comment": "libsmbclient-devel is earlier than 0:devel-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844005"
+          },
+          {
+            "Comment": "libwbclient is earlier than 0:4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844006"
+          },
+          {
+            "Comment": "libwbclient-devel is earlier than 0:devel-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844007"
+          },
+          {
+            "Comment": "python3-samba is earlier than 0:samba-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844008"
+          },
+          {
+            "Comment": "python3-samba-dc is earlier than 0:samba-dc-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844009"
+          },
+          {
+            "Comment": "python3-samba-devel is earlier than 0:samba-devel-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844010"
+          },
+          {
+            "Comment": "python3-samba-test is earlier than 0:samba-test-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844011"
+          },
+          {
+            "Comment": "samba is earlier than 0:4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844012"
+          },
+          {
+            "Comment": "samba-client is earlier than 0:client-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844013"
+          },
+          {
+            "Comment": "samba-client-libs is earlier than 0:client-libs-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844014"
+          },
+          {
+            "Comment": "samba-common-libs is earlier than 0:common-libs-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844015"
+          },
+          {
+            "Comment": "samba-common-tools is earlier than 0:common-tools-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844016"
+          },
+          {
+            "Comment": "samba-dc is earlier than 0:dc-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844017"
+          },
+          {
+            "Comment": "samba-dc-bind-dlz is earlier than 0:dc-bind-dlz-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844018"
+          },
+          {
+            "Comment": "samba-dc-libs is earlier than 0:dc-libs-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844019"
+          },
+          {
+            "Comment": "samba-dcerpc is earlier than 0:dcerpc-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844020"
+          },
+          {
+            "Comment": "samba-devel is earlier than 0:devel-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844021"
+          },
+          {
+            "Comment": "samba-gpupdate is earlier than 0:gpupdate-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844022"
+          },
+          {
+            "Comment": "samba-krb5-printing is earlier than 0:krb5-printing-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844023"
+          },
+          {
+            "Comment": "samba-ldb-ldap-modules is earlier than 0:ldb-ldap-modules-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844024"
+          },
+          {
+            "Comment": "samba-libs is earlier than 0:libs-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844025"
+          },
+          {
+            "Comment": "samba-test is earlier than 0:test-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844026"
+          },
+          {
+            "Comment": "samba-test-libs is earlier than 0:test-libs-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844027"
+          },
+          {
+            "Comment": "samba-tools is earlier than 0:tools-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844028"
+          },
+          {
+            "Comment": "samba-usershares is earlier than 0:usershares-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844029"
+          },
+          {
+            "Comment": "samba-vfs-glusterfs is earlier than 0:vfs-glusterfs-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844030"
+          },
+          {
+            "Comment": "samba-vfs-iouring is earlier than 0:vfs-iouring-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844031"
+          },
+          {
+            "Comment": "samba-winbind is earlier than 0:winbind-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844032"
+          },
+          {
+            "Comment": "samba-winbind-clients is earlier than 0:winbind-clients-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844033"
+          },
+          {
+            "Comment": "samba-winbind-krb5-locator is earlier than 0:winbind-krb5-locator-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844034"
+          },
+          {
+            "Comment": "samba-winbind-modules is earlier than 0:winbind-modules-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844035"
+          },
+          {
+            "Comment": "samba-common is earlier than 0:common-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844036"
+          },
+          {
+            "Comment": "samba-dc-provision is earlier than 0:dc-provision-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844037"
+          },
+          {
+            "Comment": "samba-pidl is earlier than 0:pidl-4.18.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230844038"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

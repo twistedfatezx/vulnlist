@@ -1,0 +1,101 @@
+{
+  "ID": "oval:cn.openanolis:def:20220637",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0637: .NET Core 3.1 security, bug fix, and enhancement update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0637",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0637",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-34716:\n.NET Spoofing Vulnerability.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-08-16"
+      },
+      "Updated": {
+        "Date": "2022-08-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-34716",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-34716",
+          "CWE": "CWE-611",
+          "Public": "20220816"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "aspnetcore-runtime-3.1 is earlier than 0:runtime-3.1-3.1.28-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220637001"
+          },
+          {
+            "Comment": "aspnetcore-targeting-pack-3.1 is earlier than 0:targeting-pack-3.1-3.1.28-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220637002"
+          },
+          {
+            "Comment": "dotnet-apphost-pack-3.1 is earlier than 0:apphost-pack-3.1-3.1.28-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220637003"
+          },
+          {
+            "Comment": "dotnet-hostfxr-3.1 is earlier than 0:hostfxr-3.1-3.1.28-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220637004"
+          },
+          {
+            "Comment": "dotnet-runtime-3.1 is earlier than 0:runtime-3.1-3.1.28-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220637005"
+          },
+          {
+            "Comment": "dotnet-sdk-3.1 is earlier than 0:sdk-3.1-3.1.422-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220637006"
+          },
+          {
+            "Comment": "dotnet-sdk-3.1-source-built-artifacts is earlier than 0:sdk-3.1-source-built-artifacts-3.1.422-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220637007"
+          },
+          {
+            "Comment": "dotnet-targeting-pack-3.1 is earlier than 0:targeting-pack-3.1-3.1.28-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220637008"
+          },
+          {
+            "Comment": "dotnet-templates-3.1 is earlier than 0:templates-3.1-3.1.422-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220637009"
+          },
+          {
+            "Comment": "dotnet3.1 is earlier than 0:3.1.422-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220637010"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

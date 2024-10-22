@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20240053",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0053: python-jinja2 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0053",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0053",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2024-22195:\nA  cross-site scripting (XSS) flaw was found in Jinja2 due to the xmlattr filter allowing keys with spaces, contrary to XML/HTML attribute standards. If an application accepts user-input keys and renders them for other users, attackers can inject additional attributes, potentially leading to XSS. This misuse of the xmlattr filter enables the injection of arbitrary HTML attributes, bypassing auto-escaping and potentially circumventing attribute validation checks.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-02-06"
+      },
+      "Updated": {
+        "Date": "2024-02-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-22195",
+          "CVSS3": "5.4/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-22195",
+          "CWE": "CWE-79",
+          "Public": "20240206"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python-jinja2 is earlier than 0:jinja2-3.1.3-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240053001"
+          },
+          {
+            "Comment": "python3-jinja2+i18n is earlier than 0:jinja2+i18n-3.1.3-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240053002"
+          },
+          {
+            "Comment": "python3-jinja2 is earlier than 0:jinja2-3.1.3-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240053003"
+          },
+          {
+            "Comment": "python3-jinja2-doc is earlier than 0:jinja2-doc-3.1.3-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240053004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

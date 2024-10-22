@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20230248",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0248: device-mapper-multipath security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0248",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0248",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-41973:\nmultipath-tools 0.7.7 through 0.9.x before 0.9.2 allows local users to obtain root access, as exploited in conjunction with CVE-2022-41974. Local users able to access /dev/shm can change symlinks in multipathd due to incorrect symlink handling, which could lead to controlled file writes outside of the /dev/shm directory. This could be used indirectly for local privilege escalation to root.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-06-01"
+      },
+      "Updated": {
+        "Date": "2023-06-02"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-41973",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-41973",
+          "CWE": "",
+          "Public": "20230601"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "device-mapper-multipath is earlier than 0:mapper-multipath-0.8.4-37.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230248001"
+          },
+          {
+            "Comment": "device-mapper-multipath-devel is earlier than 0:mapper-multipath-devel-0.8.4-37.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230248002"
+          },
+          {
+            "Comment": "device-mapper-multipath-libs is earlier than 0:mapper-multipath-libs-0.8.4-37.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230248003"
+          },
+          {
+            "Comment": "kpartx is earlier than 0:0.8.4-37.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230248004"
+          },
+          {
+            "Comment": "libdmmp is earlier than 0:0.8.4-37.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230248005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

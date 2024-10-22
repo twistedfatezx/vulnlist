@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20220808",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0808: device-mapper-multipath security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0808",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0808",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-3787:\nNo description is available for this CVE.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-11-15"
+      },
+      "Updated": {
+        "Date": "2022-11-21"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-3787",
+          "CVSS3": "8.4/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-3787",
+          "CWE": "CWE-285",
+          "Public": "20221115"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "device-mapper-multipath is earlier than 0:mapper-multipath-0.8.4-28.0.1.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220808001"
+          },
+          {
+            "Comment": "device-mapper-multipath-devel is earlier than 0:mapper-multipath-devel-0.8.4-28.0.1.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220808002"
+          },
+          {
+            "Comment": "device-mapper-multipath-libs is earlier than 0:mapper-multipath-libs-0.8.4-28.0.1.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220808003"
+          },
+          {
+            "Comment": "kpartx is earlier than 0:0.8.4-28.0.1.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220808004"
+          },
+          {
+            "Comment": "libdmmp is earlier than 0:0.8.4-28.0.1.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220808005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

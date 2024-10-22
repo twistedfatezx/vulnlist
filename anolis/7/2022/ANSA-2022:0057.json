@@ -1,0 +1,117 @@
+{
+  "ID": "oval:cn.openanolis:def:20220057",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0057: httpd security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0057",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0057",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2021-26691:\nIn Apache HTTP Server versions 2.4.0 to 2.4.46 a specially crafted SessionHeader sent by an origin server could cause a heap overflow\n\nCVE-2021-34798:\nMalformed requests may cause the server to dereference a NULL pointer. This issue affects Apache HTTP Server 2.4.48 and earlier.\n\nCVE-2021-39275:\nap_escape_quotes() may write beyond the end of a buffer when given malicious input. No included modules pass untrusted data to these functions, but third-party / external modules may. This issue affects Apache HTTP Server 2.4.48 and earlier.\n\nCVE-2021-44790:\nA carefully crafted request body can cause a buffer overflow in the mod_lua multipart parser (r:parsebody() called from Lua scripts). The Apache httpd team is not aware of an exploit for the vulnerabilty though it might be possible to craft one. This issue affects Apache HTTP Server 2.4.51 and earlier.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-01-25"
+      },
+      "Updated": {
+        "Date": "2022-04-02"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-44790",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-44790",
+          "CWE": "(CWE-400|CWE-787)",
+          "Public": "20220302"
+        },
+        {
+          "ID": "CVE-2021-34798",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-34798",
+          "CWE": "CWE-476",
+          "Public": "20220315"
+        },
+        {
+          "ID": "CVE-2021-39275",
+          "CVSS3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-39275",
+          "CWE": "CWE-787",
+          "Public": "20220315"
+        },
+        {
+          "ID": "CVE-2021-26691",
+          "CVSS3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-26691",
+          "CWE": "CWE-119",
+          "Public": "20220302"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "httpd is earlier than 0:2.4.6-97.an7.4",
+            "TestRef": "oval:cn.openanolis:tst:20220057001"
+          },
+          {
+            "Comment": "httpd-devel is earlier than 0:devel-2.4.6-97.an7.4",
+            "TestRef": "oval:cn.openanolis:tst:20220057002"
+          },
+          {
+            "Comment": "httpd-tools is earlier than 0:tools-2.4.6-97.an7.4",
+            "TestRef": "oval:cn.openanolis:tst:20220057003"
+          },
+          {
+            "Comment": "mod_ldap is earlier than 0:2.4.6-97.an7.4",
+            "TestRef": "oval:cn.openanolis:tst:20220057004"
+          },
+          {
+            "Comment": "mod_proxy_html is earlier than 1:2.4.6-97.an7.4",
+            "TestRef": "oval:cn.openanolis:tst:20220057005"
+          },
+          {
+            "Comment": "mod_session is earlier than 0:2.4.6-97.an7.4",
+            "TestRef": "oval:cn.openanolis:tst:20220057006"
+          },
+          {
+            "Comment": "mod_ssl is earlier than 1:2.4.6-97.an7.4",
+            "TestRef": "oval:cn.openanolis:tst:20220057007"
+          },
+          {
+            "Comment": "httpd-manual is earlier than 0:manual-2.4.6-97.an7.4",
+            "TestRef": "oval:cn.openanolis:tst:20220057008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

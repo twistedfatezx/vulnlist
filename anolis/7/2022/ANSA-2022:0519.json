@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20220519",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0519: xz security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0519",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0519",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-1271:\nNo description is available for this CVE.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-06-17"
+      },
+      "Updated": {
+        "Date": "2022-06-27"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-1271",
+          "CVSS3": "7.1/CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1271",
+          "CWE": "(CWE-179|CWE-1173)",
+          "Public": "20220428"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "xz is earlier than 0:5.2.2-2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220519001"
+          },
+          {
+            "Comment": "xz-compat-libs is earlier than 0:compat-libs-5.2.2-2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220519002"
+          },
+          {
+            "Comment": "xz-devel is earlier than 0:devel-5.2.2-2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220519003"
+          },
+          {
+            "Comment": "xz-libs is earlier than 0:libs-5.2.2-2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220519004"
+          },
+          {
+            "Comment": "xz-lzma-compat is earlier than 0:lzma-compat-5.2.2-2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220519005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

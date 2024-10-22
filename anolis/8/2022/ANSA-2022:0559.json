@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20220559",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0559: libgcrypt security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0559",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0559",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-40528:\nThe ElGamal implementation in Libgcrypt before 1.9.4 allows plaintext recovery because, during interaction between two cryptographic libraries, a certain dangerous combination of the prime defined by the receiver's public key, the generator defined by the receiver's public key, and the sender's ephemeral exponents can lead to a cross-configuration attack against OpenPGP.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-07-08"
+      },
+      "Updated": {
+        "Date": "2022-07-09"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-40528",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-40528",
+          "CWE": "",
+          "Public": "20220708"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libgcrypt is earlier than 0:1.8.5-7.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220559001"
+          },
+          {
+            "Comment": "libgcrypt-devel is earlier than 0:devel-1.8.5-7.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220559002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

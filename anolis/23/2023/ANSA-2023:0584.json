@@ -1,0 +1,285 @@
+{
+  "ID": "oval:cn.openanolis:def:20230584",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0584: samba security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0584",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0584",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2022-2127:\nAn out-of-bounds read vulnerability was found in Samba due to insufficient length checks in winbindd_pam_auth_crap.c. When performing NTLM authentication, the client replies to cryptographic challenges back to the server. These replies have variable lengths, and Winbind fails to check the lan manager response length. When Winbind is used for NTLM authentication, a maliciously crafted request can trigger an out-of-bounds read in Winbind, possibly resulting in a crash.\n\nCVE-2023-3347:\nA vulnerability was found in Samba's SMB2 packet signing mechanism. The SMB2 packet signing is not enforced if an admin configured \"server signing = required\" or for SMB2 connections to Domain Controllers where SMB2 packet signing is mandatory. This flaw allows an attacker to perform attacks, such as a man-in-the-middle attack, by intercepting the network traffic and modifying the SMB2 messages between client and server, affecting the integrity of the data.\n\nCVE-2023-34966:\nAn infinite loop vulnerability was found in Samba's mdssvc RPC service for Spotlight. When parsing Spotlight mdssvc RPC packets sent by the client, the core unmarshalling function sl_unpack_loop() did not validate a field in the network packet that contains the count of elements in an array-like structure. By passing 0 as the count value, the attacked function will run in an endless loop consuming 100% CPU. This flaw allows an attacker to issue a malformed RPC request, triggering an infinite loop, resulting in a denial of service condition.\n\nCVE-2023-34967:\nA Type Confusion vulnerability was found in Samba's mdssvc RPC service for Spotlight. When parsing Spotlight mdssvc RPC packets, one encoded data structure is a key-value style dictionary where the keys are character strings, and the values can be any of the supported types in the mdssvc protocol. Due to a lack of type checking in callers of the dalloc_value_for_key() function, which returns the object associated with a key, a caller may trigger a crash in talloc_get_size() when talloc detects that the passed-in pointer is not a valid talloc pointer. With an RPC worker process shared among multiple client connections, a malicious client or attacker can trigger a process crash in a shared RPC mdssvc worker process, affecting all other clients this worker serves.\n\nCVE-2023-34968:\nA path disclosure vulnerability was found in Samba. As part of the Spotlight protocol, Samba discloses the server-side absolute path of shares, files, and directories in the results for search queries. This flaw allows a malicious client or an attacker with a targeted RPC request to view the information that is part of the disclosed path.\n\nCVE-2023-3961:\nA path traversal vulnerability was identified in Samba when processing client pipe names connecting to Unix domain sockets within a private directory. Samba typically uses this mechanism to connect SMB clients to remote procedure call (RPC) services like SAMR LSA or SPOOLSS, which Samba initiates on demand. However, due to inadequate sanitization of incoming client pipe names, allowing a client to send a pipe name containing Unix directory traversal characters (../). This could result in SMB clients connecting as root to Unix domain sockets outside the private directory. If an attacker or client managed to send a pipe name resolving to an external service using an existing Unix domain socket, it could potentially lead to unauthorized access to the service and consequential adverse events, including compromise or service crashes.\n\nCVE-2023-4091:\nA vulnerability was discovered in Samba, where the flaw allows SMB clients to truncate files, even with read-only permissions when the Samba VFS module \"acl_xattr\" is configured with \"acl_xattr:ignore system acls = yes\". The SMB protocol allows opening files when the client requests read-only access but then implicitly truncates the opened file to 0 bytes if the client specifies a separate OVERWRITE create disposition request. The issue arises in configurations that bypass kernel file system permissions checks, relying solely on Samba's permissions.\n\nCVE-2023-4154:\nA design flaw was found in Samba's DirSync control implementation, which exposes passwords and secrets in Active Directory to privileged users and Read-Only Domain Controllers (RODCs). This flaw allows RODCs and users possessing the GET_CHANGES right to access all attributes, including sensitive secrets and passwords. Even in a default setup, RODC DC accounts, which should only replicate some passwords, can gain access to all domain secrets, including the vital krbtgt, effectively eliminating the RODC / DC distinction. Furthermore, the vulnerability fails to account for error conditions (fail open), like out-of-memory situations, potentially granting access to secret attributes, even under low-privileged attacker influence.\n\nCVE-2023-42669:\nA vulnerability was found in Samba's \"rpcecho\" development server, a non-Windows RPC server used to test Samba's DCE/RPC stack elements. This vulnerability stems from an RPC function that can be blocked indefinitely. The issue arises because the \"rpcecho\" service operates with only one worker in the main RPC task, allowing calls to the \"rpcecho\" server to be blocked for a specified time, causing service disruptions. This disruption is triggered by a \"sleep()\" call in the \"dcesrv_echo_TestSleep()\" function under specific conditions. Authenticated users or attackers can exploit this vulnerability to make calls to the \"rpcecho\" server, requesting it to block for a specified duration, effectively disrupting most services and leading to a complete denial of service on the AD DC. The DoS affects all other services as \"rpcecho\" runs in the main RPC task.\n\nCVE-2023-42670:\nA flaw was found in Samba. It is susceptible to a vulnerability where multiple incompatible RPC listeners can be initiated, causing disruptions in the AD DC service. When Samba's RPC server experiences a high load or unresponsiveness, servers intended for non-AD DC purposes (for example, NT4-emulation \"classic DCs\") can erroneously start and compete for the same unix domain sockets. This issue leads to partial query responses from the AD DC, causing issues such as \"The procedure number is out of range\" when using tools like Active Directory Users. This flaw allows an attacker to disrupt AD DC services.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-10-18"
+      },
+      "Updated": {
+        "Date": "2023-10-18"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-2127",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-2127",
+          "CWE": "CWE-125",
+          "Public": "20230719"
+        },
+        {
+          "ID": "CVE-2023-3347",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-3347",
+          "CWE": "",
+          "Public": "20230802"
+        },
+        {
+          "ID": "CVE-2023-34966",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-34966",
+          "CWE": "CWE-835",
+          "Public": "20230719"
+        },
+        {
+          "ID": "CVE-2023-34967",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-34967",
+          "CWE": "CWE-843",
+          "Public": "20230719"
+        },
+        {
+          "ID": "CVE-2023-34968",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-34968",
+          "CWE": "",
+          "Public": "20230719"
+        },
+        {
+          "ID": "CVE-2023-3961",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-3961",
+          "CWE": "CWE-22",
+          "Public": "20231010"
+        },
+        {
+          "ID": "CVE-2023-4091",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-4091",
+          "CWE": "CWE-276",
+          "Public": "20231010"
+        },
+        {
+          "ID": "CVE-2023-4154",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-4154",
+          "CWE": "CWE-787",
+          "Public": "20231010"
+        },
+        {
+          "ID": "CVE-2023-42669",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-42669",
+          "CWE": "CWE-400",
+          "Public": "20231010"
+        },
+        {
+          "ID": "CVE-2023-42670",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-42670",
+          "CWE": "CWE-400",
+          "Public": "20231010"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "ctdb is earlier than 0:4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584001"
+          },
+          {
+            "Comment": "libnetapi is earlier than 0:4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584002"
+          },
+          {
+            "Comment": "libnetapi-devel is earlier than 0:devel-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584003"
+          },
+          {
+            "Comment": "libsmbclient is earlier than 0:4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584004"
+          },
+          {
+            "Comment": "libsmbclient-devel is earlier than 0:devel-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584005"
+          },
+          {
+            "Comment": "libwbclient is earlier than 0:4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584006"
+          },
+          {
+            "Comment": "libwbclient-devel is earlier than 0:devel-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584007"
+          },
+          {
+            "Comment": "python3-samba is earlier than 0:samba-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584008"
+          },
+          {
+            "Comment": "python3-samba-dc is earlier than 0:samba-dc-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584009"
+          },
+          {
+            "Comment": "python3-samba-devel is earlier than 0:samba-devel-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584010"
+          },
+          {
+            "Comment": "python3-samba-test is earlier than 0:samba-test-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584011"
+          },
+          {
+            "Comment": "samba is earlier than 0:4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584012"
+          },
+          {
+            "Comment": "samba-client is earlier than 0:client-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584013"
+          },
+          {
+            "Comment": "samba-client-libs is earlier than 0:client-libs-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584014"
+          },
+          {
+            "Comment": "samba-common-libs is earlier than 0:common-libs-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584015"
+          },
+          {
+            "Comment": "samba-common-tools is earlier than 0:common-tools-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584016"
+          },
+          {
+            "Comment": "samba-dc is earlier than 0:dc-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584017"
+          },
+          {
+            "Comment": "samba-dc-bind-dlz is earlier than 0:dc-bind-dlz-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584018"
+          },
+          {
+            "Comment": "samba-dc-libs is earlier than 0:dc-libs-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584019"
+          },
+          {
+            "Comment": "samba-dcerpc is earlier than 0:dcerpc-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584020"
+          },
+          {
+            "Comment": "samba-devel is earlier than 0:devel-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584021"
+          },
+          {
+            "Comment": "samba-gpupdate is earlier than 0:gpupdate-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584022"
+          },
+          {
+            "Comment": "samba-krb5-printing is earlier than 0:krb5-printing-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584023"
+          },
+          {
+            "Comment": "samba-ldb-ldap-modules is earlier than 0:ldb-ldap-modules-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584024"
+          },
+          {
+            "Comment": "samba-libs is earlier than 0:libs-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584025"
+          },
+          {
+            "Comment": "samba-test is earlier than 0:test-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584026"
+          },
+          {
+            "Comment": "samba-test-libs is earlier than 0:test-libs-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584027"
+          },
+          {
+            "Comment": "samba-tools is earlier than 0:tools-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584028"
+          },
+          {
+            "Comment": "samba-usershares is earlier than 0:usershares-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584029"
+          },
+          {
+            "Comment": "samba-vfs-glusterfs is earlier than 0:vfs-glusterfs-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584030"
+          },
+          {
+            "Comment": "samba-vfs-iouring is earlier than 0:vfs-iouring-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584031"
+          },
+          {
+            "Comment": "samba-winbind is earlier than 0:winbind-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584032"
+          },
+          {
+            "Comment": "samba-winbind-clients is earlier than 0:winbind-clients-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584033"
+          },
+          {
+            "Comment": "samba-winbind-krb5-locator is earlier than 0:winbind-krb5-locator-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584034"
+          },
+          {
+            "Comment": "samba-winbind-modules is earlier than 0:winbind-modules-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584035"
+          },
+          {
+            "Comment": "samba-common is earlier than 0:common-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584036"
+          },
+          {
+            "Comment": "samba-dc-provision is earlier than 0:dc-provision-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584037"
+          },
+          {
+            "Comment": "samba-pidl is earlier than 0:pidl-4.18.8-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230584038"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

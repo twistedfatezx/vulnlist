@@ -1,0 +1,97 @@
+{
+  "ID": "oval:cn.openanolis:def:20230164",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0164: apr-util security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0164",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0164",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-25147:\nInteger Overflow or Wraparound vulnerability in apr_base64 functions of Apache Portable Runtime Utility (APR-util) allows an attacker to write beyond bounds of a buffer. This issue affects Apache Portable Runtime Utility (APR-util) 1.6.1 and prior versions.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-05-18"
+      },
+      "Updated": {
+        "Date": "2023-05-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-25147",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25147",
+          "CWE": "CWE-190",
+          "Public": "20230201"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "apr-util is earlier than 0:util-1.6.1-6.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230164001"
+          },
+          {
+            "Comment": "apr-util-bdb is earlier than 0:util-bdb-1.6.1-6.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230164002"
+          },
+          {
+            "Comment": "apr-util-devel is earlier than 0:util-devel-1.6.1-6.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230164003"
+          },
+          {
+            "Comment": "apr-util-ldap is earlier than 0:util-ldap-1.6.1-6.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230164004"
+          },
+          {
+            "Comment": "apr-util-mysql is earlier than 0:util-mysql-1.6.1-6.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230164005"
+          },
+          {
+            "Comment": "apr-util-odbc is earlier than 0:util-odbc-1.6.1-6.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230164006"
+          },
+          {
+            "Comment": "apr-util-openssl is earlier than 0:util-openssl-1.6.1-6.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230164007"
+          },
+          {
+            "Comment": "apr-util-pgsql is earlier than 0:util-pgsql-1.6.1-6.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230164008"
+          },
+          {
+            "Comment": "apr-util-sqlite is earlier than 0:util-sqlite-1.6.1-6.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230164009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "ID": "oval:cn.openanolis:def:20240050",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0050: postfix security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0050",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0050",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-51764:\nA flaw was found in some SMTP server configurations in Postfix. This flaw allows a remote attacker to break out email message data to \"smuggle\" SMTP commands and send spoofed emails that pass SPF checks.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-02-06"
+      },
+      "Updated": {
+        "Date": "2024-02-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-51764",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-51764",
+          "CWE": "CWE-345-\u003eCWE-451",
+          "Public": "20240206"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "postfix is earlier than 2:3.7.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240050001"
+          },
+          {
+            "Comment": "postfix-cdb is earlier than 2:cdb-3.7.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240050002"
+          },
+          {
+            "Comment": "postfix-ldap is earlier than 2:ldap-3.7.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240050003"
+          },
+          {
+            "Comment": "postfix-lmdb is earlier than 2:lmdb-3.7.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240050004"
+          },
+          {
+            "Comment": "postfix-mysql is earlier than 2:mysql-3.7.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240050005"
+          },
+          {
+            "Comment": "postfix-pcre is earlier than 2:pcre-3.7.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240050006"
+          },
+          {
+            "Comment": "postfix-perl-scripts is earlier than 2:perl-scripts-3.7.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240050007"
+          },
+          {
+            "Comment": "postfix-pgsql is earlier than 2:pgsql-3.7.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240050008"
+          },
+          {
+            "Comment": "postfix-sqlite is earlier than 2:sqlite-3.7.9-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240050009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

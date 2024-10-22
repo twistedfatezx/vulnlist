@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20230615",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0615: libcap security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0615",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0615",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-2603:\nA vulnerability was found in libcap. This issue occurs in the _libcap_strdup() function and can lead to an integer overflow if the input string is close to 4GiB.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-10-23"
+      },
+      "Updated": {
+        "Date": "2023-10-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-2603",
+          "CVSS3": "4.4/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-2603",
+          "CWE": "CWE-190",
+          "Public": "20230818"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libcap is earlier than 0:2.69-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230615001"
+          },
+          {
+            "Comment": "libcap-devel is earlier than 0:devel-2.69-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230615002"
+          },
+          {
+            "Comment": "libcap-static is earlier than 0:static-2.69-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230615003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

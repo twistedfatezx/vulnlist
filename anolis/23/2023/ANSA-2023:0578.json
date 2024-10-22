@@ -1,0 +1,97 @@
+{
+  "ID": "oval:cn.openanolis:def:20230578",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0578: tomcat security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0578",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0578",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-41080:\nURL Redirection to Untrusted Site ('Open Redirect') vulnerability in FORM authentication feature Apache Tomcat.This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M10, from 10.1.0-M1 through 10.0.12, from 9.0.0-M1 through 9.0.79 and from 8.5.0 through 8.5.92. The vulnerability is limited to the ROOT (default) web application.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-10-18"
+      },
+      "Updated": {
+        "Date": "2023-10-18"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-41080",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-41080",
+          "CWE": "CWE-601",
+          "Public": "20230825"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "tomcat is earlier than 1:9.0.80-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230578001"
+          },
+          {
+            "Comment": "tomcat-admin-webapps is earlier than 1:admin-webapps-9.0.80-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230578002"
+          },
+          {
+            "Comment": "tomcat-doc is earlier than 1:doc-9.0.80-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230578003"
+          },
+          {
+            "Comment": "tomcat-docs-webapp is earlier than 1:docs-webapp-9.0.80-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230578004"
+          },
+          {
+            "Comment": "tomcat-el-3.0-api is earlier than 1:el-3.0-api-9.0.80-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230578005"
+          },
+          {
+            "Comment": "tomcat-jsp-2.3-api is earlier than 1:jsp-2.3-api-9.0.80-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230578006"
+          },
+          {
+            "Comment": "tomcat-lib is earlier than 1:lib-9.0.80-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230578007"
+          },
+          {
+            "Comment": "tomcat-servlet-4.0-api is earlier than 1:servlet-4.0-api-9.0.80-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230578008"
+          },
+          {
+            "Comment": "tomcat-webapps is earlier than 1:webapps-9.0.80-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230578009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

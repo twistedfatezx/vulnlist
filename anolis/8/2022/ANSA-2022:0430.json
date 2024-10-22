@@ -1,0 +1,453 @@
+{
+  "ID": "oval:cn.openanolis:def:20220430",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0430: kernel security, bug fix, and enhancement update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0430",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0430",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-0404:\nIn uvc_scan_chain_forward of uvc_driver.c, there is a possible linked list corruption due to an unusual root cause. This could lead to local escalation of privilege in the kernel with no additional execution privileges needed. User interaction is not needed for exploitation.Product: AndroidVersions: Android kernelAndroid ID: A-111893654References: Upstream kernel\n\nCVE-2020-13974:\nAn issue was discovered in the Linux kernel 4.4 through 5.7.1. drivers/tty/vt/keyboard.c has an integer overflow if k_ascii is called several times in a row, aka CID-b86dab054059. NOTE: Members in the community argue that the integer overflow does not lead to a security issue in this case.\n\nCVE-2020-27820:\nA vulnerability was found in Linux kernel, where a use-after-frees in nouveau's postclose() handler could happen if removing device (that is not common to remove video card physically without power-off, but same happens if \"unbind\" the driver).\n\nCVE-2020-4788:\nIBM Power9 (AIX 7.1, 7.2, and VIOS 3.1) processors could allow a local user to obtain sensitive information from the data in the L1 cache under extenuating circumstances. IBM X-Force ID: 189296.\n\nCVE-2021-0941:\nIn bpf_skb_change_head of filter.c, there is a possible out of bounds read due to a use after free. This could lead to local escalation of privilege with System execution privileges needed. User interaction is not needed for exploitation.Product: AndroidVersions: Android kernelAndroid ID: A-154177719References: Upstream kernel\n\nCVE-2021-20322:\nA flaw in the processing of received ICMP errors (ICMP fragment needed and ICMP redirect) in the Linux kernel functionality was found to allow the ability to quickly scan open UDP ports. This flaw allows an off-path remote user to effectively bypass the source port UDP randomization. The highest threat from this vulnerability is to confidentiality and possibly integrity, because software that relies on UDP source port randomization are indirectly affected as well.\n\nCVE-2021-21781:\nAn information disclosure vulnerability exists in the ARM SIGPAGE functionality of Linux Kernel v5.4.66 and v5.4.54. The latest version (5.11-rc4) seems to still be vulnerable. A userland application can read the contents of the sigpage, which can leak kernel memory contents. An attacker can read a process’s memory at a specific offset to trigger this vulnerability. This was fixed in kernel releases: 4.14.222 4.19.177 5.4.99 5.10.17 5.11\n\nCVE-2021-26401:\nLFENCE/JMP (mitigation V2-2) may not sufficiently mitigate CVE-2017-5715 on some AMD CPUs.\n\nCVE-2021-29154:\nBPF JIT compilers in the Linux kernel through 5.11.12 have incorrect computation of branch displacements, allowing them to execute arbitrary code within the kernel context. This affects arch/x86/net/bpf_jit_comp.c and arch/x86/net/bpf_jit_comp32.c.\n\nCVE-2021-3612:\nAn out-of-bounds memory write flaw was found in the Linux kernel's joystick devices subsystem in versions before 5.9-rc1, in the way the user calls ioctl JSIOCSBTNMAP. This flaw allows a local user to crash the system or possibly escalate their privileges on the system. The highest threat from this vulnerability is to confidentiality, integrity, as well as system availability.\n\nCVE-2021-3669:\nA flaw was found in the Linux kernel. Measuring usage of the shared memory does not scale with large shared memory segment counts which could lead to resource exhaustion and DoS.\n\nCVE-2021-37159:\nhso_free_net_device in drivers/net/usb/hso.c in the Linux kernel through 5.13.4 calls unregister_netdev without checking for the NETREG_REGISTERED state, leading to a use-after-free and a double free.\n\nCVE-2021-3743:\nAn out-of-bounds (OOB) memory read flaw was found in the Qualcomm IPC router protocol in the Linux kernel. A missing sanity check allows a local attacker to gain access to out-of-bounds memory, leading to a system crash or a leak of internal kernel information. The highest threat from this vulnerability is to system availability.\n\nCVE-2021-3744:\nA memory leak flaw was found in the Linux kernel in the ccp_run_aes_gcm_cmd() function in drivers/crypto/ccp/ccp-ops.c, which allows attackers to cause a denial of service (memory consumption). This vulnerability is similar with the older CVE-2019-18808.\n\nCVE-2021-3752:\nA use-after-free flaw was found in the Linux kernel’s Bluetooth subsystem in the way user calls connect to the socket and disconnect simultaneously due to a race condition. This flaw allows a user to crash the system or escalate their privileges. The highest threat from this vulnerability is to confidentiality, integrity, as well as system availability.\n\nCVE-2021-3759:\nA memory overflow vulnerability was found in the Linux kernel’s ipc functionality of the memcg subsystem, in the way a user calls the semget function multiple times, creating semaphores. This flaw allows a local user to starve the resources, causing a denial of service. The highest threat from this vulnerability is to system availability.\n\nCVE-2021-3764:\nA memory leak flaw was found in the Linux kernel's ccp_run_aes_gcm_cmd() function that allows an attacker to cause a denial of service. The vulnerability is similar to the older CVE-2019-18808. The highest threat from this vulnerability is to system availability.\n\nCVE-2021-3772:\nA flaw was found in the Linux SCTP stack. A blind attacker may be able to kill an existing SCTP association through invalid chunks if the attacker knows the IP-addresses and port numbers being used and the attacker can send packets with spoofed IP addresses.\n\nCVE-2021-3773:\nA flaw in netfilter could allow a network-connected attacker to infer openvpn connection endpoint information for further use in traditional network attacks.\n\nCVE-2021-4002:\nA memory leak flaw in the Linux kernel's hugetlbfs memory usage was found in the way the user maps some regions of memory twice using shmget() which are aligned to PUD alignment with the fault of some of the memory pages. A local user could use this flaw to get unauthorized access to some data.\n\nCVE-2021-4037:\nA vulnerability was found in the fs/inode.c:inode_init_owner() function logic of the LInux kernel that allows local users to create files for the XFS file-system with an unintended group ownership and with group execution and SGID permission bits set, in a scenario where a directory is SGID and belongs to a certain group and is writable by a user who is not a member of this group. This can lead to excessive permissions granted in case when they should not.  This vulnerability is similar to the previous CVE-2018-13405 and adds the missed fix for the XFS.\n\nCVE-2021-4083:\nA read-after-free memory flaw was found in the Linux kernel's garbage collection for Unix domain socket file handlers in the way users call close() and fget() simultaneously and can potentially trigger a race condition. This flaw allows a local user to crash the system or escalate their privileges on the system. This flaw affects Linux kernel versions prior to 5.16-rc4.\n\nCVE-2021-4157:\nAn out of memory bounds write flaw (1 or 2 bytes of memory) in the Linux kernel NFS subsystem was found in the way users use mirroring (replication of files with NFS). A user, having access to the NFS mount, could potentially use this flaw to crash the system or escalate privileges on the system.\n\nCVE-2021-41864:\nprealloc_elems_and_freelist in kernel/bpf/stackmap.c in the Linux kernel before 5.14.12 allows unprivileged users to trigger an eBPF multiplication integer overflow with a resultant out-of-bounds write.\n\nCVE-2021-4197:\nAn unprivileged write to the file handler flaw in the Linux kernel's control groups and namespaces subsystem was found in the way users have access to some less privileged process that are controlled by cgroups and have higher privileged parent process. It is actually both for cgroup2 and cgroup1 versions of control groups. A local user could use this flaw to crash the system or escalate their privileges on the system.\n\nCVE-2021-4203:\nA use-after-free read flaw was found in sock_getsockopt() in net/core/sock.c due to SO_PEERCRED and SO_PEERGROUPS race with listen() (and connect()) in the Linux kernel. In this flaw, an attacker with a user privileges may crash the system or leak internal kernel information.\n\nCVE-2021-42739:\nA heap-based buffer overflow flaw was found in the Linux kernel FireDTV media card driver, where the user calls the CA_SEND_MSG ioctl. This flaw allows a local user of the host machine to crash the system or escalate privileges on the system. The highest threat from this vulnerability is to confidentiality, integrity, as well as system availability.\n\nCVE-2021-43056:\nAn issue was discovered in the Linux kernel for powerpc before 5.14.15. It allows a malicious KVM guest to crash the host, when the host is running on Power8, due to an arch/powerpc/kvm/book3s_hv_rmhandlers.S implementation bug in the handling of the SRR1 register values.\n\nCVE-2021-43389:\nAn issue was discovered in the Linux kernel before 5.14.15. There is an array-index-out-of-bounds flaw in the detach_capi_ctr function in drivers/isdn/capi/kcapi.c.\n\nCVE-2021-43976:\nIn the Linux kernel through 5.15.2, mwifiex_usb_recv in drivers/net/wireless/marvell/mwifiex/usb.c allows an attacker (who can connect a crafted USB device) to cause a denial of service (skb_over_panic).\n\nCVE-2021-44733:\nA use-after-free exists in drivers/tee/tee_shm.c in the TEE subsystem in the Linux kernel through 5.15.11. This occurs because of a race condition in tee_shm_get_from_id during an attempt to free a shared memory object.\n\nCVE-2021-45485:\nIn the IPv6 implementation in the Linux kernel before 5.13.3, net/ipv6/output_core.c has an information leak because of certain use of a hash table which, although big, doesn't properly consider that IPv6-based attackers can typically choose among many IPv6 source addresses.\n\nCVE-2021-45486:\nIn the IPv4 implementation in the Linux kernel before 5.12.4, net/ipv4/route.c has an information leak because the hash table is very small.\n\nCVE-2022-0001:\nNon-transparent sharing of branch predictor selectors between contexts in some Intel(R) Processors may allow an authorized user to potentially enable information disclosure via local access.\n\nCVE-2022-0002:\nNon-transparent sharing of branch predictor within a context in some Intel(R) Processors may allow an authorized user to potentially enable information disclosure via local access.\n\nCVE-2022-0286:\nA flaw was found in the Linux kernel. A null pointer dereference in bond_ipsec_add_sa() may lead to local denial of service.\n\nCVE-2022-0322:\nA flaw was found in the sctp_make_strreset_req function in net/sctp/sm_make_chunk.c in the SCTP network protocol in the Linux kernel with a local user privilege access. In this flaw, an attempt to use more buffer than is allocated triggers a BUG_ON issue, leading to a denial of service (DOS).\n\nCVE-2022-1011:\nA use-after-free flaw was found in the Linux kernel’s FUSE filesystem in the way a user triggers write(). This flaw allows a local user to gain unauthorized access to data from the FUSE filesystem, resulting in privilege escalation.\n\nCVE-2021-47501:\nIn the Linux kernel, the following vulnerability has been resolved:\n\ni40e: Fix NULL pointer dereference in i40e_dbg_dump_desc\n\nWhen trying to dump VFs VSI RX/TX descriptors\nusing debugfs there was a crash\ndue to NULL pointer dereference in i40e_dbg_dump_desc.\nAdded a check to i40e_dbg_dump_desc that checks if\nVSI type is correct for dumping RX/TX descriptors.\n\nCVE-2021-47076:\nIn the Linux kernel, the following vulnerability has been resolved:\n\nRDMA/rxe: Return CQE error if invalid lkey was supplied\n\nRXE is missing update of WQE status in LOCAL_WRITE failures.  This caused\nthe following kernel panic if someone sent an atomic operation with an\nexplicitly wrong lkey.\n\n[leonro@vm ~]$ mkt test\ntest_atomic_invalid_lkey (tests.test_atomic.AtomicTest) ...\n WARNING: CPU: 5 PID: 263 at drivers/infiniband/sw/rxe/rxe_comp.c:740 rxe_completer+0x1a6d/0x2e30 [rdma_rxe]\n Modules linked in: crc32_generic rdma_rxe ip6_udp_tunnel udp_tunnel rdma_ucm rdma_cm ib_umad ib_ipoib iw_cm ib_cm mlx5_ib ib_uverbs ib_core mlx5_core ptp pps_core\n CPU: 5 PID: 263 Comm: python3 Not tainted 5.13.0-rc1+ #2936\n Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS rel-1.13.0-0-gf21b5a4aeb02-prebuilt.qemu.org 04/01/2014\n RIP: 0010:rxe_completer+0x1a6d/0x2e30 [rdma_rxe]\n Code: 03 0f 8e 65 0e 00 00 3b 93 10 06 00 00 0f 84 82 0a 00 00 4c 89 ff 4c 89 44 24 38 e8 2d 74 a9 e1 4c 8b 44 24 38 e9 1c f5 ff ff \u003c0f\u003e 0b e9 0c e8 ff ff b8 05 00 00 00 41 bf 05 00 00 00 e9 ab e7 ff\n RSP: 0018:ffff8880158af090 EFLAGS: 00010246\n RAX: 0000000000000000 RBX: ffff888016a78000 RCX: ffffffffa0cf1652\n RDX: 1ffff9200004b442 RSI: 0000000000000004 RDI: ffffc9000025a210\n RBP: dffffc0000000000 R08: 00000000ffffffea R09: ffff88801617740b\n R10: ffffed1002c2ee81 R11: 0000000000000007 R12: ffff88800f3b63e8\n R13: ffff888016a78008 R14: ffffc9000025a180 R15: 000000000000000c\n FS:  00007f88b622a740(0000) GS:ffff88806d540000(0000) knlGS:0000000000000000\n CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\n CR2: 00007f88b5a1fa10 CR3: 000000000d848004 CR4: 0000000000370ea0\n DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000\n DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400\n Call Trace:\n  rxe_do_task+0x130/0x230 [rdma_rxe]\n  rxe_rcv+0xb11/0x1df0 [rdma_rxe]\n  rxe_loopback+0x157/0x1e0 [rdma_rxe]\n  rxe_responder+0x5532/0x7620 [rdma_rxe]\n  rxe_do_task+0x130/0x230 [rdma_rxe]\n  rxe_rcv+0x9c8/0x1df0 [rdma_rxe]\n  rxe_loopback+0x157/0x1e0 [rdma_rxe]\n  rxe_requester+0x1efd/0x58c0 [rdma_rxe]\n  rxe_do_task+0x130/0x230 [rdma_rxe]\n  rxe_post_send+0x998/0x1860 [rdma_rxe]\n  ib_uverbs_post_send+0xd5f/0x1220 [ib_uverbs]\n  ib_uverbs_write+0x847/0xc80 [ib_uverbs]\n  vfs_write+0x1c5/0x840\n  ksys_write+0x176/0x1d0\n  do_syscall_64+0x3f/0x80\n  entry_SYSCALL_64_after_hwframe+0x44/0xae",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-06-15"
+      },
+      "Updated": {
+        "Date": "2024-09-24"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-37159",
+          "CVSS3": "6.4/CVSS:3.1/AV:P/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-37159",
+          "CWE": "CWE-416",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-3743",
+          "CVSS3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3743",
+          "CWE": "CWE-125",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-3744",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3744",
+          "CWE": "CWE-401",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-3764",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3764",
+          "CWE": "CWE-401",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-4197",
+          "CVSS3": "6.3/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-4197",
+          "CWE": "CWE-287",
+          "Public": "20220516"
+        },
+        {
+          "ID": "CVE-2022-1011",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1011",
+          "CWE": "CWE-416",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2020-0404",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-0404",
+          "CWE": "CWE-284",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2020-13974",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-13974",
+          "CWE": "CWE-190",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2020-27820",
+          "CVSS3": "4.1/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-27820",
+          "CWE": "CWE-416",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2020-4788",
+          "CVSS3": "5.1/CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-4788",
+          "CWE": "CWE-200",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-0941",
+          "CVSS3": "6.7/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-0941",
+          "CWE": "CWE-416-\u003eCWE-125",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-20322",
+          "CVSS3": "7.4/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-20322",
+          "CWE": "CWE-330",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-21781",
+          "CVSS3": "4.0/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-21781",
+          "CWE": "CWE-908",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-26401",
+          "CVSS3": "4.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-26401",
+          "CWE": "",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-29154",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-29154",
+          "CWE": "CWE-119",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-3612",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3612",
+          "CWE": "CWE-20-\u003eCWE-119",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-3669",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3669",
+          "CWE": "CWE-770",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-3759",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3759",
+          "CWE": "CWE-770",
+          "Public": "20220823"
+        },
+        {
+          "ID": "CVE-2021-3772",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3772",
+          "CWE": "CWE-354",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-3773",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3773",
+          "CWE": "CWE-200",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-4002",
+          "CVSS3": "5.1/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-4002",
+          "CWE": "CWE-459",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-4037",
+          "CVSS3": "4.4/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-4037",
+          "CWE": "CWE-284",
+          "Public": "20230110"
+        },
+        {
+          "ID": "CVE-2021-4157",
+          "CVSS3": "5.9/CVSS:3.1/AV:A/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-4157",
+          "CWE": "CWE-119",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-41864",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-41864",
+          "CWE": "CWE-190-\u003eCWE-787",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-4203",
+          "CVSS3": "5.8/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-4203",
+          "CWE": "CWE-362-\u003eCWE-416",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-43056",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43056",
+          "CWE": "CWE-252",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-43389",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43389",
+          "CWE": "CWE-129-\u003eCWE-125",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-43976",
+          "CVSS3": "4.6/CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43976",
+          "CWE": "CWE-459",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-44733",
+          "CVSS3": "7.4/CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-44733",
+          "CWE": "CWE-908",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-45485",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-45485",
+          "CWE": "CWE-327",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2021-45486",
+          "CVSS3": "3.5/CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-45486",
+          "CWE": "CWE-330-\u003eCWE-200",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2022-0001",
+          "CVSS3": "4.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-0001",
+          "CWE": "",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2022-0002",
+          "CVSS3": "4.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-0002",
+          "CWE": "",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2022-0286",
+          "CVSS3": "5.1/CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-0286",
+          "CWE": "CWE-476",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2022-0322",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-0322",
+          "CWE": "CWE-681",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-3752",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3752",
+          "CWE": "CWE-362",
+          "Public": "20220224"
+        },
+        {
+          "ID": "CVE-2021-42739",
+          "CVSS3": "6.7/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-42739",
+          "CWE": "CWE-119",
+          "Public": "20220315"
+        },
+        {
+          "ID": "CVE-2021-4083",
+          "CVSS3": "7.4/CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-4083",
+          "CWE": "CWE-362",
+          "Public": "20220407"
+        },
+        {
+          "ID": "CVE-2021-47501",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-47501",
+          "CWE": "CWE-476",
+          "Public": "20240524"
+        },
+        {
+          "ID": "CVE-2021-47076",
+          "CVSS3": "4.4/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-47076",
+          "CWE": "CWE-20",
+          "Public": "20240302"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430001"
+          },
+          {
+            "Comment": "kernel is earlier than 0:4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430002"
+          },
+          {
+            "Comment": "kernel-core is earlier than 0:core-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430003"
+          },
+          {
+            "Comment": "kernel-cross-headers is earlier than 0:cross-headers-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430004"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430005"
+          },
+          {
+            "Comment": "kernel-debug-core is earlier than 0:debug-core-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430006"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430007"
+          },
+          {
+            "Comment": "kernel-debug-modules is earlier than 0:debug-modules-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430008"
+          },
+          {
+            "Comment": "kernel-debug-modules-extra is earlier than 0:debug-modules-extra-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430009"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430010"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430011"
+          },
+          {
+            "Comment": "kernel-modules is earlier than 0:modules-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430012"
+          },
+          {
+            "Comment": "kernel-modules-extra is earlier than 0:modules-extra-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430013"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430014"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430015"
+          },
+          {
+            "Comment": "perf is earlier than 0:4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430016"
+          },
+          {
+            "Comment": "python3-perf is earlier than 0:perf-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430017"
+          },
+          {
+            "Comment": "kernel(RHCK)4.18 is earlier than 0:4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430018"
+          },
+          {
+            "Comment": "kernel-abi-stablelists is earlier than 0:abi-stablelists-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430019"
+          },
+          {
+            "Comment": "kernel-doc is earlier than 0:doc-4.18.0-372.9.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220430020"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

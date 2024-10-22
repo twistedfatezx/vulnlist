@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20230145",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0145: libXpm security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0145",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0145",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-44617:\nA flaw was found in libXpm. When processing a file with width of 0 and a very large height, some parser functions will be called repeatedly and can lead to an infinite loop, resulting in a Denial of Service in the application linked to the library.\n\nCVE-2022-46285:\nA flaw was found in libXpm. This issue occurs when parsing a file with a comment not closed; the end-of-file condition will not be detected, leading to an infinite loop and resulting in a Denial of Service in the application linked to the library.\n\nCVE-2022-4883:\nA flaw was found in libXpm. When processing files with .Z or .gz extensions, the library calls external programs to compress and uncompress files, relying on the PATH environment variable to find these programs, which could allow a malicious user to execute other programs by manipulating the PATH environment variable.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-05-05"
+      },
+      "Updated": {
+        "Date": "2023-05-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-44617",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-44617",
+          "CWE": "CWE-20-\u003eCWE-835",
+          "Public": "20230117"
+        },
+        {
+          "ID": "CVE-2022-46285",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-46285",
+          "CWE": "CWE-835",
+          "Public": "20230117"
+        },
+        {
+          "ID": "CVE-2022-4883",
+          "CVSS3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-4883",
+          "CWE": "CWE-426",
+          "Public": "20230117"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libXpm is earlier than 0:3.5.13-8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230145001"
+          },
+          {
+            "Comment": "libXpm-devel is earlier than 0:devel-3.5.13-8.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230145002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

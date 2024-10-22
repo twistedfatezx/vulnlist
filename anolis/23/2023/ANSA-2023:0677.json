@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20230677",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0677: vim security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0677",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0677",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-46246:\nVim is an improved version of the good old UNIX editor Vi. Heap-use-after-free in memory allocated in the function `ga_grow_inner` in in the file `src/alloc.c` at line 748, which is freed in the file `src/ex_docmd.c` in the function `do_cmdline` at line 1010 and then used again in `src/cmdhist.c` at line 759. When using the `:history` command, it's possible that the provided argument overflows the accepted value. Causing an Integer Overflow and potentially later an use-after-free. This vulnerability has been patched in version 9.0.2068.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-11-14"
+      },
+      "Updated": {
+        "Date": "2023-11-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-46246",
+          "CVSS3": "4.0/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-46246",
+          "CWE": "CWE-190-\u003eCWE-416",
+          "Public": "20231027"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "vim-X11 is earlier than 2:X11-9.0.2092-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230677001"
+          },
+          {
+            "Comment": "vim-common is earlier than 2:common-9.0.2092-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230677002"
+          },
+          {
+            "Comment": "vim-enhanced is earlier than 2:enhanced-9.0.2092-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230677003"
+          },
+          {
+            "Comment": "vim-minimal is earlier than 2:minimal-9.0.2092-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230677004"
+          },
+          {
+            "Comment": "vim is earlier than 2:9.0.2092-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230677005"
+          },
+          {
+            "Comment": "vim-data is earlier than 2:data-9.0.2092-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230677006"
+          },
+          {
+            "Comment": "vim-doc is earlier than 2:doc-9.0.2092-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230677007"
+          },
+          {
+            "Comment": "vim-filesystem is earlier than 2:filesystem-9.0.2092-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230677008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "ID": "oval:cn.openanolis:def:20240431",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0431: tomcat security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0431",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0431",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-24998:\nApache Commons FileUpload before 1.5 does not limit the number of request parts to be processed resulting in the possibility of an attacker triggering a DoS with a malicious upload or series of uploads.\nNote that, like all of the file upload limits, the\nnew configuration option (FileUploadBase#setFileCountMax) is not\nenabled by default and must be explicitly configured.\n\nCVE-2023-28708:\nWhen using the RemoteIpFilter with requests received from a    reverse proxy via HTTP that include the X-Forwarded-Proto    header set to https, session cookies created by Apache Tomcat 11.0.0-M1 to 11.0.0.-M2, 10.1.0-M1 to 10.1.5, 9.0.0-M1 to 9.0.71 and 8.5.0 to 8.5.85 did not include the secure attribute. This could result in the user agent transmitting the session cookie over an insecure channel.\n\nCVE-2023-28709:\nThe fix for CVE-2023-24998 was incomplete for Apache Tomcat 11.0.0-M2 to 11.0.0-M4, 10.1.5 to 10.1.7, 9.0.71 to 9.0.73 and 8.5.85 to 8.5.87. If non-default HTTP       connector settings were used such that the maxParameterCount could be reached using query string parameters and a request was       submitted that supplied exactly maxParameterCount parameters in the query string, the limit for uploaded request parts could be bypassed with the potential for a denial of service to occur.\n\nCVE-2023-46589:\nImproper Input Validation vulnerability in Apache Tomcat.Tomcat from 11.0.0-M1 through 11.0.0-M10, from 10.1.0-M1 through 10.1.15, from 9.0.0-M1 through 9.0.82 and from 8.5.0 through 8.5.95 did not correctly parse HTTP trailer headers. A trailer header that exceeded the header size limit could cause Tomcat to treat a single \nrequest as multiple requests leading to the possibility of request \nsmuggling when behind a reverse proxy.\nUsers are recommended to upgrade to version 11.0.0-M11 onwards, 10.1.16 onwards, 9.0.83 onwards or 8.5.96 onwards, which fix the issue.\n\nCVE-2023-41080:\nURL Redirection to Untrusted Site ('Open Redirect') vulnerability in FORM authentication feature Apache Tomcat.This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M10, from 10.1.0-M1 through 10.0.12, from 9.0.0-M1 through 9.0.79 and from 8.5.0 through 8.5.92.\n\nThe vulnerability is limited to the ROOT (default) web application.\n\nCVE-2023-42794:\nIncomplete Cleanup vulnerability in Apache Tomcat.\n\nThe internal fork of Commons FileUpload packaged with Apache Tomcat 9.0.70 through 9.0.80 and 8.5.85 through 8.5.93 included an unreleased, \nin progress refactoring that exposed a potential denial of service on \nWindows if a web application opened a stream for an uploaded file but \nfailed to close the stream. The file would never be deleted from disk \ncreating the possibility of an eventual denial of service due to the \ndisk being full.\n\nUsers are recommended to upgrade to version 9.0.81 onwards or 8.5.94 onwards, which fixes the issue.\n\nCVE-2023-42795:\nIncomplete Cleanup vulnerability in Apache Tomcat.When recycling various internal objects in Apache Tomcat from 11.0.0-M1 through 11.0.0-M11, from 10.1.0-M1 through 10.1.13, from 9.0.0-M1 through 9.0.80 and from 8.5.0 through 8.5.93, an error could \ncause Tomcat to skip some parts of the recycling process leading to \ninformation leaking from the current request/response to the next.\n\nUsers are recommended to upgrade to version 11.0.0-M12 onwards, 10.1.14 onwards, 9.0.81 onwards or 8.5.94 onwards, which fixes the issue.\n\nCVE-2023-45648:\nImproper Input Validation vulnerability in Apache Tomcat.Tomcat from 11.0.0-M1 through 11.0.0-M11, from 10.1.0-M1 through 10.1.13, from 9.0.0-M1 through 9.0.81 and from 8.5.0 through 8.5.93 did not correctly parse HTTP trailer headers. A specially \ncrafted, invalid trailer header could cause Tomcat to treat a single \nrequest as multiple requests leading to the possibility of request \nsmuggling when behind a reverse proxy.\n\nUsers are recommended to upgrade to version 11.0.0-M12 onwards, 10.1.14 onwards, 9.0.81 onwards or 8.5.94 onwards, which fix the issue.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-05"
+      },
+      "Updated": {
+        "Date": "2024-09-12"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-24998",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-24998",
+          "CWE": "CWE-770",
+          "Public": "20230220"
+        },
+        {
+          "ID": "CVE-2023-28708",
+          "CVSS3": "4.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-28708",
+          "CWE": "CWE-200",
+          "Public": "20230322"
+        },
+        {
+          "ID": "CVE-2023-28709",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-28709",
+          "CWE": "CWE-193",
+          "Public": "20230521"
+        },
+        {
+          "ID": "CVE-2023-46589",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-46589",
+          "CWE": "CWE-444",
+          "Public": "20231128"
+        },
+        {
+          "ID": "CVE-2023-41080",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-41080",
+          "CWE": "CWE-601",
+          "Public": "20230825"
+        },
+        {
+          "ID": "CVE-2023-42794",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-42794",
+          "CWE": "CWE-459",
+          "Public": "20231010"
+        },
+        {
+          "ID": "CVE-2023-42795",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-42795",
+          "CWE": "CWE-459",
+          "Public": "20231010"
+        },
+        {
+          "ID": "CVE-2023-45648",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45648",
+          "CWE": "CWE-20",
+          "Public": "20231010"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "tomcat is earlier than 1:9.0.62-30.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240431001"
+          },
+          {
+            "Comment": "tomcat-admin-webapps is earlier than 1:admin-webapps-9.0.62-30.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240431002"
+          },
+          {
+            "Comment": "tomcat-docs-webapp is earlier than 1:docs-webapp-9.0.62-30.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240431003"
+          },
+          {
+            "Comment": "tomcat-el-3.0-api is earlier than 1:el-3.0-api-9.0.62-30.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240431004"
+          },
+          {
+            "Comment": "tomcat-jsp-2.3-api is earlier than 1:jsp-2.3-api-9.0.62-30.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240431005"
+          },
+          {
+            "Comment": "tomcat-lib is earlier than 1:lib-9.0.62-30.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240431006"
+          },
+          {
+            "Comment": "tomcat-servlet-4.0-api is earlier than 1:servlet-4.0-api-9.0.62-30.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240431007"
+          },
+          {
+            "Comment": "tomcat-webapps is earlier than 1:webapps-9.0.62-30.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240431008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

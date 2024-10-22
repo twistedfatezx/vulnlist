@@ -1,0 +1,345 @@
+{
+  "ID": "oval:cn.openanolis:def:20240419",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0419: container-tools:an8 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0419",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0419",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2018-25091:\nurllib3 before 1.24.2 does not remove the authorization HTTP header when following a cross-origin redirect (i.e., a redirect that differs in host, port, or scheme). This can allow for credentials in the authorization header to be exposed to unintended hosts or transmitted in cleartext. NOTE: this issue exists because of an incomplete fix for CVE-2018-20060 (which was case-sensitive).\n\nCVE-2021-33198:\nIn Go before 1.15.13 and 1.16.x before 1.16.5, there can be a panic for a large exponent to the math/big.Rat SetString or UnmarshalText method.\n\nCVE-2021-34558:\nThe crypto/tls package of Go through 1.16.5 does not properly assert that the type of public key in an X.509 certificate matches the expected type when doing a RSA based key exchange, allowing a malicious TLS server to cause a TLS client to panic.\n\nCVE-2022-2879:\nReader.Read does not set a limit on the maximum size of file headers. A maliciously crafted archive could cause Read to allocate unbounded amounts of memory, potentially causing resource exhaustion or panics. After fix, Reader.Read limits the maximum size of header blocks to 1 MiB.\n\nCVE-2022-2880:\nRequests forwarded by ReverseProxy include the raw query parameters from the inbound request, including unparsable parameters rejected by net/http. This could permit query parameter smuggling when a Go proxy forwards a parameter with an unparsable value. After fix, ReverseProxy sanitizes the query parameters in the forwarded query when the outbound request's Form field is set after the ReverseProxy. Director function returns, indicating that the proxy has parsed the query parameters. Proxies which do not parse query parameters continue to forward the original query parameters unchanged.\n\nCVE-2022-41715:\nPrograms which compile regular expressions from untrusted sources may be vulnerable to memory exhaustion or denial of service. The parsed regexp representation is linear in the size of the input, but in some cases the constant factor can be as high as 40,000, making relatively small regexps consume much larger amounts of memory. After fix, each regexp being parsed is limited to a 256 MB memory footprint. Regular expressions whose representation would use more space than that are rejected. Normal use of regular expressions is unaffected.\n\nCVE-2023-29409:\nExtremely large RSA keys in certificate chains can cause a client/server to expend significant CPU time verifying signatures. With fix, the size of RSA keys transmitted during handshakes is restricted to \u003c= 8192 bits. Based on a survey of publicly trusted RSA keys, there are currently only three certificates in circulation with keys larger than this, and all three appear to be test certificates that are not actively deployed. It is possible there are larger keys in use in private PKIs, but we target the web PKI, so causing breakage here in the interests of increasing the default safety of users of crypto/tls seems reasonable.\n\nCVE-2023-39318:\nThe html/template package does not properly handle HTML-like \"\" comment tokens, nor hashbang \"#!\" comment tokens, in \u003cscript\u003e contexts. This may cause the template parser to improperly interpret the contents of \u003cscript\u003e contexts, causing actions to be improperly escaped. This may be leveraged to perform an XSS attack.\n\nCVE-2023-39319:\nThe html/template package does not apply the proper rules for handling occurrences of \"\u003cscript\", \"\u003c!--\", and \"\u003c/script\" within JS literals in \u003cscript\u003e contexts. This may cause the template parser to improperly consider script contexts to be terminated early, causing actions to be improperly escaped. This could be leveraged to perform an XSS attack.\n\nCVE-2023-39321:\nProcessing an incomplete post-handshake message for a QUIC connection can cause a panic.\n\nCVE-2023-39322:\nQUIC connections do not set an upper bound on the amount of data buffered when reading post-handshake messages, allowing a malicious QUIC connection to cause unbounded memory growth. With fix, connections now consistently reject messages larger than 65KiB in size.\n\nCVE-2023-39326:\nA malicious HTTP sender can use chunk extensions to cause a receiver reading from a request or response body to read many more bytes from the network than are in the body. A malicious HTTP client can further exploit this to cause a server to automatically read a large amount of data (up to about 1GiB) when a handler fails to read the entire body of a request. Chunk extensions are a little-used HTTP feature which permit including additional metadata in a request or response body sent using the chunked encoding. The net/http chunked encoding reader discards this metadata. A sender can exploit this by inserting a large metadata segment with each byte transferred. The chunk reader now produces an error if the ratio of real body to encoded bytes grows too small.\n\nCVE-2023-45287:\nBefore Go 1.20, the RSA based TLS key exchanges used the math/big library, which is not constant time. RSA blinding was applied to prevent timing attacks, but analysis shows this may not have been fully effective. In particular it appears as if the removal of PKCS#1 padding may leak timing information, which in turn could be used to recover session key bits. In Go 1.20, the crypto/tls library switched to a fully constant time RSA implementation, which we do not believe exhibits any timing side channels.\n\nCVE-2023-45803:\nurllib3 is a user-friendly HTTP client library for Python. urllib3 previously wouldn't remove the HTTP request body when an HTTP redirect response using status 301, 302, or 303 after the request had its method changed from one that could accept a request body (like `POST`) to `GET` as is required by HTTP RFCs. Although this behavior is not specified in the section for redirects, it can be inferred by piecing together information from different sections and we have observed the behavior in other major HTTP client implementations like curl and web browsers. Because the vulnerability requires a previously trusted service to become compromised in order to have an impact on confidentiality we believe the exploitability of this vulnerability is low. Additionally, many users aren't putting sensitive data in HTTP request bodies, if this is the case then this vulnerability isn't exploitable. Both of the following conditions must be true to be affected by this vulnerability: 1. Using urllib3 and submitting sensitive information in the HTTP request body (such as form data or JSON) and 2. The origin service is compromised and starts redirecting using 301, 302, or 303 to a malicious peer or the redirected-to service becomes compromised. This issue has been addressed in versions 1.26.18 and 2.0.7 and users are advised to update to resolve this issue. Users unable to update should disable redirects for services that aren't expecting to respond with redirects with `redirects=False` and disable automatic redirects with `redirects=False` and handle 301, 302, and 303 redirects manually by stripping the HTTP request body.\n\nCVE-2023-48795:\nThe SSH transport protocol with certain OpenSSH extensions, found in OpenSSH before 9.6 and other products, allows remote attackers to bypass integrity checks such that some packets are omitted (from the extension negotiation message), and a client and server may consequently end up with a connection for which some security features have been downgraded or disabled, aka a Terrapin attack. This occurs because the SSH Binary Packet Protocol (BPP), implemented by these extensions, mishandles the handshake phase and mishandles use of sequence numbers. For example, there is an effective attack against SSH's use of ChaCha20-Poly1305 (and CBC with Encrypt-then-MAC). The bypass occurs in chacha20-poly1305@openssh.com and (if CBC is used) the -etm@openssh.com MAC algorithms. This also affects Maverick Synergy Java SSH API before 3.1.0-SNAPSHOT, Dropbear through 2022.83, Ssh before 5.1.1 in Erlang/OTP, PuTTY before 0.80, AsyncSSH before 2.14.2, golang.org/x/crypto before 0.17.0, libssh before 0.10.6, libssh2 through 1.11.0, Thorn Tech SFTP Gateway before 3.4.6, Tera Term before 5.1, Paramiko before 3.4.0, jsch before 0.2.15, SFTPGo before 2.5.6, Netgate pfSense Plus through 23.09.1, Netgate pfSense CE through 2.7.2, HPN-SSH through 18.2.0, ProFTPD before 1.3.8b (and before 1.3.9rc2), ORYX CycloneSSH before 2.3.4, NetSarang XShell 7 before Build 0144, CrushFTP before 10.6.0, ConnectBot SSH library before 2.2.22, Apache MINA sshd through 2.11.0, sshj through 0.37.0, TinySSH through 20230101, trilead-ssh2 6401, LANCOM LCOS and LANconfig, FileZilla before 3.66.4, Nova before 11.8, PKIX-SSH before 14.4, SecureCRT before 9.4.3, Transmit5 before 5.10.4, Win32-OpenSSH before 9.5.0.0p1-Beta, WinSCP before 6.2.2, Bitvise SSH Server before 9.32, Bitvise SSH Client before 9.33, KiTTY through 0.76.1.13, the net-ssh gem 7.2.0 for Ruby, the mscdex ssh2 module before 1.15.0 for Node.js, the thrussh library before 0.35.1 for Rust, and the Russh crate before 0.40.2 for Rust.\n\nCVE-2024-1753:\nA flaw was found in Buildah (and subsequently Podman Build) which allows containers to mount arbitrary locations on the host filesystem into build containers. A malicious Containerfile can use a dummy image with a symbolic link to the root filesystem as a mount source and cause the mount operation to mount the host root filesystem inside the RUN step. The commands inside the RUN step will then have read-write access to the host filesystem, allowing for full container escape at build time.\n\nCVE-2024-23650:\nBuildKit is a toolkit for converting source code to build artifacts in an efficient, expressive and repeatable manner. A malicious BuildKit client or frontend could craft a request that could lead to BuildKit daemon crashing with a panic. The issue has been fixed in v0.12.5. As a workaround, avoid using BuildKit frontends from untrusted sources.\n\nCVE-2024-24786:\nThe protojson.Unmarshal function can enter an infinite loop when unmarshaling certain forms of invalid JSON. This condition can occur when unmarshaling into a message which contains a google.protobuf.Any value, or when the UnmarshalOptions.DiscardUnknown option is set.\n\nCVE-2024-28180:\nPackage jose aims to provide an implementation of the Javascript Object Signing and Encryption set of standards. An attacker could send a JWE containing compressed data that used large amounts of memory and CPU when decompressed by Decrypt or DecryptMulti. Those functions now return an error if the decompressed data would exceed 250kB or 10x the compressed size (whichever is larger). This vulnerability has been patched in versions 4.0.1, 3.0.3 and 2.6.3.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-03"
+      },
+      "Updated": {
+        "Date": "2024-06-04"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2018-25091",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2018-25091",
+          "CWE": "CWE-200",
+          "Public": "20231015"
+        },
+        {
+          "ID": "CVE-2021-33198",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-33198",
+          "CWE": "CWE-400",
+          "Public": "20210802"
+        },
+        {
+          "ID": "CVE-2021-34558",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-34558",
+          "CWE": "CWE-20",
+          "Public": "20210830"
+        },
+        {
+          "ID": "CVE-2022-2879",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-2879",
+          "CWE": "CWE-770",
+          "Public": "20230701"
+        },
+        {
+          "ID": "CVE-2022-2880",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-2880",
+          "CWE": "CWE-444",
+          "Public": "20230601"
+        },
+        {
+          "ID": "CVE-2022-41715",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-41715",
+          "CWE": "",
+          "Public": "20230601"
+        },
+        {
+          "ID": "CVE-2023-29409",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-29409",
+          "CWE": "CWE-400",
+          "Public": "20230806"
+        },
+        {
+          "ID": "CVE-2023-39318",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-39318",
+          "CWE": "CWE-79",
+          "Public": "20230908"
+        },
+        {
+          "ID": "CVE-2023-39319",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-39319",
+          "CWE": "CWE-79",
+          "Public": "20230908"
+        },
+        {
+          "ID": "CVE-2023-39321",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-39321",
+          "CWE": "",
+          "Public": "20230908"
+        },
+        {
+          "ID": "CVE-2023-39322",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-39322",
+          "CWE": "CWE-770",
+          "Public": "20230908"
+        },
+        {
+          "ID": "CVE-2023-39326",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-39326",
+          "CWE": "CWE-400",
+          "Public": "20231206"
+        },
+        {
+          "ID": "CVE-2023-45287",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45287",
+          "CWE": "CWE-208",
+          "Public": "20231205"
+        },
+        {
+          "ID": "CVE-2023-45803",
+          "CVSS3": "4.2/CVSS:3.1/AV:A/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45803",
+          "CWE": "CWE-200",
+          "Public": "20231017"
+        },
+        {
+          "ID": "CVE-2023-48795",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-48795",
+          "CWE": "CWE-222",
+          "Public": "20231221"
+        },
+        {
+          "ID": "CVE-2024-1753",
+          "CVSS3": "8.6/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-1753",
+          "CWE": "CWE-269",
+          "Public": "20240520"
+        },
+        {
+          "ID": "CVE-2024-23650",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-23650",
+          "CWE": "CWE-754",
+          "Public": "20240603"
+        },
+        {
+          "ID": "CVE-2024-24786",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-24786",
+          "CWE": "CWE-835",
+          "Public": "20240603"
+        },
+        {
+          "ID": "CVE-2024-28180",
+          "CVSS3": "4.3/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-28180",
+          "CWE": "CWE-409",
+          "Public": "20240603"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "aardvark-dns is earlier than 2:dns-1.10.0-2.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419001"
+          },
+          {
+            "Comment": "buildah is earlier than 2:1.33.7-1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419002"
+          },
+          {
+            "Comment": "buildah-tests is earlier than 2:tests-1.33.7-1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419003"
+          },
+          {
+            "Comment": "conmon is earlier than 3:2.1.10-1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419004"
+          },
+          {
+            "Comment": "containernetworking-plugins is earlier than 1:plugins-1.4.0-2.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419005"
+          },
+          {
+            "Comment": "containers-common is earlier than 2:common-1-81.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419006"
+          },
+          {
+            "Comment": "crit is earlier than 0:3.18-5.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419007"
+          },
+          {
+            "Comment": "criu is earlier than 0:3.18-5.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419008"
+          },
+          {
+            "Comment": "criu-devel is earlier than 0:devel-3.18-5.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419009"
+          },
+          {
+            "Comment": "criu-libs is earlier than 0:libs-3.18-5.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419010"
+          },
+          {
+            "Comment": "crun is earlier than 0:1.14.3-2.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419011"
+          },
+          {
+            "Comment": "fuse-overlayfs is earlier than 0:overlayfs-1.13-1.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419012"
+          },
+          {
+            "Comment": "libslirp is earlier than 0:4.4.0-2.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419013"
+          },
+          {
+            "Comment": "libslirp-devel is earlier than 0:devel-4.4.0-2.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419014"
+          },
+          {
+            "Comment": "netavark is earlier than 2:1.10.3-1.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419015"
+          },
+          {
+            "Comment": "oci-seccomp-bpf-hook is earlier than 0:seccomp-bpf-hook-1.2.10-1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419016"
+          },
+          {
+            "Comment": "podman is earlier than 4:4.9.4-1.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419017"
+          },
+          {
+            "Comment": "podman-catatonit is earlier than 4:catatonit-4.9.4-1.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419018"
+          },
+          {
+            "Comment": "podman-gvproxy is earlier than 4:gvproxy-4.9.4-1.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419019"
+          },
+          {
+            "Comment": "podman-plugins is earlier than 4:plugins-4.9.4-1.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419020"
+          },
+          {
+            "Comment": "podman-remote is earlier than 4:remote-4.9.4-1.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419021"
+          },
+          {
+            "Comment": "podman-tests is earlier than 4:tests-4.9.4-1.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419022"
+          },
+          {
+            "Comment": "python3-criu is earlier than 0:criu-3.18-5.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419023"
+          },
+          {
+            "Comment": "runc is earlier than 1:1.1.12-1.0.1.module+an8.9.0+11183+7cdff43b",
+            "TestRef": "oval:cn.openanolis:tst:20240419024"
+          },
+          {
+            "Comment": "skopeo is earlier than 2:1.14.3-2.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419025"
+          },
+          {
+            "Comment": "skopeo-tests is earlier than 2:tests-1.14.3-2.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419026"
+          },
+          {
+            "Comment": "slirp4netns is earlier than 0:1.2.3-1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419027"
+          },
+          {
+            "Comment": "toolbox is earlier than 0:0.0.99.5-2.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419028"
+          },
+          {
+            "Comment": "toolbox-tests is earlier than 0:tests-0.0.99.5-2.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419029"
+          },
+          {
+            "Comment": "cockpit-podman is earlier than 0:podman-84.1-1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419030"
+          },
+          {
+            "Comment": "container-selinux is earlier than 2:selinux-2.229.0-2.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419031"
+          },
+          {
+            "Comment": "python-podman is earlier than 0:podman-4.9.0-1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419032"
+          },
+          {
+            "Comment": "udica is earlier than 0:0.2.6-21.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419033"
+          },
+          {
+            "Comment": "podman-docker is earlier than 4:docker-4.9.4-1.0.1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419034"
+          },
+          {
+            "Comment": "python3-podman is earlier than 0:podman-4.9.0-1.module+an8.9.0+11207+6086c433",
+            "TestRef": "oval:cn.openanolis:tst:20240419035"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

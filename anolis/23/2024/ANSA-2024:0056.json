@@ -1,0 +1,109 @@
+{
+  "ID": "oval:cn.openanolis:def:20240056",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0056: fonttools security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0056",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0056",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-45139:\nA flaw was found in the subsetting module of FontTools, which contains an XML External Entity Injection (XXE) vulnerability. This flaw allows malicious actors to exploit the parsing of candidate fonts, particularly those with an OT-SVG format that includes an SVG table. Through this vulnerability, attackers can manipulate the system to resolve arbitrary entities, potentially allowing them to include files from the filesystem where FontTools is operating or even initiate web requests from the host system.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-02-06"
+      },
+      "Updated": {
+        "Date": "2024-02-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-45139",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45139",
+          "CWE": "CWE-611",
+          "Public": "20240206"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "fonttools is earlier than 0:4.47.0-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240056001"
+          },
+          {
+            "Comment": "python3-fonttools+graphite is earlier than 0:fonttools+graphite-4.47.0-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240056002"
+          },
+          {
+            "Comment": "python3-fonttools+interpolatable is earlier than 0:fonttools+interpolatable-4.47.0-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240056003"
+          },
+          {
+            "Comment": "python3-fonttools+lxml is earlier than 0:fonttools+lxml-4.47.0-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240056004"
+          },
+          {
+            "Comment": "python3-fonttools+plot is earlier than 0:fonttools+plot-4.47.0-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240056005"
+          },
+          {
+            "Comment": "python3-fonttools+symfont is earlier than 0:fonttools+symfont-4.47.0-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240056006"
+          },
+          {
+            "Comment": "python3-fonttools+type1 is earlier than 0:fonttools+type1-4.47.0-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240056007"
+          },
+          {
+            "Comment": "python3-fonttools+ufo is earlier than 0:fonttools+ufo-4.47.0-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240056008"
+          },
+          {
+            "Comment": "python3-fonttools+unicode is earlier than 0:fonttools+unicode-4.47.0-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240056009"
+          },
+          {
+            "Comment": "python3-fonttools+woff is earlier than 0:fonttools+woff-4.47.0-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240056010"
+          },
+          {
+            "Comment": "python3-fonttools is earlier than 0:fonttools-4.47.0-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240056011"
+          },
+          {
+            "Comment": "fonttools-doc is earlier than 0:doc-4.47.0-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240056012"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

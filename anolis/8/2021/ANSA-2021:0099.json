@@ -1,0 +1,153 @@
+{
+  "ID": "oval:cn.openanolis:def:20210099",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0099: nodejs:12 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0099",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0099",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-22883:\nNode.js before 10.24.0, 12.21.0, 14.16.0, and 15.10.0 is vulnerable to a denial of service attack when too many connection attempts with an 'unknownProtocol' are established. This leads to a leak of file descriptors. If a file descriptor limit is configured on the system, then the server is unable to accept new connections and prevent the process also from opening, e.g. a file. If no file descriptor limit is configured, then this lead to an excessive memory usage and cause the system to run out of memory.\n\nCVE-2021-22884:\nNode.js before 10.24.0, 12.21.0, 14.16.0, and 15.10.0 is vulnerable to DNS rebinding attacks as the whitelist includes “localhost6”. When “localhost6” is not present in /etc/hosts, it is just an ordinary domain that is resolved via DNS, i.e., over network. If the attacker controls the victim's DNS server or can spoof its responses, the DNS rebinding protection can be bypassed by using the “localhost6” domain. As long as the attacker uses the “localhost6” domain, they can still apply the attack described in CVE-2018-7160.\n\nCVE-2019-16775:\nVersions of the npm CLI prior to 6.13.3 are vulnerable to an Arbitrary File Write. It is possible for packages to create symlinks to files outside of thenode_modules folder through the bin field upon installation. A properly constructed entry in the package.json bin field would allow a package publisher to create a symlink pointing to arbitrary files on a user's system when the package is installed. This behavior is still possible through install scripts. This vulnerability bypasses a user using the --ignore-scripts install option.\n\nCVE-2019-16776:\nVersions of the npm CLI prior to 6.13.4 are vulnerable to an Arbitrary File Overwrite. It fails to prevent existing globally-installed binaries to be overwritten by other package installations. For example, if a package was installed globally and created a serve binary, any subsequent installs of packages that also create a serve binary would overwrite the previous serve binary. This behavior is still allowed in local installations and also through install scripts. This vulnerability bypasses a user using the --ignore-scripts install option.\n\nCVE-2019-16777:\nVersions of the npm CLI prior to 6.13.4 are vulnerable to an Arbitrary File Overwrite. It fails to prevent existing globally-installed binaries to be overwritten by other package installations. For example, if a package was installed globally and created a serve binary, any subsequent installs of packages that also create a serve binary would overwrite the previous serve binary. This behavior is still allowed in local installations and also through install scripts. This vulnerability bypasses a user using the --ignore-scripts install option.\n\nCVE-2020-15366:\nAn issue was discovered in ajv.validate() in Ajv (aka Another JSON Schema Validator) 6.12.2. A carefully crafted JSON schema could be provided that allows execution of other code by prototype pollution. (While untrusted schemas are recommended against, the worst case of an untrusted schema should be a denial of service, not execution of code.)\nA flaw was found in nodejs-ajv. A carefully crafted JSON schema could be provided that allows execution of other code by prototype pollution. While untrusted schemas are recommended against, the worst case of an untrusted schema should be a denial of service, not execution of code.\n\nCVE-2020-7608:\nyargs-parser could be tricked into adding or modifying properties of Object.prototype using a \"__proto__\" payload.\nA vulnerability was found in nodesjs-yargs-parser, where it can be tricked into adding or modifying properties of the Object.prototype using a \"__proto__\" payload. The highest threat from this vulnerability is to confidentiality, integrity, as well as system availability.\n\nCVE-2020-7774:\nThis affects the package y18n before 3.2.2, 4.0.1 and 5.0.5. PoC by po6ix: const y18n = require('y18n')(); y18n.setLocale('__proto__'); y18n.updateLocale({polluted: true}); console.log(polluted); // true\nA flaw was found in nodejs-y18n. There is a prototype pollution vulnerability in y18n's locale functionality. If an attacker is able to provide untrusted input via locale, they may be able to cause denial of service or in rare circumstances, impact to data integrity or confidentiality.\n\nCVE-2020-8172:\nTLS session reuse can lead to host certificate verification bypass in node version \u003c 12.18.0 and \u003c 14.4.0.\nA TLS Hostname verification bypass vulnerability exists in NodeJS. This flaw allows an attacker to bypass TLS Hostname verification when a TLS client reuses HTTPS sessions.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-04-26"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-22884",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-22884",
+          "CWE": "CWE-20",
+          "Public": "20210426"
+        },
+        {
+          "ID": "CVE-2021-22883",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-22883",
+          "CWE": "CWE-400",
+          "Public": "20210426"
+        },
+        {
+          "ID": "CVE-2019-16775",
+          "CVSS3": "4.8/CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-16775",
+          "CWE": "CWE-20",
+          "Public": "20191212"
+        },
+        {
+          "ID": "CVE-2019-16776",
+          "CVSS3": "4.8/CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-16776",
+          "CWE": "CWE-20",
+          "Public": "20191212"
+        },
+        {
+          "ID": "CVE-2019-16777",
+          "CVSS3": "4.8/CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-16777",
+          "CWE": "CWE-20",
+          "Public": "20191212"
+        },
+        {
+          "ID": "CVE-2020-15366",
+          "CVSS3": "5.6/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-15366",
+          "CWE": "CWE-471",
+          "Public": "20200704"
+        },
+        {
+          "ID": "CVE-2020-7608",
+          "CVSS3": "5.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-7608",
+          "CWE": "CWE-267",
+          "Public": "20200316"
+        },
+        {
+          "ID": "CVE-2020-7774",
+          "CVSS3": "7.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-7774",
+          "CWE": "CWE-915",
+          "Public": "20201025"
+        },
+        {
+          "ID": "CVE-2020-8172",
+          "CVSS3": "7.4/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-8172",
+          "CWE": "CWE-285",
+          "Public": "20200602"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "nodejs is earlier than 1:12.21.0-1.module+el8.2.0+10167+756d871c",
+            "TestRef": "oval:cn.openanolis:tst:20210099001"
+          },
+          {
+            "Comment": "nodejs-devel is earlier than 1:devel-12.21.0-1.module+el8.2.0+10167+756d871c",
+            "TestRef": "oval:cn.openanolis:tst:20210099002"
+          },
+          {
+            "Comment": "nodejs-full-i18n is earlier than 1:full-i18n-12.21.0-1.module+el8.2.0+10167+756d871c",
+            "TestRef": "oval:cn.openanolis:tst:20210099003"
+          },
+          {
+            "Comment": "npm is earlier than 1:6.14.11-1.12.21.0.1.module+el8.2.0+10167+756d871c",
+            "TestRef": "oval:cn.openanolis:tst:20210099004"
+          },
+          {
+            "Comment": "nodejs-nodemon is earlier than 0:nodemon-1.18.3-1.module+el8.2.0+10167+756d871c",
+            "TestRef": "oval:cn.openanolis:tst:20210099005"
+          },
+          {
+            "Comment": "nodejs-packaging is earlier than 0:packaging-17-3.module+el8.2.0+10035+97d310d9",
+            "TestRef": "oval:cn.openanolis:tst:20210099006"
+          },
+          {
+            "Comment": "nodejs-docs is earlier than 1:docs-12.21.0-1.module+el8.2.0+10167+756d871c",
+            "TestRef": "oval:cn.openanolis:tst:20210099007"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

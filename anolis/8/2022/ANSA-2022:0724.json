@@ -1,0 +1,109 @@
+{
+  "ID": "oval:cn.openanolis:def:20220724",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0724: bind9.16 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0724",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0724",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-3080:\nBy sending specific queries to the resolver, an attacker can cause named to crash.\n\nCVE-2022-38177:\nBy spoofing the target resolver with responses that have a malformed ECDSA signature, an attacker can trigger a small memory leak. It is possible to gradually erode available memory to the point where named crashes for lack of resources.\n\nCVE-2022-38178:\nBy spoofing the target resolver with responses that have a malformed EdDSA signature, an attacker can trigger a small memory leak. It is possible to gradually erode available memory to the point where named crashes for lack of resources.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-10-05"
+      },
+      "Updated": {
+        "Date": "2022-10-09"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-38177",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-38177",
+          "CWE": "CWE-401",
+          "Public": "20221005"
+        },
+        {
+          "ID": "CVE-2022-38178",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-38178",
+          "CWE": "CWE-401",
+          "Public": "20221005"
+        },
+        {
+          "ID": "CVE-2022-3080",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-3080",
+          "CWE": "CWE-20",
+          "Public": "20221005"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bind9.16 is earlier than 32:9.16.23-0.7.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220724001"
+          },
+          {
+            "Comment": "bind9.16-chroot is earlier than 32:chroot-9.16.23-0.7.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220724002"
+          },
+          {
+            "Comment": "bind9.16-dnssec-utils is earlier than 32:dnssec-utils-9.16.23-0.7.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220724003"
+          },
+          {
+            "Comment": "bind9.16-libs is earlier than 32:libs-9.16.23-0.7.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220724004"
+          },
+          {
+            "Comment": "bind9.16-utils is earlier than 32:utils-9.16.23-0.7.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220724005"
+          },
+          {
+            "Comment": "bind9.16-doc is earlier than 32:doc-9.16.23-0.7.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220724006"
+          },
+          {
+            "Comment": "bind9.16-license is earlier than 32:license-9.16.23-0.7.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220724007"
+          },
+          {
+            "Comment": "python3-bind9.16 is earlier than 32:bind9.16-9.16.23-0.7.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220724008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20240873",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0873: mod_auth_openidc:2.3 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0873",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0873",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-24814:\nmod_auth_openidc is an OpenID Certified™ authentication and authorization module for the Apache 2.x HTTP server that implements the OpenID Connect Relying Party functionality. In affected versions missing input validation on mod_auth_openidc_session_chunks cookie value makes the server vulnerable to a denial of service (DoS) attack. An internal security audit has been conducted and the reviewers found that if they manipulated the value of the mod_auth_openidc_session_chunks cookie to a very large integer, like 99999999, the server struggles with the request for a long time and finally gets back with a 500 error. Making a few requests of this kind caused our server to become unresponsive. Attackers can craft requests that would make the server work very hard (and possibly become unresponsive) and/or crash with minimal effort. This issue has been addressed in version 2.4.15.2. Users are advised to upgrade. There are no known workarounds for this vulnerability.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-08-30"
+      },
+      "Updated": {
+        "Date": "2024-08-30"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-24814",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-24814",
+          "CWE": "CWE-400",
+          "Public": "20240830"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "cjose is earlier than 0:0.6.1-4.module+an8.9.0+11140+989eb8b9",
+            "TestRef": "oval:cn.openanolis:tst:20240873001"
+          },
+          {
+            "Comment": "cjose-devel is earlier than 0:devel-0.6.1-4.module+an8.9.0+11140+989eb8b9",
+            "TestRef": "oval:cn.openanolis:tst:20240873002"
+          },
+          {
+            "Comment": "mod_auth_openidc is earlier than 0:2.4.9.4-6.module+an8.9.0+11240+e35e848d",
+            "TestRef": "oval:cn.openanolis:tst:20240873003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

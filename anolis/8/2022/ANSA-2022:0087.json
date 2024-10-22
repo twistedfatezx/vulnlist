@@ -1,0 +1,105 @@
+{
+  "ID": "oval:cn.openanolis:def:20220087",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0087: httpd:2.4 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0087",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0087",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-22720:\nApache HTTP Server 2.4.52 and earlier fails to close inbound connection when errors are encountered discarding the request body, exposing the server to HTTP Request Smuggling",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-03-25"
+      },
+      "Updated": {
+        "Date": "2022-10-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-22720",
+          "CVSS3": "7.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-22720",
+          "CWE": "CWE-444",
+          "Public": "20220325"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "httpd is earlier than 0:2.4.37-43.0.1.module+an8.5.0+10672+801cbcd1.3",
+            "TestRef": "oval:cn.openanolis:tst:20220087001"
+          },
+          {
+            "Comment": "httpd-devel is earlier than 0:devel-2.4.37-43.0.1.module+an8.5.0+10672+801cbcd1.3",
+            "TestRef": "oval:cn.openanolis:tst:20220087002"
+          },
+          {
+            "Comment": "httpd-tools is earlier than 0:tools-2.4.37-43.0.1.module+an8.5.0+10672+801cbcd1.3",
+            "TestRef": "oval:cn.openanolis:tst:20220087003"
+          },
+          {
+            "Comment": "mod_http2 is earlier than 0:1.15.7-3.module+an8.5.0+10672+801cbcd1",
+            "TestRef": "oval:cn.openanolis:tst:20220087004"
+          },
+          {
+            "Comment": "mod_ldap is earlier than 0:2.4.37-43.0.1.module+an8.5.0+10672+801cbcd1.3",
+            "TestRef": "oval:cn.openanolis:tst:20220087005"
+          },
+          {
+            "Comment": "mod_md is earlier than 1:2.0.8-8.module+an8.5.0+10672+801cbcd1",
+            "TestRef": "oval:cn.openanolis:tst:20220087006"
+          },
+          {
+            "Comment": "mod_proxy_html is earlier than 0:2.4.37-43.0.1.module+an8.5.0+10672+801cbcd1.3",
+            "TestRef": "oval:cn.openanolis:tst:20220087007"
+          },
+          {
+            "Comment": "mod_session is earlier than 0:2.4.37-43.0.1.module+an8.5.0+10672+801cbcd1.3",
+            "TestRef": "oval:cn.openanolis:tst:20220087008"
+          },
+          {
+            "Comment": "mod_ssl is earlier than 0:2.4.37-43.0.1.module+an8.5.0+10672+801cbcd1.3",
+            "TestRef": "oval:cn.openanolis:tst:20220087009"
+          },
+          {
+            "Comment": "httpd-filesystem is earlier than 0:filesystem-2.4.37-43.0.1.module+an8.5.0+10672+801cbcd1.3",
+            "TestRef": "oval:cn.openanolis:tst:20220087010"
+          },
+          {
+            "Comment": "httpd-manual is earlier than 0:manual-2.4.37-43.0.1.module+an8.5.0+10672+801cbcd1.3",
+            "TestRef": "oval:cn.openanolis:tst:20220087011"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

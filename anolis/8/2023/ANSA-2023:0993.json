@@ -1,0 +1,169 @@
+{
+  "ID": "oval:cn.openanolis:def:20230993",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0993: avahi security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0993",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0993",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-3468:\nA flaw was found in avahi in versions 0.6 up to 0.8. The event used to signal the termination of the client connection on the avahi Unix socket is not correctly handled in the client_work function, allowing a local attacker to trigger an infinite loop. The highest threat from this vulnerability is to the availability of the avahi service, which becomes unresponsive after this flaw is triggered.\n\nCVE-2023-38469:\nA vulnerability was found in Avahi, where a reachable assertion exists in avahi_dns_packet_append_record.\n\nCVE-2023-38470:\nA vulnerability was found in Avahi. A reachable assertion exists in the avahi_escape_label() function.\n\nCVE-2023-38471:\nA vulnerability was found in Avahi. A reachable assertion exists in the dbus_set_host_name function.\n\nCVE-2023-38472:\nA vulnerability was found in Avahi. A reachable assertion exists in the avahi_rdata_parse() function.\n\nCVE-2023-38473:\nA vulnerability was found in Avahi. A reachable assertion exists in the avahi_alternative_host_name() function.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-12-26"
+      },
+      "Updated": {
+        "Date": "2023-12-26"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-3468",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3468",
+          "CWE": "CWE-835",
+          "Public": "20220718"
+        },
+        {
+          "ID": "CVE-2023-38469",
+          "CVSS3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-38469",
+          "CWE": "CWE-617",
+          "Public": "20230717"
+        },
+        {
+          "ID": "CVE-2023-38470",
+          "CVSS3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-38470",
+          "CWE": "CWE-617",
+          "Public": "20230717"
+        },
+        {
+          "ID": "CVE-2023-38471",
+          "CVSS3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-38471",
+          "CWE": "CWE-617",
+          "Public": "20230717"
+        },
+        {
+          "ID": "CVE-2023-38472",
+          "CVSS3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-38472",
+          "CWE": "CWE-617",
+          "Public": "20230717"
+        },
+        {
+          "ID": "CVE-2023-38473",
+          "CVSS3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-38473",
+          "CWE": "CWE-617",
+          "Public": "20230717"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "avahi is earlier than 0:0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993001"
+          },
+          {
+            "Comment": "avahi-autoipd is earlier than 0:autoipd-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993002"
+          },
+          {
+            "Comment": "avahi-compat-howl is earlier than 0:compat-howl-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993003"
+          },
+          {
+            "Comment": "avahi-compat-howl-devel is earlier than 0:compat-howl-devel-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993004"
+          },
+          {
+            "Comment": "avahi-compat-libdns_sd is earlier than 0:compat-libdns_sd-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993005"
+          },
+          {
+            "Comment": "avahi-compat-libdns_sd-devel is earlier than 0:compat-libdns_sd-devel-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993006"
+          },
+          {
+            "Comment": "avahi-devel is earlier than 0:devel-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993007"
+          },
+          {
+            "Comment": "avahi-glib is earlier than 0:glib-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993008"
+          },
+          {
+            "Comment": "avahi-glib-devel is earlier than 0:glib-devel-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993009"
+          },
+          {
+            "Comment": "avahi-gobject is earlier than 0:gobject-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993010"
+          },
+          {
+            "Comment": "avahi-gobject-devel is earlier than 0:gobject-devel-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993011"
+          },
+          {
+            "Comment": "avahi-libs is earlier than 0:libs-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993012"
+          },
+          {
+            "Comment": "avahi-ui is earlier than 0:ui-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993013"
+          },
+          {
+            "Comment": "avahi-ui-devel is earlier than 0:ui-devel-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993014"
+          },
+          {
+            "Comment": "avahi-ui-gtk3 is earlier than 0:ui-gtk3-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993015"
+          },
+          {
+            "Comment": "python3-avahi is earlier than 0:avahi-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993016"
+          },
+          {
+            "Comment": "avahi-doc is earlier than 0:doc-0.7-21.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230993017"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

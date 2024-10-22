@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20220141",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0141: podman security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0141",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0141",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-1227:\nA privilege escalation flaw was found in Podman. This flaw allows an attacker to publish a malicious image to a public registry. Once this image is downloaded by a potential victim, the vulnerability is triggered after a user runs the 'podman top' command. This action gives the attacker access to the host filesystem, leading to information disclosure or denial of service.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-05-16"
+      },
+      "Updated": {
+        "Date": "2022-05-24"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-1227",
+          "CVSS3": "8.0/CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1227",
+          "CWE": "CWE-281",
+          "Public": "20220516"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "podman is earlier than 0:1.6.4-32.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220141001"
+          },
+          {
+            "Comment": "podman-remote is earlier than 0:remote-1.6.4-32.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220141002"
+          },
+          {
+            "Comment": "podman-tests is earlier than 0:tests-1.6.4-32.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220141003"
+          },
+          {
+            "Comment": "podman-docker is earlier than 0:docker-1.6.4-32.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220141004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

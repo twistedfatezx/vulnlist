@@ -1,0 +1,65 @@
+{
+  "ID": "oval:cn.openanolis:def:20220025",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0025: libreswan security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0025",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0025",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-23094:\nLibreswan 4.2 through 4.5 allows remote attackers to cause a denial of service (NULL pointer dereference and daemon crash) via a crafted IKEv1 packet because pluto/ikev1.c wrongly expects that a state object exists. This is fixed in 4.6.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-02-28"
+      },
+      "Updated": {
+        "Date": "2022-03-28"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-23094",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-23094",
+          "CWE": "CWE-476",
+          "Public": "20220228"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libreswan is earlier than 0:4.4-4.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220025001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

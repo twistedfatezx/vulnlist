@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20240020",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0020: procps-ng security update (Low)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0020",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0020",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-4016:\nUnder some circumstances, this weakness allows a user who has access to run the “ps” utility on a machine, the ability to write almost unlimited amounts of unfiltered data into the process heap.",
+    "Advisory": {
+      "Severity": "Low",
+      "Issued": {
+        "Date": "2024-01-09"
+      },
+      "Updated": {
+        "Date": "2024-01-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-4016",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-4016",
+          "CWE": "CWE-119-\u003eCWE-787",
+          "Public": "20230806"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "procps-ng is earlier than 0:ng-3.3.15-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240020001"
+          },
+          {
+            "Comment": "procps-ng-doc is earlier than 0:ng-doc-3.3.15-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240020002"
+          },
+          {
+            "Comment": "procps-ng-i18n is earlier than 0:ng-i18n-3.3.15-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240020003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

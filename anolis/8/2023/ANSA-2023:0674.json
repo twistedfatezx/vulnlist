@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20230674",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0674: squid:4 security update (Critical)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0674",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0674",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-46846:\nSQUID is vulnerable to HTTP request smuggling, caused by chunked decoder lenience, allows a remote attacker to perform Request/Response smuggling past firewall and frontend security systems.\n\nCVE-2023-46847:\nSquid is vulnerable to a Denial of Service, where a remote attacker can perform buffer overflow attack by writing up to 2 MB of arbitrary data to heap memory when Squid is configured to accept HTTP Digest Authentication.",
+    "Advisory": {
+      "Severity": "Critical",
+      "Issued": {
+        "Date": "2023-11-10"
+      },
+      "Updated": {
+        "Date": "2023-11-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-46846",
+          "CVSS3": "9.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-46846",
+          "CWE": "CWE-444",
+          "Public": "20231019"
+        },
+        {
+          "ID": "CVE-2023-46847",
+          "CVSS3": "9.9/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-46847",
+          "CWE": "CWE-120",
+          "Public": "20231019"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libecap is earlier than 0:1.0.1-2.0.1.module+an8.7.0+10994+8928ee11",
+            "TestRef": "oval:cn.openanolis:tst:20230674001"
+          },
+          {
+            "Comment": "libecap-devel is earlier than 0:devel-1.0.1-2.0.1.module+an8.7.0+10994+8928ee11",
+            "TestRef": "oval:cn.openanolis:tst:20230674002"
+          },
+          {
+            "Comment": "squid is earlier than 7:4.15-6.module+an8.8.0+11125+957273cc.1",
+            "TestRef": "oval:cn.openanolis:tst:20230674003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

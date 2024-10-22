@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20240490",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0490: python-jinja2 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0490",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0490",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-22195:\nJinja is an extensible templating engine. Special placeholders in the template allow writing code similar to Python syntax. It is possible to inject arbitrary HTML attributes into the rendered HTML template, potentially leading to Cross-Site Scripting (XSS). The Jinja `xmlattr` filter can be abused to inject arbitrary HTML attribute keys and values, bypassing the auto escaping mechanism and potentially leading to XSS. It may also be possible to bypass attribute validation checks if they are blacklist-based.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-18"
+      },
+      "Updated": {
+        "Date": "2024-06-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-22195",
+          "CVSS3": "5.4/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-22195",
+          "CWE": "CWE-79",
+          "Public": "20240206"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python-jinja2 is earlier than 0:jinja2-2.10.1-3.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240490001"
+          },
+          {
+            "Comment": "python3-jinja2 is earlier than 0:jinja2-2.10.1-3.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240490002"
+          },
+          {
+            "Comment": "python3-jinja2-doc is earlier than 0:jinja2-doc-2.10.1-3.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240490003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

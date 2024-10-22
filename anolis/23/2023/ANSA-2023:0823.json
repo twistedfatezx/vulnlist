@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20230823",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0823: perl-HTTP-Daemon security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0823",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0823",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2022-31081:\nHTTP::Daemon is a simple http server class written in perl. Versions prior to 6.15 are subject to a vulnerability which could potentially be exploited to gain privileged access to APIs or poison intermediate caches. It is uncertain how large the risks are, most Perl based applications are served on top of Nginx or Apache, not on the `HTTP::Daemon`. This library is commonly used for local development and tests. Users are advised to update to resolve this issue. Users unable to upgrade may add additional request handling logic as a mitigation. After calling `my $rqst = $conn-\u003eget_request()` one could inspect the returned `HTTP::Request` object. Querying the 'Content-Length' (`my $cl = $rqst-\u003eheader('Content-Length')`) will show any abnormalities that should be dealt with by a `400` response. Expected strings of 'Content-Length' SHOULD consist of either a single non-negative integer, or, a comma separated repetition of that number. (that is `42` or `42, 42, 42`). Anything else MUST be rejected.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-12-04"
+      },
+      "Updated": {
+        "Date": "2023-12-04"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-31081",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-31081",
+          "CWE": "CWE-444",
+          "Public": "20220627"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "perl-HTTP-Daemon is earlier than 0:HTTP-Daemon-6.16-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230823001"
+          },
+          {
+            "Comment": "perl-HTTP-Daemon-doc is earlier than 0:HTTP-Daemon-doc-6.16-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230823002"
+          },
+          {
+            "Comment": "perl-HTTP-Daemon-tests is earlier than 0:HTTP-Daemon-tests-6.16-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230823003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

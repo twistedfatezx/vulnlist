@@ -1,0 +1,213 @@
+{
+  "ID": "oval:cn.openanolis:def:20240045",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0045: idm:DL1 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0045",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0045",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-17049:\nKerberos Security Feature Bypass Vulnerability\n\nCVE-2023-5455:\nA Cross-site request forgery vulnerability exists in ipa/session/login_password in all supported versions of IPA. This flaw allows an attacker to trick the user into submitting a request that could perform actions as the user, resulting in a loss of confidentiality and system integrity. During community penetration testing it was found that for certain HTTP end-points FreeIPA does not ensure CSRF protection. Due to implementation details one cannot use this flaw for reflection of a cookie representing already logged-in user. An attacker would always have to go through a new authentication attempt.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-02-02"
+      },
+      "Updated": {
+        "Date": "2024-02-02"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-17049",
+          "CVSS3": "7.2/CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-17049",
+          "CWE": "CWE-345",
+          "Public": "20201111"
+        },
+        {
+          "ID": "CVE-2023-5455",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5455",
+          "CWE": "CWE-352",
+          "Public": "20240109"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bind-dyndb-ldap is earlier than 0:dyndb-ldap-11.6-4.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045001"
+          },
+          {
+            "Comment": "ipa-client is earlier than 0:client-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045002"
+          },
+          {
+            "Comment": "ipa-client-epn is earlier than 0:client-epn-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045003"
+          },
+          {
+            "Comment": "ipa-client-samba is earlier than 0:client-samba-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045004"
+          },
+          {
+            "Comment": "ipa-server is earlier than 0:server-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045005"
+          },
+          {
+            "Comment": "ipa-server-trust-ad is earlier than 0:server-trust-ad-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045006"
+          },
+          {
+            "Comment": "opendnssec is earlier than 0:2.1.7-1.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045007"
+          },
+          {
+            "Comment": "slapi-nis is earlier than 0:nis-0.60.0-4.0.1.module+an8.9.0+11156+96b8dd40",
+            "TestRef": "oval:cn.openanolis:tst:20240045008"
+          },
+          {
+            "Comment": "softhsm is earlier than 0:2.6.0-5.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045009"
+          },
+          {
+            "Comment": "softhsm-devel is earlier than 0:devel-2.6.0-5.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045010"
+          },
+          {
+            "Comment": "custodia is earlier than 0:0.6.0-3.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045011"
+          },
+          {
+            "Comment": "ipa is earlier than 0:4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045012"
+          },
+          {
+            "Comment": "ipa-healthcheck is earlier than 0:healthcheck-0.12-3.module+an8.9.0+11156+96b8dd40",
+            "TestRef": "oval:cn.openanolis:tst:20240045013"
+          },
+          {
+            "Comment": "python-jwcrypto is earlier than 0:jwcrypto-0.5.0-1.1.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045014"
+          },
+          {
+            "Comment": "python-kdcproxy is earlier than 0:kdcproxy-0.4-5.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045015"
+          },
+          {
+            "Comment": "python-qrcode is earlier than 0:qrcode-5.1-12.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045016"
+          },
+          {
+            "Comment": "python-yubico is earlier than 0:yubico-1.3.2-9.1.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045017"
+          },
+          {
+            "Comment": "pyusb is earlier than 0:1.0.0-9.1.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045018"
+          },
+          {
+            "Comment": "ipa-client-common is earlier than 0:client-common-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045019"
+          },
+          {
+            "Comment": "ipa-common is earlier than 0:common-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045020"
+          },
+          {
+            "Comment": "ipa-healthcheck-core is earlier than 0:healthcheck-core-0.12-3.module+an8.9.0+11156+96b8dd40",
+            "TestRef": "oval:cn.openanolis:tst:20240045021"
+          },
+          {
+            "Comment": "ipa-python-compat is earlier than 0:python-compat-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045022"
+          },
+          {
+            "Comment": "ipa-selinux is earlier than 0:selinux-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045023"
+          },
+          {
+            "Comment": "ipa-server-common is earlier than 0:server-common-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045024"
+          },
+          {
+            "Comment": "ipa-server-dns is earlier than 0:server-dns-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045025"
+          },
+          {
+            "Comment": "python3-custodia is earlier than 0:custodia-0.6.0-3.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045026"
+          },
+          {
+            "Comment": "python3-ipaclient is earlier than 0:ipaclient-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045027"
+          },
+          {
+            "Comment": "python3-ipalib is earlier than 0:ipalib-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045028"
+          },
+          {
+            "Comment": "python3-ipaserver is earlier than 0:ipaserver-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045029"
+          },
+          {
+            "Comment": "python3-ipatests is earlier than 0:ipatests-4.9.12-11.0.1.module+an8.9.0+11169+14c61ee6",
+            "TestRef": "oval:cn.openanolis:tst:20240045030"
+          },
+          {
+            "Comment": "python3-jwcrypto is earlier than 0:jwcrypto-0.5.0-1.1.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045031"
+          },
+          {
+            "Comment": "python3-kdcproxy is earlier than 0:kdcproxy-0.4-5.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045032"
+          },
+          {
+            "Comment": "python3-pyusb is earlier than 0:pyusb-1.0.0-9.1.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045033"
+          },
+          {
+            "Comment": "python3-qrcode is earlier than 0:qrcode-5.1-12.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045034"
+          },
+          {
+            "Comment": "python3-qrcode-core is earlier than 0:qrcode-core-5.1-12.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045035"
+          },
+          {
+            "Comment": "python3-yubico is earlier than 0:yubico-1.3.2-9.1.module+an8.8.0+11052+59eb6362",
+            "TestRef": "oval:cn.openanolis:tst:20240045036"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

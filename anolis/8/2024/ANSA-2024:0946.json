@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20240946",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0946: go-toolset:an8 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0946",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0946",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-9355:\nA vulnerability was found in Golang FIPS OpenSSL. This flaw allows a malicious user to randomly cause an uninitialized buffer length variable with a zeroed buffer to be returned in FIPS mode. It may also be possible to force a false positive match between non-equal hashes when comparing a trusted computed hmac sum to an untrusted input sum if an attacker can send a zeroed buffer in place of a pre-computed sum.  It is also possible to force a derived key to be all zeros instead of an unpredictable value.  This may have follow-on implications for the Go TLS stack.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-10-08"
+      },
+      "Updated": {
+        "Date": "2024-10-09"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-9355",
+          "CVSS3": "6.5/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-9355",
+          "CWE": "CWE-457",
+          "Public": "20240930"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "delve is earlier than 0:1.21.2-4.0.1.module+an8.9.0+11260+a43a3bbe",
+            "TestRef": "oval:cn.openanolis:tst:20240946001"
+          },
+          {
+            "Comment": "go-toolset is earlier than 0:toolset-1.21.13-1.module+an8.9.0+11255+e5780711",
+            "TestRef": "oval:cn.openanolis:tst:20240946002"
+          },
+          {
+            "Comment": "golang is earlier than 0:1.21.13-3.0.1.module+an8.9.0+11260+a43a3bbe",
+            "TestRef": "oval:cn.openanolis:tst:20240946003"
+          },
+          {
+            "Comment": "golang-bin is earlier than 0:bin-1.21.13-3.0.1.module+an8.9.0+11260+a43a3bbe",
+            "TestRef": "oval:cn.openanolis:tst:20240946004"
+          },
+          {
+            "Comment": "golang-docs is earlier than 0:docs-1.21.13-3.0.1.module+an8.9.0+11260+a43a3bbe",
+            "TestRef": "oval:cn.openanolis:tst:20240946005"
+          },
+          {
+            "Comment": "golang-misc is earlier than 0:misc-1.21.13-3.0.1.module+an8.9.0+11260+a43a3bbe",
+            "TestRef": "oval:cn.openanolis:tst:20240946006"
+          },
+          {
+            "Comment": "golang-src is earlier than 0:src-1.21.13-3.0.1.module+an8.9.0+11260+a43a3bbe",
+            "TestRef": "oval:cn.openanolis:tst:20240946007"
+          },
+          {
+            "Comment": "golang-tests is earlier than 0:tests-1.21.13-3.0.1.module+an8.9.0+11260+a43a3bbe",
+            "TestRef": "oval:cn.openanolis:tst:20240946008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

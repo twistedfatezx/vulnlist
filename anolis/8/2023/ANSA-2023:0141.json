@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20230141",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0141: libwebp security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0141",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0141",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-1999:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nA double-free in libwebp could have led to memory corruption and a potentially exploitable crash.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-05-04"
+      },
+      "Updated": {
+        "Date": "2023-05-05"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-1999",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-1999",
+          "CWE": "CWE-415",
+          "Public": "20230504"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libwebp is earlier than 0:1.2.0-5.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230141001"
+          },
+          {
+            "Comment": "libwebp-devel is earlier than 0:devel-1.2.0-5.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230141002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

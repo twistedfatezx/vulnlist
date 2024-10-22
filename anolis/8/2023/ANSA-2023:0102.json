@@ -1,0 +1,101 @@
+{
+  "ID": "oval:cn.openanolis:def:20230102",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0102: nodejs:18 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0102",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0102",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-35255:\nA weak randomness in WebCrypto keygen vulnerability exists in Node.js 18 due to a change with EntropySource() in SecretKeyGenTraits::DoKeyGen() in src/crypto/crypto_keygen.cc. There are two problems with this: 1) It does not check the return value, it assumes EntropySource() always succeeds, but it can (and sometimes will) fail. 2) The random data returned byEntropySource() may not be cryptographically strong and therefore not suitable as keying material.\n\nCVE-2022-35256:\nThe llhttp parser in the http module in Node v18.7.0 does not correctly handle header fields that are not terminated with CLRF. This may result in HTTP Request Smuggling.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-03-30"
+      },
+      "Updated": {
+        "Date": "2023-03-30"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-35255",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-35255",
+          "CWE": "CWE-338",
+          "Public": "20221019"
+        },
+        {
+          "ID": "CVE-2022-35256",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-35256",
+          "CWE": "CWE-444",
+          "Public": "20221019"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "nodejs is earlier than 1:18.9.1-1.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20230102001"
+          },
+          {
+            "Comment": "nodejs-devel is earlier than 1:devel-18.9.1-1.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20230102002"
+          },
+          {
+            "Comment": "nodejs-full-i18n is earlier than 1:full-i18n-18.9.1-1.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20230102003"
+          },
+          {
+            "Comment": "npm is earlier than 1:8.19.1-1.18.9.1.1.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20230102004"
+          },
+          {
+            "Comment": "nodejs-nodemon is earlier than 0:nodemon-2.0.19-1.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20230102005"
+          },
+          {
+            "Comment": "nodejs-packaging is earlier than 0:packaging-2021.06-4.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20230102006"
+          },
+          {
+            "Comment": "nodejs-docs is earlier than 1:docs-18.9.1-1.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20230102007"
+          },
+          {
+            "Comment": "nodejs-packaging-bundler is earlier than 0:packaging-bundler-2021.06-4.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20230102008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

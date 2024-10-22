@@ -1,0 +1,109 @@
+{
+  "ID": "oval:cn.openanolis:def:20240479",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0479: qt5-qtbase security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0479",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0479",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-51714:\nAn issue was discovered in the HTTP2 implementation in Qt before 5.15.17, 6.x before 6.2.11, 6.3.x through 6.5.x before 6.5.4, and 6.6.x before 6.6.2. network/access/http2/hpacktable.cpp has an incorrect HPack integer overflow check.\n\nCVE-2024-25580:\nAn issue was discovered in gui/util/qktxhandler.cpp in Qt before 5.15.17, 6.x before 6.2.12, 6.3.x through 6.5.x before 6.5.5, and 6.6.x before 6.6.2. A buffer overflow and application crash can occur via a crafted KTX image file.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-18"
+      },
+      "Updated": {
+        "Date": "2024-06-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-51714",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-51714",
+          "CWE": "CWE-190",
+          "Public": "20240206"
+        },
+        {
+          "ID": "CVE-2024-25580",
+          "CVSS3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-25580",
+          "CWE": "CWE-121",
+          "Public": "20240618"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "qt5-qtbase is earlier than 0:qtbase-5.15.3-5.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240479001"
+          },
+          {
+            "Comment": "qt5-qtbase-devel is earlier than 0:qtbase-devel-5.15.3-5.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240479002"
+          },
+          {
+            "Comment": "qt5-qtbase-examples is earlier than 0:qtbase-examples-5.15.3-5.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240479003"
+          },
+          {
+            "Comment": "qt5-qtbase-gui is earlier than 0:qtbase-gui-5.15.3-5.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240479004"
+          },
+          {
+            "Comment": "qt5-qtbase-mysql is earlier than 0:qtbase-mysql-5.15.3-5.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240479005"
+          },
+          {
+            "Comment": "qt5-qtbase-odbc is earlier than 0:qtbase-odbc-5.15.3-5.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240479006"
+          },
+          {
+            "Comment": "qt5-qtbase-postgresql is earlier than 0:qtbase-postgresql-5.15.3-5.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240479007"
+          },
+          {
+            "Comment": "qt5-qtbase-private-devel is earlier than 0:qtbase-private-devel-5.15.3-5.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240479008"
+          },
+          {
+            "Comment": "qt5-qtbase-static is earlier than 0:qtbase-static-5.15.3-5.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240479009"
+          },
+          {
+            "Comment": "qt5-qtbase-common is earlier than 0:qtbase-common-5.15.3-5.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240479010"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20240842",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0842: tomcat security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0842",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0842",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-34750:\nImproper Handling of Exceptional Conditions, Uncontrolled Resource Consumption vulnerability in Apache Tomcat. When processing an HTTP/2 stream, Tomcat did not handle some cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams which in turn led to the use of an incorrect infinite timeout which allowed connections to remain open which should have been closed.\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M20, from 10.1.0-M1 through 10.1.24, from 9.0.0-M1 through 9.0.89.\nUsers are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which fixes the issue.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-08-22"
+      },
+      "Updated": {
+        "Date": "2024-08-22"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-34750",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-34750",
+          "CWE": "(CWE-400|CWE-755)",
+          "Public": "20240822"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "tomcat is earlier than 1:9.0.87-1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240842001"
+          },
+          {
+            "Comment": "tomcat-admin-webapps is earlier than 1:admin-webapps-9.0.87-1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240842002"
+          },
+          {
+            "Comment": "tomcat-docs-webapp is earlier than 1:docs-webapp-9.0.87-1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240842003"
+          },
+          {
+            "Comment": "tomcat-el-3.0-api is earlier than 1:el-3.0-api-9.0.87-1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240842004"
+          },
+          {
+            "Comment": "tomcat-jsp-2.3-api is earlier than 1:jsp-2.3-api-9.0.87-1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240842005"
+          },
+          {
+            "Comment": "tomcat-lib is earlier than 1:lib-9.0.87-1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240842006"
+          },
+          {
+            "Comment": "tomcat-servlet-4.0-api is earlier than 1:servlet-4.0-api-9.0.87-1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240842007"
+          },
+          {
+            "Comment": "tomcat-webapps is earlier than 1:webapps-9.0.87-1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240842008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

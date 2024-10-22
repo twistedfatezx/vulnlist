@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20240508",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0508: motif security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0508",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0508",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-43788:\nA vulnerability was found in libXpm due to a boundary condition within the XpmCreateXpmImageFromBuffer() function. This flaw allows a local attacker to trigger an out-of-bounds read error and read the contents of memory on the system.\n\nCVE-2023-43789:\nA vulnerability was found in libXpm where a vulnerability exists due to a boundary condition, a local user can trigger an out-of-bounds read error and read contents of memory on the system.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-25"
+      },
+      "Updated": {
+        "Date": "2024-06-25"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-43788",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-43788",
+          "CWE": "CWE-125",
+          "Public": "20231010"
+        },
+        {
+          "ID": "CVE-2023-43789",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-43789",
+          "CWE": "CWE-125",
+          "Public": "20231012"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "motif is earlier than 0:2.3.4-20.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240508001"
+          },
+          {
+            "Comment": "motif-devel is earlier than 0:devel-2.3.4-20.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240508002"
+          },
+          {
+            "Comment": "motif-static is earlier than 0:static-2.3.4-20.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240508003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

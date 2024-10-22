@@ -1,0 +1,209 @@
+{
+  "ID": "oval:cn.openanolis:def:20220525",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0525: grub2, mokutil, shim, and shim-unsigned-x64 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0525",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0525",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-3695:\nNo description is available for this CVE.\n\nCVE-2021-3696:\nNo description is available for this CVE.\n\nCVE-2021-3697:\nNo description is available for this CVE.\n\nCVE-2022-28733:\nA flaw was found in grub2 when handling IPv4 packets. This flaw allows an attacker to craft a malicious packet, triggering an integer underflow in grub code. Consequently, the memory allocation for handling the packet data may be smaller than the size needed. This issue causes an out-of-bands write during packet handling, compromising data integrity, confidentiality issues, a denial of service, and remote code execution.\n\nCVE-2022-28734:\nNo description is available for this CVE.\n\nCVE-2022-28735:\nNo description is available for this CVE.\n\nCVE-2022-28736:\nNo description is available for this CVE.\n\nCVE-2022-28737:\nNo description is available for this CVE.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-06-23"
+      },
+      "Updated": {
+        "Date": "2022-06-27"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-3695",
+          "CVSS3": "7.5/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3695",
+          "CWE": "CWE-787",
+          "Public": "20220623"
+        },
+        {
+          "ID": "CVE-2021-3696",
+          "CVSS3": "5.0/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:C/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3696",
+          "CWE": "CWE-787",
+          "Public": "20220623"
+        },
+        {
+          "ID": "CVE-2021-3697",
+          "CVSS3": "7.5/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3697",
+          "CWE": "CWE-787",
+          "Public": "20220623"
+        },
+        {
+          "ID": "CVE-2022-28733",
+          "CVSS3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-28733",
+          "CWE": "CWE-191",
+          "Public": "20220623"
+        },
+        {
+          "ID": "CVE-2022-28734",
+          "CVSS3": "7.0/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-28734",
+          "CWE": "CWE-787",
+          "Public": "20220623"
+        },
+        {
+          "ID": "CVE-2022-28735",
+          "CVSS3": "6.7/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-28735",
+          "CWE": "CWE-829",
+          "Public": "20220623"
+        },
+        {
+          "ID": "CVE-2022-28736",
+          "CVSS3": "6.4/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-28736",
+          "CWE": "CWE-416",
+          "Public": "20220623"
+        },
+        {
+          "ID": "CVE-2022-28737",
+          "CVSS3": "6.5/CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-28737",
+          "CWE": "CWE-120",
+          "Public": "20220623"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "grub2 is earlier than 1:2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525001"
+          },
+          {
+            "Comment": "mokutil is earlier than 1:0.3.0-11.0.3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220525002"
+          },
+          {
+            "Comment": "shim is earlier than 0:15.6-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220525003"
+          },
+          {
+            "Comment": "shim-unsigned-x64 is earlier than 0:unsigned-x64-15.6-1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220525004"
+          },
+          {
+            "Comment": "grub2-common is earlier than 1:common-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525005"
+          },
+          {
+            "Comment": "grub2-efi-aa64-modules is earlier than 1:efi-aa64-modules-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525006"
+          },
+          {
+            "Comment": "grub2-efi-ia32-modules is earlier than 1:efi-ia32-modules-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525007"
+          },
+          {
+            "Comment": "grub2-efi-x64-modules is earlier than 1:efi-x64-modules-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525008"
+          },
+          {
+            "Comment": "grub2-pc-modules is earlier than 1:pc-modules-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525009"
+          },
+          {
+            "Comment": "grub2-efi-aa64 is earlier than 1:efi-aa64-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525010"
+          },
+          {
+            "Comment": "grub2-efi-aa64-cdboot is earlier than 1:efi-aa64-cdboot-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525011"
+          },
+          {
+            "Comment": "grub2-tools is earlier than 1:tools-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525012"
+          },
+          {
+            "Comment": "grub2-tools-extra is earlier than 1:tools-extra-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525013"
+          },
+          {
+            "Comment": "grub2-tools-minimal is earlier than 1:tools-minimal-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525014"
+          },
+          {
+            "Comment": "shim-aa64 is earlier than 0:aa64-15.6-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220525015"
+          },
+          {
+            "Comment": "grub2-efi-ia32 is earlier than 1:efi-ia32-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525016"
+          },
+          {
+            "Comment": "grub2-efi-ia32-cdboot is earlier than 1:efi-ia32-cdboot-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525017"
+          },
+          {
+            "Comment": "grub2-efi-x64 is earlier than 1:efi-x64-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525018"
+          },
+          {
+            "Comment": "grub2-efi-x64-cdboot is earlier than 1:efi-x64-cdboot-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525019"
+          },
+          {
+            "Comment": "grub2-pc is earlier than 1:pc-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525020"
+          },
+          {
+            "Comment": "grub2-tools-efi is earlier than 1:tools-efi-2.02-123.0.1.an8_6.8",
+            "TestRef": "oval:cn.openanolis:tst:20220525021"
+          },
+          {
+            "Comment": "shim-ia32 is earlier than 0:ia32-15.6-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220525022"
+          },
+          {
+            "Comment": "shim-x64 is earlier than 0:x64-15.6-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220525023"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

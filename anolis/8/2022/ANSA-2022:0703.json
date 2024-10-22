@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20220703",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0703: gnupg2 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0703",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0703",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-34903:\nGnuPG through 2.3.6, in unusual situations where an attacker possesses any secret-key information from a victim's keyring and other constraints (e.g., use of GPGME) are met, allows signature forgery via injection into the status line.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-09-21"
+      },
+      "Updated": {
+        "Date": "2022-09-21"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-34903",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-34903",
+          "CWE": "CWE-347",
+          "Public": "20220921"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "gnupg2 is earlier than 0:2.2.20-3.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220703001"
+          },
+          {
+            "Comment": "gnupg2-smime is earlier than 0:smime-2.2.20-3.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220703002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

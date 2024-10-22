@@ -1,0 +1,117 @@
+{
+  "ID": "oval:cn.openanolis:def:20230496",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0496: nodejs:18 security, bug fix, and enhancement update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0496",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0496",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-30581:\nNo description is available for this CVE.\n\nCVE-2023-30588:\nNo description is available for this CVE.\n\nCVE-2023-30589:\nThe llhttp parser in the http module in Node v20.2.0 does not strictly use the CRLF sequence to delimit HTTP requests. This can lead to HTTP Request Smuggling (HRS). The CR character (without LF) is sufficient to delimit HTTP header fields in the llhttp parser. According to RFC7230 section 3, only the CRLF sequence should delimit each header-field. This impacts all Node.js active versions: v16, v18, and, v20\n\nCVE-2023-30590:\nNo description is available for this CVE.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-09-05"
+      },
+      "Updated": {
+        "Date": "2023-09-08"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-30581",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-30581",
+          "CWE": "",
+          "Public": "20230811"
+        },
+        {
+          "ID": "CVE-2023-30588",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-30588",
+          "CWE": "",
+          "Public": "20230811"
+        },
+        {
+          "ID": "CVE-2023-30589",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-30589",
+          "CWE": "",
+          "Public": "20230811"
+        },
+        {
+          "ID": "CVE-2023-30590",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-30590",
+          "CWE": "",
+          "Public": "20230811"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "nodejs is earlier than 1:18.16.1-1.module+an8.8.0+11096+6ab2be36",
+            "TestRef": "oval:cn.openanolis:tst:20230496001"
+          },
+          {
+            "Comment": "nodejs-devel is earlier than 1:devel-18.16.1-1.module+an8.8.0+11096+6ab2be36",
+            "TestRef": "oval:cn.openanolis:tst:20230496002"
+          },
+          {
+            "Comment": "nodejs-full-i18n is earlier than 1:full-i18n-18.16.1-1.module+an8.8.0+11096+6ab2be36",
+            "TestRef": "oval:cn.openanolis:tst:20230496003"
+          },
+          {
+            "Comment": "npm is earlier than 1:9.5.1-1.18.16.1.1.module+an8.8.0+11096+6ab2be36",
+            "TestRef": "oval:cn.openanolis:tst:20230496004"
+          },
+          {
+            "Comment": "nodejs-nodemon is earlier than 0:nodemon-2.0.20-2.module+an8.7.0+11025+85503118",
+            "TestRef": "oval:cn.openanolis:tst:20230496005"
+          },
+          {
+            "Comment": "nodejs-packaging is earlier than 0:packaging-2021.06-4.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20230496006"
+          },
+          {
+            "Comment": "nodejs-docs is earlier than 1:docs-18.16.1-1.module+an8.8.0+11096+6ab2be36",
+            "TestRef": "oval:cn.openanolis:tst:20230496007"
+          },
+          {
+            "Comment": "nodejs-packaging-bundler is earlier than 0:packaging-bundler-2021.06-4.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20230496008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

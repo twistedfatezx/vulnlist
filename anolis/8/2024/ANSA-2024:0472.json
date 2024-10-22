@@ -1,0 +1,153 @@
+{
+  "ID": "oval:cn.openanolis:def:20240472",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0472: idm:client security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0472",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0472",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-6681:\nA vulnerability was found in JWCrypto. This flaw allows an attacker to cause a denial of service (DoS) attack and possible password brute-force and dictionary attacks to be more resource-intensive. This issue can result in a large amount of computational consumption, causing a denial of service attack.\n\nCVE-2024-28102:\nJWCrypto implements JWK, JWS, and JWE specifications using python-cryptography. Prior to version 1.5.6, an attacker can cause a denial of service attack by passing in a malicious JWE Token with a high compression ratio. When the server processes this token, it will consume a lot of memory and processing time. Version 1.5.6 fixes this vulnerability by limiting the maximum token length.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-18"
+      },
+      "Updated": {
+        "Date": "2024-06-18"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-6681",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6681",
+          "CWE": "CWE-400",
+          "Public": "20240618"
+        },
+        {
+          "ID": "CVE-2024-28102",
+          "CVSS3": "6.8/CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-28102",
+          "CWE": "CWE-400",
+          "Public": "20240618"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "ipa-client is earlier than 0:client-4.9.13-9.0.1.module+an8.9.0+11210+677bf554",
+            "TestRef": "oval:cn.openanolis:tst:20240472001"
+          },
+          {
+            "Comment": "ipa-client-epn is earlier than 0:client-epn-4.9.13-9.0.1.module+an8.9.0+11210+677bf554",
+            "TestRef": "oval:cn.openanolis:tst:20240472002"
+          },
+          {
+            "Comment": "ipa-client-samba is earlier than 0:client-samba-4.9.13-9.0.1.module+an8.9.0+11210+677bf554",
+            "TestRef": "oval:cn.openanolis:tst:20240472003"
+          },
+          {
+            "Comment": "ipa is earlier than 0:4.9.13-9.0.1.module+an8.9.0+11210+677bf554",
+            "TestRef": "oval:cn.openanolis:tst:20240472004"
+          },
+          {
+            "Comment": "ipa-healthcheck is earlier than 0:healthcheck-0.12-3.module+an8.9.0+11157+09661889",
+            "TestRef": "oval:cn.openanolis:tst:20240472005"
+          },
+          {
+            "Comment": "python-jwcrypto is earlier than 0:jwcrypto-0.5.0-2.module+an8.9.0+11210+677bf554",
+            "TestRef": "oval:cn.openanolis:tst:20240472006"
+          },
+          {
+            "Comment": "python-qrcode is earlier than 0:qrcode-5.1-12.module+an8.8.0+11063+69aa3411",
+            "TestRef": "oval:cn.openanolis:tst:20240472007"
+          },
+          {
+            "Comment": "python-yubico is earlier than 0:yubico-1.3.2-9.1.module+an8.8.0+11063+69aa3411",
+            "TestRef": "oval:cn.openanolis:tst:20240472008"
+          },
+          {
+            "Comment": "pyusb is earlier than 0:1.0.0-9.1.module+an8.8.0+11063+69aa3411",
+            "TestRef": "oval:cn.openanolis:tst:20240472009"
+          },
+          {
+            "Comment": "ipa-client-common is earlier than 0:client-common-4.9.13-9.0.1.module+an8.9.0+11210+677bf554",
+            "TestRef": "oval:cn.openanolis:tst:20240472010"
+          },
+          {
+            "Comment": "ipa-common is earlier than 0:common-4.9.13-9.0.1.module+an8.9.0+11210+677bf554",
+            "TestRef": "oval:cn.openanolis:tst:20240472011"
+          },
+          {
+            "Comment": "ipa-healthcheck-core is earlier than 0:healthcheck-core-0.12-3.module+an8.9.0+11157+09661889",
+            "TestRef": "oval:cn.openanolis:tst:20240472012"
+          },
+          {
+            "Comment": "ipa-python-compat is earlier than 0:python-compat-4.9.13-9.0.1.module+an8.9.0+11210+677bf554",
+            "TestRef": "oval:cn.openanolis:tst:20240472013"
+          },
+          {
+            "Comment": "ipa-selinux is earlier than 0:selinux-4.9.13-9.0.1.module+an8.9.0+11210+677bf554",
+            "TestRef": "oval:cn.openanolis:tst:20240472014"
+          },
+          {
+            "Comment": "python3-ipaclient is earlier than 0:ipaclient-4.9.13-9.0.1.module+an8.9.0+11210+677bf554",
+            "TestRef": "oval:cn.openanolis:tst:20240472015"
+          },
+          {
+            "Comment": "python3-ipalib is earlier than 0:ipalib-4.9.13-9.0.1.module+an8.9.0+11210+677bf554",
+            "TestRef": "oval:cn.openanolis:tst:20240472016"
+          },
+          {
+            "Comment": "python3-jwcrypto is earlier than 0:jwcrypto-0.5.0-2.module+an8.9.0+11210+677bf554",
+            "TestRef": "oval:cn.openanolis:tst:20240472017"
+          },
+          {
+            "Comment": "python3-pyusb is earlier than 0:pyusb-1.0.0-9.1.module+an8.8.0+11063+69aa3411",
+            "TestRef": "oval:cn.openanolis:tst:20240472018"
+          },
+          {
+            "Comment": "python3-qrcode is earlier than 0:qrcode-5.1-12.module+an8.8.0+11063+69aa3411",
+            "TestRef": "oval:cn.openanolis:tst:20240472019"
+          },
+          {
+            "Comment": "python3-qrcode-core is earlier than 0:qrcode-core-5.1-12.module+an8.8.0+11063+69aa3411",
+            "TestRef": "oval:cn.openanolis:tst:20240472020"
+          },
+          {
+            "Comment": "python3-yubico is earlier than 0:yubico-1.3.2-9.1.module+an8.8.0+11063+69aa3411",
+            "TestRef": "oval:cn.openanolis:tst:20240472021"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

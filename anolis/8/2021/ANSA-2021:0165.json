@@ -1,0 +1,101 @@
+{
+  "ID": "oval:cn.openanolis:def:20210165",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0165: systemd security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0165",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0165",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2019-3842:\nIn systemd before v242-rc4, it was discovered that pam_systemd does not properly sanitize the environment before using the XDG_SEAT variable. It is possible for an attacker, in some particular configurations, to set a XDG_SEAT environment variable which allows for commands to be checked against polkit policies using the \"allow_active\" element rather than \"allow_any\".\n\nCVE-2020-13776:\nsystemd through v245 mishandles numerical usernames such as ones composed of decimal digits or 0x followed by hex digits, as demonstrated by use of root privileges when privileges of the 0x0 user account were intended. NOTE: this issue exists because of an incomplete fix for CVE-2017-1000082.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2021-11-25"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2019-3842",
+          "CVSS3": "4.5/CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-3842",
+          "CWE": "CWE-863",
+          "Public": "20211125"
+        },
+        {
+          "ID": "CVE-2020-13776",
+          "CVSS3": "6.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-13776",
+          "CWE": "CWE-440",
+          "Public": "20211125"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "systemd is earlier than 0:239-31.0.1.an8_2.7",
+            "TestRef": "oval:cn.openanolis:tst:20210165001"
+          },
+          {
+            "Comment": "systemd-container is earlier than 0:container-239-31.0.1.an8_2.7",
+            "TestRef": "oval:cn.openanolis:tst:20210165002"
+          },
+          {
+            "Comment": "systemd-devel is earlier than 0:devel-239-31.0.1.an8_2.7",
+            "TestRef": "oval:cn.openanolis:tst:20210165003"
+          },
+          {
+            "Comment": "systemd-journal-remote is earlier than 0:journal-remote-239-31.0.1.an8_2.7",
+            "TestRef": "oval:cn.openanolis:tst:20210165004"
+          },
+          {
+            "Comment": "systemd-libs is earlier than 0:libs-239-31.0.1.an8_2.7",
+            "TestRef": "oval:cn.openanolis:tst:20210165005"
+          },
+          {
+            "Comment": "systemd-pam is earlier than 0:pam-239-31.0.1.an8_2.7",
+            "TestRef": "oval:cn.openanolis:tst:20210165006"
+          },
+          {
+            "Comment": "systemd-tests is earlier than 0:tests-239-31.0.1.an8_2.7",
+            "TestRef": "oval:cn.openanolis:tst:20210165007"
+          },
+          {
+            "Comment": "systemd-udev is earlier than 0:udev-239-31.0.1.an8_2.7",
+            "TestRef": "oval:cn.openanolis:tst:20210165008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

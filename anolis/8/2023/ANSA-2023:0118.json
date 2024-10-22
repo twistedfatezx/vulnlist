@@ -1,0 +1,137 @@
+{
+  "ID": "oval:cn.openanolis:def:20230118",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0118: nodejs:14 security, bug fix, and enhancement update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0118",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0118",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-35065:\nThe glob-parent package before 6.0.1 for Node.js allows ReDoS (regular expression denial of service) attacks against the enclosure regular expression.\n\nCVE-2022-25881:\nThis affects versions of the package http-cache-semantics before 4.1.1. The issue can be exploited via malicious request header values sent to a server, when that server reads the cache policy from the request using this library.\n\nCVE-2022-3517:\nA vulnerability was found in the minimatch package. This flaw allows a Regular Expression Denial of Service (ReDoS) when calling the braceExpand function with specific arguments, resulting in a Denial of Service.\n\nCVE-2022-38900:\ndecode-uri-component 0.2.0 is vulnerable to Improper Input Validation resulting in DoS.\n\nCVE-2022-4904:\nA flaw was found in the c-ares package. The ares_set_sortlist is missing checks about the validity of the input string, which allows a possible arbitrary length stack overflow. This issue may cause a denial of service or a limited impact on confidentiality and integrity.\n\nCVE-2023-23918:\nA privilege escalation vulnerability exists in Node.js \u003c19.6.1, \u003c18.14.1, \u003c16.19.1 and \u003c14.21.3 that made it possible to bypass the experimental Permissions (https://nodejs.org/api/permissions.html) feature in Node.js and access non authorized modules by using process.mainModule.require(). This only affects users who had enabled the experimental permissions option with --experimental-policy.\n\nCVE-2023-23920:\nAn untrusted search path vulnerability exists in Node.js. \u003c19.6.1, \u003c18.14.1, \u003c16.19.1, and \u003c14.21.3 that could allow an attacker to search and potentially load ICU data when running with elevated privileges.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-04-14"
+      },
+      "Updated": {
+        "Date": "2023-04-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-35065",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-35065",
+          "CWE": "CWE-400",
+          "Public": "20221226"
+        },
+        {
+          "ID": "CVE-2022-25881",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25881",
+          "CWE": "CWE-1333",
+          "Public": "20230131"
+        },
+        {
+          "ID": "CVE-2022-3517",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-3517",
+          "CWE": "CWE-1333",
+          "Public": "20230411"
+        },
+        {
+          "ID": "CVE-2022-38900",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-38900",
+          "CWE": "CWE-20",
+          "Public": "20221128"
+        },
+        {
+          "ID": "CVE-2022-4904",
+          "CVSS3": "8.6/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-4904",
+          "CWE": "CWE-20-\u003eCWE-119",
+          "Public": "20230307"
+        },
+        {
+          "ID": "CVE-2023-23918",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-23918",
+          "CWE": "CWE-863",
+          "Public": "20230224"
+        },
+        {
+          "ID": "CVE-2023-23920",
+          "CVSS3": "4.2/CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-23920",
+          "CWE": "CWE-426",
+          "Public": "20230224"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "nodejs is earlier than 1:14.21.3-1.0.1.module+an8.7.0+11032+e7625e42",
+            "TestRef": "oval:cn.openanolis:tst:20230118001"
+          },
+          {
+            "Comment": "nodejs-devel is earlier than 1:devel-14.21.3-1.0.1.module+an8.7.0+11032+e7625e42",
+            "TestRef": "oval:cn.openanolis:tst:20230118002"
+          },
+          {
+            "Comment": "nodejs-full-i18n is earlier than 1:full-i18n-14.21.3-1.0.1.module+an8.7.0+11032+e7625e42",
+            "TestRef": "oval:cn.openanolis:tst:20230118003"
+          },
+          {
+            "Comment": "npm is earlier than 1:6.14.18-1.14.21.3.1.0.1.module+an8.7.0+11032+e7625e42",
+            "TestRef": "oval:cn.openanolis:tst:20230118004"
+          },
+          {
+            "Comment": "nodejs-nodemon is earlier than 0:nodemon-2.0.20-3.module+an8.7.0+11032+e7625e42",
+            "TestRef": "oval:cn.openanolis:tst:20230118005"
+          },
+          {
+            "Comment": "nodejs-packaging is earlier than 0:packaging-23-3.module+an8.7.0+10919+09c93078",
+            "TestRef": "oval:cn.openanolis:tst:20230118006"
+          },
+          {
+            "Comment": "nodejs-docs is earlier than 1:docs-14.21.3-1.0.1.module+an8.7.0+11032+e7625e42",
+            "TestRef": "oval:cn.openanolis:tst:20230118007"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

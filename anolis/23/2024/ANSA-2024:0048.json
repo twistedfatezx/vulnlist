@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20240048",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0048: libtiff security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0048",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0048",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-6228:\nAn issue was found in the tiffcp utility distributed by the libtiff package where a crafted TIFF file on processing may cause a heap-based buffer overflow leads to an application crash.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-02-06"
+      },
+      "Updated": {
+        "Date": "2024-02-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-6228",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6228",
+          "CWE": "CWE-787",
+          "Public": "20240206"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libtiff is earlier than 0:4.5.1-5.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240048001"
+          },
+          {
+            "Comment": "libtiff-devel is earlier than 0:devel-4.5.1-5.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240048002"
+          },
+          {
+            "Comment": "libtiff-opengl is earlier than 0:opengl-4.5.1-5.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240048003"
+          },
+          {
+            "Comment": "libtiff-tools is earlier than 0:tools-4.5.1-5.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240048004"
+          },
+          {
+            "Comment": "libtiff-doc is earlier than 0:doc-4.5.1-5.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240048005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

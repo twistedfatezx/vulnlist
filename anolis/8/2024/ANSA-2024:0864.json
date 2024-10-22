@@ -1,0 +1,165 @@
+{
+  "ID": "oval:cn.openanolis:def:20240864",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0864: nodejs:20 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0864",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0864",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-22018:\nA vulnerability has been identified in Node.js, affecting users of the experimental permission model when the --allow-fs-read flag is used.\nThis flaw arises from an inadequate permission model that fails to restrict file stats through the fs.lstat API. As a result, malicious actors can retrieve stats from files that they do not have explicit read access to.\nThis vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.\nPlease note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.\n\nCVE-2024-22020:\nA security flaw in Node.js  allows a bypass of network import restrictions.\nBy embedding non-network imports in data URLs, an attacker can execute arbitrary code, compromising system security.\nVerified on various platforms, the vulnerability is mitigated by forbidding data URLs in network imports.\nExploiting this flaw can violate network import security, posing a risk to developers and servers.\n\nCVE-2024-28863:\nnode-tar is a Tar for Node.js. node-tar prior to version 6.2.1 has no limit on the number of sub-folders created in the folder creation process. An attacker who generates a large number of sub-folders can consume memory on the system running node-tar and even crash the Node.js client within few seconds of running it using a path with too many sub-folders inside. Version 6.2.1 fixes this issue by preventing extraction in excessively deep sub-folders.\n\nCVE-2024-36137:\nA flaw was found in Node.js, affecting users of the experimental permission model when the --allow-fs-write flag is used. The Node.js Permission Model does not operate on file descriptors. However, operations such as fs.fchown or fs.fchmod can use a \"read-only\" file descriptor to change the owner and permissions of a file.\n\nCVE-2024-21890:\nThe Node.js Permission Model does not clarify in the documentation that wildcards should be only used as the last character of a file path. For example:\n```\n --allow-fs-read=/home/node/.ssh/*.pub\n```\n\nwill ignore `pub` and give access to everything after `.ssh/`.\n\nThis misleading documentation affects all users using the experimental permission model in Node.js 20 and Node.js 21.\n\nPlease note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.\n\nCVE-2024-21891:\nNode.js depends on multiple built-in utility functions to normalize paths provided to node:fs functions, which can be overwitten with user-defined implementations leading to filesystem permission model bypass through path traversal attack.\nThis vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.\nPlease note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.\n\nCVE-2024-21896:\nThe permission model protects itself against path traversal attacks by calling path.resolve() on any paths given by the user. If the path is to be treated as a Buffer, the implementation uses Buffer.from() to obtain a Buffer from the result of path.resolve(). By monkey-patching Buffer internals, namely, Buffer.prototype.utf8Write, the application can modify the result of path.resolve(), which leads to a path traversal vulnerability.\nThis vulnerability affects all users using the experimental permission model in Node.js 20 and Node.js 21.\nPlease note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.\n\nCVE-2024-22017:\nsetuid() does not affect libuv's internal io_uring operations if initialized before the call to setuid().\nThis allows the process to perform privileged operations despite presumably having dropped such privileges through a call to setuid().\nThis vulnerability affects all users using version greater or equal than Node.js 18.18.0, Node.js 20.4.0 and Node.js 21.\n\nCVE-2023-39331:\nA previously disclosed vulnerability (CVE-2023-30584) was patched insufficiently in commit 205f1e6. The new path traversal vulnerability arises because the implementation does not protect itself against the application overwriting built-in utility functions with user-defined implementations.\n\nPlease note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.\n\nCVE-2023-39332:\nVarious `node:fs` functions allow specifying paths as either strings or `Uint8Array` objects. In Node.js environments, the `Buffer` class extends the `Uint8Array` class. Node.js prevents path traversal through strings (see CVE-2023-30584) and `Buffer` objects (see CVE-2023-32004), but not through non-`Buffer` `Uint8Array` objects.\n\nThis is distinct from CVE-2023-32004 which only referred to `Buffer` objects. However, the vulnerability follows the same pattern using `Uint8Array` instead of `Buffer`.\n\nPlease note that at the time this CVE was issued, the permission model is an experimental feature of Node.js.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-08-29"
+      },
+      "Updated": {
+        "Date": "2024-09-12"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-22018",
+          "CVSS3": "2.9/CVSS:3.0/AV:L/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-22018",
+          "CWE": "",
+          "Public": "20240829"
+        },
+        {
+          "ID": "CVE-2024-22020",
+          "CVSS3": "6.5/CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:L/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-22020",
+          "CWE": "",
+          "Public": "20240829"
+        },
+        {
+          "ID": "CVE-2024-28863",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-28863",
+          "CWE": "CWE-400",
+          "Public": "20240829"
+        },
+        {
+          "ID": "CVE-2024-36137",
+          "CVSS3": "3.9/CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-36137",
+          "CWE": "CWE-732",
+          "Public": "20240829"
+        },
+        {
+          "ID": "CVE-2024-21890",
+          "CVSS3": "5.0/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-21890",
+          "CWE": "CWE-1059",
+          "Public": "20240220"
+        },
+        {
+          "ID": "CVE-2024-21891",
+          "CVSS3": "6.6/CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-21891",
+          "CWE": "CWE-22",
+          "Public": "20240220"
+        },
+        {
+          "ID": "CVE-2024-21896",
+          "CVSS3": "7.9/CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:C/C:H/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-21896",
+          "CWE": "CWE-22",
+          "Public": "20240220"
+        },
+        {
+          "ID": "CVE-2024-22017",
+          "CVSS3": "7.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-22017",
+          "CWE": "CWE-269",
+          "Public": "20240319"
+        },
+        {
+          "ID": "CVE-2023-39331",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-39331",
+          "CWE": "CWE-22",
+          "Public": "20231018"
+        },
+        {
+          "ID": "CVE-2023-39332",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-39332",
+          "CWE": "CWE-22",
+          "Public": "20231017"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "nodejs is earlier than 1:20.16.0-1.module+an8.9.0+11244+99d0e08d",
+            "TestRef": "oval:cn.openanolis:tst:20240864001"
+          },
+          {
+            "Comment": "nodejs-devel is earlier than 1:devel-20.16.0-1.module+an8.9.0+11244+99d0e08d",
+            "TestRef": "oval:cn.openanolis:tst:20240864002"
+          },
+          {
+            "Comment": "nodejs-full-i18n is earlier than 1:full-i18n-20.16.0-1.module+an8.9.0+11244+99d0e08d",
+            "TestRef": "oval:cn.openanolis:tst:20240864003"
+          },
+          {
+            "Comment": "npm is earlier than 1:10.8.1-1.20.16.0.1.module+an8.9.0+11244+99d0e08d",
+            "TestRef": "oval:cn.openanolis:tst:20240864004"
+          },
+          {
+            "Comment": "nodejs-nodemon is earlier than 0:nodemon-3.0.1-1.module+an8.9.0+11244+99d0e08d",
+            "TestRef": "oval:cn.openanolis:tst:20240864005"
+          },
+          {
+            "Comment": "nodejs-packaging is earlier than 0:packaging-2021.06-4.module+an8.9.0+11244+99d0e08d",
+            "TestRef": "oval:cn.openanolis:tst:20240864006"
+          },
+          {
+            "Comment": "nodejs-docs is earlier than 1:docs-20.16.0-1.module+an8.9.0+11244+99d0e08d",
+            "TestRef": "oval:cn.openanolis:tst:20240864007"
+          },
+          {
+            "Comment": "nodejs-packaging-bundler is earlier than 0:packaging-bundler-2021.06-4.module+an8.9.0+11244+99d0e08d",
+            "TestRef": "oval:cn.openanolis:tst:20240864008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

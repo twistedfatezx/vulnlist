@@ -1,0 +1,89 @@
+{
+  "ID": "oval:cn.openanolis:def:20220803",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0803: 389-ds:1.4 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0803",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0803",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-2850:\nA flaw was found In 389-ds-base. When the Content Synchronization plugin is enabled, an authenticated user can reach a NULL pointer dereference using a specially crafted query. This flaw allows an authenticated attacker to cause a denial of service. This CVE is assigned against an incomplete fix of CVE-2021-3514.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-11-10"
+      },
+      "Updated": {
+        "Date": "2022-11-11"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-2850",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-2850",
+          "CWE": "CWE-476",
+          "Public": "20221108"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "389-ds-base is earlier than 0:ds-base-1.4.3.28-8.0.1.module+an8.6.0+10882+28eb7093",
+            "TestRef": "oval:cn.openanolis:tst:20220803001"
+          },
+          {
+            "Comment": "389-ds-base-devel is earlier than 0:ds-base-devel-1.4.3.28-8.0.1.module+an8.6.0+10882+28eb7093",
+            "TestRef": "oval:cn.openanolis:tst:20220803002"
+          },
+          {
+            "Comment": "389-ds-base-legacy-tools is earlier than 0:ds-base-legacy-tools-1.4.3.28-8.0.1.module+an8.6.0+10882+28eb7093",
+            "TestRef": "oval:cn.openanolis:tst:20220803003"
+          },
+          {
+            "Comment": "389-ds-base-libs is earlier than 0:ds-base-libs-1.4.3.28-8.0.1.module+an8.6.0+10882+28eb7093",
+            "TestRef": "oval:cn.openanolis:tst:20220803004"
+          },
+          {
+            "Comment": "389-ds-base-snmp is earlier than 0:ds-base-snmp-1.4.3.28-8.0.1.module+an8.6.0+10882+28eb7093",
+            "TestRef": "oval:cn.openanolis:tst:20220803005"
+          },
+          {
+            "Comment": "cockpit-389-ds is earlier than 0:389-ds-1.4.3.28-8.0.1.module+an8.6.0+10882+28eb7093",
+            "TestRef": "oval:cn.openanolis:tst:20220803006"
+          },
+          {
+            "Comment": "python3-lib389 is earlier than 0:lib389-1.4.3.28-8.0.1.module+an8.6.0+10882+28eb7093",
+            "TestRef": "oval:cn.openanolis:tst:20220803007"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

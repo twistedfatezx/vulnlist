@@ -1,0 +1,109 @@
+{
+  "ID": "oval:cn.openanolis:def:20240376",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0376: nodejs:18 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0376",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0376",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-46809:\nA flaw was found in Node.js. The privateDecrypt() API of the crypto library may allow a covert timing side-channel during PKCS#1 v1.5 padding error handling. This issue revealed significant timing differences in decryption for valid and invalid ciphertexts, which may allow a remote attacker to decrypt captured RSA ciphertexts or forge signatures, especially in scenarios involving API endpoints processing JSON Web Encryption messages.\n\nCVE-2024-21892:\nOn Linux, Node.js ignores certain environment variables if those may have been set by an unprivileged user while the process is running with elevated privileges with the only exception of CAP_NET_BIND_SERVICE.\nDue to a bug in the implementation of this exception, Node.js incorrectly applies this exception even when certain other capabilities have been set.\nThis allows unprivileged users to inject code that inherits the process's elevated privileges.\n\nCVE-2024-22019:\nA vulnerability in Node.js HTTP servers allows an attacker to send a specially crafted HTTP request with chunked encoding, leading to resource exhaustion and denial of service (DoS). The server reads an unbounded number of bytes from a single connection, exploiting the lack of limitations on chunk extension bytes. The issue can cause CPU and network bandwidth exhaustion, bypassing standard safeguards like timeouts and body size limits.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-04-24"
+      },
+      "Updated": {
+        "Date": "2024-04-25"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-46809",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-46809",
+          "CWE": "CWE-385-\u003eCWE-208",
+          "Public": "20240216"
+        },
+        {
+          "ID": "CVE-2024-21892",
+          "CVSS3": "8.1/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-21892",
+          "CWE": "CWE-94",
+          "Public": "20240220"
+        },
+        {
+          "ID": "CVE-2024-22019",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-22019",
+          "CWE": "CWE-400",
+          "Public": "20240220"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "nodejs is earlier than 1:18.19.1-1.0.1.module+an8.9.0+11190+d16265df",
+            "TestRef": "oval:cn.openanolis:tst:20240376001"
+          },
+          {
+            "Comment": "nodejs-devel is earlier than 1:devel-18.19.1-1.0.1.module+an8.9.0+11190+d16265df",
+            "TestRef": "oval:cn.openanolis:tst:20240376002"
+          },
+          {
+            "Comment": "nodejs-full-i18n is earlier than 1:full-i18n-18.19.1-1.0.1.module+an8.9.0+11190+d16265df",
+            "TestRef": "oval:cn.openanolis:tst:20240376003"
+          },
+          {
+            "Comment": "npm is earlier than 1:10.2.4-1.18.19.1.1.0.1.module+an8.9.0+11190+d16265df",
+            "TestRef": "oval:cn.openanolis:tst:20240376004"
+          },
+          {
+            "Comment": "nodejs-nodemon is earlier than 0:nodemon-3.0.1-1.module+an8.9.0+11173+0e6b09d2",
+            "TestRef": "oval:cn.openanolis:tst:20240376005"
+          },
+          {
+            "Comment": "nodejs-packaging is earlier than 0:packaging-2021.06-4.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20240376006"
+          },
+          {
+            "Comment": "nodejs-docs is earlier than 1:docs-18.19.1-1.0.1.module+an8.9.0+11190+d16265df",
+            "TestRef": "oval:cn.openanolis:tst:20240376007"
+          },
+          {
+            "Comment": "nodejs-packaging-bundler is earlier than 0:packaging-bundler-2021.06-4.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20240376008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

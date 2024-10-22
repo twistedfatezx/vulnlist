@@ -1,0 +1,105 @@
+{
+  "ID": "oval:cn.openanolis:def:20240044",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0044: squid:4 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0044",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0044",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-46724:\nSquid is a caching proxy for the Web. Due to an Improper Validation of Specified Index bug, Squid versions 3.3.0.1 through 5.9 and 6.0 prior to 6.4 compiled using `--with-openssl` are vulnerable to a Denial of Service attack against SSL Certificate validation. This problem allows a remote server to perform Denial of Service against Squid Proxy by initiating a TLS Handshake with a specially crafted SSL Certificate in a server certificate chain. This attack is limited to HTTPS and SSL-Bump. This bug is fixed in Squid version 6.4. In addition, patches addressing this problem for the stable releases can be found in Squid's patch archives. Those who you use a prepackaged version of Squid should refer to the package vendor for availability information on updated packages.\n\nCVE-2023-46728:\nSquid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more. Due to a NULL pointer dereference bug Squid is vulnerable to a Denial of Service attack against Squid's Gopher gateway. The gopher protocol is always available and enabled in Squid prior to Squid 6.0.1. Responses triggering this bug are possible to be received from any gopher server, even those without malicious intent. Gopher support has been removed in Squid version 6.0.1. Users are advised to upgrade. Users unable to upgrade should reject all gopher URL requests.\n\nCVE-2023-49285:\nSquid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more. Due to a Buffer Overread bug Squid is vulnerable to a Denial of Service attack against Squid HTTP Message processing. This bug is fixed by Squid version 6.5. Users are advised to upgrade. There are no known workarounds for this vulnerability.\n\nCVE-2023-49286:\nSquid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more. Due to an Incorrect Check of Function Return Value bug Squid is vulnerable to a Denial of Service attack against its Helper process management. This bug is fixed by Squid version 6.5. Users are advised to upgrade. There are no known workarounds for this vulnerability.\n\nCVE-2023-5824:\nSquid is vulnerable to Denial of Service attack against HTTP and HTTPS clients due to an Improper Handling of Structural Elements bug.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-02-02"
+      },
+      "Updated": {
+        "Date": "2024-02-02"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-46724",
+          "CVSS3": "8.6/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-46724",
+          "CWE": "(CWE-125|CWE-1285|CWE-129|CWE-786|CWE-823)",
+          "Public": "20231101"
+        },
+        {
+          "ID": "CVE-2023-46728",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-46728",
+          "CWE": "CWE-476",
+          "Public": "20231106"
+        },
+        {
+          "ID": "CVE-2023-49285",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-49285",
+          "CWE": "CWE-126",
+          "Public": "20240202"
+        },
+        {
+          "ID": "CVE-2023-49286",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-49286",
+          "CWE": "CWE-253-\u003eCWE-617",
+          "Public": "20240202"
+        },
+        {
+          "ID": "CVE-2023-5824",
+          "CVSS3": "9.6/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5824",
+          "CWE": "CWE-755",
+          "Public": "20231019"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libecap is earlier than 0:1.0.1-2.0.1.module+an8.7.0+10994+8928ee11",
+            "TestRef": "oval:cn.openanolis:tst:20240044001"
+          },
+          {
+            "Comment": "libecap-devel is earlier than 0:devel-1.0.1-2.0.1.module+an8.7.0+10994+8928ee11",
+            "TestRef": "oval:cn.openanolis:tst:20240044002"
+          },
+          {
+            "Comment": "squid is earlier than 7:4.15-11.module+an8.9.0+11167+7ffaa448.1",
+            "TestRef": "oval:cn.openanolis:tst:20240044003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

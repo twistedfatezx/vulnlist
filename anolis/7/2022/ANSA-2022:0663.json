@@ -1,0 +1,109 @@
+{
+  "ID": "oval:cn.openanolis:def:20220663",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0663: ANSA: kernel security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0663",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0663",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "An update for kernel package is now avaiable for Anolis OS 7 that fix CVE-2022-2586:\n\nCVE-2022-2586:\nA use-after-free flaw was found in nf_tables cross-table in the net/netfilter/nf_tables_api.c function in the Linux kernel. This flaw allows a local, privileged attacker to cause a use-after-free problem at the time of table deletion, possibly leading to local privilege escalation.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-08-30"
+      },
+      "Updated": {
+        "Date": "2022-09-30"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-2586",
+          "CVSS3": "6.7/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-2586",
+          "CWE": "CWE-416",
+          "Public": "20230110"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:4.19.91-26.2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220663001"
+          },
+          {
+            "Comment": "kernel (ANCK) is earlier than 0:4.19.91-26.2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220663002"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-4.19.91-26.2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220663003"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-4.19.91-26.2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220663004"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-4.19.91-26.2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220663005"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-4.19.91-26.2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220663006"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-4.19.91-26.2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220663007"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-4.19.91-26.2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220663008"
+          },
+          {
+            "Comment": "kernel-tools-libs-devel is earlier than 0:tools-libs-devel-4.19.91-26.2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220663009"
+          },
+          {
+            "Comment": "perf is earlier than 0:4.19.91-26.2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220663010"
+          },
+          {
+            "Comment": "python-perf is earlier than 0:perf-4.19.91-26.2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220663011"
+          },
+          {
+            "Comment": "kernel(ANCK)4.19 is earlier than 0:4.19.91-26.2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220663012"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

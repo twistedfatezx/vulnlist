@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20240837",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0837: xorg-x11-server-Xwayland security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0837",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0837",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2024-31083:\nA use-after-free vulnerability was found in the ProcRenderAddGlyphs() function of Xorg servers. This issue occurs when AllocateGlyph() is called to store new glyphs sent by the client to the X server, potentially resulting in multiple entries pointing to the same non-refcounted glyphs. Consequently, ProcRenderAddGlyphs() may free a glyph, leading to a use-after-free scenario when the same glyph pointer is subsequently accessed. This flaw allows an authenticated attacker to execute arbitrary code on the system by sending a specially crafted request.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-08-20"
+      },
+      "Updated": {
+        "Date": "2024-08-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-31083",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-31083",
+          "CWE": "CWE-416",
+          "Public": "20240603"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "xorg-x11-server-Xwayland is earlier than 0:x11-server-Xwayland-23.2.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240837001"
+          },
+          {
+            "Comment": "xorg-x11-server-Xwayland-devel is earlier than 0:x11-server-Xwayland-devel-23.2.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240837002"
+          },
+          {
+            "Comment": "xorg-x11-server-Xwayland-doc is earlier than 0:x11-server-Xwayland-doc-23.2.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240837003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

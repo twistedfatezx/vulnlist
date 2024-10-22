@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20220426",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0426: dovecot security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0426",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0426",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-33515:\nThe submission service in Dovecot before 2.3.15 allows STARTTLS command injection in lib-smtp. Sensitive information can be redirected to an attacker-controlled address.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-06-15"
+      },
+      "Updated": {
+        "Date": "2022-06-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-33515",
+          "CVSS3": "4.2/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-33515",
+          "CWE": "CWE-77",
+          "Public": "20220615"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "dovecot is earlier than 1:2.3.16-2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220426001"
+          },
+          {
+            "Comment": "dovecot-mysql is earlier than 1:mysql-2.3.16-2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220426002"
+          },
+          {
+            "Comment": "dovecot-pgsql is earlier than 1:pgsql-2.3.16-2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220426003"
+          },
+          {
+            "Comment": "dovecot-pigeonhole is earlier than 1:pigeonhole-2.3.16-2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220426004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

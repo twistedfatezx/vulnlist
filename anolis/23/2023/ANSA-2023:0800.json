@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20230800",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0800: python-pip security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0800",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0800",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-5752:\nWhen installing a package from a Mercurial VCS URL (ie \"pip install hg+...\") with pip prior to v23.3, the specified Mercurial revision could be used to inject arbitrary configuration options to the \"hg clone\" call (ie \"--config\"). Controlling the Mercurial configuration can modify how and which repository is installed. This vulnerability does not affect users who aren't installing from Mercurial.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-12-01"
+      },
+      "Updated": {
+        "Date": "2023-12-01"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-5752",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5752",
+          "CWE": "CWE-77",
+          "Public": "20231025"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python-pip is earlier than 0:pip-23.3.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230800001"
+          },
+          {
+            "Comment": "python-pip-wheel is earlier than 0:pip-wheel-23.3.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230800002"
+          },
+          {
+            "Comment": "python3-pip is earlier than 0:pip-23.3.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230800003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

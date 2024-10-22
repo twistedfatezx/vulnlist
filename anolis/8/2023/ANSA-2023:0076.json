@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20230076",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0076: curl security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0076",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0076",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-23916:\nAn allocation of resources without limits or throttling vulnerability exists in curl \u003cv7.88.0 based on the \"chained\" HTTP compression algorithms, meaning that a server response can be compressed multiple times and potentially with differentalgorithms. The number of acceptable \"links\" in this \"decompression chain\" wascapped, but the cap was implemented on a per-header basis allowing a maliciousserver to insert a virtually unlimited number of compression steps simply byusing many headers. The use of such a decompression chain could result in a \"malloc bomb\", making curl end up spending enormous amounts of allocated heap memory, or trying to and returning out of memory errors.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-03-10"
+      },
+      "Updated": {
+        "Date": "2023-03-15"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-23916",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-23916",
+          "CWE": "CWE-770",
+          "Public": "20230310"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "curl is earlier than 0:7.61.1-25.0.2.an8.3",
+            "TestRef": "oval:cn.openanolis:tst:20230076001"
+          },
+          {
+            "Comment": "libcurl is earlier than 0:7.61.1-25.0.2.an8.3",
+            "TestRef": "oval:cn.openanolis:tst:20230076002"
+          },
+          {
+            "Comment": "libcurl-devel is earlier than 0:devel-7.61.1-25.0.2.an8.3",
+            "TestRef": "oval:cn.openanolis:tst:20230076003"
+          },
+          {
+            "Comment": "libcurl-minimal is earlier than 0:minimal-7.61.1-25.0.2.an8.3",
+            "TestRef": "oval:cn.openanolis:tst:20230076004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

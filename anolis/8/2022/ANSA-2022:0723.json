@@ -1,0 +1,137 @@
+{
+  "ID": "oval:cn.openanolis:def:20220723",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0723: bind security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0723",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0723",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-38177:\nBy spoofing the target resolver with responses that have a malformed ECDSA signature, an attacker can trigger a small memory leak. It is possible to gradually erode available memory to the point where named crashes for lack of resources.\n\nCVE-2022-38178:\nBy spoofing the target resolver with responses that have a malformed EdDSA signature, an attacker can trigger a small memory leak. It is possible to gradually erode available memory to the point where named crashes for lack of resources.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-10-05"
+      },
+      "Updated": {
+        "Date": "2022-10-09"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-38177",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-38177",
+          "CWE": "CWE-401",
+          "Public": "20221005"
+        },
+        {
+          "ID": "CVE-2022-38178",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-38178",
+          "CWE": "CWE-401",
+          "Public": "20221005"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bind is earlier than 32:9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723001"
+          },
+          {
+            "Comment": "bind-chroot is earlier than 32:chroot-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723002"
+          },
+          {
+            "Comment": "bind-devel is earlier than 32:devel-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723003"
+          },
+          {
+            "Comment": "bind-export-devel is earlier than 32:export-devel-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723004"
+          },
+          {
+            "Comment": "bind-export-libs is earlier than 32:export-libs-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723005"
+          },
+          {
+            "Comment": "bind-libs is earlier than 32:libs-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723006"
+          },
+          {
+            "Comment": "bind-libs-lite is earlier than 32:libs-lite-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723007"
+          },
+          {
+            "Comment": "bind-lite-devel is earlier than 32:lite-devel-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723008"
+          },
+          {
+            "Comment": "bind-pkcs11 is earlier than 32:pkcs11-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723009"
+          },
+          {
+            "Comment": "bind-pkcs11-devel is earlier than 32:pkcs11-devel-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723010"
+          },
+          {
+            "Comment": "bind-pkcs11-libs is earlier than 32:pkcs11-libs-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723011"
+          },
+          {
+            "Comment": "bind-pkcs11-utils is earlier than 32:pkcs11-utils-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723012"
+          },
+          {
+            "Comment": "bind-sdb is earlier than 32:sdb-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723013"
+          },
+          {
+            "Comment": "bind-sdb-chroot is earlier than 32:sdb-chroot-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723014"
+          },
+          {
+            "Comment": "bind-utils is earlier than 32:utils-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723015"
+          },
+          {
+            "Comment": "bind-license is earlier than 32:license-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723016"
+          },
+          {
+            "Comment": "python3-bind is earlier than 32:bind-9.11.36-3.an8_6.1",
+            "TestRef": "oval:cn.openanolis:tst:20220723017"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

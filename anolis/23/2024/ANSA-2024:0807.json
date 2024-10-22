@@ -1,0 +1,109 @@
+{
+  "ID": "oval:cn.openanolis:def:20240807",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0807: bind security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0807",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0807",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2024-1975:\nIf a server hosts a zone containing a \"KEY\" Resource Record, or a resolver DNSSEC-validates a \"KEY\" Resource Record from a DNSSEC-signed domain in cache, a client can exhaust resolver CPU resources by sending a stream of SIG(0) signed requests.\nThis issue affects BIND 9 versions 9.0.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.9.3-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.49-S1, and 9.18.11-S1 through 9.18.27-S1.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-08-15"
+      },
+      "Updated": {
+        "Date": "2024-08-16"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-1975",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-1975",
+          "CWE": "CWE-400",
+          "Public": "20240815"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bind is earlier than 32:9.18.27-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240807001"
+          },
+          {
+            "Comment": "bind-chroot is earlier than 32:chroot-9.18.27-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240807002"
+          },
+          {
+            "Comment": "bind-devel is earlier than 32:devel-9.18.27-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240807003"
+          },
+          {
+            "Comment": "bind-dlz-filesystem is earlier than 32:dlz-filesystem-9.18.27-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240807004"
+          },
+          {
+            "Comment": "bind-dlz-ldap is earlier than 32:dlz-ldap-9.18.27-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240807005"
+          },
+          {
+            "Comment": "bind-dlz-mysql is earlier than 32:dlz-mysql-9.18.27-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240807006"
+          },
+          {
+            "Comment": "bind-dnssec-utils is earlier than 32:dnssec-utils-9.18.27-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240807007"
+          },
+          {
+            "Comment": "bind-libs is earlier than 32:libs-9.18.27-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240807008"
+          },
+          {
+            "Comment": "bind-utils is earlier than 32:utils-9.18.27-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240807009"
+          },
+          {
+            "Comment": "bind-dnssec-doc is earlier than 32:dnssec-doc-9.18.27-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240807010"
+          },
+          {
+            "Comment": "bind-doc is earlier than 32:doc-9.18.27-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240807011"
+          },
+          {
+            "Comment": "bind-license is earlier than 32:license-9.18.27-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240807012"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20230682",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0682: redis security update (Low)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0682",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0682",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-45145:\nRedis is an in-memory database that persists on disk. On startup, Redis begins listening on a Unix socket before adjusting its permissions to the user-provided configuration. If a permissive umask(2) is used, this creates a race condition that enables, during a short period of time, another process to establish an otherwise unauthorized connection. This problem has existed since Redis 2.6.0-RC1. This issue has been addressed in Redis versions 7.2.2, 7.0.14 and 6.2.14. Users are advised to upgrade. For users unable to upgrade, it is possible to work around the problem by disabling Unix sockets, starting Redis with a restrictive umask, or storing the Unix socket file in a protected directory.",
+    "Advisory": {
+      "Severity": "Low",
+      "Issued": {
+        "Date": "2023-11-14"
+      },
+      "Updated": {
+        "Date": "2023-11-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-45145",
+          "CVSS3": "3.6/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45145",
+          "CWE": "CWE-269",
+          "Public": "20231018"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "redis is earlier than 0:7.0.14-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230682001"
+          },
+          {
+            "Comment": "redis-devel is earlier than 0:devel-7.0.14-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230682002"
+          },
+          {
+            "Comment": "redis-doc is earlier than 0:doc-7.0.14-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230682003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

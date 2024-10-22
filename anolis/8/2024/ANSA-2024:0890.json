@@ -1,0 +1,101 @@
+{
+  "ID": "oval:cn.openanolis:def:20240890",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0890: nodejs:18 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0890",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0890",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-22020:\nA security flaw in Node.js  allows a bypass of network import restrictions.\nBy embedding non-network imports in data URLs, an attacker can execute arbitrary code, compromising system security.\nVerified on various platforms, the vulnerability is mitigated by forbidding data URLs in network imports.\nExploiting this flaw can violate network import security, posing a risk to developers and servers.\n\nCVE-2024-28863:\nnode-tar is a Tar for Node.js. node-tar prior to version 6.2.1 has no limit on the number of sub-folders created in the folder creation process. An attacker who generates a large number of sub-folders can consume memory on the system running node-tar and even crash the Node.js client within few seconds of running it using a path with too many sub-folders inside. Version 6.2.1 fixes this issue by preventing extraction in excessively deep sub-folders.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-09-06"
+      },
+      "Updated": {
+        "Date": "2024-09-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-22020",
+          "CVSS3": "6.5/CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:L/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-22020",
+          "CWE": "",
+          "Public": "20240829"
+        },
+        {
+          "ID": "CVE-2024-28863",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-28863",
+          "CWE": "CWE-400",
+          "Public": "20240829"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "nodejs is earlier than 1:18.20.4-1.module+an8.9.0+11251+bdfee10b",
+            "TestRef": "oval:cn.openanolis:tst:20240890001"
+          },
+          {
+            "Comment": "nodejs-devel is earlier than 1:devel-18.20.4-1.module+an8.9.0+11251+bdfee10b",
+            "TestRef": "oval:cn.openanolis:tst:20240890002"
+          },
+          {
+            "Comment": "nodejs-full-i18n is earlier than 1:full-i18n-18.20.4-1.module+an8.9.0+11251+bdfee10b",
+            "TestRef": "oval:cn.openanolis:tst:20240890003"
+          },
+          {
+            "Comment": "npm is earlier than 1:10.7.0-1.18.20.4.1.module+an8.9.0+11251+bdfee10b",
+            "TestRef": "oval:cn.openanolis:tst:20240890004"
+          },
+          {
+            "Comment": "nodejs-nodemon is earlier than 0:nodemon-3.0.1-1.module+an8.9.0+11173+0e6b09d2",
+            "TestRef": "oval:cn.openanolis:tst:20240890005"
+          },
+          {
+            "Comment": "nodejs-packaging is earlier than 0:packaging-2021.06-4.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20240890006"
+          },
+          {
+            "Comment": "nodejs-docs is earlier than 1:docs-18.20.4-1.module+an8.9.0+11251+bdfee10b",
+            "TestRef": "oval:cn.openanolis:tst:20240890007"
+          },
+          {
+            "Comment": "nodejs-packaging-bundler is earlier than 0:packaging-bundler-2021.06-4.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20240890008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

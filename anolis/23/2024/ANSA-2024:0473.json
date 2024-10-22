@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20240473",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0473: python-templated-dictionary security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0473",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0473",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-6395:\nThe Mock software contains a vulnerability wherein an attacker could potentially exploit privilege escalation, enabling the execution of arbitrary code with root user privileges. This weakness stems from the absence of proper sandboxing during the expansion and execution of Jinja2 templates, which may be included in certain configuration parameters. While the Mock documentation advises treating users added to the mock group as privileged, certain build systems invoking mock on behalf of users might inadvertently permit less privileged users to define configuration tags. These tags could then be passed as parameters to mock during execution, potentially leading to the utilization of Jinja2 templates for remote privilege escalation and the execution of arbitrary code as the root user on the build server.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-18"
+      },
+      "Updated": {
+        "Date": "2024-06-18"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-6395",
+          "CVSS3": "6.7/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6395",
+          "CWE": "CWE-20",
+          "Public": "20240618"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python-templated-dictionary is earlier than 0:templated-dictionary-1.4-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240473001"
+          },
+          {
+            "Comment": "python3-templated-dictionary is earlier than 0:templated-dictionary-1.4-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240473002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

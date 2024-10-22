@@ -1,0 +1,297 @@
+{
+  "ID": "oval:cn.openanolis:def:20210197",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0197: freerdp security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0197",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0197",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-41159:\nFreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. All FreeRDP clients prior to version 2.4.1 using gateway connections (`/gt:rpc`) fail to validate input data. A malicious gateway might allow client memory to be written out of bounds. This issue has been resolved in version 2.4.1. If you are unable to update then use `/gt:http` rather than /gt:rdp connections if possible or use a direct connection without a gateway.\n\nCVE-2021-41160:\nFreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. In affected versions a malicious server might trigger out of bound writes in a connected client. Connections using GDI or SurfaceCommands to send graphics updates to the client might send `0` width/height or out of bound rectangles to trigger out of bound writes. With `0` width or heigth the memory allocation will be `0` but the missing bounds checks allow writing to the pointer at this (not allocated) region. This issue has been patched in FreeRDP 2.4.1.\n\nCVE-2020-11018：\nIn FreeRDP less than or equal to 2.0.0, a possible resource exhaustion vulnerability can be performed. Malicious clients could trigger out of bound reads causing memory allocation with random size. This has been fixed in 2.1.0.\n\nCVE-2020-11019：\nIn FreeRDP less than or equal to 2.0.0, when running with logger set to \"WLOG_TRACE\", a possible crash of application could occur due to a read of an invalid array index. Data could be printed as string to local terminal. This has been fixed in 2.1.0.\n\nCVE-2020-11038:\nIn FreeRDP less than or equal to 2.0.0, an Integer Overflow to Buffer Overflow exists. When using /video redirection, a manipulated server can instruct the client to allocate a buffer with a smaller size than requested due to an integer overflow in size calculation. With later messages, the server can manipulate the client to write data out of bound to the previously allocated buffer. This has been patched in 2.1.0.\n\nCVE-2020-11039:\nIn FreeRDP less than or equal to 2.0.0, when using a manipulated server with USB redirection enabled (nearly) arbitrary memory can be read and written due to integer overflows in length checks. This has been patched in 2.1.0.\n\nCVE-2020-11040:\nIn FreeRDP less than or equal to 2.0.0, there is an out-of-bound data read from memory in clear_decompress_subcode_rlex, visualized on screen as color. This has been patched in 2.1.0.\n\nCVE-2020-11041:\nIn FreeRDP less than or equal to 2.0.0, an outside controlled array index is used unchecked for data used as configuration for sound backend (alsa, oss, pulse, ...). The most likely outcome is a crash of the client instance followed by no or distorted sound or a session disconnect. If a user cannot upgrade to the patched version, a workaround is to disable sound for the session. This has been patched in 2.1.0.\n\nCVE-2020-11043:\nIn FreeRDP less than or equal to 2.0.0, there is an out-of-bounds read in rfx_process_message_tileset. Invalid data fed to RFX decoder results in garbage on screen (as colors). This has been patched in 2.1.0.\n\nCVE-2020-11058:\nIn FreeRDP after 1.1 and before 2.0.0, a stream out-of-bounds seek in rdp_read_font_capability_set could lead to a later out-of-bounds read. As a result, a manipulated client or server might force a disconnect due to an invalid data read. This has been fixed in 2.0.0.\n\nCVE-2020-11085:\nIn FreeRDP before 2.1.0, there is an out-of-bounds read in cliprdr_read_format_list. Clipboard format data read (by client or server) might read data out-of-bounds. This has been fixed in 2.1.0.\n\nCVE-2020-11086:\nIn FreeRDP less than or equal to 2.0.0, there is an out-of-bound read in ntlm_read_ntlm_v2_client_challenge that reads up to 28 bytes out-of-bound to an internal structure. This has been fixed in 2.1.0.\n\nCVE-2020-11087:\nIn FreeRDP less than or equal to 2.0.0, there is an out-of-bound read in ntlm_read_AuthenticateMessage. This has been fixed in 2.1.0.\n\nCVE-2020-11088:\nIn FreeRDP less than or equal to 2.0.0, there is an out-of-bound read in ntlm_read_NegotiateMessage. This has been fixed in 2.1.0.\n\nCVE-2020-11089:\nIn FreeRDP before 2.1.0, there is an out-of-bound read in irp functions (parallel_process_irp_create, serial_process_irp_create, drive_process_irp_write, printer_process_irp_write, rdpei_recv_pdu, serial_process_irp_write). This has been fixed in 2.1.0.\n\nCVE-2020-11095:\nIn FreeRDP before version 2.1.2, an out of bound reads occurs resulting in accessing a memory location that is outside of the boundaries of the static array PRIMARY_DRAWING_ORDER_FIELD_BYTES. This is fixed in version 2.1.2.\n\nCVE-2020-11096:\nIn FreeRDP before version 2.1.2, there is a global OOB read in update_read_cache_bitmap_v3_order. As a workaround, one can disable bitmap cache with -bitmap-cache (default). This is fixed in version 2.1.2.\n\nCVE-2020-11097:\nIn FreeRDP before version 2.1.2, an out of bounds read occurs resulting in accessing a memory location that is outside of the boundaries of the static array PRIMARY_DRAWING_ORDER_FIELD_BYTES. This is fixed in version 2.1.2.\n\nCVE-2020-11098:\nIn FreeRDP before version 2.1.2, there is an out-of-bound read in glyph_cache_put. This affects all FreeRDP clients with `+glyph-cache` option enabled This is fixed in version 2.1.2.\n\nCVE-2020-11099:\nIn FreeRDP before version 2.1.2, there is an out of bounds read in license_read_new_or_upgrade_license_packet. A manipulated license packet can lead to out of bound reads to an internal buffer. This is fixed in version 2.1.2.\n\nCVE-2020-11522:\nlibfreerdp/gdi/gdi.c in FreeRDP \u003e 1.0 through 2.0.0-rc4 has an Out-of-bounds Read.\n\nCVE-2020-11525:\nlibfreerdp/cache/bitmap.c in FreeRDP versions \u003e 1.0 through 2.0.0-rc4 has an Out of bounds read.\n\nCVE-2020-11526:\nlibfreerdp/core/update.c in FreeRDP versions \u003e 1.1 through 2.0.0-rc4 has an Out-of-bounds Read.\n\nCVE-2020-13396:\nAn issue was discovered in FreeRDP before 2.1.1. An out-of-bounds (OOB) read vulnerability has been detected in ntlm_read_ChallengeMessage in winpr/libwinpr/sspi/NTLM/ntlm_message.c.\n\nCVE-2020-13397:\nAn issue was discovered in FreeRDP before 2.1.1. An out-of-bounds (OOB) read vulnerability has been detected in security_fips_decrypt in libfreerdp/core/security.c due to an uninitialized value.\n\nCVE-2020-15103:\nIn FreeRDP less than or equal to 2.1.2, an integer overflow exists due to missing input sanitation in rdpegfx channel. All FreeRDP clients are affected. The input rectangles from the server are not checked against local surface coordinates and blindly accepted. A malicious server can send data that will crash the client later on (invalid length arguments to a `memcpy`) This has been fixed in 2.2.0. As a workaround, stop using command line arguments /gfx, /gfx-h264 and /network:auto\n\nCVE-2020-4030:\nIn FreeRDP before version 2.1.2, there is an out of bounds read in TrioParse. Logging might bypass string length checks due to an integer overflow. This is fixed in version 2.1.2.\n\nCVE-2020-4033:\nIn FreeRDP before version 2.1.2, there is an out of bounds read in RLEDECOMPRESS. All FreeRDP based clients with sessions with color depth \u003c 32 are affected. This is fixed in version 2.1.2.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-11-23"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-41159",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-41159",
+          "CWE": "CWE-787",
+          "Public": "20211123"
+        },
+        {
+          "ID": "CVE-2021-41160",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-41160",
+          "CWE": "CWE-787",
+          "Public": "20211123"
+        },
+        {
+          "ID": "CVE-2020-11018",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11018",
+          "CWE": "CWE-125",
+          "Public": "20200529"
+        },
+        {
+          "ID": "CVE-2020-11019",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11019",
+          "CWE": "CWE-20-\u003eCWE-125",
+          "Public": "20200529"
+        },
+        {
+          "ID": "CVE-2020-11038",
+          "CVSS3": "5.4/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11038",
+          "CWE": "CWE-190-\u003eCWE-787",
+          "Public": "20200529"
+        },
+        {
+          "ID": "CVE-2020-11039",
+          "CVSS3": "6.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:H/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11039",
+          "CWE": "CWE-20-\u003eCWE-190-\u003eCWE-770-\u003e(CWE-125|CWE-787)",
+          "Public": "20200529"
+        },
+        {
+          "ID": "CVE-2020-11040",
+          "CVSS3": "2.7/CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11040",
+          "CWE": "CWE-125",
+          "Public": "20200529"
+        },
+        {
+          "ID": "CVE-2020-11041",
+          "CVSS3": "2.7/CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11041",
+          "CWE": "CWE-129-\u003eCWE-125",
+          "Public": "20200529"
+        },
+        {
+          "ID": "CVE-2020-11043",
+          "CVSS3": "2.7/CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11043",
+          "CWE": "CWE-20-\u003eCWE-805-\u003eCWE-125",
+          "Public": "20200529"
+        },
+        {
+          "ID": "CVE-2020-11058",
+          "CVSS3": "2.2/CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11058",
+          "CWE": "CWE-119-\u003eCWE-125",
+          "Public": "20200512"
+        },
+        {
+          "ID": "CVE-2020-11085",
+          "CVSS3": "3.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11085",
+          "CWE": "CWE-805-\u003eCWE-125",
+          "Public": "20200529"
+        },
+        {
+          "ID": "CVE-2020-11086",
+          "CVSS3": "5.4/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11086",
+          "CWE": "CWE-125",
+          "Public": "20200529"
+        },
+        {
+          "ID": "CVE-2020-11087",
+          "CVSS3": "5.4/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11087",
+          "CWE": "CWE-20-\u003eCWE-125",
+          "Public": "20200529"
+        },
+        {
+          "ID": "CVE-2020-11088",
+          "CVSS3": "5.4/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11088",
+          "CWE": "CWE-125",
+          "Public": "20200529"
+        },
+        {
+          "ID": "CVE-2020-11089",
+          "CVSS3": "5.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11089",
+          "CWE": "CWE-125",
+          "Public": "20200529"
+        },
+        {
+          "ID": "CVE-2020-11095",
+          "CVSS3": "5.4/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11095",
+          "CWE": "CWE-20-\u003eCWE-125",
+          "Public": "20200622"
+        },
+        {
+          "ID": "CVE-2020-11096",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11096",
+          "CWE": "CWE-20-\u003eCWE-129-\u003eCWE-125",
+          "Public": "20200622"
+        },
+        {
+          "ID": "CVE-2020-11097",
+          "CVSS3": "5.4/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11097",
+          "CWE": "CWE-20-\u003eCWE-129-\u003eCWE-125",
+          "Public": "20200622"
+        },
+        {
+          "ID": "CVE-2020-11098",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11098",
+          "CWE": "CWE-129-\u003eCWE-125",
+          "Public": "20200622"
+        },
+        {
+          "ID": "CVE-2020-11099",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11099",
+          "CWE": "CWE-125",
+          "Public": "20200622"
+        },
+        {
+          "ID": "CVE-2020-11522",
+          "CVSS3": "2.2/CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11522",
+          "CWE": "CWE-125",
+          "Public": "20200409"
+        },
+        {
+          "ID": "CVE-2020-11525",
+          "CVSS3": "2.2/CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11525",
+          "CWE": "CWE-125",
+          "Public": "20200409"
+        },
+        {
+          "ID": "CVE-2020-11526",
+          "CVSS3": "2.2/CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-11526",
+          "CWE": "CWE-125",
+          "Public": "20200515"
+        },
+        {
+          "ID": "CVE-2020-13396",
+          "CVSS3": "7.1/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-13396",
+          "CWE": "CWE-125",
+          "Public": "20200522"
+        },
+        {
+          "ID": "CVE-2020-13397",
+          "CVSS3": "6.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-13397",
+          "CWE": "CWE-476",
+          "Public": "20200522"
+        },
+        {
+          "ID": "CVE-2020-15103",
+          "CVSS3": "3.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-15103",
+          "CWE": "CWE-190-\u003eCWE-122",
+          "Public": "20200727"
+        },
+        {
+          "ID": "CVE-2020-4030",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-4030",
+          "CWE": "CWE-125",
+          "Public": "20200622"
+        },
+        {
+          "ID": "CVE-2020-4033",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-4033",
+          "CWE": "CWE-805-\u003eCWE-125",
+          "Public": "20200622"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "freerdp is earlier than 2:2.2.0-6.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210197001"
+          },
+          {
+            "Comment": "freerdp-libs is earlier than 2:libs-2.2.0-6.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210197002"
+          },
+          {
+            "Comment": "libwinpr is earlier than 2:2.2.0-6.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210197003"
+          },
+          {
+            "Comment": "libwinpr-devel is earlier than 2:devel-2.2.0-6.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210197004"
+          },
+          {
+            "Comment": "freerdp (Anolis OS 8.4) is earlier than 2:2.2.0-6.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210197005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

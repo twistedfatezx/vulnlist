@@ -1,0 +1,101 @@
+{
+  "ID": "oval:cn.openanolis:def:20220429",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0429: python3 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0429",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0429",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-3737:\nA flaw was found in python. An improperly handled HTTP response in the HTTP client code of python may allow a remote attacker, who controls the HTTP server, to make the client script enter an infinite loop, consuming CPU time. The highest threat from this vulnerability is to system availability.\n\nCVE-2021-4189:\nA flaw was found in Python, specifically in the FTP (File Transfer Protocol) client library in PASV (passive) mode. The issue is how the FTP client trusts the host from the PASV response by default. This flaw allows an attacker to set up a malicious FTP server that can trick FTP clients into connecting back to a given IP address and port. This vulnerability could lead to FTP client scanning ports, which otherwise would not have been possible.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-06-15"
+      },
+      "Updated": {
+        "Date": "2022-06-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-3737",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3737",
+          "CWE": "CWE-835-\u003eCWE-400",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-4189",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-4189",
+          "CWE": "CWE-252",
+          "Public": "20220615"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "platform-python is earlier than 0:python-3.6.8-45.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220429001"
+          },
+          {
+            "Comment": "platform-python-debug is earlier than 0:python-debug-3.6.8-45.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220429002"
+          },
+          {
+            "Comment": "platform-python-devel is earlier than 0:python-devel-3.6.8-45.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220429003"
+          },
+          {
+            "Comment": "python3-idle is earlier than 0:idle-3.6.8-45.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220429004"
+          },
+          {
+            "Comment": "python3-libs is earlier than 0:libs-3.6.8-45.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220429005"
+          },
+          {
+            "Comment": "python3-test is earlier than 0:test-3.6.8-45.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220429006"
+          },
+          {
+            "Comment": "python3-tkinter is earlier than 0:tkinter-3.6.8-45.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220429007"
+          },
+          {
+            "Comment": "python3 is earlier than 0:3.6.8-45.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220429008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

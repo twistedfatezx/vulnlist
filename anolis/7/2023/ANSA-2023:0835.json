@@ -1,0 +1,101 @@
+{
+  "ID": "oval:cn.openanolis:def:20230835",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0835: xorg-x11-server security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0835",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0835",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2023-5367:\nA out-of-bounds write flaw was found in the xorg-x11-server. This issue occurs due to an incorrect calculation of a buffer offset when copying data stored in the heap in the XIChangeDeviceProperty function in Xi/xiproperty.c and in RRChangeOutputProperty function in randr/rrproperty.c, allowing for possible escalation of privileges or denial of service.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-12-07"
+      },
+      "Updated": {
+        "Date": "2023-12-08"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-5367",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5367",
+          "CWE": "CWE-787",
+          "Public": "20231025"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "xorg-x11-server-Xdmx is earlier than 0:x11-server-Xdmx-1.20.4-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230835001"
+          },
+          {
+            "Comment": "xorg-x11-server-Xephyr is earlier than 0:x11-server-Xephyr-1.20.4-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230835002"
+          },
+          {
+            "Comment": "xorg-x11-server-Xnest is earlier than 0:x11-server-Xnest-1.20.4-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230835003"
+          },
+          {
+            "Comment": "xorg-x11-server-Xorg is earlier than 0:x11-server-Xorg-1.20.4-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230835004"
+          },
+          {
+            "Comment": "xorg-x11-server-Xvfb is earlier than 0:x11-server-Xvfb-1.20.4-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230835005"
+          },
+          {
+            "Comment": "xorg-x11-server-Xwayland is earlier than 0:x11-server-Xwayland-1.20.4-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230835006"
+          },
+          {
+            "Comment": "xorg-x11-server-common is earlier than 0:x11-server-common-1.20.4-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230835007"
+          },
+          {
+            "Comment": "xorg-x11-server-devel is earlier than 0:x11-server-devel-1.20.4-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230835008"
+          },
+          {
+            "Comment": "xorg-x11-server is earlier than 0:x11-server-1.20.4-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230835009"
+          },
+          {
+            "Comment": "xorg-x11-server-source is earlier than 0:x11-server-source-1.20.4-24.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230835010"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

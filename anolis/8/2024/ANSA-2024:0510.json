@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20240510",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0510: expat security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0510",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0510",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-52425:\nlibexpat through 2.5.0 allows a denial of service (resource consumption) because many full reparsings are required in the case of a large token for which multiple buffer fills are needed.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-26"
+      },
+      "Updated": {
+        "Date": "2024-06-26"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-52425",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-52425",
+          "CWE": "CWE-400",
+          "Public": "20240204"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "expat is earlier than 0:2.2.5-13.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240510001"
+          },
+          {
+            "Comment": "expat-devel is earlier than 0:devel-2.2.5-13.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240510002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

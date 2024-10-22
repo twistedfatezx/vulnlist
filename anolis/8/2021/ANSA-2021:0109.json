@@ -1,0 +1,161 @@
+{
+  "ID": "oval:cn.openanolis:def:20210109",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0109: postgresql:12 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0109",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0109",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-14349:\nIt was found that PostgreSQL versions before 12.4, before 11.9 and before 10.14 did not properly sanitize the search_path during logical replication. An authenticated attacker could use this flaw in an attack similar to CVE-2018-1058, in order to execute arbitrary SQL command in the context of the user used for replication.\n\nCVE-2020-14350:\nIt was found that some PostgreSQL extensions did not use search_path safely in their installation script. An attacker with sufficient privileges could use this flaw to trick an administrator into executing a specially crafted script, during the installation or update of such extension. This affects PostgreSQL versions before 12.4, before 11.9, before 10.14, before 9.6.19, and before 9.5.23.\n\nCVE-2020-1720:\nA flaw was found in PostgreSQL's \"ALTER ... DEPENDS ON EXTENSION\", where sub-commands did not perform authorization checks. An authenticated attacker could use this flaw in certain configurations to perform drop objects such as function, triggers, et al., leading to database corruption. This issue affects PostgreSQL versions before 12.2, before 11.7, before 10.12 and before 9.6.17.\n\nCVE-2020-25694:\nA flaw was found in PostgreSQL versions before 13.1, before 12.5, before 11.10, before 10.15, before 9.6.20 and before 9.5.24. If a client application that creates additional database connections only reuses the basic connection parameters while dropping security-relevant parameters, an opportunity for a man-in-the-middle attack, or the ability to observe clear-text transmissions, could exist. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.\n\nCVE-2020-25695:\nA flaw was found in PostgreSQL versions before 13.1, before 12.5, before 11.10, before 10.15, before 9.6.20 and before 9.5.24. An attacker having permission to create non-temporary objects in at least one schema can execute arbitrary SQL functions under the identity of a superuser. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.\n\nCVE-2020-25696:\nA flaw was found in the psql interactive terminal of PostgreSQL in versions before 13.1, before 12.5, before 11.10, before 10.15, before 9.6.20 and before 9.5.24. If an interactive psql session uses \\gset when querying a compromised server, the attacker can execute arbitrary code as the operating system account running psql. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-05-08"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-25694",
+          "CVSS3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-25694",
+          "CWE": "CWE-327",
+          "Public": "20210421"
+        },
+        {
+          "ID": "CVE-2020-25696",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-25696",
+          "CWE": "CWE-183-\u003eCWE-270",
+          "Public": "20210421"
+        },
+        {
+          "ID": "CVE-2020-25695",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-25695",
+          "CWE": "CWE-89",
+          "Public": "20210508"
+        },
+        {
+          "ID": "CVE-2020-14349",
+          "CVSS3": "7.1/CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-14349",
+          "CWE": "CWE-20",
+          "Public": "20210508"
+        },
+        {
+          "ID": "CVE-2020-14350",
+          "CVSS3": "7.1/CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-14350",
+          "CWE": "CWE-20",
+          "Public": "20210508"
+        },
+        {
+          "ID": "CVE-2020-1720",
+          "CVSS3": "3.1/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-1720",
+          "CWE": "CWE-285",
+          "Public": "20210508"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "pgaudit is earlier than 0:1.4.0-4.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109001"
+          },
+          {
+            "Comment": "postgres-decoderbufs is earlier than 0:decoderbufs-0.10.0-2.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109002"
+          },
+          {
+            "Comment": "postgresql is earlier than 0:12.5-1.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109003"
+          },
+          {
+            "Comment": "postgresql-contrib is earlier than 0:contrib-12.5-1.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109004"
+          },
+          {
+            "Comment": "postgresql-docs is earlier than 0:docs-12.5-1.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109005"
+          },
+          {
+            "Comment": "postgresql-plperl is earlier than 0:plperl-12.5-1.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109006"
+          },
+          {
+            "Comment": "postgresql-plpython3 is earlier than 0:plpython3-12.5-1.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109007"
+          },
+          {
+            "Comment": "postgresql-pltcl is earlier than 0:pltcl-12.5-1.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109008"
+          },
+          {
+            "Comment": "postgresql-server is earlier than 0:server-12.5-1.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109009"
+          },
+          {
+            "Comment": "postgresql-server-devel is earlier than 0:server-devel-12.5-1.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109010"
+          },
+          {
+            "Comment": "postgresql-static is earlier than 0:static-12.5-1.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109011"
+          },
+          {
+            "Comment": "postgresql-test is earlier than 0:test-12.5-1.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109012"
+          },
+          {
+            "Comment": "postgresql-upgrade is earlier than 0:upgrade-12.5-1.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109013"
+          },
+          {
+            "Comment": "postgresql-upgrade-devel is earlier than 0:upgrade-devel-12.5-1.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109014"
+          },
+          {
+            "Comment": "postgresql-test-rpm-macros is earlier than 0:test-rpm-macros-12.5-1.module+el8.2.0+10186+f38b6c4f",
+            "TestRef": "oval:cn.openanolis:tst:20210109015"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

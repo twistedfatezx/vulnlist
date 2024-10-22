@@ -1,0 +1,121 @@
+{
+  "ID": "oval:cn.openanolis:def:20230134",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0134: firefox security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0134",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0134",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2023-1945:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nUnexpected data returned from the Safe Browsing API could have led to memory corruption and a potentially exploitable crash.\n\nCVE-2023-29533:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nA website could have obscured the fullscreen notification by using a combination of `window.open`, fullscreen requests, `window.name` assignments, and `setInterval` calls. This could have led to user confusion and possible spoofing attacks.\n\nCVE-2023-29535:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nFollowing a Garbage Collector compaction, weak maps may have been accessed before they were correctly traced. This resulted in memory corruption and a potentially exploitable crash.\n\nCVE-2023-29536:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nAn attacker could cause the memory manager to incorrectly free a pointer that addresses attacker-controlled memory, resulting in an assertion, memory corruption, or a potentially exploitable crash.\n\nCVE-2023-29539:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nWhen handling the filename directive in the Content-Disposition header, the filename would be truncated if the filename contained a NULL character. This could have led to reflected file download attacks potentially tricking users to install malware.\n\nCVE-2023-29541:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nFirefox did not properly handle downloads of files ending in `.desktop`, which can be interpreted to run attacker-controlled commands.\n*This bug only affects Firefox for Linux on certain Distributions. Other operating systems are unaffected, and Mozilla is unable to enumerate all affected Linux Distributions.*\n\nCVE-2023-29548:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nA wrong lowering instruction in the ARM64 Ion compiler resulted in a wrong optimization result.\n\nCVE-2023-29550:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nMozilla developers Andrew Osmond, Sebastian Hengst, Andrew McCreight, and the Mozilla Fuzzing Team reported memory safety bugs present in Firefox 111 and Firefox ESR 102.9. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-04-24"
+      },
+      "Updated": {
+        "Date": "2023-04-25"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-1945",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-1945",
+          "CWE": "CWE-119",
+          "Public": "20230415"
+        },
+        {
+          "ID": "CVE-2023-29533",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-29533",
+          "CWE": "CWE-425",
+          "Public": "20230415"
+        },
+        {
+          "ID": "CVE-2023-29535",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-29535",
+          "CWE": "CWE-119",
+          "Public": "20230415"
+        },
+        {
+          "ID": "CVE-2023-29536",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-29536",
+          "CWE": "CWE-617",
+          "Public": "20230415"
+        },
+        {
+          "ID": "CVE-2023-29539",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-29539",
+          "CWE": "CWE-159",
+          "Public": "20230415"
+        },
+        {
+          "ID": "CVE-2023-29541",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-29541",
+          "CWE": "CWE-434",
+          "Public": "20230415"
+        },
+        {
+          "ID": "CVE-2023-29548",
+          "CVSS3": "3.4/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:N/I:L/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-29548",
+          "CWE": "CWE-682",
+          "Public": "20230415"
+        },
+        {
+          "ID": "CVE-2023-29550",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-29550",
+          "CWE": "CWE-120",
+          "Public": "20230415"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "firefox is earlier than 0:102.10.0-1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230134001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

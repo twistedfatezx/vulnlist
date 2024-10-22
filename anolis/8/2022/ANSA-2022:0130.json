@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20220130",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0130: xmlrpc-c security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0130",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0130",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-25235:\nxmltok_impl.c in Expat (aka libexpat) before 2.4.5 lacks certain validation of encoding, such as checks for whether a UTF-8 character is valid in a certain context.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-04-29"
+      },
+      "Updated": {
+        "Date": "2022-05-07"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-25235",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25235",
+          "CWE": "CWE-838",
+          "Public": "20220311"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "xmlrpc-c is earlier than 0:c-1.51.0-5.0.1.an8_5.1",
+            "TestRef": "oval:cn.openanolis:tst:20220130001"
+          },
+          {
+            "Comment": "xmlrpc-c-client++ is earlier than 0:c-client++-1.51.0-5.0.1.an8_5.1",
+            "TestRef": "oval:cn.openanolis:tst:20220130002"
+          },
+          {
+            "Comment": "xmlrpc-c-client is earlier than 0:c-client-1.51.0-5.0.1.an8_5.1",
+            "TestRef": "oval:cn.openanolis:tst:20220130003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

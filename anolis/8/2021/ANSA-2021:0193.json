@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20210193",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0193: webkit2gtk3 security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0193",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0193",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-30858:\nA use after free issue was addressed with improved memory management. This issue is fixed in iOS 14.8 and iPadOS 14.8, macOS Big Sur 11.6. Processing maliciously crafted web content may lead to arbitrary code execution. Apple is aware of a report that this issue may have been actively exploited.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2021-11-08"
+      },
+      "Updated": {
+        "Date": "2022-03-28"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-30858",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-30858",
+          "CWE": "CWE-416",
+          "Public": "20211108"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "webkit2gtk3 is earlier than 0:2.30.4-3.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210193001"
+          },
+          {
+            "Comment": "webkit2gtk3-devel is earlier than 0:devel-2.30.4-3.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210193002"
+          },
+          {
+            "Comment": "webkit2gtk3-jsc is earlier than 0:jsc-2.30.4-3.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210193003"
+          },
+          {
+            "Comment": "webkit2gtk3-jsc-devel is earlier than 0:jsc-devel-2.30.4-3.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210193004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

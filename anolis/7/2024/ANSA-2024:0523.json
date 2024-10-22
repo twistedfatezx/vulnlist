@@ -1,0 +1,161 @@
+{
+  "ID": "oval:cn.openanolis:def:20240523",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0523: linux-firmware security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0523",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0523",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-27635:\nImproper access control for some Intel(R) PROSet/Wireless WiFi and Killer(TM) WiFi software may allow a privileged user to potentially enable escalation of privilege via local access.\n\nCVE-2022-36351:\nImproper input validation in some Intel(R) PROSet/Wireless WiFi and Killer(TM) WiFi software may allow an unauthenticated user to potentially enable denial of service via adjacent access.\n\nCVE-2022-38076:\nImproper input validation in some Intel(R) PROSet/Wireless WiFi and Killer(TM) WiFi software may allow an authenticated user to potentially enable escalation of privilege via local access.\n\nCVE-2022-40964:\nImproper access control for some Intel(R) PROSet/Wireless WiFi and Killer(TM) WiFi software may allow a privileged user to potentially enable escalation of privilege via local access.\n\nCVE-2022-46329:\nProtection mechanism failure for some Intel(R) PROSet/Wireless WiFi software may allow a privileged user to potentially enable escalation of privilege via local access.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-27"
+      },
+      "Updated": {
+        "Date": "2024-06-28"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-27635",
+          "CVSS3": "8.2/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-27635",
+          "CWE": "CWE-284",
+          "Public": "20230810"
+        },
+        {
+          "ID": "CVE-2022-36351",
+          "CVSS3": "4.3/CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-36351",
+          "CWE": "CWE-20",
+          "Public": "20230810"
+        },
+        {
+          "ID": "CVE-2022-38076",
+          "CVSS3": "3.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:L/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-38076",
+          "CWE": "CWE-20",
+          "Public": "20230810"
+        },
+        {
+          "ID": "CVE-2022-40964",
+          "CVSS3": "7.9/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:N/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-40964",
+          "CWE": "CWE-284",
+          "Public": "20230810"
+        },
+        {
+          "ID": "CVE-2022-46329",
+          "CVSS3": "8.2/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-46329",
+          "CWE": "CWE-693",
+          "Public": "20230810"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "linux-firmware is earlier than 0:firmware-20200421-83.git78c0348.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523001"
+          },
+          {
+            "Comment": "iwl100-firmware is earlier than 0:firmware-39.31.5.1-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523002"
+          },
+          {
+            "Comment": "iwl1000-firmware is earlier than 1:firmware-39.31.5.1-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523003"
+          },
+          {
+            "Comment": "iwl105-firmware is earlier than 0:firmware-18.168.6.1-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523004"
+          },
+          {
+            "Comment": "iwl135-firmware is earlier than 0:firmware-18.168.6.1-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523005"
+          },
+          {
+            "Comment": "iwl2000-firmware is earlier than 0:firmware-18.168.6.1-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523006"
+          },
+          {
+            "Comment": "iwl2030-firmware is earlier than 0:firmware-18.168.6.1-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523007"
+          },
+          {
+            "Comment": "iwl3160-firmware is earlier than 0:firmware-25.30.13.0-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523008"
+          },
+          {
+            "Comment": "iwl3945-firmware is earlier than 0:firmware-15.32.2.9-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523009"
+          },
+          {
+            "Comment": "iwl4965-firmware is earlier than 0:firmware-228.61.2.24-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523010"
+          },
+          {
+            "Comment": "iwl5000-firmware is earlier than 0:firmware-8.83.5.1_1-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523011"
+          },
+          {
+            "Comment": "iwl5150-firmware is earlier than 0:firmware-8.24.2.2-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523012"
+          },
+          {
+            "Comment": "iwl6000-firmware is earlier than 0:firmware-9.221.4.1-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523013"
+          },
+          {
+            "Comment": "iwl6000g2a-firmware is earlier than 0:firmware-18.168.6.1-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523014"
+          },
+          {
+            "Comment": "iwl6000g2b-firmware is earlier than 0:firmware-18.168.6.1-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523015"
+          },
+          {
+            "Comment": "iwl6050-firmware is earlier than 0:firmware-41.28.5.1-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523016"
+          },
+          {
+            "Comment": "iwl7260-firmware is earlier than 0:firmware-25.30.13.0-83.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240523017"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

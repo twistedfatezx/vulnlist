@@ -1,0 +1,157 @@
+{
+  "ID": "oval:cn.openanolis:def:20220699",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0699: kernel security, bug fix, and enhancement update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0699",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0699",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-21123:\nIncomplete cleanup of multi-core shared buffers for some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.\n\nCVE-2022-21125:\nIncomplete cleanup of microarchitectural fill buffers on some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.\n\nCVE-2022-21166:\nIncomplete cleanup in specific special register write operations for some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-09-21"
+      },
+      "Updated": {
+        "Date": "2022-09-30"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-21123",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21123",
+          "CWE": "CWE-459",
+          "Public": "20220616"
+        },
+        {
+          "ID": "CVE-2022-21125",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21125",
+          "CWE": "CWE-459",
+          "Public": "20220614"
+        },
+        {
+          "ID": "CVE-2022-21166",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21166",
+          "CWE": "CWE-459",
+          "Public": "20220614"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699001"
+          },
+          {
+            "Comment": "kernel is earlier than 0:4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699002"
+          },
+          {
+            "Comment": "kernel-core is earlier than 0:core-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699003"
+          },
+          {
+            "Comment": "kernel-cross-headers is earlier than 0:cross-headers-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699004"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699005"
+          },
+          {
+            "Comment": "kernel-debug-core is earlier than 0:debug-core-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699006"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699007"
+          },
+          {
+            "Comment": "kernel-debug-modules is earlier than 0:debug-modules-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699008"
+          },
+          {
+            "Comment": "kernel-debug-modules-extra is earlier than 0:debug-modules-extra-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699009"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699010"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699011"
+          },
+          {
+            "Comment": "kernel-modules is earlier than 0:modules-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699012"
+          },
+          {
+            "Comment": "kernel-modules-extra is earlier than 0:modules-extra-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699013"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699014"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699015"
+          },
+          {
+            "Comment": "perf is earlier than 0:4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699016"
+          },
+          {
+            "Comment": "python3-perf is earlier than 0:perf-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699017"
+          },
+          {
+            "Comment": "kernel(RHCK)4.18 is earlier than 0:4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699018"
+          },
+          {
+            "Comment": "kernel-abi-stablelists is earlier than 0:abi-stablelists-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699019"
+          },
+          {
+            "Comment": "kernel-doc is earlier than 0:doc-4.18.0-372.26.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220699020"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

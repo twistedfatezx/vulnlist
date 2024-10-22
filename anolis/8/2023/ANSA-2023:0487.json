@@ -1,0 +1,141 @@
+{
+  "ID": "oval:cn.openanolis:def:20230487",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0487: postgresql:12 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0487",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0487",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-41862:\nIn PostgreSQL, a modified, unauthenticated server can send an unterminated string during the establishment of Kerberos transport encryption. In certain conditions a server can cause a libpq client to over-read and report an error message containing uninitialized bytes.\n\nCVE-2023-2454:\nschema_element defeats protective search_path changes; It was found that certain database calls in PostgreSQL could permit an authed attacker with elevated database-level privileges to execute arbitrary code.\n\nCVE-2023-2455:\nRow security policies disregard user ID changes after inlining; PostgreSQL could permit incorrect policies to be applied in certain cases where role-specific policies are used and a given query is planned under one role and then executed under other roles. This scenario can happen under security definer functions or when a common user and query is planned initially and then re-used across multiple SET ROLEs. Applying an incorrect policy may permit a user to complete otherwise-forbidden reads and modifications. This affects only databases that have used CREATE POLICY to define a row security policy.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-08-30"
+      },
+      "Updated": {
+        "Date": "2023-08-30"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-41862",
+          "CVSS3": "3.7/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-41862",
+          "CWE": "CWE-200",
+          "Public": "20230304"
+        },
+        {
+          "ID": "CVE-2023-2454",
+          "CVSS3": "7.2/CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-2454",
+          "CWE": "CWE-20",
+          "Public": "20230609"
+        },
+        {
+          "ID": "CVE-2023-2455",
+          "CVSS3": "5.4/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-2455",
+          "CWE": "CWE-20",
+          "Public": "20230609"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "pg_repack is earlier than 0:1.4.6-3.module+an8.7.0+10998+db03f438",
+            "TestRef": "oval:cn.openanolis:tst:20230487001"
+          },
+          {
+            "Comment": "pgaudit is earlier than 0:1.4.0-5.module+an8.7.0+10998+db03f438",
+            "TestRef": "oval:cn.openanolis:tst:20230487002"
+          },
+          {
+            "Comment": "postgres-decoderbufs is earlier than 0:decoderbufs-0.10.0-2.module+an8.7.0+10998+db03f438",
+            "TestRef": "oval:cn.openanolis:tst:20230487003"
+          },
+          {
+            "Comment": "postgresql is earlier than 0:12.15-1.0.1.module+an8.8.0+11093+2b8564d9",
+            "TestRef": "oval:cn.openanolis:tst:20230487004"
+          },
+          {
+            "Comment": "postgresql-contrib is earlier than 0:contrib-12.15-1.0.1.module+an8.8.0+11093+2b8564d9",
+            "TestRef": "oval:cn.openanolis:tst:20230487005"
+          },
+          {
+            "Comment": "postgresql-docs is earlier than 0:docs-12.15-1.0.1.module+an8.8.0+11093+2b8564d9",
+            "TestRef": "oval:cn.openanolis:tst:20230487006"
+          },
+          {
+            "Comment": "postgresql-plperl is earlier than 0:plperl-12.15-1.0.1.module+an8.8.0+11093+2b8564d9",
+            "TestRef": "oval:cn.openanolis:tst:20230487007"
+          },
+          {
+            "Comment": "postgresql-plpython3 is earlier than 0:plpython3-12.15-1.0.1.module+an8.8.0+11093+2b8564d9",
+            "TestRef": "oval:cn.openanolis:tst:20230487008"
+          },
+          {
+            "Comment": "postgresql-pltcl is earlier than 0:pltcl-12.15-1.0.1.module+an8.8.0+11093+2b8564d9",
+            "TestRef": "oval:cn.openanolis:tst:20230487009"
+          },
+          {
+            "Comment": "postgresql-server is earlier than 0:server-12.15-1.0.1.module+an8.8.0+11093+2b8564d9",
+            "TestRef": "oval:cn.openanolis:tst:20230487010"
+          },
+          {
+            "Comment": "postgresql-server-devel is earlier than 0:server-devel-12.15-1.0.1.module+an8.8.0+11093+2b8564d9",
+            "TestRef": "oval:cn.openanolis:tst:20230487011"
+          },
+          {
+            "Comment": "postgresql-static is earlier than 0:static-12.15-1.0.1.module+an8.8.0+11093+2b8564d9",
+            "TestRef": "oval:cn.openanolis:tst:20230487012"
+          },
+          {
+            "Comment": "postgresql-test is earlier than 0:test-12.15-1.0.1.module+an8.8.0+11093+2b8564d9",
+            "TestRef": "oval:cn.openanolis:tst:20230487013"
+          },
+          {
+            "Comment": "postgresql-upgrade is earlier than 0:upgrade-12.15-1.0.1.module+an8.8.0+11093+2b8564d9",
+            "TestRef": "oval:cn.openanolis:tst:20230487014"
+          },
+          {
+            "Comment": "postgresql-upgrade-devel is earlier than 0:upgrade-devel-12.15-1.0.1.module+an8.8.0+11093+2b8564d9",
+            "TestRef": "oval:cn.openanolis:tst:20230487015"
+          },
+          {
+            "Comment": "postgresql-test-rpm-macros is earlier than 0:test-rpm-macros-12.15-1.0.1.module+an8.8.0+11093+2b8564d9",
+            "TestRef": "oval:cn.openanolis:tst:20230487016"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

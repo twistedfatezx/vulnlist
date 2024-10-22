@@ -1,0 +1,97 @@
+{
+  "ID": "oval:cn.openanolis:def:20220794",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0794: pki-core security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0794",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0794",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-2393:\nA flaw was found in pki-core, which could allow a user to get a certificate for another user identity when directory-based authentication is enabled. This flaw allows an authenticated attacker on the adjacent network to impersonate another user within the scope of the domain, but they would not be able to decrypt message content.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-11-08"
+      },
+      "Updated": {
+        "Date": "2022-11-08"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-2393",
+          "CVSS3": "7.6/CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-2393",
+          "CWE": "CWE-287",
+          "Public": "20221108"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "pki-base is earlier than 0:base-10.5.18-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220794001"
+          },
+          {
+            "Comment": "pki-base-java is earlier than 0:base-java-10.5.18-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220794002"
+          },
+          {
+            "Comment": "pki-ca is earlier than 0:ca-10.5.18-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220794003"
+          },
+          {
+            "Comment": "pki-javadoc is earlier than 0:javadoc-10.5.18-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220794004"
+          },
+          {
+            "Comment": "pki-kra is earlier than 0:kra-10.5.18-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220794005"
+          },
+          {
+            "Comment": "pki-server is earlier than 0:server-10.5.18-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220794006"
+          },
+          {
+            "Comment": "pki-core is earlier than 0:core-10.5.18-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220794007"
+          },
+          {
+            "Comment": "pki-symkey is earlier than 0:symkey-10.5.18-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220794008"
+          },
+          {
+            "Comment": "pki-tools is earlier than 0:tools-10.5.18-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220794009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

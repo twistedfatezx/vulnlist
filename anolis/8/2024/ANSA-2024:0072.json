@@ -1,0 +1,129 @@
+{
+  "ID": "oval:cn.openanolis:def:20240072",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0072: gimp:2.8 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0072",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0072",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-44442:\nA parsing vulnerability was found in the GNU Image Manipulation Program (GIMP). This flaw allows an unauthenticated, remote attacker to trick a GIMP user into opening a malicious PSD file, possibly enabling the execution of unauthorized code within the GIMP process.\n\nCVE-2023-44444:\nA parsing vulnerability was found in the GNU Image Manipulation Program (GIMP). This flaw allows an unauthenticated, remote attacker to trick a GIMP user into opening a malicious PSP file, possibly enabling the execution of unauthorized code within the GIMP process.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-03-01"
+      },
+      "Updated": {
+        "Date": "2024-03-01"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-44442",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-44442",
+          "CWE": "CWE-122",
+          "Public": "20231114"
+        },
+        {
+          "ID": "CVE-2023-44444",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-44444",
+          "CWE": "CWE-193",
+          "Public": "20231114"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "gimp is earlier than 2:2.8.22-25.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072001"
+          },
+          {
+            "Comment": "gimp-devel is earlier than 2:devel-2.8.22-25.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072002"
+          },
+          {
+            "Comment": "gimp-devel-tools is earlier than 2:devel-tools-2.8.22-25.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072003"
+          },
+          {
+            "Comment": "gimp-libs is earlier than 2:libs-2.8.22-25.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072004"
+          },
+          {
+            "Comment": "pygobject2 is earlier than 0:2.28.7-4.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072005"
+          },
+          {
+            "Comment": "pygobject2-codegen is earlier than 0:codegen-2.28.7-4.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072006"
+          },
+          {
+            "Comment": "pygobject2-devel is earlier than 0:devel-2.28.7-4.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072007"
+          },
+          {
+            "Comment": "pygobject2-doc is earlier than 0:doc-2.28.7-4.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072008"
+          },
+          {
+            "Comment": "pygtk2 is earlier than 0:2.24.0-25.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072009"
+          },
+          {
+            "Comment": "pygtk2-codegen is earlier than 0:codegen-2.24.0-25.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072010"
+          },
+          {
+            "Comment": "pygtk2-devel is earlier than 0:devel-2.24.0-25.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072011"
+          },
+          {
+            "Comment": "python2-cairo is earlier than 0:cairo-1.16.3-6.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072012"
+          },
+          {
+            "Comment": "python2-cairo-devel is earlier than 0:cairo-devel-1.16.3-6.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072013"
+          },
+          {
+            "Comment": "python2-pycairo is earlier than 0:pycairo-1.16.3-6.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072014"
+          },
+          {
+            "Comment": "pygtk2-doc is earlier than 0:doc-2.24.0-25.module+an8.9.0+11175+3f45288f",
+            "TestRef": "oval:cn.openanolis:tst:20240072015"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

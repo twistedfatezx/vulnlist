@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20240404",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0404: python-pillow security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0404",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0404",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-50447:\nPillow through 10.1.0 allows PIL.ImageMath.eval Arbitrary Code Execution via the environment parameter, a different vulnerability than CVE-2022-22817 (which was about the expression parameter).",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-05-20"
+      },
+      "Updated": {
+        "Date": "2024-05-21"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-50447",
+          "CVSS3": "9.0/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-50447",
+          "CWE": "CWE-77",
+          "Public": "20240314"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python3-pillow is earlier than 0:pillow-5.1.1-19.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240404001"
+          },
+          {
+            "Comment": "python3-pillow-devel is earlier than 0:pillow-devel-5.1.1-19.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240404002"
+          },
+          {
+            "Comment": "python3-pillow-tk is earlier than 0:pillow-tk-5.1.1-19.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240404003"
+          },
+          {
+            "Comment": "python-pillow is earlier than 0:pillow-5.1.1-19.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240404004"
+          },
+          {
+            "Comment": "python3-pillow-doc is earlier than 0:pillow-doc-5.1.1-19.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240404005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "ID": "oval:cn.openanolis:def:20220038",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0038: llvm-toolset:an8 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0038",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0038",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-42574:\nAn issue was discovered in the Bidirectional Algorithm in the Unicode Specification through 14.0. It permits the visual reordering of characters via control sequences, which can be used to craft source code that renders different logic than the logical ordering of tokens ingested by compilers and interpreters. Adversaries can leverage this to encode source code for compilers accepting Unicode such that targeted vulnerabilities are introduced invisibly to human reviewers.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-03-04"
+      },
+      "Updated": {
+        "Date": "2022-10-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-42574",
+          "CVSS3": "8.5/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-42574",
+          "CWE": "CWE-838",
+          "Public": "20211129"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "clang is earlier than 0:12.0.1-4.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038001"
+          },
+          {
+            "Comment": "clang-devel is earlier than 0:devel-12.0.1-4.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038002"
+          },
+          {
+            "Comment": "clang-libs is earlier than 0:libs-12.0.1-4.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038003"
+          },
+          {
+            "Comment": "clang-resource-filesystem is earlier than 0:resource-filesystem-12.0.1-4.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038004"
+          },
+          {
+            "Comment": "clang-tools-extra is earlier than 0:tools-extra-12.0.1-4.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038005"
+          },
+          {
+            "Comment": "compiler-rt is earlier than 0:rt-12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038006"
+          },
+          {
+            "Comment": "git-clang-format is earlier than 0:clang-format-12.0.1-4.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038007"
+          },
+          {
+            "Comment": "libomp is earlier than 0:12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038008"
+          },
+          {
+            "Comment": "libomp-devel is earlier than 0:devel-12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038009"
+          },
+          {
+            "Comment": "libomp-test is earlier than 0:test-12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038010"
+          },
+          {
+            "Comment": "lld is earlier than 0:12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038011"
+          },
+          {
+            "Comment": "lld-devel is earlier than 0:devel-12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038012"
+          },
+          {
+            "Comment": "lld-libs is earlier than 0:libs-12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038013"
+          },
+          {
+            "Comment": "lld-test is earlier than 0:test-12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038014"
+          },
+          {
+            "Comment": "lldb is earlier than 0:12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038015"
+          },
+          {
+            "Comment": "lldb-devel is earlier than 0:devel-12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038016"
+          },
+          {
+            "Comment": "llvm is earlier than 0:12.0.1-2.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038017"
+          },
+          {
+            "Comment": "llvm-devel is earlier than 0:devel-12.0.1-2.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038018"
+          },
+          {
+            "Comment": "llvm-googletest is earlier than 0:googletest-12.0.1-2.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038019"
+          },
+          {
+            "Comment": "llvm-libs is earlier than 0:libs-12.0.1-2.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038020"
+          },
+          {
+            "Comment": "llvm-static is earlier than 0:static-12.0.1-2.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038021"
+          },
+          {
+            "Comment": "llvm-test is earlier than 0:test-12.0.1-2.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038022"
+          },
+          {
+            "Comment": "llvm-toolset is earlier than 0:toolset-12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038023"
+          },
+          {
+            "Comment": "python3-clang is earlier than 0:clang-12.0.1-4.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038024"
+          },
+          {
+            "Comment": "python3-lldb is earlier than 0:lldb-12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038025"
+          },
+          {
+            "Comment": "python-lit is earlier than 0:lit-12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038026"
+          },
+          {
+            "Comment": "clang-analyzer is earlier than 0:analyzer-12.0.1-4.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038027"
+          },
+          {
+            "Comment": "llvm-doc is earlier than 0:doc-12.0.1-2.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038028"
+          },
+          {
+            "Comment": "python3-lit is earlier than 0:lit-12.0.1-1.module+an8.5.0+10622+a45f07ea",
+            "TestRef": "oval:cn.openanolis:tst:20220038029"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

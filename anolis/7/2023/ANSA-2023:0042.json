@@ -1,0 +1,105 @@
+{
+  "ID": "oval:cn.openanolis:def:20230042",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0042: firefox security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0042",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0042",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-46872:\nAn attacker who compromised a content process could have partially escaped the sandbox to read arbitrary files via clipboard-related IPC messages.\u003cbr\u003e*This bug only affects Thunderbird for Linux. Other operating systems are unaffected.*. This vulnerability affects Firefox \u003c 108, Firefox ESR \u003c 102.6, and Thunderbird \u003c 102.6.\n\nCVE-2022-46874:\nA file with a long filename could have had its filename truncated to remove the valid extension, leaving a malicious extension in its place. This could potentially led to user confusion and the execution of malicious code.\u003cbr/\u003e*Note*: This issue was originally included in the advisories for Thunderbird 102.6, but a patch (specific to Thunderbird) was omitted, resulting in it actually being fixed in Thunderbird 102.6.1. This vulnerability affects Firefox \u003c 108, Thunderbird \u003c 102.6.1, Thunderbird \u003c 102.6, and Firefox ESR \u003c 102.6.\n\nCVE-2022-46878:\nMozilla developers Randell Jesup, Valentin Gosu, Olli Pettay, and the Mozilla Fuzzing Team reported memory safety bugs present in Thunderbird 102.5. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code. This vulnerability affects Firefox \u003c 108, Firefox ESR \u003c 102.6, and Thunderbird \u003c 102.6.\n\nCVE-2022-46880:\nA missing check related to tex units could have led to a use-after-free and potentially exploitable crash.\u003cbr /\u003e*Note*: This advisory was added on December 13th, 2022 after we better understood the impact of the issue. The fix was included in the original release of Firefox 105. This vulnerability affects Firefox ESR \u003c 102.6, Firefox \u003c 105, and Thunderbird \u003c 102.6.\n\nCVE-2022-46881:\nAn optimization in WebGL was incorrect in some cases, and could have led to memory corruption and a potentially exploitable crash. This vulnerability affects Firefox \u003c 106, Firefox ESR \u003c 102.6, and Thunderbird \u003c 102.6.\n\nCVE-2022-46882:\nA use-after-free in WebGL extensions could have led to a potentially exploitable crash. This vulnerability affects Firefox \u003c 107, Firefox ESR \u003c 102.6, and Thunderbird \u003c 102.6.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-02-20"
+      },
+      "Updated": {
+        "Date": "2023-02-21"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-46872",
+          "CVSS3": "8.6/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-46872",
+          "CWE": "CWE-200",
+          "Public": "20221217"
+        },
+        {
+          "ID": "CVE-2022-46874",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-46874",
+          "CWE": "CWE-222",
+          "Public": "20221217"
+        },
+        {
+          "ID": "CVE-2022-46878",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-46878",
+          "CWE": "CWE-120",
+          "Public": "20221217"
+        },
+        {
+          "ID": "CVE-2022-46880",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-46880",
+          "CWE": "CWE-416",
+          "Public": "20221217"
+        },
+        {
+          "ID": "CVE-2022-46881",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-46881",
+          "CWE": "CWE-119",
+          "Public": "20221217"
+        },
+        {
+          "ID": "CVE-2022-46882",
+          "CVSS3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-46882",
+          "CWE": "CWE-416",
+          "Public": "20221217"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "firefox is earlier than 0:102.6.0-1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230042001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

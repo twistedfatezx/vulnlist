@@ -1,0 +1,145 @@
+{
+  "ID": "oval:cn.openanolis:def:20220405",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0405: go-toolset:an8 security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0405",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0405",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-38297:\nGo before 1.16.9 and 1.17.x before 1.17.2 has a Buffer Overflow via large arguments in a function invocation from a WASM module, when GOARCH=wasm GOOS=js is used.\n\nCVE-2021-39293:\nIn archive/zip in Go before 1.16.8 and 1.17.x before 1.17.1, a crafted archive header (falsely designating that many files are present) can cause a NewReader or OpenReader panic. NOTE: this issue exists because of an incomplete fix for CVE-2021-33196.\n\nCVE-2021-41771:\nImportedSymbols in debug/macho (for Open or OpenFat) in Go before 1.16.10 and 1.17.x before 1.17.3 Accesses a Memory Location After the End of a Buffer, aka an out-of-bounds slice situation.\n\nCVE-2021-41772:\nGo before 1.16.10 and 1.17.x before 1.17.3 allows an archive/zip Reader.Open panic via a crafted ZIP archive containing an invalid name or an empty filename field.\n\nCVE-2022-23772:\nRat.SetString in math/big in Go before 1.16.14 and 1.17.x before 1.17.7 has an overflow that can lead to Uncontrolled Memory Consumption.\n\nCVE-2022-23773:\ncmd/go in Go before 1.16.14 and 1.17.x before 1.17.7 can misinterpret branch names that falsely appear to be version tags. This can lead to incorrect access control if an actor is supposed to be able to create branches but not tags.\n\nCVE-2022-23806:\nCurve.IsOnCurve in crypto/elliptic in Go before 1.16.14 and 1.17.x before 1.17.7 can incorrectly return true in situations with a big.Int value that is not a valid field element.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-06-15"
+      },
+      "Updated": {
+        "Date": "2022-10-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-38297",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-38297",
+          "CWE": "CWE-20",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-39293",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-39293",
+          "CWE": "CWE-400",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-41771",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-41771",
+          "CWE": "CWE-119",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-41772",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-41772",
+          "CWE": "(CWE-20|CWE-125)",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2022-23772",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-23772",
+          "CWE": "CWE-190",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2022-23773",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-23773",
+          "CWE": "CWE-863-\u003eCWE-1220",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2022-23806",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-23806",
+          "CWE": "CWE-252",
+          "Public": "20220615"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "delve is earlier than 0:1.7.2-1.module+an8.6.0+10681+32366f9f",
+            "TestRef": "oval:cn.openanolis:tst:20220405001"
+          },
+          {
+            "Comment": "go-toolset is earlier than 0:toolset-1.17.7-1.module+an8.6.0+10681+32366f9f",
+            "TestRef": "oval:cn.openanolis:tst:20220405002"
+          },
+          {
+            "Comment": "golang is earlier than 0:1.17.7-1.module+an8.6.0+10681+32366f9f",
+            "TestRef": "oval:cn.openanolis:tst:20220405003"
+          },
+          {
+            "Comment": "golang-bin is earlier than 0:bin-1.17.7-1.module+an8.6.0+10681+32366f9f",
+            "TestRef": "oval:cn.openanolis:tst:20220405004"
+          },
+          {
+            "Comment": "golang-race is earlier than 0:race-1.17.7-1.module+an8.6.0+10681+32366f9f",
+            "TestRef": "oval:cn.openanolis:tst:20220405005"
+          },
+          {
+            "Comment": "golang-docs is earlier than 0:docs-1.17.7-1.module+an8.6.0+10681+32366f9f",
+            "TestRef": "oval:cn.openanolis:tst:20220405006"
+          },
+          {
+            "Comment": "golang-misc is earlier than 0:misc-1.17.7-1.module+an8.6.0+10681+32366f9f",
+            "TestRef": "oval:cn.openanolis:tst:20220405007"
+          },
+          {
+            "Comment": "golang-src is earlier than 0:src-1.17.7-1.module+an8.6.0+10681+32366f9f",
+            "TestRef": "oval:cn.openanolis:tst:20220405008"
+          },
+          {
+            "Comment": "golang-tests is earlier than 0:tests-1.17.7-1.module+an8.6.0+10681+32366f9f",
+            "TestRef": "oval:cn.openanolis:tst:20220405009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "ID": "oval:cn.openanolis:def:20230793",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0793: openssh security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0793",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0793",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-25136:\nOpenSSH server (sshd) 9.1 introduced a double-free vulnerability during options.kex_algorithms handling. This is fixed in OpenSSH 9.2. The double free can be leveraged, by an unauthenticated remote attacker in the default configuration, to jump to any location in the sshd address space. One third-party report states \"remote code execution is theoretically possible.\"\n\nCVE-2023-38408:\nThe PKCS#11 feature in ssh-agent in OpenSSH before 9.3p2 has an insufficiently trustworthy search path, leading to remote code execution if an agent is forwarded to an attacker-controlled system. (Code in /usr/lib is not necessarily safe for loading into ssh-agent.) NOTE: this issue exists because of an incomplete fix for CVE-2016-10009.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-12-01"
+      },
+      "Updated": {
+        "Date": "2023-12-01"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-25136",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-25136",
+          "CWE": "CWE-401",
+          "Public": "20230203"
+        },
+        {
+          "ID": "CVE-2023-38408",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-38408",
+          "CWE": "CWE-94",
+          "Public": "20230804"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "openssh is earlier than 0:9.0p1-9.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230793001"
+          },
+          {
+            "Comment": "openssh-askpass is earlier than 0:askpass-9.0p1-9.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230793002"
+          },
+          {
+            "Comment": "openssh-clients is earlier than 0:clients-9.0p1-9.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230793003"
+          },
+          {
+            "Comment": "openssh-keycat is earlier than 0:keycat-9.0p1-9.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230793004"
+          },
+          {
+            "Comment": "openssh-server is earlier than 0:server-9.0p1-9.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230793005"
+          },
+          {
+            "Comment": "pam_ssh_agent_auth is earlier than 0:0.10.4-7.9.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230793006"
+          },
+          {
+            "Comment": "openssh-doc is earlier than 0:doc-9.0p1-9.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230793007"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

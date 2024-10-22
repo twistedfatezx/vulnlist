@@ -1,0 +1,105 @@
+{
+  "ID": "oval:cn.openanolis:def:20240379",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0379: httpd:2.4 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0379",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0379",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-27316:\nHTTP/2 incoming headers exceeding the limit are temporarily buffered in nghttp2 in order to generate an informative HTTP 413 response. If a client does not stop sending headers, this leads to memory exhaustion.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-04-24"
+      },
+      "Updated": {
+        "Date": "2024-04-25"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-27316",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-27316",
+          "CWE": "CWE-400",
+          "Public": "20240404"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "httpd is earlier than 0:2.4.37-62.0.3.module+an8.9.0+11197+fb54a504",
+            "TestRef": "oval:cn.openanolis:tst:20240379001"
+          },
+          {
+            "Comment": "httpd-devel is earlier than 0:devel-2.4.37-62.0.3.module+an8.9.0+11197+fb54a504",
+            "TestRef": "oval:cn.openanolis:tst:20240379002"
+          },
+          {
+            "Comment": "httpd-tools is earlier than 0:tools-2.4.37-62.0.3.module+an8.9.0+11197+fb54a504",
+            "TestRef": "oval:cn.openanolis:tst:20240379003"
+          },
+          {
+            "Comment": "mod_http2 is earlier than 0:1.15.7-8.module+an8.9.0+11197+fb54a504.5",
+            "TestRef": "oval:cn.openanolis:tst:20240379004"
+          },
+          {
+            "Comment": "mod_ldap is earlier than 0:2.4.37-62.0.3.module+an8.9.0+11197+fb54a504",
+            "TestRef": "oval:cn.openanolis:tst:20240379005"
+          },
+          {
+            "Comment": "mod_md is earlier than 1:2.0.8-8.module+an8.7.0+10879+020f8869",
+            "TestRef": "oval:cn.openanolis:tst:20240379006"
+          },
+          {
+            "Comment": "mod_proxy_html is earlier than 1:2.4.37-62.0.3.module+an8.9.0+11197+fb54a504",
+            "TestRef": "oval:cn.openanolis:tst:20240379007"
+          },
+          {
+            "Comment": "mod_session is earlier than 0:2.4.37-62.0.3.module+an8.9.0+11197+fb54a504",
+            "TestRef": "oval:cn.openanolis:tst:20240379008"
+          },
+          {
+            "Comment": "mod_ssl is earlier than 1:2.4.37-62.0.3.module+an8.9.0+11197+fb54a504",
+            "TestRef": "oval:cn.openanolis:tst:20240379009"
+          },
+          {
+            "Comment": "httpd-filesystem is earlier than 0:filesystem-2.4.37-62.0.3.module+an8.9.0+11197+fb54a504",
+            "TestRef": "oval:cn.openanolis:tst:20240379010"
+          },
+          {
+            "Comment": "httpd-manual is earlier than 0:manual-2.4.37-62.0.3.module+an8.9.0+11197+fb54a504",
+            "TestRef": "oval:cn.openanolis:tst:20240379011"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

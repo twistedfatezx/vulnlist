@@ -1,0 +1,109 @@
+{
+  "ID": "oval:cn.openanolis:def:20220811",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0811: xorg-x11-server security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0811",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0811",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-3550:\nA vulnerability classified as critical was found in X.org Server. Affected by this vulnerability is the function _GetCountedString of the file xkb/xkb.c. The manipulation leads to buffer overflow. It is recommended to apply a patch to fix this issue. The associated identifier of this vulnerability is VDB-211051.\n\nCVE-2022-3551:\nA vulnerability, which was classified as problematic, has been found in X.org Server. Affected by this issue is the function ProcXkbGetKbdByName of the file xkb/xkb.c. The manipulation leads to memory leak. It is recommended to apply a patch to fix this issue. The identifier of this vulnerability is VDB-211052.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-11-21"
+      },
+      "Updated": {
+        "Date": "2022-11-28"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-3550",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-3550",
+          "CWE": "(CWE-119|CWE-120)",
+          "Public": "20221121"
+        },
+        {
+          "ID": "CVE-2022-3551",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-3551",
+          "CWE": "(CWE-401|CWE-404)",
+          "Public": "20221121"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "xorg-x11-server-Xdmx is earlier than 0:x11-server-Xdmx-1.20.4-19.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220811001"
+          },
+          {
+            "Comment": "xorg-x11-server-Xephyr is earlier than 0:x11-server-Xephyr-1.20.4-19.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220811002"
+          },
+          {
+            "Comment": "xorg-x11-server-Xnest is earlier than 0:x11-server-Xnest-1.20.4-19.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220811003"
+          },
+          {
+            "Comment": "xorg-x11-server-Xorg is earlier than 0:x11-server-Xorg-1.20.4-19.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220811004"
+          },
+          {
+            "Comment": "xorg-x11-server-Xvfb is earlier than 0:x11-server-Xvfb-1.20.4-19.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220811005"
+          },
+          {
+            "Comment": "xorg-x11-server-Xwayland is earlier than 0:x11-server-Xwayland-1.20.4-19.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220811006"
+          },
+          {
+            "Comment": "xorg-x11-server-common is earlier than 0:x11-server-common-1.20.4-19.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220811007"
+          },
+          {
+            "Comment": "xorg-x11-server-devel is earlier than 0:x11-server-devel-1.20.4-19.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220811008"
+          },
+          {
+            "Comment": "xorg-x11-server is earlier than 0:x11-server-1.20.4-19.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220811009"
+          },
+          {
+            "Comment": "xorg-x11-server-source is earlier than 0:x11-server-source-1.20.4-19.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220811010"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

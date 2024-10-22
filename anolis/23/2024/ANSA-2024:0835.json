@@ -1,0 +1,121 @@
+{
+  "ID": "oval:cn.openanolis:def:20240835",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0835: postgresql security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0835",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0835",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2024-0985:\nLate privilege drop in REFRESH MATERIALIZED VIEW CONCURRENTLY in PostgreSQL allows an object creator to execute arbitrary SQL functions as the command issuer. The command intends to run SQL functions as the owner of the materialized view, enabling safe refresh of untrusted materialized views. The victim is a superuser or member of one of the attacker's roles. The attack requires luring the victim into running REFRESH MATERIALIZED VIEW CONCURRENTLY on the attacker's materialized view. Versions before PostgreSQL 16.2, 15.6, 14.11, 13.14, and 12.18 are affected.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-08-20"
+      },
+      "Updated": {
+        "Date": "2024-08-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-0985",
+          "CVSS3": "8.0/CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-0985",
+          "CWE": "CWE-271",
+          "Public": "20240208"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "postgresql is earlier than 0:15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835001"
+          },
+          {
+            "Comment": "postgresql-contrib is earlier than 0:contrib-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835002"
+          },
+          {
+            "Comment": "postgresql-docs is earlier than 0:docs-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835003"
+          },
+          {
+            "Comment": "postgresql-plperl is earlier than 0:plperl-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835004"
+          },
+          {
+            "Comment": "postgresql-plpython3 is earlier than 0:plpython3-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835005"
+          },
+          {
+            "Comment": "postgresql-pltcl is earlier than 0:pltcl-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835006"
+          },
+          {
+            "Comment": "postgresql-private-devel is earlier than 0:private-devel-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835007"
+          },
+          {
+            "Comment": "postgresql-private-libs is earlier than 0:private-libs-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835008"
+          },
+          {
+            "Comment": "postgresql-server is earlier than 0:server-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835009"
+          },
+          {
+            "Comment": "postgresql-server-devel is earlier than 0:server-devel-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835010"
+          },
+          {
+            "Comment": "postgresql-static is earlier than 0:static-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835011"
+          },
+          {
+            "Comment": "postgresql-test is earlier than 0:test-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835012"
+          },
+          {
+            "Comment": "postgresql-upgrade is earlier than 0:upgrade-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835013"
+          },
+          {
+            "Comment": "postgresql-upgrade-devel is earlier than 0:upgrade-devel-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835014"
+          },
+          {
+            "Comment": "postgresql-test-rpm-macros is earlier than 0:test-rpm-macros-15.5-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240835015"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

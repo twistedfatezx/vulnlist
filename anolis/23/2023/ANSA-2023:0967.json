@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20230967",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0967: gnutls security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0967",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0967",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-5981:\nA vulnerability was found that the response times to malformed ciphertexts in RSA-PSK ClientKeyExchange differ from response times of ciphertexts with correct PKCS#1 v1.5 padding.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-12-26"
+      },
+      "Updated": {
+        "Date": "2023-12-26"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-5981",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5981",
+          "CWE": "CWE-1300-\u003eCWE-203",
+          "Public": "20231226"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "gnutls is earlier than 0:3.8.2-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230967001"
+          },
+          {
+            "Comment": "gnutls-c++ is earlier than 0:c++-3.8.2-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230967002"
+          },
+          {
+            "Comment": "gnutls-dane is earlier than 0:dane-3.8.2-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230967003"
+          },
+          {
+            "Comment": "gnutls-devel is earlier than 0:devel-3.8.2-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230967004"
+          },
+          {
+            "Comment": "gnutls-utils is earlier than 0:utils-3.8.2-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230967005"
+          },
+          {
+            "Comment": "gnutls-doc is earlier than 0:doc-3.8.2-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230967006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

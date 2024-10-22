@@ -1,0 +1,129 @@
+{
+  "ID": "oval:cn.openanolis:def:20230113",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0113: tigervnc and xorg-x11-server security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0113",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0113",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2023-1393:\nA flaw was found in X.Org Server Overlay Window. A Use-After-Free may lead to local privilege escalation. If a client explicitly destroys the compositor overlay window (aka COW), the Xserver would leave a dangling pointer to that window in the CompScreen structure, which will trigger a use-after-free later.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-04-12"
+      },
+      "Updated": {
+        "Date": "2023-04-13"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-1393",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-1393",
+          "CWE": "CWE-416",
+          "Public": "20230331"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "tigervnc is earlier than 0:1.8.0-25.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113001"
+          },
+          {
+            "Comment": "tigervnc-server is earlier than 0:server-1.8.0-25.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113002"
+          },
+          {
+            "Comment": "tigervnc-server-minimal is earlier than 0:server-minimal-1.8.0-25.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113003"
+          },
+          {
+            "Comment": "tigervnc-server-module is earlier than 0:server-module-1.8.0-25.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113004"
+          },
+          {
+            "Comment": "xorg-x11-server-Xdmx is earlier than 0:x11-server-Xdmx-1.20.4-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113005"
+          },
+          {
+            "Comment": "xorg-x11-server-Xephyr is earlier than 0:x11-server-Xephyr-1.20.4-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113006"
+          },
+          {
+            "Comment": "xorg-x11-server-Xnest is earlier than 0:x11-server-Xnest-1.20.4-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113007"
+          },
+          {
+            "Comment": "xorg-x11-server-Xorg is earlier than 0:x11-server-Xorg-1.20.4-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113008"
+          },
+          {
+            "Comment": "xorg-x11-server-Xvfb is earlier than 0:x11-server-Xvfb-1.20.4-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113009"
+          },
+          {
+            "Comment": "xorg-x11-server-Xwayland is earlier than 0:x11-server-Xwayland-1.20.4-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113010"
+          },
+          {
+            "Comment": "xorg-x11-server-common is earlier than 0:x11-server-common-1.20.4-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113011"
+          },
+          {
+            "Comment": "xorg-x11-server-devel is earlier than 0:x11-server-devel-1.20.4-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113012"
+          },
+          {
+            "Comment": "xorg-x11-server is earlier than 0:x11-server-1.20.4-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113013"
+          },
+          {
+            "Comment": "tigervnc-icons is earlier than 0:icons-1.8.0-25.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113014"
+          },
+          {
+            "Comment": "tigervnc-license is earlier than 0:license-1.8.0-25.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113015"
+          },
+          {
+            "Comment": "tigervnc-server-applet is earlier than 0:server-applet-1.8.0-25.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113016"
+          },
+          {
+            "Comment": "xorg-x11-server-source is earlier than 0:x11-server-source-1.20.4-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230113017"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}
