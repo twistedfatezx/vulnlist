@@ -1,0 +1,97 @@
+{
+  "ID": "oval:cn.openanolis:def:20230804",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0804: cups security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0804",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0804",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-4504:\nDue to failure in validating the length provided by an attacker-crafted PPD PostScript document, CUPS and libppd are susceptible to a heap-based buffer overflow and possibly code execution. This issue has been fixed in CUPS version 2.4.7, released in September of 2023.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-12-01"
+      },
+      "Updated": {
+        "Date": "2023-12-01"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-4504",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-4504",
+          "CWE": "CWE-122",
+          "Public": "20230921"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "cups is earlier than 1:2.4.7-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230804001"
+          },
+          {
+            "Comment": "cups-client is earlier than 1:client-2.4.7-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230804002"
+          },
+          {
+            "Comment": "cups-devel is earlier than 1:devel-2.4.7-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230804003"
+          },
+          {
+            "Comment": "cups-ipptool is earlier than 1:ipptool-2.4.7-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230804004"
+          },
+          {
+            "Comment": "cups-libs is earlier than 1:libs-2.4.7-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230804005"
+          },
+          {
+            "Comment": "cups-lpd is earlier than 1:lpd-2.4.7-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230804006"
+          },
+          {
+            "Comment": "cups-printerapp is earlier than 1:printerapp-2.4.7-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230804007"
+          },
+          {
+            "Comment": "cups-doc is earlier than 1:doc-2.4.7-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230804008"
+          },
+          {
+            "Comment": "cups-filesystem is earlier than 1:filesystem-2.4.7-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230804009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

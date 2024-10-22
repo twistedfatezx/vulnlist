@@ -1,0 +1,109 @@
+{
+  "ID": "oval:cn.openanolis:def:20220557",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0557: vim security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0557",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0557",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-1621:\nHeap buffer overflow in vim_strncpy find_word in GitHub repository vim/vim prior to 8.2.4919. This vulnerability is capable of crashing software, Bypass Protection Mechanism, Modify Memory, and possible remote execution\n\nCVE-2022-1629:\nBuffer Over-read in function find_next_quote in GitHub repository vim/vim prior to 8.2.4925. This vulnerabilities are capable of crashing software, Modify Memory, and possible remote execution",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-07-08"
+      },
+      "Updated": {
+        "Date": "2022-08-03"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-1621",
+          "CVSS3": "7.3/CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:L/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1621",
+          "CWE": "CWE-787",
+          "Public": "20220708"
+        },
+        {
+          "ID": "CVE-2021-3778",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3778",
+          "CWE": "CWE-119-\u003eCWE-120",
+          "Public": "20210907"
+        },
+        {
+          "ID": "CVE-2022-1629",
+          "CVSS3": "6.6/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1629",
+          "CWE": "CWE-125-\u003eCWE-126",
+          "Public": "20220708"
+        },
+        {
+          "ID": "CVE-2021-3796",
+          "CVSS3": "7.3/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3796",
+          "CWE": "CWE-416",
+          "Public": "20210911"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "vim-X11 is earlier than 2:X11-8.0.1763-19.0.1.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220557001"
+          },
+          {
+            "Comment": "vim-common is earlier than 2:common-8.0.1763-19.0.1.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220557002"
+          },
+          {
+            "Comment": "vim-enhanced is earlier than 2:enhanced-8.0.1763-19.0.1.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220557003"
+          },
+          {
+            "Comment": "vim-minimal is earlier than 2:minimal-8.0.1763-19.0.1.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220557004"
+          },
+          {
+            "Comment": "vim is earlier than 2:8.0.1763-19.0.1.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220557005"
+          },
+          {
+            "Comment": "vim-filesystem is earlier than 2:filesystem-8.0.1763-19.0.1.an8_6.2",
+            "TestRef": "oval:cn.openanolis:tst:20220557006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

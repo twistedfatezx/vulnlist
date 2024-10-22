@@ -1,0 +1,105 @@
+{
+  "ID": "oval:cn.openanolis:def:20220138",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0138: firefox security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0138",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0138",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-29909:\nA flaw was found in Mozilla. The Mozilla Foundation Security Advisory describes the issue of documents in deeply-nested cross-origin browsing contexts that could have obtained permissions granted to the top-level origin, bypassing the existing prompt and wrongfully inheriting the top-level permissions.\n\nCVE-2022-29911:\nA flaw was found in Mozilla. The Mozilla Foundation Security Advisory describes the issue of Firefox not protecting against top-level navigations for an iframe sandbox with a policy relaxed through a keyword likely to allow top-navigation-by-user-activation.\n\nCVE-2022-29912:\nA flaw was found in Mozilla. The Mozilla Foundation Security Advisory describes the issue of requests initiated through the reader mode did not properly omit cookies with a SameSite attribute.\n\nCVE-2022-29914:\nA flaw was found in Mozilla. The Mozilla Foundation Security Advisory describes the issue of when reusing existing popups; Firefox allowed them to cover the fullscreen notification UI, which possibly enabled browser spoofing attacks.\n\nCVE-2022-29916:\nA flaw was found in Mozilla. The Mozilla Foundation Security Advisory describes the issue of Firefox behaving slightly differently for already known resources when loading CSS resources involving CSS variables. This flaw could probe the browser history.\n\nCVE-2022-29917:\nA flaw was found in Mozilla. The Mozilla Foundation Security Advisory describes the issue of memory safety bugs present in Firefox 99 and Firefox ESR 91.8. Some of these bugs showed evidence of memory corruption and can possibly be used to run arbitrary code.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-05-07"
+      },
+      "Updated": {
+        "Date": "2022-05-07"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-29909",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-29909",
+          "CWE": "CWE-281",
+          "Public": "20220506"
+        },
+        {
+          "ID": "CVE-2022-29911",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-29911",
+          "CWE": "CWE-1021",
+          "Public": "20220506"
+        },
+        {
+          "ID": "CVE-2022-29912",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-29912",
+          "CWE": "CWE-565",
+          "Public": "20220506"
+        },
+        {
+          "ID": "CVE-2022-29914",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-29914",
+          "CWE": "CWE-1021",
+          "Public": "20220506"
+        },
+        {
+          "ID": "CVE-2022-29916",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-29916",
+          "CWE": "CWE-497",
+          "Public": "20220506"
+        },
+        {
+          "ID": "CVE-2022-29917",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-29917",
+          "CWE": "CWE-120",
+          "Public": "20220506"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "firefox is earlier than 0:91.9.0-1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220138001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

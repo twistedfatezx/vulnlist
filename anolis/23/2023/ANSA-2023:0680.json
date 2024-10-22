@@ -1,0 +1,141 @@
+{
+  "ID": "oval:cn.openanolis:def:20230680",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0680: webkitgtk security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0680",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0680",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-39928:\nA use-after-free vulnerability exists in the MediaRecorder API of Webkit WebKitGTK 2.40.5. A specially crafted web page can abuse this vulnerability to cause memory corruption and potentially arbitrary code execution. A user would need to to visit a malicious webpage to trigger this vulnerability.\n\nCVE-2023-41074:\nThe issue was addressed with improved checks. This issue is fixed in tvOS 17, Safari 17, watchOS 10, iOS 17 and iPadOS 17, macOS Sonoma 14. Processing web content may lead to arbitrary code execution.\n\nCVE-2023-41993:\nThe issue was addressed with improved checks. This issue is fixed in Safari 17, iOS 16.7 and iPadOS 16.7, macOS Sonoma 14. Processing web content may lead to arbitrary code execution. Apple is aware of a report that this issue may have been actively exploited against versions of iOS before iOS 16.7.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-11-14"
+      },
+      "Updated": {
+        "Date": "2023-11-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-39928",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-39928",
+          "CWE": "CWE-416",
+          "Public": "20231006"
+        },
+        {
+          "ID": "CVE-2023-41074",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-41074",
+          "CWE": "",
+          "Public": "20230927"
+        },
+        {
+          "ID": "CVE-2023-41993",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-41993",
+          "CWE": "",
+          "Public": "20230921"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "javascriptcoregtk4.0 is earlier than 0:2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680001"
+          },
+          {
+            "Comment": "javascriptcoregtk4.0-devel is earlier than 0:devel-2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680002"
+          },
+          {
+            "Comment": "javascriptcoregtk4.1 is earlier than 0:2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680003"
+          },
+          {
+            "Comment": "javascriptcoregtk4.1-devel is earlier than 0:devel-2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680004"
+          },
+          {
+            "Comment": "javascriptcoregtk6.0 is earlier than 0:2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680005"
+          },
+          {
+            "Comment": "javascriptcoregtk6.0-devel is earlier than 0:devel-2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680006"
+          },
+          {
+            "Comment": "webkit2gtk4.0 is earlier than 0:2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680007"
+          },
+          {
+            "Comment": "webkit2gtk4.0-devel is earlier than 0:devel-2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680008"
+          },
+          {
+            "Comment": "webkit2gtk4.1 is earlier than 0:2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680009"
+          },
+          {
+            "Comment": "webkit2gtk4.1-devel is earlier than 0:devel-2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680010"
+          },
+          {
+            "Comment": "webkitgtk6.0 is earlier than 0:2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680011"
+          },
+          {
+            "Comment": "webkitgtk6.0-devel is earlier than 0:devel-2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680012"
+          },
+          {
+            "Comment": "webkitgtk is earlier than 0:2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680013"
+          },
+          {
+            "Comment": "webkit2gtk4.0-doc is earlier than 0:doc-2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680014"
+          },
+          {
+            "Comment": "webkit2gtk4.1-doc is earlier than 0:doc-2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680015"
+          },
+          {
+            "Comment": "webkitgtk6.0-doc is earlier than 0:doc-2.42.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230680016"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

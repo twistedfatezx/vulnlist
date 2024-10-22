@@ -1,0 +1,213 @@
+{
+  "ID": "oval:cn.openanolis:def:20220062",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0062: java-1.8.0-openjdk security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0062",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0062",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-21248:\nVulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Serialization). Supported versions that are affected are Oracle Java SE: 7u321, 8u311, 11.0.13, 17.01; Oracle GraalVM Enterprise Edition: 20.3.4 and 21.3.0. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition. Successful attacks of this vulnerability can result in unauthorized update, insert or delete access to some of Oracle Java SE, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability can also be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. CVSS 3.1 Base Score 3.7 (Integrity impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N).\n\nCVE-2022-21282:\nVulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: JAXP). Supported versions that are affected are Oracle Java SE: 7u321, 8u311, 11.0.13, 17.01; Oracle GraalVM Enterprise Edition: 20.3.4 and 21.3.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition. Successful attacks of this vulnerability can result in unauthorized read access to a subset of Oracle Java SE, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability can also be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. CVSS 3.1 Base Score 5.3 (Confidentiality impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N).\n\nCVE-2022-21283:\nVulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Libraries). Supported versions that are affected are Oracle Java SE: 11.0.13, 17.01; Oracle GraalVM Enterprise Edition: 20.3.4 and 21.3.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition. Successful attacks of this vulnerability can result in unauthorized ability to cause a partial denial of service (partial DOS) of Oracle Java SE, Oracle GraalVM Enterprise Edition. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability can also be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. CVSS 3.1 Base Score 5.3 (Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L).\n\nCVE-2022-21293:\nVulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Libraries). Supported versions that are affected are Oracle Java SE: 7u321, 8u311, 11.0.13, 17.01; Oracle GraalVM Enterprise Edition: 20.3.4 and 21.3.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition. Successful attacks of this vulnerability can result in unauthorized ability to cause a partial denial of service (partial DOS) of Oracle Java SE, Oracle GraalVM Enterprise Edition. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability can also be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. CVSS 3.1 Base Score 5.3 (Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L).\n\nCVE-2022-21294:\nVulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Libraries). Supported versions that are affected are Oracle Java SE: 7u321, 8u311, 11.0.13, 17.01; Oracle GraalVM Enterprise Edition: 20.3.4 and 21.3.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition. Successful attacks of this vulnerability can result in unauthorized ability to cause a partial denial of service (partial DOS) of Oracle Java SE, Oracle GraalVM Enterprise Edition. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability can also be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. CVSS 3.1 Base Score 5.3 (Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L).\n\nCVE-2022-21296:\nVulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: JAXP). Supported versions that are affected are Oracle Java SE: 7u321, 8u311, 11.0.13, 17.01; Oracle GraalVM Enterprise Edition: 20.3.4 and 21.3.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition. Successful attacks of this vulnerability can result in unauthorized read access to a subset of Oracle Java SE, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability can also be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. CVSS 3.1 Base Score 5.3 (Confidentiality impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N).\n\nCVE-2022-21299:\nVulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: JAXP). Supported versions that are affected are Oracle Java SE: 7u321, 8u311, 11.0.13, 17.01; Oracle GraalVM Enterprise Edition: 20.3.4 and 21.3.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition. Successful attacks of this vulnerability can result in unauthorized ability to cause a partial denial of service (partial DOS) of Oracle Java SE, Oracle GraalVM Enterprise Edition. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability can also be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. CVSS 3.1 Base Score 5.3 (Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L).\n\nCVE-2022-21305:\nVulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Hotspot). Supported versions that are affected are Oracle Java SE: 7u321, 8u311, 11.0.13, 17.01; Oracle GraalVM Enterprise Edition: 20.3.4 and 21.3.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition. Successful attacks of this vulnerability can result in unauthorized update, insert or delete access to some of Oracle Java SE, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability can also be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. CVSS 3.1 Base Score 5.3 (Integrity impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N).\n\nCVE-2022-21340:\nVulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Libraries). Supported versions that are affected are Oracle Java SE: 7u321, 8u311, 11.0.13, 17.01; Oracle GraalVM Enterprise Edition: 20.3.4 and 21.3.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition. Successful attacks of this vulnerability can result in unauthorized ability to cause a partial denial of service (partial DOS) of Oracle Java SE, Oracle GraalVM Enterprise Edition. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability can also be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. CVSS 3.1 Base Score 5.3 (Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L).\n\nCVE-2022-21341:\nVulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Serialization). Supported versions that are affected are Oracle Java SE: 7u321, 8u311, 11.0.13, 17.01; Oracle GraalVM Enterprise Edition: 20.3.4 and 21.3.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition. Successful attacks of this vulnerability can result in unauthorized ability to cause a partial denial of service (partial DOS) of Oracle Java SE, Oracle GraalVM Enterprise Edition. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability can also be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. CVSS 3.1 Base Score 5.3 (Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L).\n\nCVE-2022-21360:\nVulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: ImageIO). Supported versions that are affected are Oracle Java SE: 7u321, 8u311, 11.0.13, 17.01; Oracle GraalVM Enterprise Edition: 20.3.4 and 21.3.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition. Successful attacks of this vulnerability can result in unauthorized ability to cause a partial denial of service (partial DOS) of Oracle Java SE, Oracle GraalVM Enterprise Edition. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability can also be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. CVSS 3.1 Base Score 5.3 (Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L).\n\nCVE-2022-21365:\nVulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: ImageIO). Supported versions that are affected are Oracle Java SE: 7u321, 8u311, 11.0.13, 17.01; Oracle GraalVM Enterprise Edition: 20.3.4 and 21.3.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition. Successful attacks of this vulnerability can result in unauthorized ability to cause a partial denial of service (partial DOS) of Oracle Java SE, Oracle GraalVM Enterprise Edition. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability can also be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. CVSS 3.1 Base Score 5.3 (Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L).",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-01-29"
+      },
+      "Updated": {
+        "Date": "2022-04-02"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-21283",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21283",
+          "CWE": "CWE-248",
+          "Public": "20220112"
+        },
+        {
+          "ID": "CVE-2022-21293",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21293",
+          "CWE": "CWE-1173-\u003eCWE-502",
+          "Public": "20220112"
+        },
+        {
+          "ID": "CVE-2022-21294",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21294",
+          "CWE": "CWE-770",
+          "Public": "20220112"
+        },
+        {
+          "ID": "CVE-2022-21296",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21296",
+          "CWE": "CWE-285-\u003eCWE-212",
+          "Public": "20220112"
+        },
+        {
+          "ID": "CVE-2022-21299",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21299",
+          "CWE": "CWE-835",
+          "Public": "20220112"
+        },
+        {
+          "ID": "CVE-2022-21305",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21305",
+          "CWE": "CWE-190",
+          "Public": "20220112"
+        },
+        {
+          "ID": "CVE-2022-21340",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21340",
+          "CWE": "CWE-770",
+          "Public": "20220112"
+        },
+        {
+          "ID": "CVE-2022-21341",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21341",
+          "CWE": "CWE-1173-\u003eCWE-502",
+          "Public": "20220112"
+        },
+        {
+          "ID": "CVE-2022-21360",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21360",
+          "CWE": "CWE-770",
+          "Public": "20220112"
+        },
+        {
+          "ID": "CVE-2022-21365",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21365",
+          "CWE": "CWE-190-\u003eCWE-770",
+          "Public": "20220112"
+        },
+        {
+          "ID": "CVE-2022-21248",
+          "CVSS3": "3.7/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21248",
+          "CWE": "CWE-502",
+          "Public": "20220112"
+        },
+        {
+          "ID": "CVE-2022-21282",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21282",
+          "CWE": "CWE-212",
+          "Public": "20220112"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "java-1.8.0-openjdk is earlier than 1:1.8.0-openjdk-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062001"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-accessibility is earlier than 1:1.8.0-openjdk-accessibility-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062002"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-accessibility-debug is earlier than 1:1.8.0-openjdk-accessibility-debug-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062003"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-debug is earlier than 1:1.8.0-openjdk-debug-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062004"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-demo is earlier than 1:1.8.0-openjdk-demo-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062005"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-demo-debug is earlier than 1:1.8.0-openjdk-demo-debug-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062006"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-devel is earlier than 1:1.8.0-openjdk-devel-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062007"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-devel-debug is earlier than 1:1.8.0-openjdk-devel-debug-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062008"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-headless is earlier than 1:1.8.0-openjdk-headless-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062009"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-headless-debug is earlier than 1:1.8.0-openjdk-headless-debug-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062010"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-src is earlier than 1:1.8.0-openjdk-src-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062011"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-src-debug is earlier than 1:1.8.0-openjdk-src-debug-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062012"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-javadoc is earlier than 1:1.8.0-openjdk-javadoc-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062013"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-javadoc-debug is earlier than 1:1.8.0-openjdk-javadoc-debug-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062014"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-javadoc-zip is earlier than 1:1.8.0-openjdk-javadoc-zip-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062015"
+          },
+          {
+            "Comment": "java-1.8.0-openjdk-javadoc-zip-debug is earlier than 1:1.8.0-openjdk-javadoc-zip-debug-1.8.0.322.b06-1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220062016"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

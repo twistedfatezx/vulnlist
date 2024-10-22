@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20230155",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0155: libwebp security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0155",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0155",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2023-1999:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nA double-free in libwebp could have led to memory corruption and a potentially exploitable crash.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-05-16"
+      },
+      "Updated": {
+        "Date": "2023-05-18"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-1999",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-1999",
+          "CWE": "CWE-415",
+          "Public": "20230504"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libwebp is earlier than 0:0.3.0-11.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230155001"
+          },
+          {
+            "Comment": "libwebp-devel is earlier than 0:devel-0.3.0-11.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230155002"
+          },
+          {
+            "Comment": "libwebp-java is earlier than 0:java-0.3.0-11.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230155003"
+          },
+          {
+            "Comment": "libwebp-tools is earlier than 0:tools-0.3.0-11.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230155004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

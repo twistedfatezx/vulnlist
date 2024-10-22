@@ -1,0 +1,89 @@
+{
+  "ID": "oval:cn.openanolis:def:20230895",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0895: golang security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0895",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0895",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-45283:\nThe filepath package does not recognize paths with a \\??\\ prefix as special. On Windows, a path beginning with \\??\\ is a Root Local Device path equivalent to a path beginning with \\\\?\\. Paths with a \\??\\ prefix may be used to access arbitrary locations on the system. For example, the path \\??\\c:\\x is equivalent to the more common path c:\\x. Before fix, Clean could convert a rooted path such as \\a\\..\\??\\b into the root local device path \\??\\b. Clean will now convert this to .\\??\\b. Similarly, Join(\\, ??, b) could convert a seemingly innocent sequence of path elements into the root local device path \\??\\b. Join will now convert this to \\.\\??\\b. In addition, with fix, IsAbs now correctly reports paths beginning with \\??\\ as absolute, and VolumeName correctly reports the \\??\\ prefix as a volume name. UPDATE: Go 1.20.11 and Go 1.21.4 inadvertently changed the definition of the volume name in Windows paths starting with \\?, resulting in filepath.Clean(\\?\\c:) returning \\?\\c: rather than \\?\\c:\\ (among other effects). The previous behavior has been restored.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-12-20"
+      },
+      "Updated": {
+        "Date": "2023-12-20"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-45283",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45283",
+          "CWE": "",
+          "Public": "20231109"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "golang is earlier than 0:1.20.12-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230895001"
+          },
+          {
+            "Comment": "golang-bin is earlier than 0:bin-1.20.12-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230895002"
+          },
+          {
+            "Comment": "golang-shared is earlier than 0:shared-1.20.12-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230895003"
+          },
+          {
+            "Comment": "golang-docs is earlier than 0:docs-1.20.12-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230895004"
+          },
+          {
+            "Comment": "golang-misc is earlier than 0:misc-1.20.12-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230895005"
+          },
+          {
+            "Comment": "golang-src is earlier than 0:src-1.20.12-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230895006"
+          },
+          {
+            "Comment": "golang-tests is earlier than 0:tests-1.20.12-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230895007"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

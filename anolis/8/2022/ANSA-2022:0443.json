@@ -1,0 +1,193 @@
+{
+  "ID": "oval:cn.openanolis:def:20220443",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0443: maven:3.6 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0443",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0443",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-29599:\nIn Apache Maven maven-shared-utils prior to version 3.3.3, the Commandline class can emit double-quoted strings without proper escaping, allowing shell injection attacks.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-06-15"
+      },
+      "Updated": {
+        "Date": "2022-10-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-29599",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-29599",
+          "CWE": "CWE-77",
+          "Public": "20220430"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "aopalliance is earlier than 0:1.0-20.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443001"
+          },
+          {
+            "Comment": "apache-commons-cli is earlier than 0:commons-cli-1.4-7.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443002"
+          },
+          {
+            "Comment": "apache-commons-codec is earlier than 0:commons-codec-1.13-3.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443003"
+          },
+          {
+            "Comment": "apache-commons-io is earlier than 1:commons-io-2.6-6.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443004"
+          },
+          {
+            "Comment": "apache-commons-lang3 is earlier than 0:commons-lang3-3.9-4.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443005"
+          },
+          {
+            "Comment": "atinject is earlier than 0:1-31.20100611svn86.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443006"
+          },
+          {
+            "Comment": "cdi-api is earlier than 0:api-2.0.1-3.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443007"
+          },
+          {
+            "Comment": "geronimo-annotation is earlier than 0:annotation-1.0-26.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443008"
+          },
+          {
+            "Comment": "google-guice is earlier than 0:guice-4.2.2-4.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443009"
+          },
+          {
+            "Comment": "guava is earlier than 0:28.1-3.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443010"
+          },
+          {
+            "Comment": "httpcomponents-client is earlier than 0:client-4.5.10-4.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443011"
+          },
+          {
+            "Comment": "httpcomponents-core is earlier than 0:core-4.4.12-3.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443012"
+          },
+          {
+            "Comment": "jansi is earlier than 0:1.18-4.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443013"
+          },
+          {
+            "Comment": "jcl-over-slf4j is earlier than 0:over-slf4j-1.7.28-3.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443014"
+          },
+          {
+            "Comment": "jsoup is earlier than 0:1.12.1-3.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443015"
+          },
+          {
+            "Comment": "jsr-305 is earlier than 0:305-0-0.25.20130910svn.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443016"
+          },
+          {
+            "Comment": "maven is earlier than 1:3.6.2-7.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443017"
+          },
+          {
+            "Comment": "maven-lib is earlier than 1:lib-3.6.2-7.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443018"
+          },
+          {
+            "Comment": "maven-openjdk11 is earlier than 1:openjdk11-3.6.2-7.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443019"
+          },
+          {
+            "Comment": "maven-openjdk17 is earlier than 1:openjdk17-3.6.2-7.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443020"
+          },
+          {
+            "Comment": "maven-openjdk8 is earlier than 1:openjdk8-3.6.2-7.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443021"
+          },
+          {
+            "Comment": "maven-resolver is earlier than 0:resolver-1.4.1-3.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443022"
+          },
+          {
+            "Comment": "maven-shared-utils is earlier than 0:shared-utils-3.2.1-0.5.module+an8.6.0+10788+3cf7b2ea",
+            "TestRef": "oval:cn.openanolis:tst:20220443023"
+          },
+          {
+            "Comment": "maven-wagon is earlier than 0:wagon-3.3.4-2.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443024"
+          },
+          {
+            "Comment": "plexus-cipher is earlier than 0:cipher-1.7-17.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443025"
+          },
+          {
+            "Comment": "plexus-classworlds is earlier than 0:classworlds-2.6.0-4.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443026"
+          },
+          {
+            "Comment": "plexus-containers-component-annotations is earlier than 0:containers-component-annotations-2.1.0-2.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443027"
+          },
+          {
+            "Comment": "plexus-interpolation is earlier than 0:interpolation-1.26-3.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443028"
+          },
+          {
+            "Comment": "plexus-sec-dispatcher is earlier than 0:sec-dispatcher-1.4-29.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443029"
+          },
+          {
+            "Comment": "plexus-utils is earlier than 0:utils-3.3.0-3.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443030"
+          },
+          {
+            "Comment": "sisu is earlier than 0:0.3.4-2.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443031"
+          },
+          {
+            "Comment": "slf4j is earlier than 0:1.7.28-3.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443032"
+          },
+          {
+            "Comment": "plexus-containers is earlier than 0:containers-2.1.0-2.module+an8.6.0+10716+f473d8d9",
+            "TestRef": "oval:cn.openanolis:tst:20220443033"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "ID": "oval:cn.openanolis:def:20240079",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0079: oniguruma security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0079",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0079",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2019-13224:\nA use-after-free in onig_new_deluxe() in regext.c in Oniguruma 6.9.2 allows attackers to potentially cause information disclosure, denial of service, or possibly code execution by providing a crafted regular expression. The attacker provides a pair of a regex pattern and a string, with a multi-byte encoding that gets handled by onig_new_deluxe(). Oniguruma issues often affect Ruby, as well as common optional libraries for PHP and Rust.\n\nCVE-2019-16163:\nOniguruma before 6.9.3 allows Stack Exhaustion in regcomp.c because of recursion in regparse.c.\n\nCVE-2019-19012:\nAn integer overflow in the search_in_range function in regexec.c in Oniguruma 6.x before 6.9.4_rc2 leads to an out-of-bounds read, in which the offset of this read is under the control of an attacker. (This only affects the 32-bit compiled version). Remote attackers can cause a denial-of-service or information disclosure, or possibly have unspecified other impact, via a crafted regular expression.\n\nCVE-2019-19203:\nAn issue was discovered in Oniguruma 6.x before 6.9.4_rc2. In the function gb18030_mbc_enc_len in file gb18030.c, a UChar pointer is dereferenced without checking if it passed the end of the matched string. This leads to a heap-based buffer over-read.\n\nCVE-2019-19204:\nAn issue was discovered in Oniguruma 6.x before 6.9.4_rc2. In the function fetch_interval_quantifier (formerly known as fetch_range_quantifier) in regparse.c, PFETCH is called without checking PEND. This leads to a heap-based buffer over-read.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-03-05"
+      },
+      "Updated": {
+        "Date": "2024-03-05"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2019-13224",
+          "CVSS3": "6.8/CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-13224",
+          "CWE": "CWE-416",
+          "Public": "20210508"
+        },
+        {
+          "ID": "CVE-2019-16163",
+          "CVSS3": "6.5/CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-16163",
+          "CWE": "CWE-674-\u003eCWE-121",
+          "Public": "20210508"
+        },
+        {
+          "ID": "CVE-2019-19012",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-19012",
+          "CWE": "CWE-190-\u003eCWE-125",
+          "Public": "20191108"
+        },
+        {
+          "ID": "CVE-2019-19203",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-19203",
+          "CWE": "CWE-125",
+          "Public": "20191106"
+        },
+        {
+          "ID": "CVE-2019-19204",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-19204",
+          "CWE": "CWE-125",
+          "Public": "20191106"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "oniguruma is earlier than 0:6.8.2-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240079001"
+          },
+          {
+            "Comment": "oniguruma-devel is earlier than 0:devel-6.8.2-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240079002"
+          },
+          {
+            "Comment": "oniguruma-doc is earlier than 0:doc-6.8.2-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240079003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

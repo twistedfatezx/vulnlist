@@ -1,0 +1,117 @@
+{
+  "ID": "oval:cn.openanolis:def:20230151",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0151: kernel security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0151",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0151",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-43750:\ndrivers/usb/mon/mon_bin.c in usbmon in the Linux kernel before 5.19.15 and 6.x before 6.0.1 allows a user-space client to corrupt the monitor's internal memory.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-05-16"
+      },
+      "Updated": {
+        "Date": "2023-05-18"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-43750",
+          "CVSS3": "6.7/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-43750",
+          "CWE": "CWE-787",
+          "Public": "20230110"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151001"
+          },
+          {
+            "Comment": "kernel is earlier than 0:3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151002"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151003"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151004"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151005"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151006"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151007"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151008"
+          },
+          {
+            "Comment": "kernel-tools-libs-devel is earlier than 0:tools-libs-devel-3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151009"
+          },
+          {
+            "Comment": "perf is earlier than 0:3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151010"
+          },
+          {
+            "Comment": "python-perf is earlier than 0:perf-3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151011"
+          },
+          {
+            "Comment": "kernel(RHCK)3.10 is earlier than 0:3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151012"
+          },
+          {
+            "Comment": "kernel-abi-whitelists is earlier than 0:abi-whitelists-3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151013"
+          },
+          {
+            "Comment": "kernel-doc is earlier than 0:doc-3.10.0-1160.90.1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230151014"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

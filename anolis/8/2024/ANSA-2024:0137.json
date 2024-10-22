@@ -1,0 +1,101 @@
+{
+  "ID": "oval:cn.openanolis:def:20240137",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0137: cups security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0137",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0137",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-32324:\nOpenPrinting CUPS is an open source printing system. In versions 2.4.2 and prior, a heap buffer overflow vulnerability would allow a remote attacker to launch a denial of service (DoS) attack. A buffer overflow vulnerability in the function `format_log_line` could allow remote attackers to cause a DoS on the affected system. Exploitation of the vulnerability can be triggered when the configuration file `cupsd.conf` sets the value of `loglevel `to `DEBUG`. No known patches or workarounds exist at time of publication.\n\nCVE-2023-34241:\nOpenPrinting CUPS is a standards-based, open source printing system for Linux and other Unix-like operating systems. Starting in version 2.0.0 and prior to version 2.4.6, CUPS logs data of free memory to the logging service AFTER the connection has been closed, when it should have logged the data right before. This is a use-after-free bug that impacts the entire cupsd process.\nThe exact cause of this issue is the function `httpClose(con-\u003ehttp)` being called in `scheduler/client.c`. The problem is that httpClose always, provided its argument is not null, frees the pointer at the end of the call, only for cupsdLogClient to pass the pointer to httpGetHostname. This issue happens in function `cupsdAcceptClient` if LogLevel is warn or higher and in two scenarios: there is a double-lookup for the IP Address (HostNameLookups Double is set in `cupsd.conf`) which fails to resolve, or if CUPS is compiled with TCP wrappers and the connection is refused by rules from `/etc/hosts.allow` and `/etc/hosts.deny`.\nVersion 2.4.6 has a patch for this issue.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-04-07"
+      },
+      "Updated": {
+        "Date": "2024-04-08"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-32324",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32324",
+          "CWE": "CWE-119",
+          "Public": "20230531"
+        },
+        {
+          "ID": "CVE-2023-34241",
+          "CVSS3": "7.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-34241",
+          "CWE": "CWE-416",
+          "Public": "20230621"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "cups is earlier than 1:2.2.6-54.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240137001"
+          },
+          {
+            "Comment": "cups-client is earlier than 1:client-2.2.6-54.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240137002"
+          },
+          {
+            "Comment": "cups-devel is earlier than 1:devel-2.2.6-54.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240137003"
+          },
+          {
+            "Comment": "cups-ipptool is earlier than 1:ipptool-2.2.6-54.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240137004"
+          },
+          {
+            "Comment": "cups-libs is earlier than 1:libs-2.2.6-54.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240137005"
+          },
+          {
+            "Comment": "cups-lpd is earlier than 1:lpd-2.2.6-54.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240137006"
+          },
+          {
+            "Comment": "cups-doc is earlier than 1:doc-2.2.6-54.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240137007"
+          },
+          {
+            "Comment": "cups-filesystem is earlier than 1:filesystem-2.2.6-54.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240137008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

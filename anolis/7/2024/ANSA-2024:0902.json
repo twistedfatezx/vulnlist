@@ -1,0 +1,121 @@
+{
+  "ID": "oval:cn.openanolis:def:20240902",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0902: kernel security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0902",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0902",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-1011:\nA use-after-free flaw was found in the Linux kernel’s FUSE filesystem in the way a user triggers write(). This flaw allows a local user to gain unauthorized access to data from the FUSE filesystem, resulting in privilege escalation.\n\nCVE-2024-36971:\nIn the Linux kernel, the following vulnerability has been resolved:\nnet: fix __dst_negative_advice() race\n__dst_negative_advice() does not enforce proper RCU rules when\nsk-\u003edst_cache must be cleared, leading to possible UAF.\nRCU rules are that we must first clear sk-\u003esk_dst_cache,\nthen call dst_release(old_dst).\nNote that sk_dst_reset(sk) is implementing this protocol correctly,\nwhile __dst_negative_advice() uses the wrong order.\nGiven that ip6_negative_advice() has special logic\nagainst RTF_CACHE, this means each of the three -\u003enegative_advice()\nexisting methods must perform the sk_dst_reset() themselves.\nNote the check against NULL dst is centralized in\n__dst_negative_advice(), there is no need to duplicate\nit in various callbacks.\nMany thanks to Clement Lecigne for tracking this issue.\nThis old bug became visible after the blamed commit, using UDP sockets.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-09-19"
+      },
+      "Updated": {
+        "Date": "2024-09-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-1011",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1011",
+          "CWE": "CWE-416",
+          "Public": "20220624"
+        },
+        {
+          "ID": "CVE-2024-36971",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-36971",
+          "CWE": "",
+          "Public": "20240813"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:3.10.0-1160.123.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240902001"
+          },
+          {
+            "Comment": "kernel is earlier than 0:3.10.0-1160.123.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240902002"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-3.10.0-1160.123.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240902003"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-3.10.0-1160.123.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240902004"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-3.10.0-1160.123.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240902005"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-3.10.0-1160.123.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240902006"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-3.10.0-1160.123.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240902007"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-3.10.0-1160.123.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240902008"
+          },
+          {
+            "Comment": "kernel-tools-libs-devel is earlier than 0:tools-libs-devel-3.10.0-1160.123.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240902009"
+          },
+          {
+            "Comment": "perf is earlier than 0:3.10.0-1160.123.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240902010"
+          },
+          {
+            "Comment": "python-perf is earlier than 0:perf-3.10.0-1160.123.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240902011"
+          },
+          {
+            "Comment": "kernel-abi-whitelists is earlier than 0:abi-whitelists-3.10.0-1160.123.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240902012"
+          },
+          {
+            "Comment": "kernel-doc is earlier than 0:doc-3.10.0-1160.123.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240902013"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

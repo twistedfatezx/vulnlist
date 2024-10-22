@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20220563",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0563: libinput security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0563",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0563",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-1215:\nA format string vulnerability was found in libinput",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-07-12"
+      },
+      "Updated": {
+        "Date": "2022-07-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-1215",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1215",
+          "CWE": "CWE-134",
+          "Public": "20220712"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libinput is earlier than 0:1.16.3-3.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220563001"
+          },
+          {
+            "Comment": "libinput-utils is earlier than 0:utils-1.16.3-3.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220563002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

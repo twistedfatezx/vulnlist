@@ -1,0 +1,97 @@
+{
+  "ID": "oval:cn.openanolis:def:20210105",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0105: thunderbird security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0105",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0105",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-23991:\nIf a Thunderbird user has previously imported Alice's OpenPGP key, and Alice has extended the validity period of her key, but Alice's updated key has not yet been imported, an attacker may send an email containing a crafted version of Alice's key with an invalid subkey, Thunderbird might subsequently attempt to use the invalid subkey, and will fail to send encrypted email to Alice. This vulnerability affects Thunderbird \u003c 78.9.1.\n\nCVE-2021-23992:\nThunderbird did not check if the user ID associated with an OpenPGP key has a valid self signature. An attacker may create a crafted version of an OpenPGP key, by either replacing the original user ID, or by adding another user ID. If Thunderbird imports and accepts the crafted key, the Thunderbird user may falsely conclude that the false user ID belongs to the correspondent. This vulnerability affects Thunderbird \u003c 78.9.1.\n\nCVE-2021-23993:\nAn attacker may perform a DoS attack to prevent a user from sending encrypted email to a correspondent. If an attacker creates a crafted OpenPGP key with a subkey that has an invalid self signature, and the Thunderbird user imports the crafted key, then Thunderbird may try to use the invalid subkey, but the RNP library rejects it from being used, causing encryption to fail. This vulnerability affects Thunderbird \u003c 78.9.1.\n\nCVE-2021-29949:\nWhen loading the shared library that provides the OTR protocol implementation, Thunderbird will initially attempt to open it using a filename that isn't distributed by Thunderbird. If a computer has already been infected with a malicious library of the alternative filename, and the malicious library has been copied to a directory that is contained in the search path for executable libraries, then Thunderbird will load the incorrect library. This vulnerability affects Thunderbird \u003c 78.9.1.\n\nCVE-2021-29950:\nThunderbird unprotects a secret OpenPGP key prior to using it for a decryption, signing or key import task. If the task runs into a failure, the secret key may remain in memory in its unprotected state. This vulnerability affects Thunderbird \u003c 78.8.1.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2021-05-07"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-23991",
+          "CVSS3": "6.8/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-23991",
+          "CWE": "CWE-347",
+          "Public": "20210507"
+        },
+        {
+          "ID": "CVE-2021-23992",
+          "CVSS3": "4.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-23992",
+          "CWE": "CWE-347",
+          "Public": "20210507"
+        },
+        {
+          "ID": "CVE-2021-23993",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-23993",
+          "CWE": "CWE-347",
+          "Public": "20210507"
+        },
+        {
+          "ID": "CVE-2021-29949",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-29949",
+          "CWE": "CWE-426",
+          "Public": "20210507"
+        },
+        {
+          "ID": "CVE-2021-29950",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-29950",
+          "CWE": "CWE-522",
+          "Public": "20210507"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "thunderbird is earlier than 0:78.9.1-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210105001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

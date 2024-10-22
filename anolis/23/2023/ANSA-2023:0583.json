@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20230583",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0583: procps-ng security update (Low)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0583",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0583",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-4016:\nUnder some circumstances, this weakness allows a user who has access to run the “ps” utility on a machine, the ability to write almost unlimited amounts of unfiltered data into the process heap.",
+    "Advisory": {
+      "Severity": "Low",
+      "Issued": {
+        "Date": "2023-10-18"
+      },
+      "Updated": {
+        "Date": "2023-10-18"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-4016",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-4016",
+          "CWE": "CWE-119-\u003eCWE-787",
+          "Public": "20230806"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "procps-ng is earlier than 0:ng-3.3.17-5.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230583001"
+          },
+          {
+            "Comment": "procps-ng-devel is earlier than 0:ng-devel-3.3.17-5.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230583002"
+          },
+          {
+            "Comment": "procps-ng-doc is earlier than 0:ng-doc-3.3.17-5.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230583003"
+          },
+          {
+            "Comment": "procps-ng-i18n is earlier than 0:ng-i18n-3.3.17-5.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230583004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

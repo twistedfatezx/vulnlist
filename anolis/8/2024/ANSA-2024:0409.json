@@ -1,0 +1,97 @@
+{
+  "ID": "oval:cn.openanolis:def:20240409",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0409: frr security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0409",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0409",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-38406:\nbgpd/bgp_flowspec.c in FRRouting (FRR) before 8.4.3 mishandles an nlri length of zero, aka a \"flowspec overflow.\"\n\nCVE-2023-38407:\nbgpd/bgp_label.c in FRRouting (FRR) before 8.5 attempts to read beyond the end of the stream during labeled unicast parsing.\n\nCVE-2023-47234:\nAn issue was discovered in FRRouting FRR through 9.0.1. A crash can occur when processing a crafted BGP UPDATE message with a MP_UNREACH_NLRI attribute and additional NLRI data (that lacks mandatory path attributes).\n\nCVE-2023-47235:\nAn issue was discovered in FRRouting FRR through 9.0.1. A crash can occur when a malformed BGP UPDATE message with an EOR is processed, because the presence of EOR does not lead to a treat-as-withdraw outcome.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-05-22"
+      },
+      "Updated": {
+        "Date": "2024-05-30"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-38406",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-38406",
+          "CWE": "CWE-119",
+          "Public": "20231106"
+        },
+        {
+          "ID": "CVE-2023-38407",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-38407",
+          "CWE": "CWE-125",
+          "Public": "20231106"
+        },
+        {
+          "ID": "CVE-2023-47234",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-47234",
+          "CWE": "",
+          "Public": "20231103"
+        },
+        {
+          "ID": "CVE-2023-47235",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-47235",
+          "CWE": "CWE-400",
+          "Public": "20231103"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "frr is earlier than 0:7.5.1-16.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240409001"
+          },
+          {
+            "Comment": "frr-doc is earlier than 0:doc-7.5.1-16.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240409002"
+          },
+          {
+            "Comment": "frr-selinux is earlier than 0:selinux-7.5.1-16.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240409003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

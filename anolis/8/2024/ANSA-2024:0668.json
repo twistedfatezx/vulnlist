@@ -1,0 +1,221 @@
+{
+  "ID": "oval:cn.openanolis:def:20240668",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0668: ruby:2.5 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0668",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0668",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-36617:\nA ReDoS issue was discovered in the URI component before 0.12.2 for Ruby. The URI parser mishandles invalid URLs that have specific characters. There is an increase in execution time for parsing strings to URI objects with rfc2396_parser.rb and rfc3986_parser.rb. NOTE: this issue exists becuse of an incomplete fix for CVE-2023-28755. Version 0.10.3 is also a fixed version.\n\nCVE-2024-27280:\nA buffer-overread issue was discovered in StringIO 3.0.1, as distributed in Ruby 3.0.x through 3.0.6 and 3.1.x through 3.1.4. The ungetbyte and ungetc methods on a StringIO can read past the end of a string, and a subsequent call to StringIO.gets may return the memory value. 3.0.3 is the main fixed version; however, for Ruby 3.0 users, a fixed version is stringio 3.0.1.1, and for Ruby 3.1 users, a fixed version is stringio 3.0.1.2.\n\nCVE-2024-27281:\nAn issue was discovered in RDoc 6.3.3 through 6.6.2, as distributed in Ruby 3.x through 3.3.0. When parsing .rdoc_options (used for configuration in RDoc) as a YAML file, object injection and resultant remote code execution are possible because there are no restrictions on the classes that can be restored. (When loading the documentation cache, object injection and resultant remote code execution are also possible if there were a crafted cache.) The main fixed version is 6.6.3.1. For Ruby 3.0 users, a fixed version is rdoc 6.3.4.1. For Ruby 3.1 users, a fixed version is rdoc 6.4.1.1. For Ruby 3.2 users, a fixed version is rdoc 6.5.1.1.\n\nCVE-2024-27282:\nAn issue was discovered in Ruby 3.x through 3.3.0. If attacker-supplied data is provided to the Ruby regex compiler, it is possible to extract arbitrary heap data relative to the start of the text, including pointers and sensitive strings. The fixed versions are 3.0.7, 3.1.5, 3.2.4, and 3.3.1.\n\nCVE-2024-35176:\nREXML is an XML toolkit for Ruby. The REXML gem before 3.2.6 has a denial of service vulnerability when it parses an XML that has many `\u003c`s in an attribute value. Those who need to parse untrusted XMLs may be impacted to this vulnerability. The REXML gem 3.2.7 or later include the patch to fix this vulnerability. As a workaround, don't parse untrusted XMLs.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-07-16"
+      },
+      "Updated": {
+        "Date": "2024-07-17"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-36617",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-36617",
+          "CWE": "CWE-185",
+          "Public": "20230628"
+        },
+        {
+          "ID": "CVE-2024-27280",
+          "CVSS3": "3.1/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-27280",
+          "CWE": "CWE-126",
+          "Public": "20240604"
+        },
+        {
+          "ID": "CVE-2024-27281",
+          "CVSS3": "4.5/CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-27281",
+          "CWE": "CWE-94",
+          "Public": "20240604"
+        },
+        {
+          "ID": "CVE-2024-27282",
+          "CVSS3": "6.6/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-27282",
+          "CWE": "CWE-125",
+          "Public": "20240604"
+        },
+        {
+          "ID": "CVE-2024-35176",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-35176",
+          "CWE": "(CWE-400|CWE-770)",
+          "Public": "20240716"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "ruby is earlier than 0:2.5.9-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668001"
+          },
+          {
+            "Comment": "ruby-devel is earlier than 0:devel-2.5.9-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668002"
+          },
+          {
+            "Comment": "ruby-libs is earlier than 0:libs-2.5.9-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668003"
+          },
+          {
+            "Comment": "rubygem-bigdecimal is earlier than 0:bigdecimal-1.3.4-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668004"
+          },
+          {
+            "Comment": "rubygem-bson is earlier than 0:bson-4.3.0-2.module+an8.7.0+10870+bafb2688",
+            "TestRef": "oval:cn.openanolis:tst:20240668005"
+          },
+          {
+            "Comment": "rubygem-io-console is earlier than 0:io-console-0.4.6-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668006"
+          },
+          {
+            "Comment": "rubygem-json is earlier than 0:json-2.1.0-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668007"
+          },
+          {
+            "Comment": "rubygem-mysql2 is earlier than 0:mysql2-0.4.10-4.module+an8.7.0+10870+bafb2688",
+            "TestRef": "oval:cn.openanolis:tst:20240668008"
+          },
+          {
+            "Comment": "rubygem-openssl is earlier than 0:openssl-2.1.2-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668009"
+          },
+          {
+            "Comment": "rubygem-pg is earlier than 0:pg-1.0.0-3.0.1.module+an8.9.0+11145+17291727",
+            "TestRef": "oval:cn.openanolis:tst:20240668010"
+          },
+          {
+            "Comment": "rubygem-psych is earlier than 0:psych-3.0.2-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668011"
+          },
+          {
+            "Comment": "rubygem-abrt is earlier than 0:abrt-0.3.0-4.module+an8.7.0+10870+bafb2688",
+            "TestRef": "oval:cn.openanolis:tst:20240668012"
+          },
+          {
+            "Comment": "rubygem-bundler is earlier than 0:bundler-1.16.1-4.module+an8.7.0+10870+bafb2688",
+            "TestRef": "oval:cn.openanolis:tst:20240668013"
+          },
+          {
+            "Comment": "rubygem-mongo is earlier than 0:mongo-2.5.1-2.module+an8.7.0+10870+bafb2688",
+            "TestRef": "oval:cn.openanolis:tst:20240668014"
+          },
+          {
+            "Comment": "ruby-doc is earlier than 0:doc-2.5.9-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668015"
+          },
+          {
+            "Comment": "ruby-irb is earlier than 0:irb-2.5.9-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668016"
+          },
+          {
+            "Comment": "rubygem-abrt-doc is earlier than 0:abrt-doc-0.3.0-4.module+an8.7.0+10870+bafb2688",
+            "TestRef": "oval:cn.openanolis:tst:20240668017"
+          },
+          {
+            "Comment": "rubygem-bson-doc is earlier than 0:bson-doc-4.3.0-2.module+an8.7.0+10870+bafb2688",
+            "TestRef": "oval:cn.openanolis:tst:20240668018"
+          },
+          {
+            "Comment": "rubygem-bundler-doc is earlier than 0:bundler-doc-1.16.1-4.module+an8.7.0+10870+bafb2688",
+            "TestRef": "oval:cn.openanolis:tst:20240668019"
+          },
+          {
+            "Comment": "rubygem-did_you_mean is earlier than 0:did_you_mean-1.2.0-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668020"
+          },
+          {
+            "Comment": "rubygem-minitest is earlier than 0:minitest-5.10.3-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668021"
+          },
+          {
+            "Comment": "rubygem-mongo-doc is earlier than 0:mongo-doc-2.5.1-2.module+an8.7.0+10870+bafb2688",
+            "TestRef": "oval:cn.openanolis:tst:20240668022"
+          },
+          {
+            "Comment": "rubygem-mysql2-doc is earlier than 0:mysql2-doc-0.4.10-4.module+an8.7.0+10870+bafb2688",
+            "TestRef": "oval:cn.openanolis:tst:20240668023"
+          },
+          {
+            "Comment": "rubygem-net-telnet is earlier than 0:net-telnet-0.1.1-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668024"
+          },
+          {
+            "Comment": "rubygem-pg-doc is earlier than 0:pg-doc-1.0.0-3.0.1.module+an8.9.0+11145+17291727",
+            "TestRef": "oval:cn.openanolis:tst:20240668025"
+          },
+          {
+            "Comment": "rubygem-power_assert is earlier than 0:power_assert-1.1.1-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668026"
+          },
+          {
+            "Comment": "rubygem-rake is earlier than 0:rake-12.3.3-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668027"
+          },
+          {
+            "Comment": "rubygem-rdoc is earlier than 0:rdoc-6.0.1.1-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668028"
+          },
+          {
+            "Comment": "rubygem-test-unit is earlier than 0:test-unit-3.2.7-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668029"
+          },
+          {
+            "Comment": "rubygem-xmlrpc is earlier than 0:xmlrpc-0.3.0-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668030"
+          },
+          {
+            "Comment": "rubygems is earlier than 0:2.7.6.3-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668031"
+          },
+          {
+            "Comment": "rubygems-devel is earlier than 0:devel-2.7.6.3-112.0.1.module+an8.9.0+11228+7f9fb237",
+            "TestRef": "oval:cn.openanolis:tst:20240668032"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20230199",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0199: curl security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0199",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0199",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-27535:\nAn authentication bypass vulnerability exists in libcurl \u003c8.0.0 in the FTP connection reuse feature that can result in wrong credentials being used during subsequent transfers. Previously created connections are kept in a connection pool for reuse if they match the current setup. However, certain FTP settings such as CURLOPT_FTP_ACCOUNT, CURLOPT_FTP_ALTERNATIVE_TO_USER, CURLOPT_FTP_SSL_CCC, and CURLOPT_USE_SSL were not included in the configuration match checks, causing them to match too easily. This could lead to libcurl using the wrong credentials when performing a transfer, potentially allowing unauthorized access to sensitive information.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-05-26"
+      },
+      "Updated": {
+        "Date": "2023-05-26"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-27535",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-27535",
+          "CWE": "CWE-305",
+          "Public": "20230331"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "curl is earlier than 0:7.61.1-30.0.2.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20230199001"
+          },
+          {
+            "Comment": "curl-minimal is earlier than 0:minimal-7.61.1-30.0.2.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20230199002"
+          },
+          {
+            "Comment": "libcurl is earlier than 0:7.61.1-30.0.2.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20230199003"
+          },
+          {
+            "Comment": "libcurl-devel is earlier than 0:devel-7.61.1-30.0.2.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20230199004"
+          },
+          {
+            "Comment": "libcurl-minimal is earlier than 0:minimal-7.61.1-30.0.2.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20230199005"
+          },
+          {
+            "Comment": "curl-doc is earlier than 0:doc-7.61.1-30.0.2.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20230199006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

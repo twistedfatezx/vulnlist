@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20240029",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0029: gstreamer1-plugins-bad-free security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0029",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0029",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-44429:\nA heap-based buffer overflow vulnerability was found in GStreamer in the AV1 codec parser when handling certain malformed streams. A malicious third party could use this flaw to trigger a crash in the application and possibly affect code execution through heap manipulation.\n\nCVE-2023-44446:\nA use-after-free flaw was found in the MXF demuxer in GStreamer when handling certain MXF video files. This issue could allow a malicious third party to trigger a crash in the application and may allow code execution.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-01-09"
+      },
+      "Updated": {
+        "Date": "2024-01-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-44429",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-44429",
+          "CWE": "CWE-122",
+          "Public": "20231113"
+        },
+        {
+          "ID": "CVE-2023-44446",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-44446",
+          "CWE": "CWE-416",
+          "Public": "20231113"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "gstreamer1-plugins-bad-free is earlier than 0:plugins-bad-free-1.18.4-7.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240029001"
+          },
+          {
+            "Comment": "gstreamer1-plugins-bad-free-devel is earlier than 0:plugins-bad-free-devel-1.18.4-7.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240029002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

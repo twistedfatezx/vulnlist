@@ -1,0 +1,245 @@
+{
+  "ID": "oval:cn.openanolis:def:20230093",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0093: container-tools:3.0 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0093",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0093",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-1705:\nAcceptance of some invalid Transfer-Encoding headers in the HTTP/1 client in net/http before Go 1.17.12 and Go 1.18.4 allows HTTP request smuggling if combined with an intermediate server that also improperly fails to reject the header as invalid.\n\nCVE-2022-1708:\nA vulnerability was found in CRI-O that causes memory or disk space exhaustion on the node for anyone with access to the Kube API. The ExecSync request runs commands in a container and logs the output of the command. This output is then read by CRI-O after command execution, and it is read in a manner where the entire file corresponding to the output of the command is read in. Thus, if the output of the command is large it is possible to exhaust the memory or the disk space of the node when CRI-O reads the output of the command. The highest threat from this vulnerability is system availability.\n\nCVE-2022-1962:\nUncontrolled recursion in the Parse functions in go/parser before Go 1.17.12 and Go 1.18.4 allow an attacker to cause a panic due to stack exhaustion via deeply nested types or declarations.\n\nCVE-2022-21698:\nclient_golang is the instrumentation library for Go applications in Prometheus, and the promhttp package in client_golang provides tooling around HTTP servers and clients. In client_golang prior to version 1.11.1, HTTP server is susceptible to a Denial of Service through unbounded cardinality, and potential memory exhaustion, when handling requests with non-standard HTTP methods. In order to be affected, an instrumented software must use any of `promhttp.InstrumentHandler*` middleware except `RequestsInFlight`; not filter any specific methods (e.g GET) before middleware; pass metric with `method` label name to our middleware; and not have any firewall/LB/proxy that filters away requests with unknown `method`. client_golang version 1.11.1 contains a patch for this issue. Several workarounds are available, including removing the `method` label name from counter/gauge used in the InstrumentHandler; turning off affected promhttp handlers; adding custom middleware before promhttp handler that will sanitize the request method given by Go http.Request; and using a reverse proxy or web application firewall, configured to only allow a limited set of methods.\n\nCVE-2022-28131:\nUncontrolled recursion in Decoder.Skip in encoding/xml before Go 1.17.12 and Go 1.18.4 allows an attacker to cause a panic due to stack exhaustion via a deeply nested XML document.\n\nCVE-2022-30630:\nUncontrolled recursion in Glob in io/fs before Go 1.17.12 and Go 1.18.4 allows an attacker to cause a panic due to stack exhaustion via a path which contains a large number of path separators.\n\nCVE-2022-30631:\nUncontrolled recursion in Reader.Read in compress/gzip before Go 1.17.12 and Go 1.18.4 allows an attacker to cause a panic due to stack exhaustion via an archive containing a large number of concatenated 0-length compressed files.\n\nCVE-2022-30632:\nUncontrolled recursion in Glob in path/filepath before Go 1.17.12 and Go 1.18.4 allows an attacker to cause a panic due to stack exhaustion via a path containing a large number of path separators.\n\nCVE-2022-30633:\nUncontrolled recursion in Unmarshal in encoding/xml before Go 1.17.12 and Go 1.18.4 allows an attacker to cause a panic due to stack exhaustion via unmarshalling an XML document into a Go struct which has a nested field that uses the 'any' field tag.\n\nCVE-2022-32148:\nImproper exposure of client IP addresses in net/http before Go 1.17.12 and Go 1.18.4 can be triggered by calling httputil.ReverseProxy.ServeHTTP with a Request.Header map containing a nil value for the X-Forwarded-For header, which causes ReverseProxy to set the client IP as the value of the X-Forwarded-For header.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-03-22"
+      },
+      "Updated": {
+        "Date": "2023-03-24"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-1705",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1705",
+          "CWE": "CWE-444",
+          "Public": "20220803"
+        },
+        {
+          "ID": "CVE-2022-1708",
+          "CVSS3": "6.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1708",
+          "CWE": "CWE-770",
+          "Public": "20230322"
+        },
+        {
+          "ID": "CVE-2022-1962",
+          "CVSS3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1962",
+          "CWE": "CWE-1325",
+          "Public": "20220803"
+        },
+        {
+          "ID": "CVE-2022-21698",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-21698",
+          "CWE": "CWE-772",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2022-28131",
+          "CVSS3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-28131",
+          "CWE": "CWE-1325",
+          "Public": "20220803"
+        },
+        {
+          "ID": "CVE-2022-30630",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-30630",
+          "CWE": "CWE-1325",
+          "Public": "20220803"
+        },
+        {
+          "ID": "CVE-2022-30631",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-30631",
+          "CWE": "CWE-1325",
+          "Public": "20220803"
+        },
+        {
+          "ID": "CVE-2022-30632",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-30632",
+          "CWE": "CWE-1325",
+          "Public": "20220803"
+        },
+        {
+          "ID": "CVE-2022-30633",
+          "CVSS3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-30633",
+          "CWE": "CWE-1325",
+          "Public": "20220803"
+        },
+        {
+          "ID": "CVE-2022-32148",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-32148",
+          "CWE": "CWE-200",
+          "Public": "20220803"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "buildah is earlier than 0:1.19.9-6.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093001"
+          },
+          {
+            "Comment": "buildah-tests is earlier than 0:tests-1.19.9-6.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093002"
+          },
+          {
+            "Comment": "conmon is earlier than 2:2.0.26-3.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093003"
+          },
+          {
+            "Comment": "containernetworking-plugins is earlier than 0:plugins-0.9.1-1.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093004"
+          },
+          {
+            "Comment": "containers-common is earlier than 1:common-1.2.4-2.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093005"
+          },
+          {
+            "Comment": "crit is earlier than 0:3.15-1.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093006"
+          },
+          {
+            "Comment": "criu is earlier than 0:3.15-1.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093007"
+          },
+          {
+            "Comment": "crun is earlier than 0:0.18-3.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093008"
+          },
+          {
+            "Comment": "fuse-overlayfs is earlier than 0:overlayfs-1.4.0-2.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093009"
+          },
+          {
+            "Comment": "libslirp is earlier than 0:4.3.1-1.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093010"
+          },
+          {
+            "Comment": "libslirp-devel is earlier than 0:devel-4.3.1-1.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093011"
+          },
+          {
+            "Comment": "oci-seccomp-bpf-hook is earlier than 0:seccomp-bpf-hook-1.2.0-3.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093012"
+          },
+          {
+            "Comment": "podman is earlier than 0:3.0.1-15.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093013"
+          },
+          {
+            "Comment": "podman-catatonit is earlier than 0:catatonit-3.0.1-15.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093014"
+          },
+          {
+            "Comment": "podman-plugins is earlier than 0:plugins-3.0.1-15.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093015"
+          },
+          {
+            "Comment": "podman-remote is earlier than 0:remote-3.0.1-15.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093016"
+          },
+          {
+            "Comment": "podman-tests is earlier than 0:tests-3.0.1-15.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093017"
+          },
+          {
+            "Comment": "python3-criu is earlier than 0:criu-3.15-1.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093018"
+          },
+          {
+            "Comment": "runc is earlier than 0:1.0.0-73.rc95.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093019"
+          },
+          {
+            "Comment": "skopeo is earlier than 1:1.2.4-2.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093020"
+          },
+          {
+            "Comment": "skopeo-tests is earlier than 1:tests-1.2.4-2.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093021"
+          },
+          {
+            "Comment": "slirp4netns is earlier than 0:1.1.8-1.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093022"
+          },
+          {
+            "Comment": "toolbox is earlier than 0:0.0.99.3-1.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093023"
+          },
+          {
+            "Comment": "toolbox-tests is earlier than 0:tests-0.0.99.3-1.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093024"
+          },
+          {
+            "Comment": "cockpit-podman is earlier than 0:podman-29-2.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093025"
+          },
+          {
+            "Comment": "container-selinux is earlier than 2:selinux-2.189.0-1.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093026"
+          },
+          {
+            "Comment": "udica is earlier than 0:0.2.4-1.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093027"
+          },
+          {
+            "Comment": "podman-docker is earlier than 0:docker-3.0.1-15.0.1.module+an8.7.0+11024+102aebd0",
+            "TestRef": "oval:cn.openanolis:tst:20230093028"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

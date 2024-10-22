@@ -1,0 +1,113 @@
+{
+  "ID": "oval:cn.openanolis:def:20240470",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0470: httpd:2.4 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0470",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0470",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-31122:\nOut-of-bounds Read vulnerability in mod_macro of Apache HTTP Server.This issue affects Apache HTTP Server: through 2.4.57.\n\nCVE-2023-45802:\nWhen a HTTP/2 stream was reset (RST frame) by a client, there was a time window were the request's memory resources were not reclaimed immediately. Instead, de-allocation was deferred to connection close. A client could send new requests and resets, keeping the connection busy and open and causing the memory footprint to keep on growing. On connection close, all resources were reclaimed, but the process might run out of memory before that.\nThis was found by the reporter during testing of CVE-2023-44487 (HTTP/2 Rapid Reset Exploit) with their own test client. During \"normal\" HTTP/2 use, the probability to hit this bug is very low. The kept memory would not become noticeable before the connection closes or times out.\nUsers are recommended to upgrade to version 2.4.58, which fixes the issue.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-14"
+      },
+      "Updated": {
+        "Date": "2024-06-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-31122",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-31122",
+          "CWE": "CWE-125",
+          "Public": "20231022"
+        },
+        {
+          "ID": "CVE-2023-45802",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45802",
+          "CWE": "CWE-400",
+          "Public": "20231022"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "httpd is earlier than 0:2.4.37-64.0.1.module+an8.9.0+11211+52cfe4f7",
+            "TestRef": "oval:cn.openanolis:tst:20240470001"
+          },
+          {
+            "Comment": "httpd-devel is earlier than 0:devel-2.4.37-64.0.1.module+an8.9.0+11211+52cfe4f7",
+            "TestRef": "oval:cn.openanolis:tst:20240470002"
+          },
+          {
+            "Comment": "httpd-tools is earlier than 0:tools-2.4.37-64.0.1.module+an8.9.0+11211+52cfe4f7",
+            "TestRef": "oval:cn.openanolis:tst:20240470003"
+          },
+          {
+            "Comment": "mod_http2 is earlier than 0:1.15.7-10.module+an8.9.0+11211+52cfe4f7",
+            "TestRef": "oval:cn.openanolis:tst:20240470004"
+          },
+          {
+            "Comment": "mod_ldap is earlier than 0:2.4.37-64.0.1.module+an8.9.0+11211+52cfe4f7",
+            "TestRef": "oval:cn.openanolis:tst:20240470005"
+          },
+          {
+            "Comment": "mod_md is earlier than 1:2.0.8-8.module+an8.7.0+10879+020f8869",
+            "TestRef": "oval:cn.openanolis:tst:20240470006"
+          },
+          {
+            "Comment": "mod_proxy_html is earlier than 1:2.4.37-64.0.1.module+an8.9.0+11211+52cfe4f7",
+            "TestRef": "oval:cn.openanolis:tst:20240470007"
+          },
+          {
+            "Comment": "mod_session is earlier than 0:2.4.37-64.0.1.module+an8.9.0+11211+52cfe4f7",
+            "TestRef": "oval:cn.openanolis:tst:20240470008"
+          },
+          {
+            "Comment": "mod_ssl is earlier than 1:2.4.37-64.0.1.module+an8.9.0+11211+52cfe4f7",
+            "TestRef": "oval:cn.openanolis:tst:20240470009"
+          },
+          {
+            "Comment": "httpd-filesystem is earlier than 0:filesystem-2.4.37-64.0.1.module+an8.9.0+11211+52cfe4f7",
+            "TestRef": "oval:cn.openanolis:tst:20240470010"
+          },
+          {
+            "Comment": "httpd-manual is earlier than 0:manual-2.4.37-64.0.1.module+an8.9.0+11211+52cfe4f7",
+            "TestRef": "oval:cn.openanolis:tst:20240470011"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

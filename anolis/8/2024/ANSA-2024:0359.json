@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20240359",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0359: varnish security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0359",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0359",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-30156:\nVarnish Cache before 7.3.2 and 7.4.x before 7.4.3 (and before 6.0.13 LTS), and Varnish Enterprise 6 before 6.0.12r6, allows credits exhaustion for an HTTP/2 connection control flow window, aka a Broke Window Attack.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-04-18"
+      },
+      "Updated": {
+        "Date": "2024-04-18"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-30156",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-30156",
+          "CWE": "CWE-400",
+          "Public": "20240324"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "varnish is earlier than 0:6.0.13-1.0.1.module+an8.9.0+11196+0a37ef96",
+            "TestRef": "oval:cn.openanolis:tst:20240359001"
+          },
+          {
+            "Comment": "varnish-devel is earlier than 0:devel-6.0.13-1.0.1.module+an8.9.0+11196+0a37ef96",
+            "TestRef": "oval:cn.openanolis:tst:20240359002"
+          },
+          {
+            "Comment": "varnish-docs is earlier than 0:docs-6.0.13-1.0.1.module+an8.9.0+11196+0a37ef96",
+            "TestRef": "oval:cn.openanolis:tst:20240359003"
+          },
+          {
+            "Comment": "varnish-modules is earlier than 0:modules-0.15.0-6.module+an8.9.0+11196+0a37ef96",
+            "TestRef": "oval:cn.openanolis:tst:20240359004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

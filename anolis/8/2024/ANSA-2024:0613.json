@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20240613",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0613: opencryptoki security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0613",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0613",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-0914:\nA timing side-channel vulnerability has been discovered in the opencryptoki package while processing RSA PKCS#1 v1.5 padded ciphertexts. This flaw could potentially enable unauthorized RSA ciphertext decryption or signing, even without access to the corresponding private key.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-07-11"
+      },
+      "Updated": {
+        "Date": "2024-07-11"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-0914",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-0914",
+          "CWE": "CWE-385-\u003eCWE-208-\u003eCWE-203",
+          "Public": "20240131"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "opencryptoki is earlier than 0:3.21.0-10.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240613001"
+          },
+          {
+            "Comment": "opencryptoki-devel is earlier than 0:devel-3.21.0-10.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240613002"
+          },
+          {
+            "Comment": "opencryptoki-icsftok is earlier than 0:icsftok-3.21.0-10.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240613003"
+          },
+          {
+            "Comment": "opencryptoki-libs is earlier than 0:libs-3.21.0-10.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240613004"
+          },
+          {
+            "Comment": "opencryptoki-swtok is earlier than 0:swtok-3.21.0-10.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240613005"
+          },
+          {
+            "Comment": "opencryptoki-tpmtok is earlier than 0:tpmtok-3.21.0-10.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240613006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

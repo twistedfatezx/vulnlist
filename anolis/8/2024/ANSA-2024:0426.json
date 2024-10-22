@@ -1,0 +1,949 @@
+{
+  "ID": "oval:cn.openanolis:def:20240426",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0426: glibc security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0426",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0426",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-2961:\nThe iconv() function in the GNU C Library versions 2.39 and older may overflow the output buffer passed to it by up to 4 bytes when converting strings to the ISO-2022-CN-EXT character set, which may be used to crash an application or overwrite a neighbouring variable.\n\nCVE-2024-33599:\nnscd: Stack-based buffer overflow in netgroup cache\nIf the Name Service Cache Daemon's (nscd) fixed size cache is exhausted\nby client requests then a subsequent client request for netgroup data\nmay result in a stack-based buffer overflow.  This flaw was introduced\nin glibc 2.15 when the cache was added to nscd.\nThis vulnerability is only present in the nscd binary.\n\nCVE-2024-33600:\nnscd: Null pointer crashes after notfound response\nIf the Name Service Cache Daemon's (nscd) cache fails to add a not-found\nnetgroup response to the cache, the client request can result in a null\npointer dereference.  This flaw was introduced in glibc 2.15 when the\ncache was added to nscd.\nThis vulnerability is only present in the nscd binary.\n\nCVE-2024-33601:\nnscd: netgroup cache may terminate daemon on memory allocation failure\nThe Name Service Cache Daemon's (nscd) netgroup cache uses xmalloc or\nxrealloc and these functions may terminate the process due to a memory\nallocation failure resulting in a denial of service to the clients.  The\nflaw was introduced in glibc 2.15 when the cache was added to nscd.\nThis vulnerability is only present in the nscd binary.\n\nCVE-2024-33602:\nnscd: netgroup cache assumes NSS callback uses in-buffer strings\nThe Name Service Cache Daemon's (nscd) netgroup cache can corrupt memory\nwhen the NSS callback does not store all strings in the provided buffer.\nThe flaw was introduced in glibc 2.15 when the cache was added to nscd.\nThis vulnerability is only present in the nscd binary.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-04"
+      },
+      "Updated": {
+        "Date": "2024-06-04"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-33599",
+          "CVSS3": "7.6/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-33599",
+          "CWE": "CWE-119",
+          "Public": "20240604"
+        },
+        {
+          "ID": "CVE-2024-33600",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-33600",
+          "CWE": "CWE-476",
+          "Public": "20240604"
+        },
+        {
+          "ID": "CVE-2024-33601",
+          "CVSS3": "4.0/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-33601",
+          "CWE": "CWE-703",
+          "Public": "20240604"
+        },
+        {
+          "ID": "CVE-2024-33602",
+          "CVSS3": "4.0/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-33602",
+          "CWE": "CWE-703",
+          "Public": "20240604"
+        },
+        {
+          "ID": "CVE-2024-2961",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-2961",
+          "CWE": "CWE-787",
+          "Public": "20240417"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "compat-libpthread-nonshared is earlier than 0:libpthread-nonshared-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426001"
+          },
+          {
+            "Comment": "glibc is earlier than 0:2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426002"
+          },
+          {
+            "Comment": "glibc-all-langpacks is earlier than 0:all-langpacks-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426003"
+          },
+          {
+            "Comment": "glibc-benchtests is earlier than 0:benchtests-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426004"
+          },
+          {
+            "Comment": "glibc-common is earlier than 0:common-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426005"
+          },
+          {
+            "Comment": "glibc-devel is earlier than 0:devel-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426006"
+          },
+          {
+            "Comment": "glibc-gconv-extra is earlier than 0:gconv-extra-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426007"
+          },
+          {
+            "Comment": "glibc-headers is earlier than 0:headers-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426008"
+          },
+          {
+            "Comment": "glibc-langpack-aa is earlier than 0:langpack-aa-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426009"
+          },
+          {
+            "Comment": "glibc-langpack-af is earlier than 0:langpack-af-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426010"
+          },
+          {
+            "Comment": "glibc-langpack-agr is earlier than 0:langpack-agr-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426011"
+          },
+          {
+            "Comment": "glibc-langpack-ak is earlier than 0:langpack-ak-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426012"
+          },
+          {
+            "Comment": "glibc-langpack-am is earlier than 0:langpack-am-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426013"
+          },
+          {
+            "Comment": "glibc-langpack-an is earlier than 0:langpack-an-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426014"
+          },
+          {
+            "Comment": "glibc-langpack-anp is earlier than 0:langpack-anp-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426015"
+          },
+          {
+            "Comment": "glibc-langpack-ar is earlier than 0:langpack-ar-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426016"
+          },
+          {
+            "Comment": "glibc-langpack-as is earlier than 0:langpack-as-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426017"
+          },
+          {
+            "Comment": "glibc-langpack-ast is earlier than 0:langpack-ast-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426018"
+          },
+          {
+            "Comment": "glibc-langpack-ayc is earlier than 0:langpack-ayc-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426019"
+          },
+          {
+            "Comment": "glibc-langpack-az is earlier than 0:langpack-az-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426020"
+          },
+          {
+            "Comment": "glibc-langpack-be is earlier than 0:langpack-be-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426021"
+          },
+          {
+            "Comment": "glibc-langpack-bem is earlier than 0:langpack-bem-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426022"
+          },
+          {
+            "Comment": "glibc-langpack-ber is earlier than 0:langpack-ber-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426023"
+          },
+          {
+            "Comment": "glibc-langpack-bg is earlier than 0:langpack-bg-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426024"
+          },
+          {
+            "Comment": "glibc-langpack-bhb is earlier than 0:langpack-bhb-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426025"
+          },
+          {
+            "Comment": "glibc-langpack-bho is earlier than 0:langpack-bho-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426026"
+          },
+          {
+            "Comment": "glibc-langpack-bi is earlier than 0:langpack-bi-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426027"
+          },
+          {
+            "Comment": "glibc-langpack-bn is earlier than 0:langpack-bn-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426028"
+          },
+          {
+            "Comment": "glibc-langpack-bo is earlier than 0:langpack-bo-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426029"
+          },
+          {
+            "Comment": "glibc-langpack-br is earlier than 0:langpack-br-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426030"
+          },
+          {
+            "Comment": "glibc-langpack-brx is earlier than 0:langpack-brx-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426031"
+          },
+          {
+            "Comment": "glibc-langpack-bs is earlier than 0:langpack-bs-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426032"
+          },
+          {
+            "Comment": "glibc-langpack-byn is earlier than 0:langpack-byn-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426033"
+          },
+          {
+            "Comment": "glibc-langpack-ca is earlier than 0:langpack-ca-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426034"
+          },
+          {
+            "Comment": "glibc-langpack-ce is earlier than 0:langpack-ce-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426035"
+          },
+          {
+            "Comment": "glibc-langpack-chr is earlier than 0:langpack-chr-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426036"
+          },
+          {
+            "Comment": "glibc-langpack-cmn is earlier than 0:langpack-cmn-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426037"
+          },
+          {
+            "Comment": "glibc-langpack-crh is earlier than 0:langpack-crh-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426038"
+          },
+          {
+            "Comment": "glibc-langpack-cs is earlier than 0:langpack-cs-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426039"
+          },
+          {
+            "Comment": "glibc-langpack-csb is earlier than 0:langpack-csb-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426040"
+          },
+          {
+            "Comment": "glibc-langpack-cv is earlier than 0:langpack-cv-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426041"
+          },
+          {
+            "Comment": "glibc-langpack-cy is earlier than 0:langpack-cy-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426042"
+          },
+          {
+            "Comment": "glibc-langpack-da is earlier than 0:langpack-da-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426043"
+          },
+          {
+            "Comment": "glibc-langpack-de is earlier than 0:langpack-de-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426044"
+          },
+          {
+            "Comment": "glibc-langpack-doi is earlier than 0:langpack-doi-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426045"
+          },
+          {
+            "Comment": "glibc-langpack-dsb is earlier than 0:langpack-dsb-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426046"
+          },
+          {
+            "Comment": "glibc-langpack-dv is earlier than 0:langpack-dv-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426047"
+          },
+          {
+            "Comment": "glibc-langpack-dz is earlier than 0:langpack-dz-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426048"
+          },
+          {
+            "Comment": "glibc-langpack-el is earlier than 0:langpack-el-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426049"
+          },
+          {
+            "Comment": "glibc-langpack-en is earlier than 0:langpack-en-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426050"
+          },
+          {
+            "Comment": "glibc-langpack-eo is earlier than 0:langpack-eo-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426051"
+          },
+          {
+            "Comment": "glibc-langpack-es is earlier than 0:langpack-es-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426052"
+          },
+          {
+            "Comment": "glibc-langpack-et is earlier than 0:langpack-et-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426053"
+          },
+          {
+            "Comment": "glibc-langpack-eu is earlier than 0:langpack-eu-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426054"
+          },
+          {
+            "Comment": "glibc-langpack-fa is earlier than 0:langpack-fa-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426055"
+          },
+          {
+            "Comment": "glibc-langpack-ff is earlier than 0:langpack-ff-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426056"
+          },
+          {
+            "Comment": "glibc-langpack-fi is earlier than 0:langpack-fi-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426057"
+          },
+          {
+            "Comment": "glibc-langpack-fil is earlier than 0:langpack-fil-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426058"
+          },
+          {
+            "Comment": "glibc-langpack-fo is earlier than 0:langpack-fo-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426059"
+          },
+          {
+            "Comment": "glibc-langpack-fr is earlier than 0:langpack-fr-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426060"
+          },
+          {
+            "Comment": "glibc-langpack-fur is earlier than 0:langpack-fur-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426061"
+          },
+          {
+            "Comment": "glibc-langpack-fy is earlier than 0:langpack-fy-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426062"
+          },
+          {
+            "Comment": "glibc-langpack-ga is earlier than 0:langpack-ga-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426063"
+          },
+          {
+            "Comment": "glibc-langpack-gd is earlier than 0:langpack-gd-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426064"
+          },
+          {
+            "Comment": "glibc-langpack-gez is earlier than 0:langpack-gez-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426065"
+          },
+          {
+            "Comment": "glibc-langpack-gl is earlier than 0:langpack-gl-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426066"
+          },
+          {
+            "Comment": "glibc-langpack-gu is earlier than 0:langpack-gu-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426067"
+          },
+          {
+            "Comment": "glibc-langpack-gv is earlier than 0:langpack-gv-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426068"
+          },
+          {
+            "Comment": "glibc-langpack-ha is earlier than 0:langpack-ha-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426069"
+          },
+          {
+            "Comment": "glibc-langpack-hak is earlier than 0:langpack-hak-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426070"
+          },
+          {
+            "Comment": "glibc-langpack-he is earlier than 0:langpack-he-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426071"
+          },
+          {
+            "Comment": "glibc-langpack-hi is earlier than 0:langpack-hi-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426072"
+          },
+          {
+            "Comment": "glibc-langpack-hif is earlier than 0:langpack-hif-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426073"
+          },
+          {
+            "Comment": "glibc-langpack-hne is earlier than 0:langpack-hne-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426074"
+          },
+          {
+            "Comment": "glibc-langpack-hr is earlier than 0:langpack-hr-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426075"
+          },
+          {
+            "Comment": "glibc-langpack-hsb is earlier than 0:langpack-hsb-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426076"
+          },
+          {
+            "Comment": "glibc-langpack-ht is earlier than 0:langpack-ht-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426077"
+          },
+          {
+            "Comment": "glibc-langpack-hu is earlier than 0:langpack-hu-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426078"
+          },
+          {
+            "Comment": "glibc-langpack-hy is earlier than 0:langpack-hy-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426079"
+          },
+          {
+            "Comment": "glibc-langpack-ia is earlier than 0:langpack-ia-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426080"
+          },
+          {
+            "Comment": "glibc-langpack-id is earlier than 0:langpack-id-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426081"
+          },
+          {
+            "Comment": "glibc-langpack-ig is earlier than 0:langpack-ig-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426082"
+          },
+          {
+            "Comment": "glibc-langpack-ik is earlier than 0:langpack-ik-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426083"
+          },
+          {
+            "Comment": "glibc-langpack-is is earlier than 0:langpack-is-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426084"
+          },
+          {
+            "Comment": "glibc-langpack-it is earlier than 0:langpack-it-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426085"
+          },
+          {
+            "Comment": "glibc-langpack-iu is earlier than 0:langpack-iu-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426086"
+          },
+          {
+            "Comment": "glibc-langpack-ja is earlier than 0:langpack-ja-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426087"
+          },
+          {
+            "Comment": "glibc-langpack-ka is earlier than 0:langpack-ka-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426088"
+          },
+          {
+            "Comment": "glibc-langpack-kab is earlier than 0:langpack-kab-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426089"
+          },
+          {
+            "Comment": "glibc-langpack-kk is earlier than 0:langpack-kk-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426090"
+          },
+          {
+            "Comment": "glibc-langpack-kl is earlier than 0:langpack-kl-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426091"
+          },
+          {
+            "Comment": "glibc-langpack-km is earlier than 0:langpack-km-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426092"
+          },
+          {
+            "Comment": "glibc-langpack-kn is earlier than 0:langpack-kn-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426093"
+          },
+          {
+            "Comment": "glibc-langpack-ko is earlier than 0:langpack-ko-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426094"
+          },
+          {
+            "Comment": "glibc-langpack-kok is earlier than 0:langpack-kok-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426095"
+          },
+          {
+            "Comment": "glibc-langpack-ks is earlier than 0:langpack-ks-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426096"
+          },
+          {
+            "Comment": "glibc-langpack-ku is earlier than 0:langpack-ku-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426097"
+          },
+          {
+            "Comment": "glibc-langpack-kw is earlier than 0:langpack-kw-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426098"
+          },
+          {
+            "Comment": "glibc-langpack-ky is earlier than 0:langpack-ky-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426099"
+          },
+          {
+            "Comment": "glibc-langpack-lb is earlier than 0:langpack-lb-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426100"
+          },
+          {
+            "Comment": "glibc-langpack-lg is earlier than 0:langpack-lg-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426101"
+          },
+          {
+            "Comment": "glibc-langpack-li is earlier than 0:langpack-li-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426102"
+          },
+          {
+            "Comment": "glibc-langpack-lij is earlier than 0:langpack-lij-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426103"
+          },
+          {
+            "Comment": "glibc-langpack-ln is earlier than 0:langpack-ln-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426104"
+          },
+          {
+            "Comment": "glibc-langpack-lo is earlier than 0:langpack-lo-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426105"
+          },
+          {
+            "Comment": "glibc-langpack-lt is earlier than 0:langpack-lt-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426106"
+          },
+          {
+            "Comment": "glibc-langpack-lv is earlier than 0:langpack-lv-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426107"
+          },
+          {
+            "Comment": "glibc-langpack-lzh is earlier than 0:langpack-lzh-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426108"
+          },
+          {
+            "Comment": "glibc-langpack-mag is earlier than 0:langpack-mag-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426109"
+          },
+          {
+            "Comment": "glibc-langpack-mai is earlier than 0:langpack-mai-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426110"
+          },
+          {
+            "Comment": "glibc-langpack-mfe is earlier than 0:langpack-mfe-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426111"
+          },
+          {
+            "Comment": "glibc-langpack-mg is earlier than 0:langpack-mg-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426112"
+          },
+          {
+            "Comment": "glibc-langpack-mhr is earlier than 0:langpack-mhr-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426113"
+          },
+          {
+            "Comment": "glibc-langpack-mi is earlier than 0:langpack-mi-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426114"
+          },
+          {
+            "Comment": "glibc-langpack-miq is earlier than 0:langpack-miq-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426115"
+          },
+          {
+            "Comment": "glibc-langpack-mjw is earlier than 0:langpack-mjw-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426116"
+          },
+          {
+            "Comment": "glibc-langpack-mk is earlier than 0:langpack-mk-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426117"
+          },
+          {
+            "Comment": "glibc-langpack-ml is earlier than 0:langpack-ml-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426118"
+          },
+          {
+            "Comment": "glibc-langpack-mn is earlier than 0:langpack-mn-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426119"
+          },
+          {
+            "Comment": "glibc-langpack-mni is earlier than 0:langpack-mni-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426120"
+          },
+          {
+            "Comment": "glibc-langpack-mr is earlier than 0:langpack-mr-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426121"
+          },
+          {
+            "Comment": "glibc-langpack-ms is earlier than 0:langpack-ms-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426122"
+          },
+          {
+            "Comment": "glibc-langpack-mt is earlier than 0:langpack-mt-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426123"
+          },
+          {
+            "Comment": "glibc-langpack-my is earlier than 0:langpack-my-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426124"
+          },
+          {
+            "Comment": "glibc-langpack-nan is earlier than 0:langpack-nan-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426125"
+          },
+          {
+            "Comment": "glibc-langpack-nb is earlier than 0:langpack-nb-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426126"
+          },
+          {
+            "Comment": "glibc-langpack-nds is earlier than 0:langpack-nds-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426127"
+          },
+          {
+            "Comment": "glibc-langpack-ne is earlier than 0:langpack-ne-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426128"
+          },
+          {
+            "Comment": "glibc-langpack-nhn is earlier than 0:langpack-nhn-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426129"
+          },
+          {
+            "Comment": "glibc-langpack-niu is earlier than 0:langpack-niu-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426130"
+          },
+          {
+            "Comment": "glibc-langpack-nl is earlier than 0:langpack-nl-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426131"
+          },
+          {
+            "Comment": "glibc-langpack-nn is earlier than 0:langpack-nn-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426132"
+          },
+          {
+            "Comment": "glibc-langpack-nr is earlier than 0:langpack-nr-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426133"
+          },
+          {
+            "Comment": "glibc-langpack-nso is earlier than 0:langpack-nso-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426134"
+          },
+          {
+            "Comment": "glibc-langpack-oc is earlier than 0:langpack-oc-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426135"
+          },
+          {
+            "Comment": "glibc-langpack-om is earlier than 0:langpack-om-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426136"
+          },
+          {
+            "Comment": "glibc-langpack-or is earlier than 0:langpack-or-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426137"
+          },
+          {
+            "Comment": "glibc-langpack-os is earlier than 0:langpack-os-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426138"
+          },
+          {
+            "Comment": "glibc-langpack-pa is earlier than 0:langpack-pa-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426139"
+          },
+          {
+            "Comment": "glibc-langpack-pap is earlier than 0:langpack-pap-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426140"
+          },
+          {
+            "Comment": "glibc-langpack-pl is earlier than 0:langpack-pl-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426141"
+          },
+          {
+            "Comment": "glibc-langpack-ps is earlier than 0:langpack-ps-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426142"
+          },
+          {
+            "Comment": "glibc-langpack-pt is earlier than 0:langpack-pt-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426143"
+          },
+          {
+            "Comment": "glibc-langpack-quz is earlier than 0:langpack-quz-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426144"
+          },
+          {
+            "Comment": "glibc-langpack-raj is earlier than 0:langpack-raj-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426145"
+          },
+          {
+            "Comment": "glibc-langpack-ro is earlier than 0:langpack-ro-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426146"
+          },
+          {
+            "Comment": "glibc-langpack-ru is earlier than 0:langpack-ru-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426147"
+          },
+          {
+            "Comment": "glibc-langpack-rw is earlier than 0:langpack-rw-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426148"
+          },
+          {
+            "Comment": "glibc-langpack-sa is earlier than 0:langpack-sa-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426149"
+          },
+          {
+            "Comment": "glibc-langpack-sah is earlier than 0:langpack-sah-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426150"
+          },
+          {
+            "Comment": "glibc-langpack-sat is earlier than 0:langpack-sat-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426151"
+          },
+          {
+            "Comment": "glibc-langpack-sc is earlier than 0:langpack-sc-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426152"
+          },
+          {
+            "Comment": "glibc-langpack-sd is earlier than 0:langpack-sd-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426153"
+          },
+          {
+            "Comment": "glibc-langpack-se is earlier than 0:langpack-se-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426154"
+          },
+          {
+            "Comment": "glibc-langpack-sgs is earlier than 0:langpack-sgs-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426155"
+          },
+          {
+            "Comment": "glibc-langpack-shn is earlier than 0:langpack-shn-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426156"
+          },
+          {
+            "Comment": "glibc-langpack-shs is earlier than 0:langpack-shs-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426157"
+          },
+          {
+            "Comment": "glibc-langpack-si is earlier than 0:langpack-si-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426158"
+          },
+          {
+            "Comment": "glibc-langpack-sid is earlier than 0:langpack-sid-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426159"
+          },
+          {
+            "Comment": "glibc-langpack-sk is earlier than 0:langpack-sk-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426160"
+          },
+          {
+            "Comment": "glibc-langpack-sl is earlier than 0:langpack-sl-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426161"
+          },
+          {
+            "Comment": "glibc-langpack-sm is earlier than 0:langpack-sm-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426162"
+          },
+          {
+            "Comment": "glibc-langpack-so is earlier than 0:langpack-so-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426163"
+          },
+          {
+            "Comment": "glibc-langpack-sq is earlier than 0:langpack-sq-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426164"
+          },
+          {
+            "Comment": "glibc-langpack-sr is earlier than 0:langpack-sr-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426165"
+          },
+          {
+            "Comment": "glibc-langpack-ss is earlier than 0:langpack-ss-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426166"
+          },
+          {
+            "Comment": "glibc-langpack-st is earlier than 0:langpack-st-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426167"
+          },
+          {
+            "Comment": "glibc-langpack-sv is earlier than 0:langpack-sv-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426168"
+          },
+          {
+            "Comment": "glibc-langpack-sw is earlier than 0:langpack-sw-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426169"
+          },
+          {
+            "Comment": "glibc-langpack-szl is earlier than 0:langpack-szl-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426170"
+          },
+          {
+            "Comment": "glibc-langpack-ta is earlier than 0:langpack-ta-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426171"
+          },
+          {
+            "Comment": "glibc-langpack-tcy is earlier than 0:langpack-tcy-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426172"
+          },
+          {
+            "Comment": "glibc-langpack-te is earlier than 0:langpack-te-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426173"
+          },
+          {
+            "Comment": "glibc-langpack-tg is earlier than 0:langpack-tg-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426174"
+          },
+          {
+            "Comment": "glibc-langpack-th is earlier than 0:langpack-th-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426175"
+          },
+          {
+            "Comment": "glibc-langpack-the is earlier than 0:langpack-the-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426176"
+          },
+          {
+            "Comment": "glibc-langpack-ti is earlier than 0:langpack-ti-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426177"
+          },
+          {
+            "Comment": "glibc-langpack-tig is earlier than 0:langpack-tig-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426178"
+          },
+          {
+            "Comment": "glibc-langpack-tk is earlier than 0:langpack-tk-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426179"
+          },
+          {
+            "Comment": "glibc-langpack-tl is earlier than 0:langpack-tl-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426180"
+          },
+          {
+            "Comment": "glibc-langpack-tn is earlier than 0:langpack-tn-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426181"
+          },
+          {
+            "Comment": "glibc-langpack-to is earlier than 0:langpack-to-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426182"
+          },
+          {
+            "Comment": "glibc-langpack-tpi is earlier than 0:langpack-tpi-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426183"
+          },
+          {
+            "Comment": "glibc-langpack-tr is earlier than 0:langpack-tr-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426184"
+          },
+          {
+            "Comment": "glibc-langpack-ts is earlier than 0:langpack-ts-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426185"
+          },
+          {
+            "Comment": "glibc-langpack-tt is earlier than 0:langpack-tt-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426186"
+          },
+          {
+            "Comment": "glibc-langpack-ug is earlier than 0:langpack-ug-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426187"
+          },
+          {
+            "Comment": "glibc-langpack-uk is earlier than 0:langpack-uk-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426188"
+          },
+          {
+            "Comment": "glibc-langpack-unm is earlier than 0:langpack-unm-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426189"
+          },
+          {
+            "Comment": "glibc-langpack-ur is earlier than 0:langpack-ur-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426190"
+          },
+          {
+            "Comment": "glibc-langpack-uz is earlier than 0:langpack-uz-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426191"
+          },
+          {
+            "Comment": "glibc-langpack-ve is earlier than 0:langpack-ve-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426192"
+          },
+          {
+            "Comment": "glibc-langpack-vi is earlier than 0:langpack-vi-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426193"
+          },
+          {
+            "Comment": "glibc-langpack-wa is earlier than 0:langpack-wa-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426194"
+          },
+          {
+            "Comment": "glibc-langpack-wae is earlier than 0:langpack-wae-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426195"
+          },
+          {
+            "Comment": "glibc-langpack-wal is earlier than 0:langpack-wal-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426196"
+          },
+          {
+            "Comment": "glibc-langpack-wo is earlier than 0:langpack-wo-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426197"
+          },
+          {
+            "Comment": "glibc-langpack-xh is earlier than 0:langpack-xh-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426198"
+          },
+          {
+            "Comment": "glibc-langpack-yi is earlier than 0:langpack-yi-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426199"
+          },
+          {
+            "Comment": "glibc-langpack-yo is earlier than 0:langpack-yo-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426200"
+          },
+          {
+            "Comment": "glibc-langpack-yue is earlier than 0:langpack-yue-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426201"
+          },
+          {
+            "Comment": "glibc-langpack-yuw is earlier than 0:langpack-yuw-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426202"
+          },
+          {
+            "Comment": "glibc-langpack-zh is earlier than 0:langpack-zh-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426203"
+          },
+          {
+            "Comment": "glibc-langpack-zu is earlier than 0:langpack-zu-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426204"
+          },
+          {
+            "Comment": "glibc-locale-source is earlier than 0:locale-source-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426205"
+          },
+          {
+            "Comment": "glibc-minimal-langpack is earlier than 0:minimal-langpack-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426206"
+          },
+          {
+            "Comment": "glibc-nss-devel is earlier than 0:nss-devel-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426207"
+          },
+          {
+            "Comment": "glibc-static is earlier than 0:static-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426208"
+          },
+          {
+            "Comment": "glibc-utils is earlier than 0:utils-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426209"
+          },
+          {
+            "Comment": "libnsl is earlier than 0:2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426210"
+          },
+          {
+            "Comment": "nscd is earlier than 0:2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426211"
+          },
+          {
+            "Comment": "nss_db is earlier than 0:2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426212"
+          },
+          {
+            "Comment": "nss_hesiod is earlier than 0:2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426213"
+          },
+          {
+            "Comment": "glibc-doc is earlier than 0:doc-2.28-251.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240426214"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

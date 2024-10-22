@@ -1,0 +1,101 @@
+{
+  "ID": "oval:cn.openanolis:def:20220560",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0560: curl security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0560",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0560",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-22576:\nAn improper authentication vulnerability exists in curl 7.33.0 to and including 7.82.0 which might allow reuse OAUTH2-authenticated connections without properly making sure that the connection was authenticated with the same credentials as set for this transfer. This affects SASL-enabled protocols: SMPTP(S), IMAP(S), POP3(S) and LDAP(S) (openldap only).\n\nCVE-2022-27774:\nAn insufficiently protected credentials vulnerability exists in curl 4.9 to and include curl 7.82.0 are affected that could allow an attacker to extract credentials when follows HTTP(S) redirects is used with authentication could leak credentials to other services that exist on different protocols or port numbers.\n\nCVE-2022-27776:\nA insufficiently protected credentials vulnerability in fixed in curl 7.83.0 might leak authentication or cookie header data on HTTP redirects to the same host but another port number.\n\nCVE-2022-27782:\nlibcurl would reuse a previously created connection even when a TLS or SSHrelated option had been changed that should have prohibited reuse.libcurl keeps previously used connections in a connection pool for subsequenttransfers to reuse if one of them matches the setup. However, several TLS andSSH settings were left out from the configuration match checks, making themmatch too easily.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-07-08"
+      },
+      "Updated": {
+        "Date": "2022-07-09"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-22576",
+          "CVSS3": "4.6/CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-22576",
+          "CWE": "CWE-287-\u003eCWE-295",
+          "Public": "20220708"
+        },
+        {
+          "ID": "CVE-2022-27774",
+          "CVSS3": "5.0/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-27774",
+          "CWE": "CWE-522",
+          "Public": "20220708"
+        },
+        {
+          "ID": "CVE-2022-27776",
+          "CVSS3": "4.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-27776",
+          "CWE": "CWE-522",
+          "Public": "20220708"
+        },
+        {
+          "ID": "CVE-2022-27782",
+          "CVSS3": "6.0/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-27782",
+          "CWE": "CWE-295",
+          "Public": "20220708"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "curl is earlier than 0:7.61.1-22.an8_6.3",
+            "TestRef": "oval:cn.openanolis:tst:20220560001"
+          },
+          {
+            "Comment": "libcurl is earlier than 0:7.61.1-22.an8_6.3",
+            "TestRef": "oval:cn.openanolis:tst:20220560002"
+          },
+          {
+            "Comment": "libcurl-devel is earlier than 0:devel-7.61.1-22.an8_6.3",
+            "TestRef": "oval:cn.openanolis:tst:20220560003"
+          },
+          {
+            "Comment": "libcurl-minimal is earlier than 0:minimal-7.61.1-22.an8_6.3",
+            "TestRef": "oval:cn.openanolis:tst:20220560004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

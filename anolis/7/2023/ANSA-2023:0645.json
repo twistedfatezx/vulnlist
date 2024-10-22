@@ -1,0 +1,97 @@
+{
+  "ID": "oval:cn.openanolis:def:20230645",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0645: firefox security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0645",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0645",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2023-3600:\nDuring the worker lifecycle, a use-after-free condition could have occured, which could have led to a potentially exploitable crash. This vulnerability affects Firefox \u003c 115.0.2, Firefox ESR \u003c 115.0.2, and Thunderbird \u003c 115.0.1.\n\nCVE-2023-5169:\nA compromised content process could have provided malicious data in a `PathRecording` resulting in an out-of-bounds write, leading to a potentially exploitable crash in a privileged process. This vulnerability affects Firefox \u003c 118, Firefox ESR \u003c 115.3, and Thunderbird \u003c 115.3.\n\nCVE-2023-5171:\nDuring Ion compilation, a Garbage Collection could have resulted in a use-after-free condition, allowing an attacker to write two NUL bytes, and cause a potentially exploitable crash. This vulnerability affects Firefox \u003c 118, Firefox ESR \u003c 115.3, and Thunderbird \u003c 115.3.\n\nCVE-2023-5176:\nMemory safety bugs present in Firefox 117, Firefox ESR 115.2, and Thunderbird 115.2. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code. This vulnerability affects Firefox \u003c 118, Firefox ESR \u003c 115.3, and Thunderbird \u003c 115.3.\n\nCVE-2023-5217:\nHeap buffer overflow in vp8 encoding in libvpx in Google Chrome prior to 117.0.5938.132 and libvpx 1.13.1 allowed a remote attacker to potentially exploit heap corruption via a crafted HTML page. (Chromium security severity: High)",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-11-01"
+      },
+      "Updated": {
+        "Date": "2023-11-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-3600",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-3600",
+          "CWE": "CWE-416",
+          "Public": "20231011"
+        },
+        {
+          "ID": "CVE-2023-5169",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5169",
+          "CWE": "CWE-787",
+          "Public": "20231011"
+        },
+        {
+          "ID": "CVE-2023-5171",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5171",
+          "CWE": "CWE-416",
+          "Public": "20231011"
+        },
+        {
+          "ID": "CVE-2023-5176",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5176",
+          "CWE": "CWE-120",
+          "Public": "20231011"
+        },
+        {
+          "ID": "CVE-2023-5217",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5217",
+          "CWE": "CWE-119",
+          "Public": "20230928"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "firefox is earlier than 0:115.3.1-1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230645001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

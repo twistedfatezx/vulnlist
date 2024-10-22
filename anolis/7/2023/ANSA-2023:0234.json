@@ -1,0 +1,113 @@
+{
+  "ID": "oval:cn.openanolis:def:20230234",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0234: thunderbird security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0234",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0234",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2023-32205:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nIn multiple cases browser prompts could have been obscured by popups controlled by content. These could have led to potential user confusion and spoofing attacks.\n\nCVE-2023-32206:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nAn out-of-bound read could have led to a crash in the RLBox Expat driver.\n\nCVE-2023-32207:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nA missing delay in popup notifications could have made it possible for an attacker to trick a user into granting permissions.\n\nCVE-2023-32211:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nA type checking bug would have led to invalid code being compiled.\n\nCVE-2023-32212:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nAn attacker could have positioned a `datalist` element to obscure the address bar.\n\nCVE-2023-32213:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nWhen reading a file, an uninitialized value could have been used as read limit.\n\nCVE-2023-32215:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nMozilla developers and community members reported memory safety bugs present in Firefox 112 and Firefox ESR 102.10. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-05-31"
+      },
+      "Updated": {
+        "Date": "2023-06-01"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-32205",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32205",
+          "CWE": "CWE-451",
+          "Public": "20230519"
+        },
+        {
+          "ID": "CVE-2023-32206",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32206",
+          "CWE": "CWE-125",
+          "Public": "20230519"
+        },
+        {
+          "ID": "CVE-2023-32207",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32207",
+          "CWE": "CWE-280",
+          "Public": "20230519"
+        },
+        {
+          "ID": "CVE-2023-32211",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32211",
+          "CWE": "CWE-400",
+          "Public": "20230519"
+        },
+        {
+          "ID": "CVE-2023-32212",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32212",
+          "CWE": "CWE-345",
+          "Public": "20230519"
+        },
+        {
+          "ID": "CVE-2023-32213",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32213",
+          "CWE": "CWE-457",
+          "Public": "20230519"
+        },
+        {
+          "ID": "CVE-2023-32215",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32215",
+          "CWE": "CWE-120",
+          "Public": "20230519"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "thunderbird is earlier than 0:102.11.0-1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230234001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

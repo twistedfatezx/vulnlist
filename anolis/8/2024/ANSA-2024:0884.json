@@ -1,0 +1,413 @@
+{
+  "ID": "oval:cn.openanolis:def:20240884",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0884: python39:3.9 and python39-devel:3.9 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0884",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0884",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-4032:\nThe “ipaddress” module contained incorrect information about whether certain IPv4 and IPv6 addresses were designated as “globally reachable” or “private”. This affected the is_private and is_global properties of the ipaddress.IPv4Address, ipaddress.IPv4Network, ipaddress.IPv6Address, and ipaddress.IPv6Network classes, where values wouldn’t be returned in accordance with the latest information from the IANA Special-Purpose Address Registries.\nCPython 3.12.4 and 3.13.0a6 contain updated information from these registries and thus have the intended behavior.\n\nCVE-2024-6345:\nA vulnerability in the package_index module of pypa/setuptools versions up to 69.1.1 allows for remote code execution via its download functions. These functions, which are used to download packages from URLs provided by users or retrieved from package index servers, are susceptible to code injection. If these functions are exposed to user-controlled inputs, such as package URLs, they can execute arbitrary commands on the system. The issue is fixed in version 70.0.\n\nCVE-2024-6923:\nThere is a MEDIUM severity vulnerability affecting CPython.\nThe \nemail module didn’t properly quote newlines for email headers when \nserializing an email message allowing for header injection when an email\nis serialized.\n\nCVE-2024-8088:\nThere is a HIGH severity vulnerability affecting the CPython \"zipfile\"\nmodule affecting \"zipfile.Path\". Note that the more common API \"zipfile.ZipFile\" class is unaffected.\nWhen iterating over names of entries in a zip archive (for example, methods\nof \"zipfile.Path\" like \"namelist()\", \"iterdir()\", etc)\nthe process can be put into an infinite loop with a maliciously crafted\nzip archive. This defect applies when reading only metadata or extracting\nthe contents of the zip archive. Programs that are not handling\nuser-controlled zip archives are not affected.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-09-02"
+      },
+      "Updated": {
+        "Date": "2024-09-02"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-4032",
+          "CVSS3": "3.7/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-4032",
+          "CWE": "CWE-440",
+          "Public": "20240902"
+        },
+        {
+          "ID": "CVE-2024-6345",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-6345",
+          "CWE": "CWE-94",
+          "Public": "20240715"
+        },
+        {
+          "ID": "CVE-2024-6923",
+          "CVSS3": "6.8/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-6923",
+          "CWE": "",
+          "Public": "20240902"
+        },
+        {
+          "ID": "CVE-2024-8088",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-8088",
+          "CWE": "CWE-835",
+          "Public": "20240902"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python39 is earlier than 0:3.9.19-7.0.1.module+an8.9.0+11250+328a945a",
+            "TestRef": "oval:cn.openanolis:tst:20240884001"
+          },
+          {
+            "Comment": "python39-Cython is earlier than 0:Cython-0.29.21-5.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884002"
+          },
+          {
+            "Comment": "python39-cffi is earlier than 0:cffi-1.14.3-2.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884003"
+          },
+          {
+            "Comment": "python39-cryptography is earlier than 0:cryptography-3.3.1-3.module+an8.9.0+11204+f8414d40",
+            "TestRef": "oval:cn.openanolis:tst:20240884004"
+          },
+          {
+            "Comment": "python39-debug is earlier than 0:debug-3.9.19-7.0.1.module+an8.9.0+11250+328a945a",
+            "TestRef": "oval:cn.openanolis:tst:20240884005"
+          },
+          {
+            "Comment": "python39-devel is earlier than 0:devel-3.9.19-7.0.1.module+an8.9.0+11250+328a945a",
+            "TestRef": "oval:cn.openanolis:tst:20240884006"
+          },
+          {
+            "Comment": "python39-idle is earlier than 0:idle-3.9.19-7.0.1.module+an8.9.0+11250+328a945a",
+            "TestRef": "oval:cn.openanolis:tst:20240884007"
+          },
+          {
+            "Comment": "python39-libs is earlier than 0:libs-3.9.19-7.0.1.module+an8.9.0+11250+328a945a",
+            "TestRef": "oval:cn.openanolis:tst:20240884008"
+          },
+          {
+            "Comment": "python39-lxml is earlier than 0:lxml-4.6.5-1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884009"
+          },
+          {
+            "Comment": "python39-mod_wsgi is earlier than 0:mod_wsgi-4.7.1-7.module+an8.9.0+11154+b28d9014",
+            "TestRef": "oval:cn.openanolis:tst:20240884010"
+          },
+          {
+            "Comment": "python39-numpy is earlier than 0:numpy-1.19.4-3.0.1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884011"
+          },
+          {
+            "Comment": "python39-numpy-f2py is earlier than 0:numpy-f2py-1.19.4-3.0.1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884012"
+          },
+          {
+            "Comment": "python39-psutil is earlier than 0:psutil-5.8.0-4.0.1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884013"
+          },
+          {
+            "Comment": "python39-psycopg2 is earlier than 0:psycopg2-2.8.6-3.0.1.module+an8.9.0+11204+f8414d40",
+            "TestRef": "oval:cn.openanolis:tst:20240884014"
+          },
+          {
+            "Comment": "python39-psycopg2-doc is earlier than 0:psycopg2-doc-2.8.6-3.0.1.module+an8.9.0+11204+f8414d40",
+            "TestRef": "oval:cn.openanolis:tst:20240884015"
+          },
+          {
+            "Comment": "python39-psycopg2-tests is earlier than 0:psycopg2-tests-2.8.6-3.0.1.module+an8.9.0+11204+f8414d40",
+            "TestRef": "oval:cn.openanolis:tst:20240884016"
+          },
+          {
+            "Comment": "python39-pybind11 is earlier than 0:pybind11-2.7.1-1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884017"
+          },
+          {
+            "Comment": "python39-pybind11-devel is earlier than 0:pybind11-devel-2.7.1-1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884018"
+          },
+          {
+            "Comment": "python39-pyyaml is earlier than 0:pyyaml-5.4.1-1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884019"
+          },
+          {
+            "Comment": "python39-scipy is earlier than 0:scipy-1.5.4-5.0.1.module+an8.9.0+11154+b28d9014",
+            "TestRef": "oval:cn.openanolis:tst:20240884020"
+          },
+          {
+            "Comment": "python39-test is earlier than 0:test-3.9.19-7.0.1.module+an8.9.0+11250+328a945a",
+            "TestRef": "oval:cn.openanolis:tst:20240884021"
+          },
+          {
+            "Comment": "python39-tkinter is earlier than 0:tkinter-3.9.19-7.0.1.module+an8.9.0+11250+328a945a",
+            "TestRef": "oval:cn.openanolis:tst:20240884022"
+          },
+          {
+            "Comment": "Cython is earlier than 0:0.29.21-5.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884023"
+          },
+          {
+            "Comment": "PyYAML is earlier than 0:5.4.1-1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884024"
+          },
+          {
+            "Comment": "mod_wsgi is earlier than 0:4.7.1-7.module+an8.9.0+11154+b28d9014",
+            "TestRef": "oval:cn.openanolis:tst:20240884025"
+          },
+          {
+            "Comment": "numpy is earlier than 0:1.19.4-3.0.1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884026"
+          },
+          {
+            "Comment": "pybind11 is earlier than 0:2.7.1-1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884027"
+          },
+          {
+            "Comment": "pytest is earlier than 0:6.0.2-2.0.1.module+an8.9.0+11154+b28d9014",
+            "TestRef": "oval:cn.openanolis:tst:20240884028"
+          },
+          {
+            "Comment": "python-PyMySQL is earlier than 0:PyMySQL-0.10.1-2.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884029"
+          },
+          {
+            "Comment": "python-attrs is earlier than 0:attrs-20.3.0-2.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884030"
+          },
+          {
+            "Comment": "python-cffi is earlier than 0:cffi-1.14.3-2.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884031"
+          },
+          {
+            "Comment": "python-chardet is earlier than 0:chardet-3.0.4-19.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884032"
+          },
+          {
+            "Comment": "python-cryptography is earlier than 0:cryptography-3.3.1-3.module+an8.9.0+11204+f8414d40",
+            "TestRef": "oval:cn.openanolis:tst:20240884033"
+          },
+          {
+            "Comment": "python-idna is earlier than 0:idna-2.10-4.module+an8.9.0+11204+f8414d40",
+            "TestRef": "oval:cn.openanolis:tst:20240884034"
+          },
+          {
+            "Comment": "python-iniconfig is earlier than 0:iniconfig-1.1.1-2.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884035"
+          },
+          {
+            "Comment": "python-lxml is earlier than 0:lxml-4.6.5-1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884036"
+          },
+          {
+            "Comment": "python-more-itertools is earlier than 0:more-itertools-8.5.0-2.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884037"
+          },
+          {
+            "Comment": "python-packaging is earlier than 0:packaging-20.4-4.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884038"
+          },
+          {
+            "Comment": "python-pluggy is earlier than 0:pluggy-0.13.1-3.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884039"
+          },
+          {
+            "Comment": "python-ply is earlier than 0:ply-3.11-10.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884040"
+          },
+          {
+            "Comment": "python-psutil is earlier than 0:psutil-5.8.0-4.0.1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884041"
+          },
+          {
+            "Comment": "python-psycopg2 is earlier than 0:psycopg2-2.8.6-3.0.1.module+an8.9.0+11204+f8414d40",
+            "TestRef": "oval:cn.openanolis:tst:20240884042"
+          },
+          {
+            "Comment": "python-py is earlier than 0:py-1.10.0-1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884043"
+          },
+          {
+            "Comment": "python-pycparser is earlier than 0:pycparser-2.20-3.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884044"
+          },
+          {
+            "Comment": "python-pysocks is earlier than 0:pysocks-1.7.1-4.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884045"
+          },
+          {
+            "Comment": "python-requests is earlier than 0:requests-2.25.0-3.module+an8.9.0+11154+b28d9014",
+            "TestRef": "oval:cn.openanolis:tst:20240884046"
+          },
+          {
+            "Comment": "python-toml is earlier than 0:toml-0.10.1-5.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884047"
+          },
+          {
+            "Comment": "python-urllib3 is earlier than 0:urllib3-1.25.10-5.module+an8.9.0+11194+f34abfa1",
+            "TestRef": "oval:cn.openanolis:tst:20240884048"
+          },
+          {
+            "Comment": "python-wcwidth is earlier than 0:wcwidth-0.2.5-3.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884049"
+          },
+          {
+            "Comment": "python-wheel is earlier than 1:wheel-0.35.1-4.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884050"
+          },
+          {
+            "Comment": "python3x-pip is earlier than 0:pip-20.2.4-9.module+an8.9.0+11204+f8414d40",
+            "TestRef": "oval:cn.openanolis:tst:20240884051"
+          },
+          {
+            "Comment": "python3x-pyparsing is earlier than 0:pyparsing-2.4.7-5.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884052"
+          },
+          {
+            "Comment": "python3x-setuptools is earlier than 0:setuptools-50.3.2-6.module+an8.9.0+11250+328a945a",
+            "TestRef": "oval:cn.openanolis:tst:20240884053"
+          },
+          {
+            "Comment": "python3x-six is earlier than 0:six-1.15.0-3.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884054"
+          },
+          {
+            "Comment": "scipy is earlier than 0:1.5.4-5.0.1.module+an8.9.0+11154+b28d9014",
+            "TestRef": "oval:cn.openanolis:tst:20240884055"
+          },
+          {
+            "Comment": "python39-PyMySQL is earlier than 0:PyMySQL-0.10.1-2.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884056"
+          },
+          {
+            "Comment": "python39-attrs is earlier than 0:attrs-20.3.0-2.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884057"
+          },
+          {
+            "Comment": "python39-chardet is earlier than 0:chardet-3.0.4-19.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884058"
+          },
+          {
+            "Comment": "python39-idna is earlier than 0:idna-2.10-4.module+an8.9.0+11204+f8414d40",
+            "TestRef": "oval:cn.openanolis:tst:20240884059"
+          },
+          {
+            "Comment": "python39-iniconfig is earlier than 0:iniconfig-1.1.1-2.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884060"
+          },
+          {
+            "Comment": "python39-more-itertools is earlier than 0:more-itertools-8.5.0-2.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884061"
+          },
+          {
+            "Comment": "python39-numpy-doc is earlier than 0:numpy-doc-1.19.4-3.0.1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884062"
+          },
+          {
+            "Comment": "python39-packaging is earlier than 0:packaging-20.4-4.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884063"
+          },
+          {
+            "Comment": "python39-pip is earlier than 0:pip-20.2.4-9.module+an8.9.0+11204+f8414d40",
+            "TestRef": "oval:cn.openanolis:tst:20240884064"
+          },
+          {
+            "Comment": "python39-pip-wheel is earlier than 0:pip-wheel-20.2.4-9.module+an8.9.0+11204+f8414d40",
+            "TestRef": "oval:cn.openanolis:tst:20240884065"
+          },
+          {
+            "Comment": "python39-pluggy is earlier than 0:pluggy-0.13.1-3.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884066"
+          },
+          {
+            "Comment": "python39-ply is earlier than 0:ply-3.11-10.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884067"
+          },
+          {
+            "Comment": "python39-py is earlier than 0:py-1.10.0-1.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884068"
+          },
+          {
+            "Comment": "python39-pycparser is earlier than 0:pycparser-2.20-3.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884069"
+          },
+          {
+            "Comment": "python39-pyparsing is earlier than 0:pyparsing-2.4.7-5.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884070"
+          },
+          {
+            "Comment": "python39-pysocks is earlier than 0:pysocks-1.7.1-4.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884071"
+          },
+          {
+            "Comment": "python39-pytest is earlier than 0:pytest-6.0.2-2.0.1.module+an8.9.0+11154+b28d9014",
+            "TestRef": "oval:cn.openanolis:tst:20240884072"
+          },
+          {
+            "Comment": "python39-requests is earlier than 0:requests-2.25.0-3.module+an8.9.0+11154+b28d9014",
+            "TestRef": "oval:cn.openanolis:tst:20240884073"
+          },
+          {
+            "Comment": "python39-rpm-macros is earlier than 0:rpm-macros-3.9.19-7.0.1.module+an8.9.0+11250+328a945a",
+            "TestRef": "oval:cn.openanolis:tst:20240884074"
+          },
+          {
+            "Comment": "python39-setuptools is earlier than 0:setuptools-50.3.2-6.module+an8.9.0+11250+328a945a",
+            "TestRef": "oval:cn.openanolis:tst:20240884075"
+          },
+          {
+            "Comment": "python39-setuptools-wheel is earlier than 0:setuptools-wheel-50.3.2-6.module+an8.9.0+11250+328a945a",
+            "TestRef": "oval:cn.openanolis:tst:20240884076"
+          },
+          {
+            "Comment": "python39-six is earlier than 0:six-1.15.0-3.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884077"
+          },
+          {
+            "Comment": "python39-toml is earlier than 0:toml-0.10.1-5.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884078"
+          },
+          {
+            "Comment": "python39-urllib3 is earlier than 0:urllib3-1.25.10-5.module+an8.9.0+11194+f34abfa1",
+            "TestRef": "oval:cn.openanolis:tst:20240884079"
+          },
+          {
+            "Comment": "python39-wcwidth is earlier than 0:wcwidth-0.2.5-3.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884080"
+          },
+          {
+            "Comment": "python39-wheel is earlier than 1:wheel-0.35.1-4.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884081"
+          },
+          {
+            "Comment": "python39-wheel-wheel is earlier than 1:wheel-wheel-0.35.1-4.module+an8.7.0+11003+1cb50aa2",
+            "TestRef": "oval:cn.openanolis:tst:20240884082"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

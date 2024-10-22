@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20240829",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0829: squid security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0829",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0829",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2024-25111:\nSquid is a web proxy cache. Starting in version 3.5.27 and prior to version 6.8, Squid may be vulnerable to a Denial of Service attack against HTTP Chunked decoder due to an uncontrolled recursion bug. This problem allows a remote attacker to cause Denial of Service when sending a crafted, chunked, encoded HTTP Message. This bug is fixed in Squid version 6.8. In addition, patches addressing this problem for the stable releases can be found in Squid's patch archives. There is no workaround for this issue.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-08-20"
+      },
+      "Updated": {
+        "Date": "2024-08-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-25111",
+          "CVSS3": "8.6/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-25111",
+          "CWE": "CWE-674",
+          "Public": "20240306"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "squid is earlier than 7:6.6-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240829001"
+          },
+          {
+            "Comment": "squid-doc is earlier than 7:doc-6.6-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240829002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

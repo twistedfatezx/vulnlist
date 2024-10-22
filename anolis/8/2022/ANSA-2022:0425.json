@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20220425",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0425: mod_auth_mellon security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0425",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0425",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-3639:\nA flaw was found in mod_auth_mellon where it does not sanitize logout URLs properly. This issue could be used by an attacker to facilitate phishing attacks by tricking users into visiting a trusted web application URL that redirects to an external and potentially malicious server. The highest threat from this liability is to confidentiality and integrity.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-06-15"
+      },
+      "Updated": {
+        "Date": "2022-06-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-3639",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3639",
+          "CWE": "CWE-601",
+          "Public": "20220615"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "mod_auth_mellon is earlier than 0:0.14.0-12.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20220425001"
+          },
+          {
+            "Comment": "mod_auth_mellon-diagnostics is earlier than 0:diagnostics-0.14.0-12.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20220425002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

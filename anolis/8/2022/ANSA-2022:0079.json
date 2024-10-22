@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20220079",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0079: 389-ds:1.4 security and bug fix update (Low)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0079",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0079",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-4091:\nA double-free was found in the way 389-ds-base handles virtual attributes context in persistent searches. An attacker could send a series of search requests, forcing the server to behave unexpectedly, and crash.",
+    "Advisory": {
+      "Severity": "Low",
+      "Issued": {
+        "Date": "2022-03-16"
+      },
+      "Updated": {
+        "Date": "2022-10-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-4091",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-4091",
+          "CWE": "CWE-415",
+          "Public": "20220316"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "389-ds-base is earlier than 0:ds-base-1.4.3.23-14.0.1.module+an8.5.0+10671+58b69407",
+            "TestRef": "oval:cn.openanolis:tst:20220079001"
+          },
+          {
+            "Comment": "389-ds-base-devel is earlier than 0:ds-base-devel-1.4.3.23-14.0.1.module+an8.5.0+10671+58b69407",
+            "TestRef": "oval:cn.openanolis:tst:20220079002"
+          },
+          {
+            "Comment": "389-ds-base-legacy-tools is earlier than 0:ds-base-legacy-tools-1.4.3.23-14.0.1.module+an8.5.0+10671+58b69407",
+            "TestRef": "oval:cn.openanolis:tst:20220079003"
+          },
+          {
+            "Comment": "389-ds-base-libs is earlier than 0:ds-base-libs-1.4.3.23-14.0.1.module+an8.5.0+10671+58b69407",
+            "TestRef": "oval:cn.openanolis:tst:20220079004"
+          },
+          {
+            "Comment": "389-ds-base-snmp is earlier than 0:ds-base-snmp-1.4.3.23-14.0.1.module+an8.5.0+10671+58b69407",
+            "TestRef": "oval:cn.openanolis:tst:20220079005"
+          },
+          {
+            "Comment": "python3-lib389 is earlier than 0:lib389-1.4.3.23-14.0.1.module+an8.5.0+10671+58b69407",
+            "TestRef": "oval:cn.openanolis:tst:20220079006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "ID": "oval:cn.openanolis:def:20230198",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0198: autotrace security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0198",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0198",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-32323:\nAutoTrace v0.40.0 was discovered to contain a heap overflow via the ReadImage function at input-bmp.c:660.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-05-25"
+      },
+      "Updated": {
+        "Date": "2023-05-25"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-32323",
+          "CVSS3": "7.3/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-32323",
+          "CWE": "CWE-119",
+          "Public": "20230525"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "autotrace is earlier than 0:0.31.1-55.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230198001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

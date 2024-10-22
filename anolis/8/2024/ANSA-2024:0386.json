@@ -1,0 +1,129 @@
+{
+  "ID": "oval:cn.openanolis:def:20240386",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0386: java-11-openjdk security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0386",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0386",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-21011:\nVulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Hotspot).  Supported versions that are affected are Oracle Java SE: 8u401, 8u401-perf, 11.0.22, 17.0.10, 21.0.2, 22; Oracle GraalVM for JDK: 17.0.10, 21.0.2, 22;   Oracle GraalVM Enterprise Edition: 20.3.13 and  21.3.9. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in unauthorized ability to cause a partial denial of service (partial DOS) of Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition. Note: This vulnerability can be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. This vulnerability also applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. CVSS 3.1 Base Score 3.7 (Availability impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L).\n\nCVE-2024-21012:\nVulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Networking).  Supported versions that are affected are Oracle Java SE: 11.0.22, 17.0.10, 21.0.2, 22; Oracle GraalVM for JDK: 17.0.10, 21.0.2, 22; Oracle GraalVM Enterprise Edition: 20.3.13 and  21.3.9. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in  unauthorized update, insert or delete access to some of Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability does not apply to Java deployments, typically in servers, that load and run only trusted code (e.g., code installed by an administrator). CVSS 3.1 Base Score 3.7 (Integrity impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N).\n\nCVE-2024-21068:\nVulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Hotspot).  Supported versions that are affected are Oracle Java SE: 8u401-perf, 11.0.22, 17.0.10, 21.0.2, 22; Oracle GraalVM for JDK: 17.0.10, 21.0.2 and  22; Oracle GraalVM Enterprise Edition: 21.3.9. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in  unauthorized update, insert or delete access to some of Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability can be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. This vulnerability also applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. CVSS 3.1 Base Score 3.7 (Integrity impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N).\n\nCVE-2024-21085:\nVulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Concurrency).  Supported versions that are affected are Oracle Java SE: 8u401, 8u401-perf, 11.0.22; Oracle GraalVM Enterprise Edition: 20.3.13 and  21.3.9. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in unauthorized ability to cause a partial denial of service (partial DOS) of Oracle Java SE, Oracle GraalVM Enterprise Edition. Note: This vulnerability can be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. This vulnerability also applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. CVSS 3.1 Base Score 3.7 (Availability impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L).\n\nCVE-2024-21094:\nVulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Hotspot).  Supported versions that are affected are Oracle Java SE: 8u401, 8u401-perf, 11.0.22, 17.0.10, 21.0.2, 22; Oracle GraalVM for JDK: 17.0.10, 21.0.2, 22; Oracle GraalVM Enterprise Edition: 20.3.13 and  21.3.9. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in  unauthorized update, insert or delete access to some of Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability can be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. This vulnerability also applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. CVSS 3.1 Base Score 3.7 (Integrity impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N).",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-04-28"
+      },
+      "Updated": {
+        "Date": "2024-04-29"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-21011",
+          "CVSS3": "3.7/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-21011",
+          "CWE": "CWE-117",
+          "Public": "20240416"
+        },
+        {
+          "ID": "CVE-2024-21012",
+          "CVSS3": "3.7/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-21012",
+          "CWE": "CWE-350",
+          "Public": "20240416"
+        },
+        {
+          "ID": "CVE-2024-21068",
+          "CVSS3": "3.7/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-21068",
+          "CWE": "CWE-190-\u003eCWE-787",
+          "Public": "20240416"
+        },
+        {
+          "ID": "CVE-2024-21085",
+          "CVSS3": "3.7/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-21085",
+          "CWE": "CWE-789",
+          "Public": "20240416"
+        },
+        {
+          "ID": "CVE-2024-21094",
+          "CVSS3": "3.7/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-21094",
+          "CWE": "CWE-787",
+          "Public": "20240416"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "java-11-openjdk is earlier than 1:11-openjdk-11.0.23.0.9-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240386001"
+          },
+          {
+            "Comment": "java-11-openjdk-demo is earlier than 1:11-openjdk-demo-11.0.23.0.9-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240386002"
+          },
+          {
+            "Comment": "java-11-openjdk-devel is earlier than 1:11-openjdk-devel-11.0.23.0.9-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240386003"
+          },
+          {
+            "Comment": "java-11-openjdk-headless is earlier than 1:11-openjdk-headless-11.0.23.0.9-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240386004"
+          },
+          {
+            "Comment": "java-11-openjdk-javadoc is earlier than 1:11-openjdk-javadoc-11.0.23.0.9-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240386005"
+          },
+          {
+            "Comment": "java-11-openjdk-javadoc-zip is earlier than 1:11-openjdk-javadoc-zip-11.0.23.0.9-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240386006"
+          },
+          {
+            "Comment": "java-11-openjdk-jmods is earlier than 1:11-openjdk-jmods-11.0.23.0.9-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240386007"
+          },
+          {
+            "Comment": "java-11-openjdk-src is earlier than 1:11-openjdk-src-11.0.23.0.9-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240386008"
+          },
+          {
+            "Comment": "java-11-openjdk-static-libs is earlier than 1:11-openjdk-static-libs-11.0.23.0.9-3.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240386009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

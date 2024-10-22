@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20240465",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0465: booth security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0465",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0465",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-3049:\nA flaw was found in Booth, a cluster ticket manager. If a specially-crafted hash is passed to gcry_md_get_algo_dlen(), it may allow an invalid HMAC to be accepted by the Booth server.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-11"
+      },
+      "Updated": {
+        "Date": "2024-06-11"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-3049",
+          "CVSS3": "7.4/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-3049",
+          "CWE": "CWE-345",
+          "Public": "20240611"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "booth is earlier than 0:1.1-1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240465001"
+          },
+          {
+            "Comment": "booth-core is earlier than 0:core-1.1-1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240465002"
+          },
+          {
+            "Comment": "booth-arbitrator is earlier than 0:arbitrator-1.1-1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240465003"
+          },
+          {
+            "Comment": "booth-site is earlier than 0:site-1.1-1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240465004"
+          },
+          {
+            "Comment": "booth-test is earlier than 0:test-1.1-1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240465005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

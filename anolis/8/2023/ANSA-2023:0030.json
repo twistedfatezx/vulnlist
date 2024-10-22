@@ -1,0 +1,65 @@
+{
+  "ID": "oval:cn.openanolis:def:20230030",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0030: libksba security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0030",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0030",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-47629:\nLibksba before 1.6.3 is prone to an integer overflow vulnerability in the CRL signature parser.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-02-09"
+      },
+      "Updated": {
+        "Date": "2023-02-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-47629",
+          "CVSS3": "8.6/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-47629",
+          "CWE": "CWE-190",
+          "Public": "20221221"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libksba is earlier than 0:1.3.5-9.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230030001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

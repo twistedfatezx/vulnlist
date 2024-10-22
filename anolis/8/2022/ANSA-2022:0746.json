@@ -1,0 +1,113 @@
+{
+  "ID": "oval:cn.openanolis:def:20220746",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0746: .NET 6.0 security and bugfix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0746",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0746",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-41032:\nNuGet Client Elevation of Privilege Vulnerability.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-10-19"
+      },
+      "Updated": {
+        "Date": "2022-10-20"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-41032",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-41032",
+          "CWE": "CWE-524",
+          "Public": "20221014"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "aspnetcore-runtime-6.0 is earlier than 0:runtime-6.0-6.0.10-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220746001"
+          },
+          {
+            "Comment": "aspnetcore-targeting-pack-6.0 is earlier than 0:targeting-pack-6.0-6.0.10-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220746002"
+          },
+          {
+            "Comment": "dotnet is earlier than 0:6.0.110-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220746003"
+          },
+          {
+            "Comment": "dotnet-apphost-pack-6.0 is earlier than 0:apphost-pack-6.0-6.0.10-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220746004"
+          },
+          {
+            "Comment": "dotnet-host is earlier than 0:host-6.0.10-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220746005"
+          },
+          {
+            "Comment": "dotnet-hostfxr-6.0 is earlier than 0:hostfxr-6.0-6.0.10-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220746006"
+          },
+          {
+            "Comment": "dotnet-runtime-6.0 is earlier than 0:runtime-6.0-6.0.10-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220746007"
+          },
+          {
+            "Comment": "dotnet-sdk-6.0 is earlier than 0:sdk-6.0-6.0.110-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220746008"
+          },
+          {
+            "Comment": "dotnet-sdk-6.0-source-built-artifacts is earlier than 0:sdk-6.0-source-built-artifacts-6.0.110-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220746009"
+          },
+          {
+            "Comment": "dotnet-targeting-pack-6.0 is earlier than 0:targeting-pack-6.0-6.0.10-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220746010"
+          },
+          {
+            "Comment": "dotnet-templates-6.0 is earlier than 0:templates-6.0-6.0.110-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220746011"
+          },
+          {
+            "Comment": "netstandard-targeting-pack-2.1 is earlier than 0:targeting-pack-2.1-6.0.110-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220746012"
+          },
+          {
+            "Comment": "dotnet6.0 is earlier than 0:6.0.110-1.0.1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220746013"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

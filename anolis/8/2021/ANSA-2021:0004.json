@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20210004",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0004: freerdp security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0004",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0004",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-13398:\nAn issue was discovered in FreeRDP before 2.1.1. An out-of-bounds (OOB) write vulnerability has been detected in crypto_rsa_common in libfreerdp/crypto/crypto.c.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-04-20"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-13398",
+          "CVSS3": "8.3/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-13398",
+          "CWE": "CWE-805-\u003eCWE-122-\u003eCWE-787",
+          "Public": "20210420"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "freerdp is earlier than 2:2.0.0-46.rc4.el8.2",
+            "TestRef": "oval:cn.openanolis:tst:20210004001"
+          },
+          {
+            "Comment": "freerdp-libs is earlier than 2:libs-2.0.0-46.rc4.el8.2",
+            "TestRef": "oval:cn.openanolis:tst:20210004002"
+          },
+          {
+            "Comment": "libwinpr is earlier than 2:2.0.0-46.rc4.el8.2",
+            "TestRef": "oval:cn.openanolis:tst:20210004003"
+          },
+          {
+            "Comment": "libwinpr-devel is earlier than 2:devel-2.0.0-46.rc4.el8.2",
+            "TestRef": "oval:cn.openanolis:tst:20210004004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

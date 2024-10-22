@@ -1,0 +1,137 @@
+{
+  "ID": "oval:cn.openanolis:def:20230845",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0845: postgresql security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0845",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0845",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-5868:\nA memory disclosure vulnerability was found in PostgreSQL that allows remote users to access sensitive information by exploiting certain aggregate function calls with 'unknown'-type arguments. Handling 'unknown'-type values from string literals without type designation can disclose bytes, potentially revealing notable and confidential information. This issue exists due to excessive data output in aggregate function calls, enabling remote users to read some portion of system memory.\n\nCVE-2023-5869:\nA flaw was found in PostgreSQL that allows authenticated database users to execute arbitrary code through missing overflow checks during SQL array value modification. This issue exists due to an integer overflow during array modification where a remote user can trigger the overflow by providing specially crafted data. This enables the execution of arbitrary code on the target system, allowing users to write arbitrary bytes to memory and extensively read the server's memory.\n\nCVE-2023-5870:\nA flaw was found in PostgreSQL involving the pg_cancel_backend role that signals background workers, including the logical replication launcher, autovacuum workers, and the autovacuum launcher. Successful exploitation requires a non-core extension with a less-resilient background worker and would affect that specific background worker only. This issue may allow a remote high privileged user to launch a denial of service (DoS) attack.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-12-13"
+      },
+      "Updated": {
+        "Date": "2023-12-13"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-5868",
+          "CVSS3": "4.3/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5868",
+          "CWE": "CWE-686",
+          "Public": "20231109"
+        },
+        {
+          "ID": "CVE-2023-5869",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5869",
+          "CWE": "CWE-190",
+          "Public": "20231109"
+        },
+        {
+          "ID": "CVE-2023-5870",
+          "CVSS3": "2.2/CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5870",
+          "CWE": "CWE-400",
+          "Public": "20231109"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "postgresql is earlier than 0:15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845001"
+          },
+          {
+            "Comment": "postgresql-contrib is earlier than 0:contrib-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845002"
+          },
+          {
+            "Comment": "postgresql-docs is earlier than 0:docs-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845003"
+          },
+          {
+            "Comment": "postgresql-plperl is earlier than 0:plperl-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845004"
+          },
+          {
+            "Comment": "postgresql-plpython3 is earlier than 0:plpython3-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845005"
+          },
+          {
+            "Comment": "postgresql-pltcl is earlier than 0:pltcl-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845006"
+          },
+          {
+            "Comment": "postgresql-private-devel is earlier than 0:private-devel-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845007"
+          },
+          {
+            "Comment": "postgresql-private-libs is earlier than 0:private-libs-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845008"
+          },
+          {
+            "Comment": "postgresql-server is earlier than 0:server-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845009"
+          },
+          {
+            "Comment": "postgresql-server-devel is earlier than 0:server-devel-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845010"
+          },
+          {
+            "Comment": "postgresql-static is earlier than 0:static-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845011"
+          },
+          {
+            "Comment": "postgresql-test is earlier than 0:test-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845012"
+          },
+          {
+            "Comment": "postgresql-upgrade is earlier than 0:upgrade-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845013"
+          },
+          {
+            "Comment": "postgresql-upgrade-devel is earlier than 0:upgrade-devel-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845014"
+          },
+          {
+            "Comment": "postgresql-test-rpm-macros is earlier than 0:test-rpm-macros-15.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230845015"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,461 @@
+{
+  "ID": "oval:cn.openanolis:def:20240424",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0424: pcp security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0424",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0424",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-3019:\nA flaw was found in PCP. The default pmproxy configuration exposes the Redis server backend to the local network, allowing remote command execution with the privileges of the Redis user. This issue can only be exploited when pmproxy is running. By default, pmproxy is not running and needs to be started manually. The pmproxy service is usually started from the 'Metrics settings' page of the Cockpit web interface. This flaw affects PCP versions 4.3.4 and newer.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-04"
+      },
+      "Updated": {
+        "Date": "2024-06-04"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-3019",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-3019",
+          "CWE": "CWE-668",
+          "Public": "20240326"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "pcp is earlier than 0:5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424001"
+          },
+          {
+            "Comment": "pcp-conf is earlier than 0:conf-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424002"
+          },
+          {
+            "Comment": "pcp-devel is earlier than 0:devel-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424003"
+          },
+          {
+            "Comment": "pcp-export-pcp2elasticsearch is earlier than 0:export-pcp2elasticsearch-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424004"
+          },
+          {
+            "Comment": "pcp-export-pcp2graphite is earlier than 0:export-pcp2graphite-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424005"
+          },
+          {
+            "Comment": "pcp-export-pcp2influxdb is earlier than 0:export-pcp2influxdb-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424006"
+          },
+          {
+            "Comment": "pcp-export-pcp2json is earlier than 0:export-pcp2json-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424007"
+          },
+          {
+            "Comment": "pcp-export-pcp2spark is earlier than 0:export-pcp2spark-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424008"
+          },
+          {
+            "Comment": "pcp-export-pcp2xml is earlier than 0:export-pcp2xml-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424009"
+          },
+          {
+            "Comment": "pcp-export-pcp2zabbix is earlier than 0:export-pcp2zabbix-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424010"
+          },
+          {
+            "Comment": "pcp-export-zabbix-agent is earlier than 0:export-zabbix-agent-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424011"
+          },
+          {
+            "Comment": "pcp-gui is earlier than 0:gui-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424012"
+          },
+          {
+            "Comment": "pcp-import-collectl2pcp is earlier than 0:import-collectl2pcp-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424013"
+          },
+          {
+            "Comment": "pcp-import-ganglia2pcp is earlier than 0:import-ganglia2pcp-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424014"
+          },
+          {
+            "Comment": "pcp-import-iostat2pcp is earlier than 0:import-iostat2pcp-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424015"
+          },
+          {
+            "Comment": "pcp-import-mrtg2pcp is earlier than 0:import-mrtg2pcp-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424016"
+          },
+          {
+            "Comment": "pcp-import-sar2pcp is earlier than 0:import-sar2pcp-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424017"
+          },
+          {
+            "Comment": "pcp-libs is earlier than 0:libs-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424018"
+          },
+          {
+            "Comment": "pcp-libs-devel is earlier than 0:libs-devel-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424019"
+          },
+          {
+            "Comment": "pcp-pmda-activemq is earlier than 0:pmda-activemq-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424020"
+          },
+          {
+            "Comment": "pcp-pmda-apache is earlier than 0:pmda-apache-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424021"
+          },
+          {
+            "Comment": "pcp-pmda-bash is earlier than 0:pmda-bash-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424022"
+          },
+          {
+            "Comment": "pcp-pmda-bcc is earlier than 0:pmda-bcc-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424023"
+          },
+          {
+            "Comment": "pcp-pmda-bind2 is earlier than 0:pmda-bind2-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424024"
+          },
+          {
+            "Comment": "pcp-pmda-bonding is earlier than 0:pmda-bonding-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424025"
+          },
+          {
+            "Comment": "pcp-pmda-bpftrace is earlier than 0:pmda-bpftrace-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424026"
+          },
+          {
+            "Comment": "pcp-pmda-cifs is earlier than 0:pmda-cifs-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424027"
+          },
+          {
+            "Comment": "pcp-pmda-cisco is earlier than 0:pmda-cisco-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424028"
+          },
+          {
+            "Comment": "pcp-pmda-dbping is earlier than 0:pmda-dbping-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424029"
+          },
+          {
+            "Comment": "pcp-pmda-denki is earlier than 0:pmda-denki-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424030"
+          },
+          {
+            "Comment": "pcp-pmda-dm is earlier than 0:pmda-dm-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424031"
+          },
+          {
+            "Comment": "pcp-pmda-docker is earlier than 0:pmda-docker-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424032"
+          },
+          {
+            "Comment": "pcp-pmda-ds389 is earlier than 0:pmda-ds389-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424033"
+          },
+          {
+            "Comment": "pcp-pmda-ds389log is earlier than 0:pmda-ds389log-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424034"
+          },
+          {
+            "Comment": "pcp-pmda-elasticsearch is earlier than 0:pmda-elasticsearch-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424035"
+          },
+          {
+            "Comment": "pcp-pmda-gfs2 is earlier than 0:pmda-gfs2-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424036"
+          },
+          {
+            "Comment": "pcp-pmda-gluster is earlier than 0:pmda-gluster-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424037"
+          },
+          {
+            "Comment": "pcp-pmda-gpfs is earlier than 0:pmda-gpfs-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424038"
+          },
+          {
+            "Comment": "pcp-pmda-gpsd is earlier than 0:pmda-gpsd-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424039"
+          },
+          {
+            "Comment": "pcp-pmda-hacluster is earlier than 0:pmda-hacluster-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424040"
+          },
+          {
+            "Comment": "pcp-pmda-haproxy is earlier than 0:pmda-haproxy-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424041"
+          },
+          {
+            "Comment": "pcp-pmda-infiniband is earlier than 0:pmda-infiniband-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424042"
+          },
+          {
+            "Comment": "pcp-pmda-json is earlier than 0:pmda-json-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424043"
+          },
+          {
+            "Comment": "pcp-pmda-libvirt is earlier than 0:pmda-libvirt-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424044"
+          },
+          {
+            "Comment": "pcp-pmda-lio is earlier than 0:pmda-lio-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424045"
+          },
+          {
+            "Comment": "pcp-pmda-lmsensors is earlier than 0:pmda-lmsensors-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424046"
+          },
+          {
+            "Comment": "pcp-pmda-logger is earlier than 0:pmda-logger-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424047"
+          },
+          {
+            "Comment": "pcp-pmda-lustre is earlier than 0:pmda-lustre-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424048"
+          },
+          {
+            "Comment": "pcp-pmda-lustrecomm is earlier than 0:pmda-lustrecomm-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424049"
+          },
+          {
+            "Comment": "pcp-pmda-mailq is earlier than 0:pmda-mailq-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424050"
+          },
+          {
+            "Comment": "pcp-pmda-memcache is earlier than 0:pmda-memcache-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424051"
+          },
+          {
+            "Comment": "pcp-pmda-mic is earlier than 0:pmda-mic-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424052"
+          },
+          {
+            "Comment": "pcp-pmda-mongodb is earlier than 0:pmda-mongodb-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424053"
+          },
+          {
+            "Comment": "pcp-pmda-mounts is earlier than 0:pmda-mounts-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424054"
+          },
+          {
+            "Comment": "pcp-pmda-mysql is earlier than 0:pmda-mysql-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424055"
+          },
+          {
+            "Comment": "pcp-pmda-named is earlier than 0:pmda-named-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424056"
+          },
+          {
+            "Comment": "pcp-pmda-netcheck is earlier than 0:pmda-netcheck-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424057"
+          },
+          {
+            "Comment": "pcp-pmda-netfilter is earlier than 0:pmda-netfilter-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424058"
+          },
+          {
+            "Comment": "pcp-pmda-news is earlier than 0:pmda-news-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424059"
+          },
+          {
+            "Comment": "pcp-pmda-nfsclient is earlier than 0:pmda-nfsclient-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424060"
+          },
+          {
+            "Comment": "pcp-pmda-nginx is earlier than 0:pmda-nginx-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424061"
+          },
+          {
+            "Comment": "pcp-pmda-nvidia-gpu is earlier than 0:pmda-nvidia-gpu-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424062"
+          },
+          {
+            "Comment": "pcp-pmda-openmetrics is earlier than 0:pmda-openmetrics-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424063"
+          },
+          {
+            "Comment": "pcp-pmda-openvswitch is earlier than 0:pmda-openvswitch-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424064"
+          },
+          {
+            "Comment": "pcp-pmda-oracle is earlier than 0:pmda-oracle-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424065"
+          },
+          {
+            "Comment": "pcp-pmda-pdns is earlier than 0:pmda-pdns-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424066"
+          },
+          {
+            "Comment": "pcp-pmda-perfevent is earlier than 0:pmda-perfevent-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424067"
+          },
+          {
+            "Comment": "pcp-pmda-podman is earlier than 0:pmda-podman-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424068"
+          },
+          {
+            "Comment": "pcp-pmda-postfix is earlier than 0:pmda-postfix-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424069"
+          },
+          {
+            "Comment": "pcp-pmda-postgresql is earlier than 0:pmda-postgresql-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424070"
+          },
+          {
+            "Comment": "pcp-pmda-rabbitmq is earlier than 0:pmda-rabbitmq-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424071"
+          },
+          {
+            "Comment": "pcp-pmda-redis is earlier than 0:pmda-redis-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424072"
+          },
+          {
+            "Comment": "pcp-pmda-roomtemp is earlier than 0:pmda-roomtemp-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424073"
+          },
+          {
+            "Comment": "pcp-pmda-rsyslog is earlier than 0:pmda-rsyslog-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424074"
+          },
+          {
+            "Comment": "pcp-pmda-samba is earlier than 0:pmda-samba-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424075"
+          },
+          {
+            "Comment": "pcp-pmda-sendmail is earlier than 0:pmda-sendmail-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424076"
+          },
+          {
+            "Comment": "pcp-pmda-shping is earlier than 0:pmda-shping-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424077"
+          },
+          {
+            "Comment": "pcp-pmda-slurm is earlier than 0:pmda-slurm-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424078"
+          },
+          {
+            "Comment": "pcp-pmda-smart is earlier than 0:pmda-smart-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424079"
+          },
+          {
+            "Comment": "pcp-pmda-snmp is earlier than 0:pmda-snmp-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424080"
+          },
+          {
+            "Comment": "pcp-pmda-sockets is earlier than 0:pmda-sockets-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424081"
+          },
+          {
+            "Comment": "pcp-pmda-statsd is earlier than 0:pmda-statsd-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424082"
+          },
+          {
+            "Comment": "pcp-pmda-summary is earlier than 0:pmda-summary-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424083"
+          },
+          {
+            "Comment": "pcp-pmda-systemd is earlier than 0:pmda-systemd-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424084"
+          },
+          {
+            "Comment": "pcp-pmda-trace is earlier than 0:pmda-trace-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424085"
+          },
+          {
+            "Comment": "pcp-pmda-unbound is earlier than 0:pmda-unbound-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424086"
+          },
+          {
+            "Comment": "pcp-pmda-weblog is earlier than 0:pmda-weblog-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424087"
+          },
+          {
+            "Comment": "pcp-pmda-zimbra is earlier than 0:pmda-zimbra-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424088"
+          },
+          {
+            "Comment": "pcp-pmda-zswap is earlier than 0:pmda-zswap-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424089"
+          },
+          {
+            "Comment": "pcp-selinux is earlier than 0:selinux-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424090"
+          },
+          {
+            "Comment": "pcp-system-tools is earlier than 0:system-tools-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424091"
+          },
+          {
+            "Comment": "pcp-testsuite is earlier than 0:testsuite-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424092"
+          },
+          {
+            "Comment": "pcp-zeroconf is earlier than 0:zeroconf-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424093"
+          },
+          {
+            "Comment": "perl-PCP-LogImport is earlier than 0:PCP-LogImport-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424094"
+          },
+          {
+            "Comment": "perl-PCP-LogSummary is earlier than 0:PCP-LogSummary-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424095"
+          },
+          {
+            "Comment": "perl-PCP-MMV is earlier than 0:PCP-MMV-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424096"
+          },
+          {
+            "Comment": "perl-PCP-PMDA is earlier than 0:PCP-PMDA-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424097"
+          },
+          {
+            "Comment": "python3-pcp is earlier than 0:pcp-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424098"
+          },
+          {
+            "Comment": "pcp-pmda-mssql is earlier than 0:pmda-mssql-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424099"
+          },
+          {
+            "Comment": "pcp-doc is earlier than 0:doc-5.3.7-20.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240424100"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

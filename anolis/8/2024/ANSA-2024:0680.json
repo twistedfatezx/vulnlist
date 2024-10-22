@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20240680",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0680: ghostscript security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0680",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0680",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-29510:\nArtifex Ghostscript before 10.03.1 allows memory corruption, and SAFER sandbox bypass, via format string injection with a uniprint device.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-07-17"
+      },
+      "Updated": {
+        "Date": "2024-07-17"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-29510",
+          "CVSS3": "6.3/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-29510",
+          "CWE": "CWE-20",
+          "Public": "20240703"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "ghostscript is earlier than 0:9.54.0-17.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240680001"
+          },
+          {
+            "Comment": "ghostscript-tools-dvipdf is earlier than 0:tools-dvipdf-9.54.0-17.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240680002"
+          },
+          {
+            "Comment": "ghostscript-tools-fonts is earlier than 0:tools-fonts-9.54.0-17.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240680003"
+          },
+          {
+            "Comment": "ghostscript-tools-printing is earlier than 0:tools-printing-9.54.0-17.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240680004"
+          },
+          {
+            "Comment": "ghostscript-x11 is earlier than 0:x11-9.54.0-17.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240680005"
+          },
+          {
+            "Comment": "libgs is earlier than 0:9.54.0-17.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240680006"
+          },
+          {
+            "Comment": "libgs-devel is earlier than 0:devel-9.54.0-17.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240680007"
+          },
+          {
+            "Comment": "ghostscript-doc is earlier than 0:doc-9.54.0-17.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240680008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

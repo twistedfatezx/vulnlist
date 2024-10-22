@@ -1,0 +1,109 @@
+{
+  "ID": "oval:cn.openanolis:def:20230415",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0415: emacs security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0415",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0415",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-48337:\nGNU Emacs through 28.2 allows attackers to execute commands via shell metacharacters in the name of a source-code file, because lib-src/etags.c uses the system C library function in its implementation of the etags program. For example, a victim may use the \"etags -u *\" command (suggested in the etags documentation) in a situation where the current working directory has contents that depend on untrusted input.\n\nCVE-2022-48338:\nAn issue was discovered in GNU Emacs through 28.2. In ruby-mode.el, the ruby-find-library-file function has a local command injection vulnerability. The ruby-find-library-file function is an interactive function, and bound to C-c C-f. Inside the function, the external command gem is called through shell-command-to-string, but the feature-name parameters are not escaped. Thus, malicious Ruby source files may cause commands to be executed.\n\nCVE-2022-48339:\nAn issue was discovered in GNU Emacs through 28.2. htmlfontify.el has a command injection vulnerability. In the hfy-istext-command function, the parameter file and parameter srcdir come from external input, and parameters are not escaped. If a file name or directory name contains shell metacharacters, code may be executed.\n\nCVE-2023-2491:\nA flaw was found in the Emacs text editor. Processing a specially crafted org-mode code with the \"org-babel-execute:latex\" function in ob-latex.el can result in arbitrary command execution. This CVE exists because of a CVE-2023-28617 security regression for the emacs package in Red Hat Enterprise Linux 8.8 and Red Hat Enterprise Linux 9.2.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-07-01"
+      },
+      "Updated": {
+        "Date": "2023-07-01"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-48337",
+          "CVSS3": "7.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-48337",
+          "CWE": "CWE-77",
+          "Public": "20230221"
+        },
+        {
+          "ID": "CVE-2022-48338",
+          "CVSS3": "7.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-48338",
+          "CWE": "CWE-77",
+          "Public": "20230221"
+        },
+        {
+          "ID": "CVE-2022-48339",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-48339",
+          "CWE": "CWE-77",
+          "Public": "20230221"
+        },
+        {
+          "ID": "CVE-2023-2491",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-2491",
+          "CWE": "CWE-77",
+          "Public": "20230701"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "emacs is earlier than 1:27.2-8.0.2.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230415001"
+          },
+          {
+            "Comment": "emacs-common is earlier than 1:common-27.2-8.0.2.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230415002"
+          },
+          {
+            "Comment": "emacs-lucid is earlier than 1:lucid-27.2-8.0.2.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230415003"
+          },
+          {
+            "Comment": "emacs-nox is earlier than 1:nox-27.2-8.0.2.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230415004"
+          },
+          {
+            "Comment": "emacs-filesystem is earlier than 1:filesystem-27.2-8.0.2.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230415005"
+          },
+          {
+            "Comment": "emacs-terminal is earlier than 1:terminal-27.2-8.0.2.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230415006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

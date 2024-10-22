@@ -1,0 +1,113 @@
+{
+  "ID": "oval:cn.openanolis:def:20220801",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0801: mingw-expat security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0801",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0801",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-23990:\nExpat (aka libexpat) before 2.4.4 has an integer overflow in the doProlog function.\n\nCVE-2022-25235:\nxmltok_impl.c in Expat (aka libexpat) before 2.4.5 lacks certain validation of encoding, such as checks for whether a UTF-8 character is valid in a certain context.\n\nCVE-2022-25236:\nxmlparse.c in Expat (aka libexpat) before 2.4.5 allows attackers to insert namespace-separator characters into namespace URIs.\n\nCVE-2022-25313:\nIn Expat (aka libexpat) before 2.4.5, an attacker can trigger stack exhaustion in build_model via a large nesting depth in the DTD element.\n\nCVE-2022-25314:\nIn Expat (aka libexpat) before 2.4.5, there is an integer overflow in copyString.\n\nCVE-2022-25315:\nIn Expat (aka libexpat) before 2.4.5, there is an integer overflow in storeRawNames.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-11-10"
+      },
+      "Updated": {
+        "Date": "2022-11-11"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-23990",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-23990",
+          "CWE": "CWE-190",
+          "Public": "20220126"
+        },
+        {
+          "ID": "CVE-2022-25235",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25235",
+          "CWE": "CWE-838",
+          "Public": "20220311"
+        },
+        {
+          "ID": "CVE-2022-25236",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25236",
+          "CWE": "CWE-179",
+          "Public": "20220311"
+        },
+        {
+          "ID": "CVE-2022-25313",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25313",
+          "CWE": "CWE-400-\u003eCWE-770",
+          "Public": "20220708"
+        },
+        {
+          "ID": "CVE-2022-25314",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25314",
+          "CWE": "CWE-190",
+          "Public": "20220708"
+        },
+        {
+          "ID": "CVE-2022-25315",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25315",
+          "CWE": "CWE-190-\u003eCWE-787",
+          "Public": "20220311"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "mingw-expat is earlier than 0:expat-2.4.8-1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220801001"
+          },
+          {
+            "Comment": "mingw32-expat is earlier than 0:expat-2.4.8-1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220801002"
+          },
+          {
+            "Comment": "mingw64-expat is earlier than 0:expat-2.4.8-1.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220801003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

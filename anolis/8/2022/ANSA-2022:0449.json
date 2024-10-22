@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20220449",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0449: xz security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0449",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0449",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-1271:\nNo description is available for this CVE.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-06-15"
+      },
+      "Updated": {
+        "Date": "2022-06-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-1271",
+          "CVSS3": "7.1/CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1271",
+          "CWE": "(CWE-179|CWE-1173)",
+          "Public": "20220428"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "xz is earlier than 0:5.2.4-4.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220449001"
+          },
+          {
+            "Comment": "xz-devel is earlier than 0:devel-5.2.4-4.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220449002"
+          },
+          {
+            "Comment": "xz-libs is earlier than 0:libs-5.2.4-4.an8_6",
+            "TestRef": "oval:cn.openanolis:tst:20220449003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

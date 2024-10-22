@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20240459",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0459: python-aiohttp security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0459",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0459",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2024-27306:\naiohttp is an asynchronous HTTP client/server framework for asyncio and Python. A XSS vulnerability exists on index pages for static file handling. This vulnerability is fixed in 3.9.4. We have always recommended using a reverse proxy server (e.g. nginx) for serving static files. Users following the recommendation are unaffected. Other users can disable `show_index` if unable to upgrade.\n\nCVE-2024-30251:\naiohttp is an asynchronous HTTP client/server framework for asyncio and Python. In affected versions an attacker can send a specially crafted POST (multipart/form-data) request. When the aiohttp server processes it, the server will enter an infinite loop and be unable to process any further requests. An attacker can stop the application from serving requests after sending a single request. This issue has been addressed in version 3.9.4. Users are advised to upgrade. Users unable to upgrade may manually apply a patch to their systems. Please see the linked GHSA for instructions.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-07"
+      },
+      "Updated": {
+        "Date": "2024-06-07"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-27306",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-27306",
+          "CWE": "(CWE-79|CWE-80)",
+          "Public": "20240607"
+        },
+        {
+          "ID": "CVE-2024-30251",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-30251",
+          "CWE": "CWE-835",
+          "Public": "20240607"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python3-aiohttp+speedups is earlier than 0:aiohttp+speedups-3.9.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240459001"
+          },
+          {
+            "Comment": "python3-aiohttp is earlier than 0:aiohttp-3.9.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240459002"
+          },
+          {
+            "Comment": "python-aiohttp is earlier than 0:aiohttp-3.9.5-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240459003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

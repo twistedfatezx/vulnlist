@@ -1,0 +1,129 @@
+{
+  "ID": "oval:cn.openanolis:def:20240452",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0452: xorg-x11-server-Xwayland security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0452",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0452",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-5367:\nA out-of-bounds write flaw was found in the xorg-x11-server. This issue occurs due to an incorrect calculation of a buffer offset when copying data stored in the heap in the XIChangeDeviceProperty function in Xi/xiproperty.c and in RRChangeOutputProperty function in randr/rrproperty.c, allowing for possible escalation of privileges or denial of service.\n\nCVE-2023-6377:\nA flaw was found in xorg-server. Querying or changing XKB button actions such as moving from a touchpad to a mouse can result in out-of-bounds memory reads and writes. This may allow local privilege escalation or possible remote code execution in cases where X11 forwarding is involved.\n\nCVE-2023-6478:\nA flaw was found in xorg-server. A specially crafted request to RRChangeProviderProperty or RRChangeOutputProperty can trigger an integer overflow which may lead to a disclosure of sensitive information.\n\nCVE-2023-6816:\nA flaw was found in X.Org server. Both DeviceFocusEvent and the XIQueryPointer reply contain a bit for each logical button currently down. Buttons can be arbitrarily mapped to any value up to 255, but the X.Org Server was only allocating space for the device's particular number of buttons, leading to a heap overflow if a bigger value was used.\n\nCVE-2024-0229:\nAn out-of-bounds memory access flaw was found in the X.Org server. This issue can be triggered when a device frozen by a sync grab is reattached to a different master device. This issue may lead to an application crash, local privilege escalation (if the server runs with extended privileges), or remote code execution in SSH X11 forwarding environments.\n\nCVE-2024-0408:\nA flaw was found in the X.Org server. The GLX PBuffer code does not call the XACE hook when creating the buffer, leaving it unlabeled. When the client issues another request to access that resource (as with a GetGeometry) or when it creates another resource that needs to access that buffer, such as a GC, the XSELINUX code will try to use an object that was never labeled and crash because the SID is NULL.\n\nCVE-2024-0409:\nA flaw was found in the X.Org server. The cursor code in both Xephyr and Xwayland uses the wrong type of private at creation. It uses the cursor bits type with the cursor as private, and when initiating the cursor, that overwrites the XSELINUX context.\n\nCVE-2024-21885:\nA flaw was found in X.Org server. In the XISendDeviceHierarchyEvent function, it is possible to exceed the allocated array length when certain new device IDs are added to the xXIHierarchyInfo struct. This can trigger a heap buffer overflow condition, which may lead to an application crash or remote code execution in SSH X11 forwarding environments.\n\nCVE-2024-21886:\nA heap buffer overflow flaw was found in the DisableDevice function in the X.Org server. This issue may lead to an application crash or, in some circumstances, remote code execution in SSH X11 forwarding environments.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-06"
+      },
+      "Updated": {
+        "Date": "2024-06-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-5367",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-5367",
+          "CWE": "CWE-787",
+          "Public": "20231025"
+        },
+        {
+          "ID": "CVE-2023-6377",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6377",
+          "CWE": "CWE-787-\u003eCWE-125",
+          "Public": "20240305"
+        },
+        {
+          "ID": "CVE-2023-6478",
+          "CVSS3": "7.6/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6478",
+          "CWE": "CWE-190",
+          "Public": "20240305"
+        },
+        {
+          "ID": "CVE-2023-6816",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6816",
+          "CWE": "CWE-787",
+          "Public": "20240118"
+        },
+        {
+          "ID": "CVE-2024-0229",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-0229",
+          "CWE": "CWE-788",
+          "Public": "20240116"
+        },
+        {
+          "ID": "CVE-2024-0408",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-0408",
+          "CWE": "CWE-158",
+          "Public": "20240206"
+        },
+        {
+          "ID": "CVE-2024-0409",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-0409",
+          "CWE": "CWE-787",
+          "Public": "20240206"
+        },
+        {
+          "ID": "CVE-2024-21885",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-21885",
+          "CWE": "CWE-122",
+          "Public": "20240116"
+        },
+        {
+          "ID": "CVE-2024-21886",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-21886",
+          "CWE": "CWE-122",
+          "Public": "20240116"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "xorg-x11-server-Xwayland is earlier than 0:x11-server-Xwayland-22.1.9-5.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240452001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

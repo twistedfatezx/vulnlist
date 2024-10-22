@@ -1,0 +1,129 @@
+{
+  "ID": "oval:cn.openanolis:def:20230943",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0943: bind security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0943",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0943",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-3094:\nSending a flood of dynamic DNS updates may cause `named` to allocate large amounts of memory. This, in turn, may cause `named` to exit due to a lack of free memory. We are not aware of any cases where this has been exploited. Memory is allocated prior to the checking of access permissions (ACLs) and is retained during the processing of a dynamic update from a client whose access credentials are accepted. Memory allocated to clients that are not permitted to send updates is released immediately upon rejection. The scope of this vulnerability is limited therefore to trusted clients who are permitted to make dynamic zone changes. If a dynamic update is REFUSED, memory will be released again very quickly. Therefore it is only likely to be possible to degrade or stop `named` by sending a flood of unaccepted dynamic updates comparable in magnitude to a query flood intended to achieve the same detrimental outcome. BIND 9.11 and earlier branches are also affected, but through exhaustion of internal resources rather than memory constraints. This may reduce performance but should not be a significant problem for most servers. Therefore we don't intend to address this for BIND versions prior to BIND 9.16. This issue affects BIND 9 versions 9.16.0 through 9.16.36, 9.18.0 through 9.18.10, 9.19.0 through 9.19.8, and 9.16.8-S1 through 9.16.36-S1.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-12-21"
+      },
+      "Updated": {
+        "Date": "2023-12-21"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-3094",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-3094",
+          "CWE": "CWE-20",
+          "Public": "20230127"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bind is earlier than 32:9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943001"
+          },
+          {
+            "Comment": "bind-chroot is earlier than 32:chroot-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943002"
+          },
+          {
+            "Comment": "bind-devel is earlier than 32:devel-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943003"
+          },
+          {
+            "Comment": "bind-export-devel is earlier than 32:export-devel-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943004"
+          },
+          {
+            "Comment": "bind-export-libs is earlier than 32:export-libs-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943005"
+          },
+          {
+            "Comment": "bind-libs is earlier than 32:libs-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943006"
+          },
+          {
+            "Comment": "bind-libs-lite is earlier than 32:libs-lite-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943007"
+          },
+          {
+            "Comment": "bind-lite-devel is earlier than 32:lite-devel-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943008"
+          },
+          {
+            "Comment": "bind-pkcs11 is earlier than 32:pkcs11-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943009"
+          },
+          {
+            "Comment": "bind-pkcs11-devel is earlier than 32:pkcs11-devel-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943010"
+          },
+          {
+            "Comment": "bind-pkcs11-libs is earlier than 32:pkcs11-libs-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943011"
+          },
+          {
+            "Comment": "bind-pkcs11-utils is earlier than 32:pkcs11-utils-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943012"
+          },
+          {
+            "Comment": "bind-sdb is earlier than 32:sdb-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943013"
+          },
+          {
+            "Comment": "bind-sdb-chroot is earlier than 32:sdb-chroot-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943014"
+          },
+          {
+            "Comment": "bind-utils is earlier than 32:utils-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943015"
+          },
+          {
+            "Comment": "bind-license is earlier than 32:license-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943016"
+          },
+          {
+            "Comment": "python3-bind is earlier than 32:bind-9.11.36-11.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230943017"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

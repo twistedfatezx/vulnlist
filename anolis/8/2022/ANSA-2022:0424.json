@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20220424",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0424: python-lxml security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0424",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0424",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-43818:\nlxml is a library for processing XML and HTML in the Python language. Prior to version 4.6.5, the HTML Cleaner in lxml.html lets certain crafted script content pass through, as well as script content in SVG files embedded using data URIs. Users that employ the HTML cleaner in a security relevant context should upgrade to lxml 4.6.5 to receive a patch. There are no known workarounds available.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-06-15"
+      },
+      "Updated": {
+        "Date": "2022-06-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-43818",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:H/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43818",
+          "CWE": "(CWE-77|CWE-79)",
+          "Public": "20220615"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python-lxml is earlier than 0:lxml-4.2.3-4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220424001"
+          },
+          {
+            "Comment": "python3-lxml is earlier than 0:lxml-4.2.3-4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220424002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

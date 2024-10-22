@@ -1,0 +1,105 @@
+{
+  "ID": "oval:cn.openanolis:def:20240425",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0425: python3 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0425",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0425",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-6597:\nAn issue was found in the CPython `tempfile.TemporaryDirectory` class affecting versions 3.12.1, 3.11.7, 3.10.13, 3.9.18, and 3.8.18 and prior.\nThe tempfile.TemporaryDirectory class would dereference symlinks during cleanup of permissions-related errors. This means users which can run privileged programs are potentially able to modify permissions of files referenced by symlinks in some circumstances.\n\nCVE-2024-0450:\nAn issue was found in the CPython `zipfile` module affecting versions 3.12.1, 3.11.7, 3.10.13, 3.9.18, and 3.8.18 and prior.\nThe zipfile module is vulnerable to “quoted-overlap” zip-bombs which exploit the zip format to create a zip-bomb with a high compression ratio. The fixed versions of CPython makes the zipfile module reject zip archives which overlap entries in the archive.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-04"
+      },
+      "Updated": {
+        "Date": "2024-06-04"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-6597",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6597",
+          "CWE": "CWE-61",
+          "Public": "20240603"
+        },
+        {
+          "ID": "CVE-2024-0450",
+          "CVSS3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-0450",
+          "CWE": "CWE-450",
+          "Public": "20240603"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "platform-python is earlier than 0:python-3.6.8-62.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240425001"
+          },
+          {
+            "Comment": "platform-python-debug is earlier than 0:python-debug-3.6.8-62.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240425002"
+          },
+          {
+            "Comment": "platform-python-devel is earlier than 0:python-devel-3.6.8-62.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240425003"
+          },
+          {
+            "Comment": "python3-devel is earlier than 0:devel-3.6.8-62.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240425004"
+          },
+          {
+            "Comment": "python3-idle is earlier than 0:idle-3.6.8-62.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240425005"
+          },
+          {
+            "Comment": "python3-libs is earlier than 0:libs-3.6.8-62.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240425006"
+          },
+          {
+            "Comment": "python3-test is earlier than 0:test-3.6.8-62.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240425007"
+          },
+          {
+            "Comment": "python3-tkinter is earlier than 0:tkinter-3.6.8-62.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240425008"
+          },
+          {
+            "Comment": "python3 is earlier than 0:3.6.8-62.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240425009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

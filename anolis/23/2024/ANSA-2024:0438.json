@@ -1,0 +1,153 @@
+{
+  "ID": "oval:cn.openanolis:def:20240438",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0438: edk2 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0438",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0438",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2022-36763:\nEDK2 is susceptible to a vulnerability in the Tcg2MeasureGptTable() function, allowing a user to trigger a heap buffer overflow via a local network. Successful exploitation of this vulnerability may result in a compromise of confidentiality, integrity, and/or availability.\n\nCVE-2022-36764:\nEDK2 is susceptible to a vulnerability in the Tcg2MeasurePeImage() function, allowing a user to trigger a heap buffer overflow via a local network. Successful exploitation of this vulnerability may result in a compromise of confidentiality, integrity, and/or availability.\n\nCVE-2022-36765:\nEDK2 is susceptible to a vulnerability in the CreateHob() function, allowing a user to trigger a integer overflow to buffer overflow via a local network. Successful exploitation of this vulnerability may result in a compromise of confidentiality, integrity, and/or availability.\n\nCVE-2023-45229:\nEDK2's Network Package is susceptible to an out-of-bounds read\nvulnerability when processing the IA_NA or IA_TA option in a DHCPv6 Advertise message. This\nvulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality.\n\nCVE-2023-45230:\nEDK2's Network Package is susceptible to a buffer overflow vulnerability via a long server ID option in DHCPv6 client. This\nvulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality, Integrity and/or Availability.\n\nCVE-2023-45231:\nEDK2's Network Package is susceptible to an out-of-bounds read\nvulnerability when processing  Neighbor Discovery Redirect message. This\nvulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality.\n\nCVE-2023-45232:\nEDK2's Network Package is susceptible to an infinite loop vulnerability when parsing unknown options in the Destination Options header of IPv6. This\nvulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Availability.\n\nCVE-2023-45233:\nEDK2's Network Package is susceptible to an infinite lop vulnerability when parsing a PadN option in the Destination Options header of IPv6. This\nvulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Availability.\n\nCVE-2023-45234:\nEDK2's Network Package is susceptible to a buffer overflow vulnerability when processing DNS Servers option from a DHCPv6 Advertise message. This\nvulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality, Integrity and/or Availability.\n\nCVE-2023-45235:\nEDK2's Network Package is susceptible to a buffer overflow vulnerability when\nhandling Server ID option \nfrom a DHCPv6 proxy Advertise message. This\nvulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality, Integrity and/or Availability.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-05"
+      },
+      "Updated": {
+        "Date": "2024-10-09"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-36763",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:L/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-36763",
+          "CWE": "CWE-680",
+          "Public": "20240605"
+        },
+        {
+          "ID": "CVE-2022-36764",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:L/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-36764",
+          "CWE": "CWE-680",
+          "Public": "20240605"
+        },
+        {
+          "ID": "CVE-2022-36765",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:L/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-36765",
+          "CWE": "CWE-680",
+          "Public": "20240605"
+        },
+        {
+          "ID": "CVE-2023-45229",
+          "CVSS3": "6.5/CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45229",
+          "CWE": "(CWE-119|CWE-125|CWE-338|CWE-835)",
+          "Public": "20240605"
+        },
+        {
+          "ID": "CVE-2023-45230",
+          "CVSS3": "8.8/CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45230",
+          "CWE": "CWE-119",
+          "Public": "20240605"
+        },
+        {
+          "ID": "CVE-2023-45231",
+          "CVSS3": "6.5/CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45231",
+          "CWE": "CWE-125",
+          "Public": "20240605"
+        },
+        {
+          "ID": "CVE-2023-45232",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45232",
+          "CWE": "CWE-835",
+          "Public": "20240605"
+        },
+        {
+          "ID": "CVE-2023-45233",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45233",
+          "CWE": "CWE-835",
+          "Public": "20240605"
+        },
+        {
+          "ID": "CVE-2023-45234",
+          "CVSS3": "8.8/CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45234",
+          "CWE": "CWE-119",
+          "Public": "20240605"
+        },
+        {
+          "ID": "CVE-2023-45235",
+          "CVSS3": "8.8/CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45235",
+          "CWE": "CWE-119",
+          "Public": "20240605"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "edk2-tools is earlier than 0:tools-202402-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240438001"
+          },
+          {
+            "Comment": "edk2 is earlier than 0:202402-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240438002"
+          },
+          {
+            "Comment": "edk2-aarch64 is earlier than 0:aarch64-202402-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240438003"
+          },
+          {
+            "Comment": "edk2-loongarch64 is earlier than 0:loongarch64-202402-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240438004"
+          },
+          {
+            "Comment": "edk2-ovmf is earlier than 0:ovmf-202402-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240438005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

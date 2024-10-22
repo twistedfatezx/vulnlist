@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20230854",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0854: ghostscript security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0854",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0854",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-43115:\nIn Artifex Ghostscript through 10.01.2, gdevijs.c in GhostPDL can lead to remote code execution via crafted PostScript documents because they can switch to the IJS device, or change the IjsServer parameter, after SAFER has been activated. NOTE: it is a documented risk that the IJS server can be specified on a gs command line (the IJS device inherently must execute a command to start the IJS server).",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-12-14"
+      },
+      "Updated": {
+        "Date": "2023-12-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-43115",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-43115",
+          "CWE": "CWE-94",
+          "Public": "20230918"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "ghostscript is earlier than 0:9.54.0-14.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230854001"
+          },
+          {
+            "Comment": "ghostscript-tools-dvipdf is earlier than 0:tools-dvipdf-9.54.0-14.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230854002"
+          },
+          {
+            "Comment": "ghostscript-tools-fonts is earlier than 0:tools-fonts-9.54.0-14.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230854003"
+          },
+          {
+            "Comment": "ghostscript-tools-printing is earlier than 0:tools-printing-9.54.0-14.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230854004"
+          },
+          {
+            "Comment": "ghostscript-x11 is earlier than 0:x11-9.54.0-14.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230854005"
+          },
+          {
+            "Comment": "libgs is earlier than 0:9.54.0-14.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230854006"
+          },
+          {
+            "Comment": "libgs-devel is earlier than 0:devel-9.54.0-14.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230854007"
+          },
+          {
+            "Comment": "ghostscript-doc is earlier than 0:doc-9.54.0-14.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230854008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

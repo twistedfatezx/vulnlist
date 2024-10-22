@@ -1,0 +1,233 @@
+{
+  "ID": "oval:cn.openanolis:def:20240923",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0923: container-tools:an8 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0923",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0923",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-45290:\nWhen parsing a multipart form (either explicitly with Request.ParseMultipartForm or implicitly with Request.FormValue, Request.PostFormValue, or Request.FormFile), limits on the total size of the parsed form were not applied to the memory consumed while reading a single form line. This permits a maliciously crafted input containing very long lines to cause allocation of arbitrarily large amounts of memory, potentially leading to memory exhaustion. With fix, the ParseMultipartForm function now correctly limits the maximum size of form lines.\n\nCVE-2024-24783:\nVerifying a certificate chain which contains a certificate with an unknown public key algorithm will cause Certificate.Verify to panic. This affects all crypto/tls clients, and servers that set Config.ClientAuth to VerifyClientCertIfGiven or RequireAndVerifyClientCert. The default behavior is for TLS servers to not verify client certificates.\n\nCVE-2024-24784:\nThe ParseAddressList function incorrectly handles comments (text within parentheses) within display names. Since this is a misalignment with conforming address parsers, it can result in different trust decisions being made by programs using different parsers.\n\nCVE-2024-24788:\nA malformed DNS message in response to a query can cause the Lookup functions to get stuck in an infinite loop.\n\nCVE-2024-24791:\nThe net/http HTTP/1.1 client mishandled the case where a server responds to a request with an \"Expect: 100-continue\" header with a non-informational (200 or higher) status. This mishandling could leave a client connection in an invalid state, where the next request sent on the connection will fail. An attacker sending a request to a net/http/httputil.ReverseProxy proxy can exploit this mishandling to cause a denial of service by sending \"Expect: 100-continue\" requests which elicit a non-informational response from the backend. Each such request leaves the proxy with an invalid connection, and causes one subsequent request using that connection to fail.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-09-26"
+      },
+      "Updated": {
+        "Date": "2024-09-27"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-45290",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45290",
+          "CWE": "CWE-20",
+          "Public": "20240603"
+        },
+        {
+          "ID": "CVE-2024-24783",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-24783",
+          "CWE": "CWE-20-\u003eCWE-400",
+          "Public": "20240603"
+        },
+        {
+          "ID": "CVE-2024-24784",
+          "CVSS3": "5.4/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-24784",
+          "CWE": "CWE-115",
+          "Public": "20240603"
+        },
+        {
+          "ID": "CVE-2024-24788",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-24788",
+          "CWE": "CWE-835",
+          "Public": "20240830"
+        },
+        {
+          "ID": "CVE-2024-24791",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-24791",
+          "CWE": "CWE-20",
+          "Public": "20240702"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "aardvark-dns is earlier than 2:dns-1.10.0-2.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923001"
+          },
+          {
+            "Comment": "buildah is earlier than 2:1.33.8-4.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923002"
+          },
+          {
+            "Comment": "buildah-tests is earlier than 2:tests-1.33.8-4.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923003"
+          },
+          {
+            "Comment": "conmon is earlier than 3:2.1.10-1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923004"
+          },
+          {
+            "Comment": "containernetworking-plugins is earlier than 1:plugins-1.4.0-5.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923005"
+          },
+          {
+            "Comment": "containers-common is earlier than 2:common-1-82.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923006"
+          },
+          {
+            "Comment": "crit is earlier than 0:3.18-5.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923007"
+          },
+          {
+            "Comment": "criu is earlier than 0:3.18-5.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923008"
+          },
+          {
+            "Comment": "criu-devel is earlier than 0:devel-3.18-5.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923009"
+          },
+          {
+            "Comment": "criu-libs is earlier than 0:libs-3.18-5.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923010"
+          },
+          {
+            "Comment": "crun is earlier than 0:1.14.3-2.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923011"
+          },
+          {
+            "Comment": "fuse-overlayfs is earlier than 0:overlayfs-1.13-1.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923012"
+          },
+          {
+            "Comment": "libslirp is earlier than 0:4.4.0-2.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923013"
+          },
+          {
+            "Comment": "libslirp-devel is earlier than 0:devel-4.4.0-2.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923014"
+          },
+          {
+            "Comment": "netavark is earlier than 2:1.10.3-1.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923015"
+          },
+          {
+            "Comment": "oci-seccomp-bpf-hook is earlier than 0:seccomp-bpf-hook-1.2.10-1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923016"
+          },
+          {
+            "Comment": "podman is earlier than 4:4.9.4-13.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923017"
+          },
+          {
+            "Comment": "podman-catatonit is earlier than 4:catatonit-4.9.4-13.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923018"
+          },
+          {
+            "Comment": "podman-gvproxy is earlier than 4:gvproxy-4.9.4-13.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923019"
+          },
+          {
+            "Comment": "podman-plugins is earlier than 4:plugins-4.9.4-13.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923020"
+          },
+          {
+            "Comment": "podman-remote is earlier than 4:remote-4.9.4-13.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923021"
+          },
+          {
+            "Comment": "podman-tests is earlier than 4:tests-4.9.4-13.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923022"
+          },
+          {
+            "Comment": "python3-criu is earlier than 0:criu-3.18-5.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923023"
+          },
+          {
+            "Comment": "runc is earlier than 1:1.1.12-4.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923024"
+          },
+          {
+            "Comment": "skopeo is earlier than 2:1.14.5-3.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923025"
+          },
+          {
+            "Comment": "skopeo-tests is earlier than 2:tests-1.14.5-3.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923026"
+          },
+          {
+            "Comment": "slirp4netns is earlier than 0:1.2.3-1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923027"
+          },
+          {
+            "Comment": "toolbox is earlier than 0:0.0.99.5-2.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923028"
+          },
+          {
+            "Comment": "toolbox-tests is earlier than 0:tests-0.0.99.5-2.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923029"
+          },
+          {
+            "Comment": "cockpit-podman is earlier than 0:podman-84.1-1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923030"
+          },
+          {
+            "Comment": "container-selinux is earlier than 2:selinux-2.229.0-2.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923031"
+          },
+          {
+            "Comment": "python-podman is earlier than 0:podman-4.9.0-2.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923032"
+          },
+          {
+            "Comment": "udica is earlier than 0:0.2.6-21.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923033"
+          },
+          {
+            "Comment": "podman-docker is earlier than 4:docker-4.9.4-13.0.1.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923034"
+          },
+          {
+            "Comment": "python3-podman is earlier than 0:podman-4.9.0-2.module+an8.9.0+11257+d476ec85",
+            "TestRef": "oval:cn.openanolis:tst:20240923035"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20240757",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0757: fontforge security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0757",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0757",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-25081:\nSplinefont in FontForge through 20230101 allows command injection via crafted filenames.\n\nCVE-2024-25082:\nSplinefont in FontForge through 20230101 allows command injection via crafted archives or compressed files.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-08-01"
+      },
+      "Updated": {
+        "Date": "2024-09-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-25081",
+          "CVSS3": "4.2/CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-25081",
+          "CWE": "CWE-78",
+          "Public": "20240801"
+        },
+        {
+          "ID": "CVE-2024-25082",
+          "CVSS3": "4.2/CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-25082",
+          "CWE": "CWE-78",
+          "Public": "20240801"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "fontforge is earlier than 0:20200314-6.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240757001"
+          },
+          {
+            "Comment": "fontforge-doc is earlier than 0:doc-20200314-6.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240757002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

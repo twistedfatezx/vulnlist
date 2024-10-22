@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20230871",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0871: python-oauthlib security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0871",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0871",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2022-36087:\nOAuthLib is an implementation of the OAuth request-signing logic for Python 3.6+. In OAuthLib versions 3.1.1 until 3.2.1, an attacker providing malicious redirect uri can cause denial of service. An attacker can also leverage usage of `uri_validate` functions depending where it is used. OAuthLib applications using OAuth2.0 provider support or use directly `uri_validate` are affected by this issue. Version 3.2.1 contains a patch. There are no known workarounds.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-12-19"
+      },
+      "Updated": {
+        "Date": "2023-12-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-36087",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-36087",
+          "CWE": "CWE-601",
+          "Public": "20230701"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python-oauthlib is earlier than 0:oauthlib-3.2.2-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230871001"
+          },
+          {
+            "Comment": "python3-oauthlib+signedtoken is earlier than 0:oauthlib+signedtoken-3.2.2-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230871002"
+          },
+          {
+            "Comment": "python3-oauthlib is earlier than 0:oauthlib-3.2.2-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230871003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

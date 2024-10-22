@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20230223",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0223: pcs security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0223",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0223",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-27530:\nA DoS vulnerability exists in Rack \u003cv3.0.4.2, \u003cv2.2.6.3, \u003cv2.1.4.3 and \u003cv2.0.9.3 within in the Multipart MIME parsing code in which could allow an attacker to craft requests that can be abuse to cause multipart parsing to take longer than expected.\n\nCVE-2023-27539:\nA denial of service vulnerability was found in rubygem-rack in how it parses headers. A carefully crafted input can cause header parsing to take an unexpected amount of time, possibly resulting in a denial of service.\n\nCVE-2022-1049:\nA flaw was found in the Pacemaker configuration tool (pcs). The pcs daemon was allowing expired accounts, and accounts with expired passwords to login when using PAM authentication. Therefore, unprivileged expired accounts that have been denied access could still login.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-05-29"
+      },
+      "Updated": {
+        "Date": "2023-10-30"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-27530",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-27530",
+          "CWE": "CWE-20",
+          "Public": "20230308"
+        },
+        {
+          "ID": "CVE-2023-27539",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-27539",
+          "CWE": "CWE-1333",
+          "Public": "20230315"
+        },
+        {
+          "ID": "CVE-2022-1049",
+          "CVSS3": "6.3/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1049",
+          "CWE": "CWE-287",
+          "Public": "20220317"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "pcs is earlier than 0:0.10.15-4.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230223001"
+          },
+          {
+            "Comment": "pcs-snmp is earlier than 0:snmp-0.10.15-4.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230223002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

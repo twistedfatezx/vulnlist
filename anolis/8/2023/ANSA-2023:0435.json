@@ -1,0 +1,109 @@
+{
+  "ID": "oval:cn.openanolis:def:20230435",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0435: webkit2gtk3 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0435",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0435",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-32435:\nA memory corruption issue was addressed with improved state management. This issue is fixed in Safari 16.4, iOS 16.4 and iPadOS 16.4, macOS Ventura 13.3, iOS 15.7.7 and iPadOS 15.7.7. Processing web content may lead to arbitrary code execution. Apple is aware of a report that this issue may have been actively exploited against versions of iOS released before iOS 15.7.\n\nCVE-2023-32439:\nA type confusion issue was addressed with improved checks. This issue is fixed in iOS 16.5.1 and iPadOS 16.5.1, Safari 16.5.1, macOS Ventura 13.4.1, iOS 15.7.7 and iPadOS 15.7.7. Processing maliciously crafted web content may lead to arbitrary code execution. Apple is aware of a report that this issue may have been actively exploited.\n\nCVE-2023-37450:\nA vulnerability was found in webkitgtk. This issue occurs when processing web content, which may lead to arbitrary code execution.\n\nCVE-2024-23222:\nA type confusion issue was addressed with improved checks. This issue is fixed in tvOS 17.3, iOS 17.3 and iPadOS 17.3, macOS Sonoma 14.3, iOS 16.7.5 and iPadOS 16.7.5, Safari 17.3, macOS Ventura 13.6.4, macOS Monterey 12.7.3. Processing maliciously crafted web content may lead to arbitrary code execution. Apple is aware of a report that this issue may have been exploited.\n\nCVE-2023-41993:\nThe issue was addressed with improved checks. This issue is fixed in Safari 17, iOS 16.7 and iPadOS 16.7, macOS Sonoma 14. Processing web content may lead to arbitrary code execution. Apple is aware of a report that this issue may have been actively exploited against versions of iOS before iOS 16.7.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-07-22"
+      },
+      "Updated": {
+        "Date": "2024-09-12"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-32435",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32435",
+          "CWE": "CWE-94",
+          "Public": "20230722"
+        },
+        {
+          "ID": "CVE-2023-32439",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32439",
+          "CWE": "CWE-94",
+          "Public": "20230722"
+        },
+        {
+          "ID": "CVE-2023-37450",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-37450",
+          "CWE": "CWE-94",
+          "Public": "20230722"
+        },
+        {
+          "ID": "CVE-2024-23222",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-23222",
+          "CWE": "CWE-843",
+          "Public": "20240123"
+        },
+        {
+          "ID": "CVE-2023-41993",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-41993",
+          "CWE": "",
+          "Public": "20230921"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "webkit2gtk3 is earlier than 0:2.38.5-1.0.1.an8.5",
+            "TestRef": "oval:cn.openanolis:tst:20230435001"
+          },
+          {
+            "Comment": "webkit2gtk3-devel is earlier than 0:devel-2.38.5-1.0.1.an8.5",
+            "TestRef": "oval:cn.openanolis:tst:20230435002"
+          },
+          {
+            "Comment": "webkit2gtk3-jsc is earlier than 0:jsc-2.38.5-1.0.1.an8.5",
+            "TestRef": "oval:cn.openanolis:tst:20230435003"
+          },
+          {
+            "Comment": "webkit2gtk3-jsc-devel is earlier than 0:jsc-devel-2.38.5-1.0.1.an8.5",
+            "TestRef": "oval:cn.openanolis:tst:20230435004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

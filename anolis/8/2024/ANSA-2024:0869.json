@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20240869",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0869: edk2 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0869",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0869",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-45236:\nEDK2's Network Package is susceptible to a predictable TCP Initial Sequence Number. This\nvulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality.\n\nCVE-2023-45237:\nEDK2's Network Package is susceptible to a predictable TCP Initial Sequence Number. This\nvulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality.\n\nCVE-2024-1298:\nEDK2 contains a vulnerability when S3 sleep is activated where an Attacker may cause a Division-By-Zero due to a UNIT32 overflow via local access. A successful exploit of this vulnerability may lead to a loss of Availability.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-08-30"
+      },
+      "Updated": {
+        "Date": "2024-08-30"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-45236",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45236",
+          "CWE": "CWE-200",
+          "Public": "20240605"
+        },
+        {
+          "ID": "CVE-2023-45237",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45237",
+          "CWE": "CWE-338",
+          "Public": "20240605"
+        },
+        {
+          "ID": "CVE-2024-1298",
+          "CVSS3": "6.0/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-1298",
+          "CWE": "CWE-369",
+          "Public": "20240830"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "edk2 is earlier than 0:20220126gitbb1bba3d77-13.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240869001"
+          },
+          {
+            "Comment": "edk2-aarch64 is earlier than 0:aarch64-20220126gitbb1bba3d77-13.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240869002"
+          },
+          {
+            "Comment": "edk2-ovmf is earlier than 0:ovmf-20220126gitbb1bba3d77-13.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240869003"
+          },
+          {
+            "Comment": "edk2-tools-doc is earlier than 0:tools-doc-20220126gitbb1bba3d77-13.0.1.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20240869004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

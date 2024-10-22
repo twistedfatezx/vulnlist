@@ -1,0 +1,89 @@
+{
+  "ID": "oval:cn.openanolis:def:20240966",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0966: OpenIPMI security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0966",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0966",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-42934:\nOpenIPMI before 2.0.36 has an out-of-bounds array access (for authentication type) in the ipmi_sim simulator, resulting in denial of service or (with very low probability) authentication bypass or code execution.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-10-15"
+      },
+      "Updated": {
+        "Date": "2024-10-15"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-42934",
+          "CVSS3": "5.0/CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-42934",
+          "CWE": "CWE-862",
+          "Public": "20240822"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "OpenIPMI is earlier than 0:2.0.32-5.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240966001"
+          },
+          {
+            "Comment": "OpenIPMI-devel is earlier than 0:devel-2.0.32-5.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240966002"
+          },
+          {
+            "Comment": "OpenIPMI-lanserv is earlier than 0:lanserv-2.0.32-5.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240966003"
+          },
+          {
+            "Comment": "OpenIPMI-libs is earlier than 0:libs-2.0.32-5.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240966004"
+          },
+          {
+            "Comment": "OpenIPMI-perl is earlier than 0:perl-2.0.32-5.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240966005"
+          },
+          {
+            "Comment": "python3-openipmi is earlier than 0:openipmi-2.0.32-5.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240966006"
+          },
+          {
+            "Comment": "OpenIPMI-doc is earlier than 0:doc-2.0.32-5.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240966007"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

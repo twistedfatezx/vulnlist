@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20230331",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0331: libssh security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0331",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0331",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-1667:\nA NULL pointer dereference was found In libssh during re-keying with algorithm guessing. This issue may allow an authenticated client to cause a denial of service.\n\nCVE-2023-2283:\nA vulnerability was found in libssh, where the authentication check of the connecting client can be bypassed in the`pki_verify_data_signature` function in memory allocation problems. This issue may happen if there is insufficient memory or the memory usage is limited. The problem is caused by the return value `rc,` which is initialized to SSH_ERROR and later rewritten to save the return value of the function call `pki_key_check_hash_compatible.` The value of the variable is not changed between this point and the cryptographic verification. Therefore any error between them calls `goto error` returning SSH_OK.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-07-01"
+      },
+      "Updated": {
+        "Date": "2023-07-01"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-1667",
+          "CVSS3": "4.3/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-1667",
+          "CWE": "CWE-476",
+          "Public": "20230527"
+        },
+        {
+          "ID": "CVE-2023-2283",
+          "CVSS3": "4.8/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-2283",
+          "CWE": "CWE-287",
+          "Public": "20230527"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libssh is earlier than 0:0.9.6-7.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230331001"
+          },
+          {
+            "Comment": "libssh-devel is earlier than 0:devel-0.9.6-7.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230331002"
+          },
+          {
+            "Comment": "libssh-config is earlier than 0:config-0.9.6-7.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230331003"
+          },
+          {
+            "Comment": "libssh-doc is earlier than 0:doc-0.9.6-7.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230331004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

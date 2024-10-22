@@ -1,0 +1,153 @@
+{
+  "ID": "oval:cn.openanolis:def:20240511",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0511: git security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0511",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0511",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-32002:\nGit is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, repositories with submodules can be crafted in a way that exploits a bug in Git whereby it can be fooled into writing files not into the submodule's worktree but into a `.git/` directory. This allows writing a hook that will be executed while the clone operation is still running, giving the user no opportunity to inspect the code that is being executed. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4. If symbolic link support is disabled in Git (e.g. via `git config --global core.symlinks false`), the described attack won't work. As always, it is best to avoid cloning repositories from untrusted sources.\n\nCVE-2024-32004:\nGit is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, an attacker can prepare a local repository in such a way that, when cloned, will execute arbitrary code during the operation. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4. As a workaround, avoid cloning repositories from untrusted sources.\n\nCVE-2024-32020:\nGit is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, local clones may end up hardlinking files into the target repository's object database when source and target repository reside on the same disk. If the source repository is owned by a different user, then those hardlinked files may be rewritten at any point in time by the untrusted user. Cloning local repositories will cause Git to either copy or hardlink files of the source repository into the target repository. This significantly speeds up such local clones compared to doing a \"proper\" clone and saves both disk space and compute time. When cloning a repository located on the same disk that is owned by a different user than the current user we also end up creating such hardlinks. These files will continue to be owned and controlled by the potentially-untrusted user and can be rewritten by them at will in the future. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4.\n\nCVE-2024-32021:\nGit is a revision control system. Prior to versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4, when cloning a local source repository that contains symlinks via the filesystem, Git may create hardlinks to arbitrary user-readable files on the same filesystem as the target repository in the `objects/` directory. Cloning a local repository over the filesystem may creating hardlinks to arbitrary user-owned files on the same filesystem in the target Git repository's `objects/` directory. When cloning a repository over the filesystem (without explicitly specifying the `file://` protocol or `--no-local`), the optimizations for local cloning\nwill be used, which include attempting to hard link the object files instead of copying them. While the code includes checks against symbolic links in the source repository, which were added during the fix for CVE-2022-39253, these checks can still be raced because the hard link operation ultimately follows symlinks. If the object on the filesystem appears as a file during the check, and then a symlink during the operation, this will allow the adversary to bypass the check and create hardlinks in the destination objects directory to arbitrary, user-readable files. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4.\n\nCVE-2024-32465:\nGit is a revision control system. The Git project recommends to avoid working in untrusted repositories, and instead to clone it first with `git clone --no-local` to obtain a clean copy. Git has specific protections to make that a safe operation even with an untrusted source repository, but vulnerabilities allow those protections to be bypassed. In the context of cloning local repositories owned by other users, this vulnerability has been covered in CVE-2024-32004. But there are circumstances where the fixes for CVE-2024-32004 are not enough: For example, when obtaining a `.zip` file containing a full copy of a Git repository, it should not be trusted by default to be safe, as e.g. hooks could be configured to run within the context of that repository. The problem has been patched in versions 2.45.1, 2.44.1, 2.43.4, 2.42.2, 2.41.1, 2.40.2, and 2.39.4. As a workaround, avoid using Git in repositories that have been obtained via archives from untrusted sources.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-26"
+      },
+      "Updated": {
+        "Date": "2024-06-26"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-32002",
+          "CVSS3": "9.0/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-32002",
+          "CWE": "CWE-22-\u003eCWE-434",
+          "Public": "20240514"
+        },
+        {
+          "ID": "CVE-2024-32004",
+          "CVSS3": "8.1/CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-32004",
+          "CWE": "CWE-114",
+          "Public": "20240626"
+        },
+        {
+          "ID": "CVE-2024-32020",
+          "CVSS3": "3.9/CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:C/C:N/I:L/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-32020",
+          "CWE": "CWE-62",
+          "Public": "20240626"
+        },
+        {
+          "ID": "CVE-2024-32021",
+          "CVSS3": "3.9/CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:C/C:N/I:L/A:L",
+          "Impact": "Low",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-32021",
+          "CWE": "CWE-61",
+          "Public": "20240626"
+        },
+        {
+          "ID": "CVE-2024-32465",
+          "CVSS3": "7.3/CVSS:3.1/AV:P/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-32465",
+          "CWE": "CWE-22",
+          "Public": "20240626"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "git is earlier than 0:2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511001"
+          },
+          {
+            "Comment": "git-core is earlier than 0:core-2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511002"
+          },
+          {
+            "Comment": "git-credential-libsecret is earlier than 0:credential-libsecret-2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511003"
+          },
+          {
+            "Comment": "git-daemon is earlier than 0:daemon-2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511004"
+          },
+          {
+            "Comment": "git-subtree is earlier than 0:subtree-2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511005"
+          },
+          {
+            "Comment": "git-all is earlier than 0:all-2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511006"
+          },
+          {
+            "Comment": "git-core-doc is earlier than 0:core-doc-2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511007"
+          },
+          {
+            "Comment": "git-email is earlier than 0:email-2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511008"
+          },
+          {
+            "Comment": "git-gui is earlier than 0:gui-2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511009"
+          },
+          {
+            "Comment": "git-instaweb is earlier than 0:instaweb-2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511010"
+          },
+          {
+            "Comment": "git-svn is earlier than 0:svn-2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511011"
+          },
+          {
+            "Comment": "gitk is earlier than 0:2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511012"
+          },
+          {
+            "Comment": "gitweb is earlier than 0:2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511013"
+          },
+          {
+            "Comment": "perl-Git is earlier than 0:Git-2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511014"
+          },
+          {
+            "Comment": "perl-Git-SVN is earlier than 0:Git-SVN-2.43.5-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240511015"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

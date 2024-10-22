@@ -1,0 +1,129 @@
+{
+  "ID": "oval:cn.openanolis:def:20220104",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0104: thunderbird security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0104",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0104",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-1097:\nNo description is available for this CVE.\n\nCVE-2022-1196:\nNo description is available for this CVE.\n\nCVE-2022-1197:\nNo description is available for this CVE.\n\nCVE-2022-24713:\nregex is an implementation of regular expressions for the Rust language. The regex crate features built-in mitigations to prevent denial of service attacks caused by untrusted regexes, or untrusted input matched by trusted regexes. Those (tunable) mitigations already provide sane defaults to prevent attacks. This guarantee is documented and it's considered part of the crate's API. Unfortunately a bug was discovered in the mitigations designed to prevent untrusted regexes to take an arbitrary amount of time during parsing, and it's possible to craft regexes that bypass such mitigations. This makes it possible to perform denial of service attacks by sending specially crafted regexes to services accepting user-controlled, untrusted regexes. All versions of the regex crate before or equal to 1.5.4 are affected by this issue. The fix is include starting from regex 1.5.5. All users accepting user-controlled regexes are recommended to upgrade immediately to the latest version of the regex crate. Unfortunately there is no fixed set of problematic regexes, as there are practically infinite regexes that could be crafted to exploit this vulnerability. Because of this, it us not recommend to deny known problematic regexes.\n\nCVE-2022-28281:\nNo description is available for this CVE.\n\nCVE-2022-28282:\nNo description is available for this CVE.\n\nCVE-2022-28285:\nNo description is available for this CVE.\n\nCVE-2022-28286:\nNo description is available for this CVE.\n\nCVE-2022-28289:\nNo description is available for this CVE.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-04-13"
+      },
+      "Updated": {
+        "Date": "2022-04-15"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-1097",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1097",
+          "CWE": "CWE-416",
+          "Public": "20220412"
+        },
+        {
+          "ID": "CVE-2022-1196",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1196",
+          "CWE": "CWE-416",
+          "Public": "20220412"
+        },
+        {
+          "ID": "CVE-2022-24713",
+          "CVSS3": "4.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-24713",
+          "CWE": "CWE-400",
+          "Public": "20220412"
+        },
+        {
+          "ID": "CVE-2022-28281",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-28281",
+          "CWE": "CWE-787",
+          "Public": "20220412"
+        },
+        {
+          "ID": "CVE-2022-28282",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-28282",
+          "CWE": "CWE-416",
+          "Public": "20220412"
+        },
+        {
+          "ID": "CVE-2022-28285",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-28285",
+          "CWE": "CWE-125",
+          "Public": "20220412"
+        },
+        {
+          "ID": "CVE-2022-28286",
+          "CVSS3": "4.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-28286",
+          "CWE": "CWE-1021",
+          "Public": "20220412"
+        },
+        {
+          "ID": "CVE-2022-28289",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-28289",
+          "CWE": "CWE-120",
+          "Public": "20220412"
+        },
+        {
+          "ID": "CVE-2022-1197",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-1197",
+          "CWE": "CWE-295",
+          "Public": "20220413"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "thunderbird is earlier than 0:91.8.0-1.0.1.an8_5",
+            "TestRef": "oval:cn.openanolis:tst:20220104001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

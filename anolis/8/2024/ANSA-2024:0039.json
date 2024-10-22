@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20240039",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0039: sqlite security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0039",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0039",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-7104:\nA vulnerability was found in SQLite3. This issue affects the sessionReadRecord function of the ext/session/sqlite3session.c function in the make alltest Handler component. Manipulation may cause a heap-based buffer overflow to occur.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-02-02"
+      },
+      "Updated": {
+        "Date": "2024-02-02"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-7104",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-7104",
+          "CWE": "CWE-122",
+          "Public": "20231229"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "lemon is earlier than 0:3.26.0-19.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240039001"
+          },
+          {
+            "Comment": "sqlite is earlier than 0:3.26.0-19.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240039002"
+          },
+          {
+            "Comment": "sqlite-devel is earlier than 0:devel-3.26.0-19.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240039003"
+          },
+          {
+            "Comment": "sqlite-libs is earlier than 0:libs-3.26.0-19.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240039004"
+          },
+          {
+            "Comment": "sqlite-doc is earlier than 0:doc-3.26.0-19.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240039005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

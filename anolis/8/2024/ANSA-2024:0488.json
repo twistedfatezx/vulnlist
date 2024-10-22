@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20240488",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0488: gstreamer1-plugins-good security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0488",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0488",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-37327:\nGStreamer FLAC File Parsing Integer Overflow Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of GStreamer. Interaction with this library is required to exploit this vulnerability but attack vectors may vary depending on the implementation.\nThe specific flaw exists within the parsing of FLAC audio files. The issue results from the lack of proper validation of user-supplied data, which can result in an integer overflow before allocating a buffer. An attacker can leverage this vulnerability to execute code in the context of the current process. Was ZDI-CAN-20775.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-18"
+      },
+      "Updated": {
+        "Date": "2024-06-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-37327",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-37327",
+          "CWE": "CWE-190",
+          "Public": "20240618"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "gstreamer1-plugins-good is earlier than 0:plugins-good-1.16.1-4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240488001"
+          },
+          {
+            "Comment": "gstreamer1-plugins-good-gtk is earlier than 0:plugins-good-gtk-1.16.1-4.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240488002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

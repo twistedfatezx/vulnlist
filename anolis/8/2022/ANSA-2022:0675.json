@@ -1,0 +1,133 @@
+{
+  "ID": "oval:cn.openanolis:def:20220675",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0675: ANSA: kernel security and bug fix update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0675",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0675",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "An update for kernel package is now avaiable for Anolis OS 8 that fix CVE-2022-2978:\n\nCVE-2022-2978:\nA flaw use after free in the Linux kernel NILFS file system was found in the way user triggers function security_inode_alloc to fail with following call to function nilfs_mdt_destroy. A local user could use this flaw to crash the system or potentially escalate their privileges on the system.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-09-05"
+      },
+      "Updated": {
+        "Date": "2022-09-30"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-2978",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-2978",
+          "CWE": "CWE-416",
+          "Public": "20230110"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675001"
+          },
+          {
+            "Comment": "kernel is earlier than 0:4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675002"
+          },
+          {
+            "Comment": "kernel-core is earlier than 0:core-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675003"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675004"
+          },
+          {
+            "Comment": "kernel-debug-core is earlier than 0:debug-core-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675005"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675006"
+          },
+          {
+            "Comment": "kernel-debug-modules is earlier than 0:debug-modules-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675007"
+          },
+          {
+            "Comment": "kernel-debug-modules-extra is earlier than 0:debug-modules-extra-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675008"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675009"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675010"
+          },
+          {
+            "Comment": "kernel-modules is earlier than 0:modules-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675011"
+          },
+          {
+            "Comment": "kernel-modules-extra is earlier than 0:modules-extra-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675012"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675013"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675014"
+          },
+          {
+            "Comment": "kernel-tools-libs-devel is earlier than 0:tools-libs-devel-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675015"
+          },
+          {
+            "Comment": "perf is earlier than 0:4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675016"
+          },
+          {
+            "Comment": "python3-perf is earlier than 0:perf-4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675017"
+          },
+          {
+            "Comment": "kernel(ANCK)4.19 is earlier than 0:4.19.91-26.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220675018"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

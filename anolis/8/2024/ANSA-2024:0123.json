@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20240123",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0123: python3 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0123",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0123",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2007-4559:\nDirectory traversal vulnerability in the (1) extract and (2) extractall functions in the tarfile module in Python allows user-assisted remote attackers to overwrite arbitrary files via a .. (dot dot) sequence in filenames in a TAR archive, a related issue to CVE-2001-1267.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-04-03"
+      },
+      "Updated": {
+        "Date": "2024-04-03"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2007-4559",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2007-4559",
+          "CWE": "CWE-22",
+          "Public": "20070823"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "platform-python is earlier than 0:python-3.6.8-56.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240123001"
+          },
+          {
+            "Comment": "platform-python-debug is earlier than 0:python-debug-3.6.8-56.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240123002"
+          },
+          {
+            "Comment": "platform-python-devel is earlier than 0:python-devel-3.6.8-56.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240123003"
+          },
+          {
+            "Comment": "python3-idle is earlier than 0:idle-3.6.8-56.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240123004"
+          },
+          {
+            "Comment": "python3-libs is earlier than 0:libs-3.6.8-56.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240123005"
+          },
+          {
+            "Comment": "python3-test is earlier than 0:test-3.6.8-56.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240123006"
+          },
+          {
+            "Comment": "python3-tkinter is earlier than 0:tkinter-3.6.8-56.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240123007"
+          },
+          {
+            "Comment": "python3 is earlier than 0:3.6.8-56.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240123008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

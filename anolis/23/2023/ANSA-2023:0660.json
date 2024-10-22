@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20230660",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0660: perl-CPAN security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0660",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0660",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-31484:\nCPAN.pm before 2.35 does not verify TLS certificates when downloading distributions over HTTPS.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-11-07"
+      },
+      "Updated": {
+        "Date": "2023-11-08"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-31484",
+          "CVSS3": "7.4/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-31484",
+          "CWE": "CWE-295",
+          "Public": "20230428"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "perl-CPAN is earlier than 0:CPAN-2.36-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230660001"
+          },
+          {
+            "Comment": "perl-CPAN-doc is earlier than 0:CPAN-doc-2.36-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230660002"
+          },
+          {
+            "Comment": "perl-CPAN-tests is earlier than 0:CPAN-tests-2.36-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230660003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

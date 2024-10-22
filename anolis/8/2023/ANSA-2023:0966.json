@@ -1,0 +1,237 @@
+{
+  "ID": "oval:cn.openanolis:def:20230966",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0966: kernel security, bug fix, and enhancement update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0966",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0966",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-40982:\nInformation exposure through microarchitectural state after transient execution in certain vector execution units for some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.\n\nCVE-2022-45884:\nAn issue was discovered in the Linux kernel through 6.0.9. drivers/media/dvb-core/dvbdev.c has a use-after-free, related to dvb_register_device dynamically allocating fops.\n\nCVE-2022-45886:\nAn issue was discovered in the Linux kernel through 6.0.9. drivers/media/dvb-core/dvb_net.c has a .disconnect versus dvb_device_open race condition that leads to a use-after-free.\n\nCVE-2022-45919:\nAn issue was discovered in the Linux kernel through 6.0.10. In drivers/media/dvb-core/dvb_ca_en50221.c, a use-after-free can occur is there is a disconnect after an open, because of the lack of a wait_event.\n\nCVE-2023-1192:\nA use-after-free flaw was found in smb2_is_status_io_timeout() in CIFS in the Linux Kernel. After CIFS transfers response data to a system call, there are still local variable points to the memory region, and if the system call frees it faster than CIFS uses it, CIFS will access a free memory region, leading to a denial of service.\n\nCVE-2023-3609:\nA use-after-free vulnerability in the Linux kernel's net/sched: cls_u32 component can be exploited to achieve local privilege escalation. If tcf_change_indev() fails, u32_set_parms() will immediately return an error after incrementing or decrementing the reference counter in tcf_bind_filter(). If an attacker can control the reference counter and set it to zero, they can cause the reference to be freed, leading to a use-after-free vulnerability. We recommend upgrading past commit 04c55383fa5689357bcdd2c8036725a55ed632bc.\n\nCVE-2023-38409:\nAn issue was discovered in set_con2fb_map in drivers/video/fbdev/core/fbcon.c in the Linux kernel before 6.2.12. Because an assignment occurs only for the first vc, the fbcon_registered_fb and fbcon_display arrays can be desynchronized in fbcon_mode_deleted (the con2fb_map points at the old fb_info).\n\nCVE-2023-4128:\n** REJECT ** DO NOT USE THIS CVE RECORD. ConsultIDs: CVE-2023-4206, CVE-2023-4207, CVE-2023-4208. Reason: This record is a duplicate of CVE-2023-4206, CVE-2023-4207, CVE-2023-4208. Notes: All CVE users should reference CVE-2023-4206, CVE-2023-4207, CVE-2023-4208 instead of this record. All references and descriptions in this record have been removed to prevent accidental usage.\n\nCVE-2023-4206:\nA use-after-free vulnerability in the Linux kernel's net/sched: cls_route component can be exploited to achieve local privilege escalation. When route4_change() is called on an existing filter, the whole tcf_result struct is always copied into the new instance of the filter. This causes a problem when updating a filter bound to a class, as tcf_unbind_filter() is always called on the old instance in the success path, decreasing filter_cnt of the still referenced class and allowing it to be deleted, leading to a use-after-free. We recommend upgrading past commit b80b829e9e2c1b3f7aae34855e04d8f6ecaf13c8.\n\nCVE-2023-4207:\nA use-after-free vulnerability in the Linux kernel's net/sched: cls_fw component can be exploited to achieve local privilege escalation. When fw_change() is called on an existing filter, the whole tcf_result struct is always copied into the new instance of the filter. This causes a problem when updating a filter bound to a class, as tcf_unbind_filter() is always called on the old instance in the success path, decreasing filter_cnt of the still referenced class and allowing it to be deleted, leading to a use-after-free. We recommend upgrading past commit 76e42ae831991c828cffa8c37736ebfb831ad5ec.\n\nCVE-2023-4208:\nA use-after-free vulnerability in the Linux kernel's net/sched: cls_u32 component can be exploited to achieve local privilege escalation. When u32_change() is called on an existing filter, the whole tcf_result struct is always copied into the new instance of the filter. This causes a problem when updating a filter bound to a class, as tcf_unbind_filter() is always called on the old instance in the success path, decreasing filter_cnt of the still referenced class and allowing it to be deleted, leading to a use-after-free. We recommend upgrading past commit 3044b16e7c6fe5d24b1cdbcf1bd0a9d92d1ebd81.\n\nCVE-2023-42753:\nAn array indexing vulnerability was found in the netfilter subsystem of the Linux kernel. A missing macro could lead to a miscalculation of the `h-\u003enets` array offset, providing attackers with the primitive to arbitrarily increment/decrement a memory buffer out-of-bound. This issue may allow a local user to crash the system or potentially escalate their privileges on the system.\n\nCVE-2023-4732:\nA flaw was found in pfn_swap_entry_to_page in memory management subsystem in the Linux Kernel. In this flaw, an attacker with a local user privilege may cause a denial of service problem due to a BUG statement referencing pmd_t x.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-12-25"
+      },
+      "Updated": {
+        "Date": "2023-12-25"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-40982",
+          "CVSS3": "6.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-40982",
+          "CWE": "CWE-200",
+          "Public": "20230810"
+        },
+        {
+          "ID": "CVE-2022-45884",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45884",
+          "CWE": "CWE-362-\u003eCWE-416",
+          "Public": "20221124"
+        },
+        {
+          "ID": "CVE-2022-45886",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45886",
+          "CWE": "CWE-362-\u003eCWE-416",
+          "Public": "20221124"
+        },
+        {
+          "ID": "CVE-2022-45919",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45919",
+          "CWE": "CWE-362-\u003eCWE-416",
+          "Public": "20221121"
+        },
+        {
+          "ID": "CVE-2023-1192",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-1192",
+          "CWE": "CWE-416",
+          "Public": "20231225"
+        },
+        {
+          "ID": "CVE-2023-3609",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-3609",
+          "CWE": "CWE-415",
+          "Public": "20230724"
+        },
+        {
+          "ID": "CVE-2023-38409",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-38409",
+          "CWE": "CWE-129",
+          "Public": "20230717"
+        },
+        {
+          "ID": "CVE-2023-4128",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-4128",
+          "CWE": "CWE-416",
+          "Public": "20230729"
+        },
+        {
+          "ID": "CVE-2023-4206",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-4206",
+          "CWE": "CWE-416",
+          "Public": "20230906"
+        },
+        {
+          "ID": "CVE-2023-4207",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-4207",
+          "CWE": "CWE-416",
+          "Public": "20230906"
+        },
+        {
+          "ID": "CVE-2023-4208",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-4208",
+          "CWE": "CWE-416",
+          "Public": "20230906"
+        },
+        {
+          "ID": "CVE-2023-42753",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-42753",
+          "CWE": "CWE-191-\u003eCWE-787",
+          "Public": "20230925"
+        },
+        {
+          "ID": "CVE-2023-4732",
+          "CVSS3": "4.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-4732",
+          "CWE": "CWE-366",
+          "Public": "20230902"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966001"
+          },
+          {
+            "Comment": "kernel is earlier than 0:4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966002"
+          },
+          {
+            "Comment": "kernel-core is earlier than 0:core-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966003"
+          },
+          {
+            "Comment": "kernel-cross-headers is earlier than 0:cross-headers-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966004"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966005"
+          },
+          {
+            "Comment": "kernel-debug-core is earlier than 0:debug-core-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966006"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966007"
+          },
+          {
+            "Comment": "kernel-debug-modules is earlier than 0:debug-modules-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966008"
+          },
+          {
+            "Comment": "kernel-debug-modules-extra is earlier than 0:debug-modules-extra-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966009"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966010"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966011"
+          },
+          {
+            "Comment": "kernel-modules is earlier than 0:modules-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966012"
+          },
+          {
+            "Comment": "kernel-modules-extra is earlier than 0:modules-extra-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966013"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966014"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966015"
+          },
+          {
+            "Comment": "kernel-tools-libs-devel is earlier than 0:tools-libs-devel-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966016"
+          },
+          {
+            "Comment": "perf is earlier than 0:4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966017"
+          },
+          {
+            "Comment": "python3-perf is earlier than 0:perf-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966018"
+          },
+          {
+            "Comment": "kernel-abi-stablelists is earlier than 0:abi-stablelists-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966019"
+          },
+          {
+            "Comment": "kernel-doc is earlier than 0:doc-4.18.0-477.36.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230966020"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20230408",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0408: unbound security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0408",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0408",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-3204:\nA vulnerability named 'Non-Responsive Delegation Attack' (NRDelegation Attack) has been discovered in various DNS resolving software. The NRDelegation Attack works by having a malicious delegation with a considerable number of non responsive nameservers. The attack starts by querying a resolver for a record that relies on those unresponsive nameservers. The attack can cause a resolver to spend a lot of time/resources resolving records under a malicious delegation point where a considerable number of unresponsive NS records reside. It can trigger high CPU usage in some resolver implementations that continually look in the cache for resolved NS records in that delegation. This can lead to degraded performance and eventually denial of service in orchestrated attacks. Unbound does not suffer from high CPU usage, but resources are still needed for resolving the malicious delegation. Unbound will keep trying to resolve the record until hard limits are reached. Based on the nature of the attack and the replies, different limits could be reached. From version 1.16.3 on, Unbound introduces fixes for better performance when under load, by cutting opportunistic queries for nameserver discovery and DNSKEY prefetching and limiting the number of times a delegation point can issue a cache lookup for missing records.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-07-01"
+      },
+      "Updated": {
+        "Date": "2023-07-01"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-3204",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-3204",
+          "CWE": "",
+          "Public": "20230701"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python3-unbound is earlier than 0:unbound-1.16.2-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230408001"
+          },
+          {
+            "Comment": "unbound is earlier than 0:1.16.2-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230408002"
+          },
+          {
+            "Comment": "unbound-devel is earlier than 0:devel-1.16.2-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230408003"
+          },
+          {
+            "Comment": "unbound-libs is earlier than 0:libs-1.16.2-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230408004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

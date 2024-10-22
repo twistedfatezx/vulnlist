@@ -1,0 +1,97 @@
+{
+  "ID": "oval:cn.openanolis:def:20220817",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0817: openssh security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0817",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0817",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2021-41617:\nsshd in OpenSSH 6.2 through 8.x before 8.8, when certain non-default configurations are used, allows privilege escalation because supplemental groups are not initialized as expected. Helper programs for AuthorizedKeysCommand and AuthorizedPrincipalsCommand may run with privileges associated with group memberships of the sshd process, if the configuration specifies running the command as a different user.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-11-25"
+      },
+      "Updated": {
+        "Date": "2022-11-28"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-41617",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-41617",
+          "CWE": "CWE-273",
+          "Public": "20220615"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "openssh is earlier than 0:7.4p1-22.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220817001"
+          },
+          {
+            "Comment": "openssh-askpass is earlier than 0:askpass-7.4p1-22.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220817002"
+          },
+          {
+            "Comment": "openssh-cavs is earlier than 0:cavs-7.4p1-22.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220817003"
+          },
+          {
+            "Comment": "openssh-clients is earlier than 0:clients-7.4p1-22.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220817004"
+          },
+          {
+            "Comment": "openssh-keycat is earlier than 0:keycat-7.4p1-22.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220817005"
+          },
+          {
+            "Comment": "openssh-ldap is earlier than 0:ldap-7.4p1-22.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220817006"
+          },
+          {
+            "Comment": "openssh-server is earlier than 0:server-7.4p1-22.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220817007"
+          },
+          {
+            "Comment": "openssh-server-sysvinit is earlier than 0:server-sysvinit-7.4p1-22.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220817008"
+          },
+          {
+            "Comment": "pam_ssh_agent_auth is earlier than 0:0.10.3-2.22.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220817009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

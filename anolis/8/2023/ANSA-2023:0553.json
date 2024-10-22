@@ -1,0 +1,117 @@
+{
+  "ID": "oval:cn.openanolis:def:20230553",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0553: nodejs:18 security, bug fix, and enhancement update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0553",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0553",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-25883:\nVersions of the package semver before 7.5.2 are vulnerable to Regular Expression Denial of Service (ReDoS) via the function new Range, when untrusted user data is provided as a range.\n\nCVE-2023-32002:\nThe use of `Module._load()` can bypass the policy mechanism and require modules outside of the policy.json definition for a given module. This vulnerability affects all users using the experimental policy mechanism in all active release lines: 16.x, 18.x and, 20.x. Please note that at the time this CVE was issued, the policy is an experimental feature of Node.js.\n\nCVE-2023-32006:\nThe use of `module.constructor.createRequire()` can bypass the policy mechanism and require modules outside of the policy.json definition for a given module. This vulnerability affects all users using the experimental policy mechanism in all active release lines: 16.x, 18.x, and, 20.x. Please note that at the time this CVE was issued, the policy is an experimental feature of Node.js.\n\nCVE-2023-32559:\nA privilege escalation vulnerability exists in the experimental policy mechanism in all active release lines: 16.x, 18.x and, 20.x. The use of the deprecated API `process.binding()` can bypass the policy mechanism by requiring internal modules and eventually take advantage of `process.binding('spawn_sync')` run arbitrary code, outside of the limits defined in a `policy.json` file. Please note that at the time this CVE was issued, the policy is an experimental feature of Node.js.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-10-08"
+      },
+      "Updated": {
+        "Date": "2023-10-08"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-25883",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25883",
+          "CWE": "CWE-1333",
+          "Public": "20230620"
+        },
+        {
+          "ID": "CVE-2023-32002",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32002",
+          "CWE": "CWE-213-\u003eCWE-1268",
+          "Public": "20230821"
+        },
+        {
+          "ID": "CVE-2023-32006",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32006",
+          "CWE": "CWE-213",
+          "Public": "20230815"
+        },
+        {
+          "ID": "CVE-2023-32559",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-32559",
+          "CWE": "CWE-94",
+          "Public": "20230823"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "nodejs is earlier than 1:18.17.1-1.0.2.module+an8.8.0+11115+3f51f57f",
+            "TestRef": "oval:cn.openanolis:tst:20230553001"
+          },
+          {
+            "Comment": "nodejs-devel is earlier than 1:devel-18.17.1-1.0.2.module+an8.8.0+11115+3f51f57f",
+            "TestRef": "oval:cn.openanolis:tst:20230553002"
+          },
+          {
+            "Comment": "nodejs-full-i18n is earlier than 1:full-i18n-18.17.1-1.0.2.module+an8.8.0+11115+3f51f57f",
+            "TestRef": "oval:cn.openanolis:tst:20230553003"
+          },
+          {
+            "Comment": "npm is earlier than 1:9.6.7-1.18.17.1.1.0.2.module+an8.8.0+11115+3f51f57f",
+            "TestRef": "oval:cn.openanolis:tst:20230553004"
+          },
+          {
+            "Comment": "nodejs-nodemon is earlier than 0:nodemon-3.0.1-1.module+an8.8.0+11115+3f51f57f",
+            "TestRef": "oval:cn.openanolis:tst:20230553005"
+          },
+          {
+            "Comment": "nodejs-packaging is earlier than 0:packaging-2021.06-4.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20230553006"
+          },
+          {
+            "Comment": "nodejs-docs is earlier than 1:docs-18.17.1-1.0.2.module+an8.8.0+11115+3f51f57f",
+            "TestRef": "oval:cn.openanolis:tst:20230553007"
+          },
+          {
+            "Comment": "nodejs-packaging-bundler is earlier than 0:packaging-bundler-2021.06-4.module+an8.7.0+10992+43538c76",
+            "TestRef": "oval:cn.openanolis:tst:20230553008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

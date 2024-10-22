@@ -1,0 +1,785 @@
+{
+  "ID": "oval:cn.openanolis:def:20240531",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0531: libreoffice security fix update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0531",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0531",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2023-6185:\nImproper Input Validation vulnerability in GStreamer integration of The Document Foundation LibreOffice allows an attacker to execute arbitrary GStreamer plugins.\nIn affected versions the filename of the embedded video is not sufficiently escaped when passed to GStreamer enabling an attacker to run arbitrary gstreamer plugins depending on what plugins are installed on the target system.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-27"
+      },
+      "Updated": {
+        "Date": "2024-06-28"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-6185",
+          "CVSS3": "8.3/CVSS:3.1/AV:A/AC:L/PR:L/UI:R/S:C/C:L/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6185",
+          "CWE": "CWE-250",
+          "Public": "20231211"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libreoffice is earlier than 1:5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531001"
+          },
+          {
+            "Comment": "libreoffice-base is earlier than 1:base-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531002"
+          },
+          {
+            "Comment": "libreoffice-bsh is earlier than 1:bsh-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531003"
+          },
+          {
+            "Comment": "libreoffice-calc is earlier than 1:calc-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531004"
+          },
+          {
+            "Comment": "libreoffice-core is earlier than 1:core-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531005"
+          },
+          {
+            "Comment": "libreoffice-draw is earlier than 1:draw-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531006"
+          },
+          {
+            "Comment": "libreoffice-emailmerge is earlier than 1:emailmerge-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531007"
+          },
+          {
+            "Comment": "libreoffice-filters is earlier than 1:filters-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531008"
+          },
+          {
+            "Comment": "libreoffice-gdb-debug-support is earlier than 1:gdb-debug-support-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531009"
+          },
+          {
+            "Comment": "libreoffice-glade is earlier than 1:glade-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531010"
+          },
+          {
+            "Comment": "libreoffice-graphicfilter is earlier than 1:graphicfilter-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531011"
+          },
+          {
+            "Comment": "libreoffice-gtk2 is earlier than 1:gtk2-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531012"
+          },
+          {
+            "Comment": "libreoffice-gtk3 is earlier than 1:gtk3-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531013"
+          },
+          {
+            "Comment": "libreoffice-help-ar is earlier than 1:help-ar-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531014"
+          },
+          {
+            "Comment": "libreoffice-help-bg is earlier than 1:help-bg-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531015"
+          },
+          {
+            "Comment": "libreoffice-help-bn is earlier than 1:help-bn-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531016"
+          },
+          {
+            "Comment": "libreoffice-help-ca is earlier than 1:help-ca-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531017"
+          },
+          {
+            "Comment": "libreoffice-help-cs is earlier than 1:help-cs-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531018"
+          },
+          {
+            "Comment": "libreoffice-help-da is earlier than 1:help-da-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531019"
+          },
+          {
+            "Comment": "libreoffice-help-de is earlier than 1:help-de-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531020"
+          },
+          {
+            "Comment": "libreoffice-help-dz is earlier than 1:help-dz-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531021"
+          },
+          {
+            "Comment": "libreoffice-help-el is earlier than 1:help-el-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531022"
+          },
+          {
+            "Comment": "libreoffice-help-es is earlier than 1:help-es-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531023"
+          },
+          {
+            "Comment": "libreoffice-help-et is earlier than 1:help-et-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531024"
+          },
+          {
+            "Comment": "libreoffice-help-eu is earlier than 1:help-eu-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531025"
+          },
+          {
+            "Comment": "libreoffice-help-fi is earlier than 1:help-fi-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531026"
+          },
+          {
+            "Comment": "libreoffice-help-fr is earlier than 1:help-fr-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531027"
+          },
+          {
+            "Comment": "libreoffice-help-gl is earlier than 1:help-gl-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531028"
+          },
+          {
+            "Comment": "libreoffice-help-gu is earlier than 1:help-gu-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531029"
+          },
+          {
+            "Comment": "libreoffice-help-he is earlier than 1:help-he-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531030"
+          },
+          {
+            "Comment": "libreoffice-help-hi is earlier than 1:help-hi-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531031"
+          },
+          {
+            "Comment": "libreoffice-help-hr is earlier than 1:help-hr-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531032"
+          },
+          {
+            "Comment": "libreoffice-help-hu is earlier than 1:help-hu-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531033"
+          },
+          {
+            "Comment": "libreoffice-help-id is earlier than 1:help-id-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531034"
+          },
+          {
+            "Comment": "libreoffice-help-it is earlier than 1:help-it-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531035"
+          },
+          {
+            "Comment": "libreoffice-help-ja is earlier than 1:help-ja-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531036"
+          },
+          {
+            "Comment": "libreoffice-help-ko is earlier than 1:help-ko-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531037"
+          },
+          {
+            "Comment": "libreoffice-help-lt is earlier than 1:help-lt-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531038"
+          },
+          {
+            "Comment": "libreoffice-help-lv is earlier than 1:help-lv-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531039"
+          },
+          {
+            "Comment": "libreoffice-help-nb is earlier than 1:help-nb-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531040"
+          },
+          {
+            "Comment": "libreoffice-help-nl is earlier than 1:help-nl-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531041"
+          },
+          {
+            "Comment": "libreoffice-help-nn is earlier than 1:help-nn-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531042"
+          },
+          {
+            "Comment": "libreoffice-help-pl is earlier than 1:help-pl-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531043"
+          },
+          {
+            "Comment": "libreoffice-help-pt-BR is earlier than 1:help-pt-BR-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531044"
+          },
+          {
+            "Comment": "libreoffice-help-pt-PT is earlier than 1:help-pt-PT-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531045"
+          },
+          {
+            "Comment": "libreoffice-help-ro is earlier than 1:help-ro-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531046"
+          },
+          {
+            "Comment": "libreoffice-help-ru is earlier than 1:help-ru-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531047"
+          },
+          {
+            "Comment": "libreoffice-help-si is earlier than 1:help-si-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531048"
+          },
+          {
+            "Comment": "libreoffice-help-sk is earlier than 1:help-sk-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531049"
+          },
+          {
+            "Comment": "libreoffice-help-sl is earlier than 1:help-sl-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531050"
+          },
+          {
+            "Comment": "libreoffice-help-sv is earlier than 1:help-sv-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531051"
+          },
+          {
+            "Comment": "libreoffice-help-ta is earlier than 1:help-ta-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531052"
+          },
+          {
+            "Comment": "libreoffice-help-tr is earlier than 1:help-tr-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531053"
+          },
+          {
+            "Comment": "libreoffice-help-uk is earlier than 1:help-uk-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531054"
+          },
+          {
+            "Comment": "libreoffice-help-zh-Hans is earlier than 1:help-zh-Hans-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531055"
+          },
+          {
+            "Comment": "libreoffice-help-zh-Hant is earlier than 1:help-zh-Hant-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531056"
+          },
+          {
+            "Comment": "libreoffice-impress is earlier than 1:impress-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531057"
+          },
+          {
+            "Comment": "libreoffice-langpack-af is earlier than 1:langpack-af-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531058"
+          },
+          {
+            "Comment": "libreoffice-langpack-ar is earlier than 1:langpack-ar-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531059"
+          },
+          {
+            "Comment": "libreoffice-langpack-as is earlier than 1:langpack-as-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531060"
+          },
+          {
+            "Comment": "libreoffice-langpack-bg is earlier than 1:langpack-bg-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531061"
+          },
+          {
+            "Comment": "libreoffice-langpack-bn is earlier than 1:langpack-bn-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531062"
+          },
+          {
+            "Comment": "libreoffice-langpack-br is earlier than 1:langpack-br-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531063"
+          },
+          {
+            "Comment": "libreoffice-langpack-ca is earlier than 1:langpack-ca-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531064"
+          },
+          {
+            "Comment": "libreoffice-langpack-cs is earlier than 1:langpack-cs-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531065"
+          },
+          {
+            "Comment": "libreoffice-langpack-cy is earlier than 1:langpack-cy-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531066"
+          },
+          {
+            "Comment": "libreoffice-langpack-da is earlier than 1:langpack-da-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531067"
+          },
+          {
+            "Comment": "libreoffice-langpack-de is earlier than 1:langpack-de-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531068"
+          },
+          {
+            "Comment": "libreoffice-langpack-dz is earlier than 1:langpack-dz-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531069"
+          },
+          {
+            "Comment": "libreoffice-langpack-el is earlier than 1:langpack-el-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531070"
+          },
+          {
+            "Comment": "libreoffice-langpack-en is earlier than 1:langpack-en-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531071"
+          },
+          {
+            "Comment": "libreoffice-langpack-es is earlier than 1:langpack-es-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531072"
+          },
+          {
+            "Comment": "libreoffice-langpack-et is earlier than 1:langpack-et-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531073"
+          },
+          {
+            "Comment": "libreoffice-langpack-eu is earlier than 1:langpack-eu-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531074"
+          },
+          {
+            "Comment": "libreoffice-langpack-fa is earlier than 1:langpack-fa-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531075"
+          },
+          {
+            "Comment": "libreoffice-langpack-fi is earlier than 1:langpack-fi-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531076"
+          },
+          {
+            "Comment": "libreoffice-langpack-fr is earlier than 1:langpack-fr-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531077"
+          },
+          {
+            "Comment": "libreoffice-langpack-ga is earlier than 1:langpack-ga-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531078"
+          },
+          {
+            "Comment": "libreoffice-langpack-gl is earlier than 1:langpack-gl-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531079"
+          },
+          {
+            "Comment": "libreoffice-langpack-gu is earlier than 1:langpack-gu-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531080"
+          },
+          {
+            "Comment": "libreoffice-langpack-he is earlier than 1:langpack-he-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531081"
+          },
+          {
+            "Comment": "libreoffice-langpack-hi is earlier than 1:langpack-hi-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531082"
+          },
+          {
+            "Comment": "libreoffice-langpack-hr is earlier than 1:langpack-hr-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531083"
+          },
+          {
+            "Comment": "libreoffice-langpack-hu is earlier than 1:langpack-hu-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531084"
+          },
+          {
+            "Comment": "libreoffice-langpack-id is earlier than 1:langpack-id-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531085"
+          },
+          {
+            "Comment": "libreoffice-langpack-it is earlier than 1:langpack-it-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531086"
+          },
+          {
+            "Comment": "libreoffice-langpack-ja is earlier than 1:langpack-ja-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531087"
+          },
+          {
+            "Comment": "libreoffice-langpack-kk is earlier than 1:langpack-kk-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531088"
+          },
+          {
+            "Comment": "libreoffice-langpack-kn is earlier than 1:langpack-kn-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531089"
+          },
+          {
+            "Comment": "libreoffice-langpack-ko is earlier than 1:langpack-ko-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531090"
+          },
+          {
+            "Comment": "libreoffice-langpack-lt is earlier than 1:langpack-lt-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531091"
+          },
+          {
+            "Comment": "libreoffice-langpack-lv is earlier than 1:langpack-lv-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531092"
+          },
+          {
+            "Comment": "libreoffice-langpack-mai is earlier than 1:langpack-mai-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531093"
+          },
+          {
+            "Comment": "libreoffice-langpack-ml is earlier than 1:langpack-ml-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531094"
+          },
+          {
+            "Comment": "libreoffice-langpack-mr is earlier than 1:langpack-mr-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531095"
+          },
+          {
+            "Comment": "libreoffice-langpack-nb is earlier than 1:langpack-nb-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531096"
+          },
+          {
+            "Comment": "libreoffice-langpack-nl is earlier than 1:langpack-nl-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531097"
+          },
+          {
+            "Comment": "libreoffice-langpack-nn is earlier than 1:langpack-nn-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531098"
+          },
+          {
+            "Comment": "libreoffice-langpack-nr is earlier than 1:langpack-nr-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531099"
+          },
+          {
+            "Comment": "libreoffice-langpack-nso is earlier than 1:langpack-nso-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531100"
+          },
+          {
+            "Comment": "libreoffice-langpack-or is earlier than 1:langpack-or-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531101"
+          },
+          {
+            "Comment": "libreoffice-langpack-pa is earlier than 1:langpack-pa-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531102"
+          },
+          {
+            "Comment": "libreoffice-langpack-pl is earlier than 1:langpack-pl-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531103"
+          },
+          {
+            "Comment": "libreoffice-langpack-pt-BR is earlier than 1:langpack-pt-BR-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531104"
+          },
+          {
+            "Comment": "libreoffice-langpack-pt-PT is earlier than 1:langpack-pt-PT-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531105"
+          },
+          {
+            "Comment": "libreoffice-langpack-ro is earlier than 1:langpack-ro-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531106"
+          },
+          {
+            "Comment": "libreoffice-langpack-ru is earlier than 1:langpack-ru-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531107"
+          },
+          {
+            "Comment": "libreoffice-langpack-si is earlier than 1:langpack-si-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531108"
+          },
+          {
+            "Comment": "libreoffice-langpack-sk is earlier than 1:langpack-sk-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531109"
+          },
+          {
+            "Comment": "libreoffice-langpack-sl is earlier than 1:langpack-sl-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531110"
+          },
+          {
+            "Comment": "libreoffice-langpack-sr is earlier than 1:langpack-sr-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531111"
+          },
+          {
+            "Comment": "libreoffice-langpack-ss is earlier than 1:langpack-ss-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531112"
+          },
+          {
+            "Comment": "libreoffice-langpack-st is earlier than 1:langpack-st-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531113"
+          },
+          {
+            "Comment": "libreoffice-langpack-sv is earlier than 1:langpack-sv-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531114"
+          },
+          {
+            "Comment": "libreoffice-langpack-ta is earlier than 1:langpack-ta-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531115"
+          },
+          {
+            "Comment": "libreoffice-langpack-te is earlier than 1:langpack-te-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531116"
+          },
+          {
+            "Comment": "libreoffice-langpack-th is earlier than 1:langpack-th-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531117"
+          },
+          {
+            "Comment": "libreoffice-langpack-tn is earlier than 1:langpack-tn-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531118"
+          },
+          {
+            "Comment": "libreoffice-langpack-tr is earlier than 1:langpack-tr-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531119"
+          },
+          {
+            "Comment": "libreoffice-langpack-ts is earlier than 1:langpack-ts-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531120"
+          },
+          {
+            "Comment": "libreoffice-langpack-uk is earlier than 1:langpack-uk-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531121"
+          },
+          {
+            "Comment": "libreoffice-langpack-ve is earlier than 1:langpack-ve-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531122"
+          },
+          {
+            "Comment": "libreoffice-langpack-xh is earlier than 1:langpack-xh-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531123"
+          },
+          {
+            "Comment": "libreoffice-langpack-zh-Hans is earlier than 1:langpack-zh-Hans-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531124"
+          },
+          {
+            "Comment": "libreoffice-langpack-zh-Hant is earlier than 1:langpack-zh-Hant-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531125"
+          },
+          {
+            "Comment": "libreoffice-langpack-zu is earlier than 1:langpack-zu-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531126"
+          },
+          {
+            "Comment": "libreoffice-librelogo is earlier than 1:librelogo-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531127"
+          },
+          {
+            "Comment": "libreoffice-math is earlier than 1:math-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531128"
+          },
+          {
+            "Comment": "libreoffice-nlpsolver is earlier than 1:nlpsolver-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531129"
+          },
+          {
+            "Comment": "libreoffice-officebean is earlier than 1:officebean-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531130"
+          },
+          {
+            "Comment": "libreoffice-ogltrans is earlier than 1:ogltrans-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531131"
+          },
+          {
+            "Comment": "libreoffice-pdfimport is earlier than 1:pdfimport-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531132"
+          },
+          {
+            "Comment": "libreoffice-postgresql is earlier than 1:postgresql-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531133"
+          },
+          {
+            "Comment": "libreoffice-pyuno is earlier than 1:pyuno-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531134"
+          },
+          {
+            "Comment": "libreoffice-rhino is earlier than 1:rhino-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531135"
+          },
+          {
+            "Comment": "libreoffice-sdk is earlier than 1:sdk-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531136"
+          },
+          {
+            "Comment": "libreoffice-sdk-doc is earlier than 1:sdk-doc-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531137"
+          },
+          {
+            "Comment": "libreoffice-ure is earlier than 1:ure-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531138"
+          },
+          {
+            "Comment": "libreoffice-wiki-publisher is earlier than 1:wiki-publisher-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531139"
+          },
+          {
+            "Comment": "libreoffice-writer is earlier than 1:writer-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531140"
+          },
+          {
+            "Comment": "libreoffice-x11 is earlier than 1:x11-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531141"
+          },
+          {
+            "Comment": "libreoffice-xsltfilter is earlier than 1:xsltfilter-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531142"
+          },
+          {
+            "Comment": "libreofficekit is earlier than 1:5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531143"
+          },
+          {
+            "Comment": "libreofficekit-devel is earlier than 1:devel-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531144"
+          },
+          {
+            "Comment": "autocorr-af is earlier than 1:af-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531145"
+          },
+          {
+            "Comment": "autocorr-bg is earlier than 1:bg-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531146"
+          },
+          {
+            "Comment": "autocorr-ca is earlier than 1:ca-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531147"
+          },
+          {
+            "Comment": "autocorr-cs is earlier than 1:cs-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531148"
+          },
+          {
+            "Comment": "autocorr-da is earlier than 1:da-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531149"
+          },
+          {
+            "Comment": "autocorr-de is earlier than 1:de-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531150"
+          },
+          {
+            "Comment": "autocorr-en is earlier than 1:en-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531151"
+          },
+          {
+            "Comment": "autocorr-es is earlier than 1:es-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531152"
+          },
+          {
+            "Comment": "autocorr-fa is earlier than 1:fa-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531153"
+          },
+          {
+            "Comment": "autocorr-fi is earlier than 1:fi-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531154"
+          },
+          {
+            "Comment": "autocorr-fr is earlier than 1:fr-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531155"
+          },
+          {
+            "Comment": "autocorr-ga is earlier than 1:ga-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531156"
+          },
+          {
+            "Comment": "autocorr-hr is earlier than 1:hr-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531157"
+          },
+          {
+            "Comment": "autocorr-hu is earlier than 1:hu-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531158"
+          },
+          {
+            "Comment": "autocorr-is is earlier than 1:is-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531159"
+          },
+          {
+            "Comment": "autocorr-it is earlier than 1:it-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531160"
+          },
+          {
+            "Comment": "autocorr-ja is earlier than 1:ja-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531161"
+          },
+          {
+            "Comment": "autocorr-ko is earlier than 1:ko-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531162"
+          },
+          {
+            "Comment": "autocorr-lb is earlier than 1:lb-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531163"
+          },
+          {
+            "Comment": "autocorr-lt is earlier than 1:lt-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531164"
+          },
+          {
+            "Comment": "autocorr-mn is earlier than 1:mn-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531165"
+          },
+          {
+            "Comment": "autocorr-nl is earlier than 1:nl-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531166"
+          },
+          {
+            "Comment": "autocorr-pl is earlier than 1:pl-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531167"
+          },
+          {
+            "Comment": "autocorr-pt is earlier than 1:pt-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531168"
+          },
+          {
+            "Comment": "autocorr-ro is earlier than 1:ro-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531169"
+          },
+          {
+            "Comment": "autocorr-ru is earlier than 1:ru-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531170"
+          },
+          {
+            "Comment": "autocorr-sk is earlier than 1:sk-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531171"
+          },
+          {
+            "Comment": "autocorr-sl is earlier than 1:sl-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531172"
+          },
+          {
+            "Comment": "autocorr-sr is earlier than 1:sr-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531173"
+          },
+          {
+            "Comment": "autocorr-sv is earlier than 1:sv-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531174"
+          },
+          {
+            "Comment": "autocorr-tr is earlier than 1:tr-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531175"
+          },
+          {
+            "Comment": "autocorr-vi is earlier than 1:vi-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531176"
+          },
+          {
+            "Comment": "autocorr-zh is earlier than 1:zh-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531177"
+          },
+          {
+            "Comment": "libreoffice-data is earlier than 1:data-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531178"
+          },
+          {
+            "Comment": "libreoffice-officebean-common is earlier than 1:officebean-common-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531179"
+          },
+          {
+            "Comment": "libreoffice-opensymbol-fonts is earlier than 1:opensymbol-fonts-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531180"
+          },
+          {
+            "Comment": "libreoffice-ure-common is earlier than 1:ure-common-5.3.6.1-26.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240531181"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

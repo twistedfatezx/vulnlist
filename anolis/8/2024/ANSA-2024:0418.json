@@ -1,0 +1,173 @@
+{
+  "ID": "oval:cn.openanolis:def:20240418",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0418: bind and dhcp security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0418",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0418",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-4408:\nThe DNS message parsing code in `named` includes a section whose computational complexity is overly high. It does not cause problems for typical DNS traffic, but crafted queries and responses may cause excessive CPU load on the affected `named` instance by exploiting this flaw. This issue affects both authoritative servers and recursive resolvers.\nThis issue affects BIND 9 versions 9.0.0 through 9.16.45, 9.18.0 through 9.18.21, 9.19.0 through 9.19.19, 9.9.3-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.45-S1, and 9.18.11-S1 through 9.18.21-S1.\n\nCVE-2023-50387:\nCertain DNSSEC aspects of the DNS protocol (in RFC 4033, 4034, 4035, 6840, and related RFCs) allow remote attackers to cause a denial of service (CPU consumption) via one or more DNSSEC responses, aka the \"KeyTrap\" issue. One of the concerns is that, when there is a zone with many DNSKEY and RRSIG records, the protocol specification implies that an algorithm must evaluate all combinations of DNSKEY and RRSIG records.\n\nCVE-2023-50868:\nThe Closest Encloser Proof aspect of the DNS protocol (in RFC 5155 when RFC 9276 guidance is skipped) allows remote attackers to cause a denial of service (CPU consumption for SHA-1 computations) via DNSSEC responses in a random subdomain attack, aka the \"NSEC3\" issue. The RFC 5155 specification implies that an algorithm must perform thousands of iterations of a hash function in certain situations.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-03"
+      },
+      "Updated": {
+        "Date": "2024-06-04"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-4408",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-4408",
+          "CWE": "CWE-400",
+          "Public": "20240213"
+        },
+        {
+          "ID": "CVE-2023-50387",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-50387",
+          "CWE": "CWE-400",
+          "Public": "20240214"
+        },
+        {
+          "ID": "CVE-2023-50868",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-50868",
+          "CWE": "CWE-400",
+          "Public": "20240214"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bind is earlier than 32:9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418001"
+          },
+          {
+            "Comment": "bind-chroot is earlier than 32:chroot-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418002"
+          },
+          {
+            "Comment": "bind-devel is earlier than 32:devel-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418003"
+          },
+          {
+            "Comment": "bind-export-devel is earlier than 32:export-devel-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418004"
+          },
+          {
+            "Comment": "bind-export-libs is earlier than 32:export-libs-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418005"
+          },
+          {
+            "Comment": "bind-libs is earlier than 32:libs-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418006"
+          },
+          {
+            "Comment": "bind-libs-lite is earlier than 32:libs-lite-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418007"
+          },
+          {
+            "Comment": "bind-lite-devel is earlier than 32:lite-devel-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418008"
+          },
+          {
+            "Comment": "bind-pkcs11 is earlier than 32:pkcs11-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418009"
+          },
+          {
+            "Comment": "bind-pkcs11-devel is earlier than 32:pkcs11-devel-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418010"
+          },
+          {
+            "Comment": "bind-pkcs11-libs is earlier than 32:pkcs11-libs-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418011"
+          },
+          {
+            "Comment": "bind-pkcs11-utils is earlier than 32:pkcs11-utils-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418012"
+          },
+          {
+            "Comment": "bind-sdb is earlier than 32:sdb-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418013"
+          },
+          {
+            "Comment": "bind-sdb-chroot is earlier than 32:sdb-chroot-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418014"
+          },
+          {
+            "Comment": "bind-utils is earlier than 32:utils-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418015"
+          },
+          {
+            "Comment": "dhcp-client is earlier than 12:client-4.3.6-50.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418016"
+          },
+          {
+            "Comment": "dhcp-libs is earlier than 12:libs-4.3.6-50.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418017"
+          },
+          {
+            "Comment": "dhcp-relay is earlier than 12:relay-4.3.6-50.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418018"
+          },
+          {
+            "Comment": "dhcp-server is earlier than 12:server-4.3.6-50.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418019"
+          },
+          {
+            "Comment": "dhcp is earlier than 12:4.3.6-50.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418020"
+          },
+          {
+            "Comment": "bind-license is earlier than 32:license-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418021"
+          },
+          {
+            "Comment": "dhcp-common is earlier than 12:common-4.3.6-50.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418022"
+          },
+          {
+            "Comment": "dhcp-devel-doc is earlier than 12:devel-doc-4.3.6-50.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418023"
+          },
+          {
+            "Comment": "python3-bind is earlier than 32:bind-9.11.36-14.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240418024"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

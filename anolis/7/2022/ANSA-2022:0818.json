@@ -1,0 +1,105 @@
+{
+  "ID": "oval:cn.openanolis:def:20220818",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0818: python3 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0818",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0818",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2019-16056:\nAn issue was discovered in Python through 2.7.16, 3.x through 3.5.7, 3.6.x through 3.6.9, and 3.7.x through 3.7.4. The email module wrongly parses email addresses that contain multiple @ characters. An application that uses the email module and implements some kind of checks on the From/To headers of a message could be tricked into accepting an email address that should be denied. An attack may be the same as in CVE-2019-11340; however, this CVE applies to Python more generally.\n\nCVE-2019-16935:\nThe documentation XML-RPC server in Python through 2.7.16, 3.x through 3.6.9, and 3.7.x through 3.7.4 has XSS via the server_title field. This occurs in Lib/DocXMLRPCServer.py in Python 2.x, and in Lib/xmlrpc/server.py in Python 3.x. If set_server_title is called with untrusted input, arbitrary JavaScript can be delivered to clients that visit the http URL for this server.\n\nCVE-2020-8492:\nPython 2.7 through 2.7.17, 3.5 through 3.5.9, 3.6 through 3.6.10, 3.7 through 3.7.6, and 3.8 through 3.8.1 allows an HTTP server to conduct Regular Expression Denial of Service (ReDoS) attacks against a client because of urllib.request.AbstractBasicAuthHandler catastrophic backtracking.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-11-25"
+      },
+      "Updated": {
+        "Date": "2022-11-28"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2019-16056",
+          "CVSS3": "7.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-16056",
+          "CWE": "CWE-20",
+          "Public": "20220921"
+        },
+        {
+          "ID": "CVE-2019-16935",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-16935",
+          "CWE": "CWE-79",
+          "Public": "20220921"
+        },
+        {
+          "ID": "CVE-2020-8492",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-8492",
+          "CWE": "CWE-400",
+          "Public": "20220921"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python3 is earlier than 0:3.6.8-17.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220818001"
+          },
+          {
+            "Comment": "python3-debug is earlier than 0:debug-3.6.8-17.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220818002"
+          },
+          {
+            "Comment": "python3-devel is earlier than 0:devel-3.6.8-17.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220818003"
+          },
+          {
+            "Comment": "python3-idle is earlier than 0:idle-3.6.8-17.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220818004"
+          },
+          {
+            "Comment": "python3-libs is earlier than 0:libs-3.6.8-17.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220818005"
+          },
+          {
+            "Comment": "python3-test is earlier than 0:test-3.6.8-17.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220818006"
+          },
+          {
+            "Comment": "python3-tkinter is earlier than 0:tkinter-3.6.8-17.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220818007"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

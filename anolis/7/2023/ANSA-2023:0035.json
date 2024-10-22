@@ -1,0 +1,137 @@
+{
+  "ID": "oval:cn.openanolis:def:20230035",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0035: thunderbird security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0035",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0035",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-3032:\nWhen receiving an HTML email that contained an \u003ccode\u003eiframe\u003c/code\u003e element, which used a \u003ccode\u003esrcdoc\u003c/code\u003e attribute to define the inner HTML document, remote objects specified in the nested document, for example images or videos, were not blocked. Rather, the network was accessed, the objects were loaded and displayed. This vulnerability affects Thunderbird \u003c 102.2.1 and Thunderbird \u003c 91.13.1.\n\nCVE-2022-3033:\nIf a Thunderbird user replied to a crafted HTML email containing a \u003ccode\u003emeta\u003c/code\u003e tag, with the \u003ccode\u003emeta\u003c/code\u003e tag having the \u003ccode\u003ehttp-equiv=\"refresh\"\u003c/code\u003e attribute, and the content attribute specifying an URL, then Thunderbird started a network request to that URL, regardless of the configuration to block remote content. In combination with certain other HTML elements and attributes in the email, it was possible to execute JavaScript code included in the message in the context of the message compose document. The JavaScript code was able to perform actions including, but probably not limited to, read and modify the contents of the message compose document, including the quoted original message, which could potentially contain the decrypted plaintext of encrypted data in the crafted email. The contents could then be transmitted to the network, either to the URL specified in the META refresh tag, or to a different URL, as the JavaScript code could modify the URL specified in the document. This bug doesn't affect users who have changed the default Message Body display setting to 'simple html' or 'plain text'. This vulnerability affects Thunderbird \u003c 102.2.1 and Thunderbird \u003c 91.13.1.\n\nCVE-2022-3034:\nWhen receiving an HTML email that specified to load an \u003ccode\u003eiframe\u003c/code\u003e element from a remote location, a request to the remote document was sent. However, Thunderbird didn't display the document. This vulnerability affects Thunderbird \u003c 102.2.1 and Thunderbird \u003c 91.13.1.\n\nCVE-2022-36059:\nA flaw was found in Mozilla. The Mozilla Foundation Security Advisory describes the issue of Thunderbird users who use the Matrix chat protocol being vulnerable to a denial of service attack. An adversary sharing a room with a user could attack affected clients, making it not show all of a user's rooms or spaces and causing minor temporary corruption.\n\nCVE-2022-40956:\nWhen injecting an HTML base element, some requests would ignore the CSP's base-uri settings and accept the injected element's base instead. This vulnerability affects Firefox ESR \u003c 102.3, Thunderbird \u003c 102.3, and Firefox \u003c 105.\n\nCVE-2022-40957:\nInconsistent data in instruction and data cache when creating wasm code could lead to a potentially exploitable crash.\u003cbr\u003e*This bug only affects Firefox on ARM64 platforms.*. This vulnerability affects Firefox ESR \u003c 102.3, Thunderbird \u003c 102.3, and Firefox \u003c 105.\n\nCVE-2022-40958:\nBy injecting a cookie with certain special characters, an attacker on a shared subdomain which is not a secure context could set and thus overwrite cookies from a secure context, leading to session fixation and other attacks. This vulnerability affects Firefox ESR \u003c 102.3, Thunderbird \u003c 102.3, and Firefox \u003c 105.\n\nCVE-2022-40959:\nDuring iframe navigation, certain pages did not have their FeaturePolicy fully initialized leading to a bypass that leaked device permissions into untrusted subdocuments. This vulnerability affects Firefox ESR \u003c 102.3, Thunderbird \u003c 102.3, and Firefox \u003c 105.\n\nCVE-2022-40960:\nConcurrent use of the URL parser with non-UTF-8 data was not thread-safe. This could lead to a use-after-free causing a potentially exploitable crash. This vulnerability affects Firefox ESR \u003c 102.3, Thunderbird \u003c 102.3, and Firefox \u003c 105.\n\nCVE-2022-40962:\nMozilla developers Nika Layzell, Timothy Nikkel, Sebastian Hengst, Andreas Pehrson, and the Mozilla Fuzzing Team reported memory safety bugs present in Firefox 104 and Firefox ESR 102.2. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code. This vulnerability affects Firefox ESR \u003c 102.3, Thunderbird \u003c 102.3, and Firefox \u003c 105.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-02-20"
+      },
+      "Updated": {
+        "Date": "2023-02-21"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-3032",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-3032",
+          "CWE": "CWE-1021",
+          "Public": "20220929"
+        },
+        {
+          "ID": "CVE-2022-3033",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-3033",
+          "CWE": "CWE-200",
+          "Public": "20220929"
+        },
+        {
+          "ID": "CVE-2022-3034",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-3034",
+          "CWE": "CWE-449",
+          "Public": "20220929"
+        },
+        {
+          "ID": "CVE-2022-36059",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-36059",
+          "CWE": "CWE-440",
+          "Public": "20220929"
+        },
+        {
+          "ID": "CVE-2022-40956",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-40956",
+          "CWE": "CWE-1021",
+          "Public": "20220929"
+        },
+        {
+          "ID": "CVE-2022-40957",
+          "CVSS3": "5.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-40957",
+          "CWE": "CWE-240",
+          "Public": "20220929"
+        },
+        {
+          "ID": "CVE-2022-40958",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-40958",
+          "CWE": "CWE-784",
+          "Public": "20220929"
+        },
+        {
+          "ID": "CVE-2022-40959",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-40959",
+          "CWE": "CWE-1021",
+          "Public": "20220929"
+        },
+        {
+          "ID": "CVE-2022-40960",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-40960",
+          "CWE": "CWE-416",
+          "Public": "20220929"
+        },
+        {
+          "ID": "CVE-2022-40962",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-40962",
+          "CWE": "CWE-120",
+          "Public": "20220929"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "thunderbird is earlier than 0:102.3.0-3.0.2.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230035001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

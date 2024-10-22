@@ -1,0 +1,109 @@
+{
+  "ID": "oval:cn.openanolis:def:20230994",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0994: ghostscript security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0994",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0994",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-28879:\nIn Artifex Ghostscript through 10.01.0, there is a buffer overflow leading to potential corruption of data internal to the PostScript interpreter, in base/sbcp.c. This affects BCPEncode, BCPDecode, TBCPEncode, and TBCPDecode. If the write buffer is filled to one byte less than full, and one then tries to write an escaped character, two bytes are written.\n\nCVE-2023-38559:\nA buffer overflow flaw was found in base/gdevdevn.c:1973 in devn_pcx_write_rle() in ghostscript. This issue may allow a local attacker to cause a denial of service via outputting a crafted PDF file for a DEVN device with gs.\n\nCVE-2023-4042:\nA flaw was found in ghostscript. The fix for CVE-2020-16305 in ghostscript was not included in RHSA-2021:1852-06 advisory as it was claimed to be. This issue only affects the ghostscript package as shipped with Red Hat Enterprise Linux 8.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-12-26"
+      },
+      "Updated": {
+        "Date": "2023-12-26"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-28879",
+          "CVSS3": "8.4/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-28879",
+          "CWE": "CWE-787",
+          "Public": "20230331"
+        },
+        {
+          "ID": "CVE-2023-38559",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-38559",
+          "CWE": "CWE-125",
+          "Public": "20230801"
+        },
+        {
+          "ID": "CVE-2023-4042",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-4042",
+          "CWE": "CWE-125",
+          "Public": "20230823"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "ghostscript is earlier than 0:9.54.0-11.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230994001"
+          },
+          {
+            "Comment": "ghostscript-tools-dvipdf is earlier than 0:tools-dvipdf-9.54.0-11.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230994002"
+          },
+          {
+            "Comment": "ghostscript-tools-fonts is earlier than 0:tools-fonts-9.54.0-11.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230994003"
+          },
+          {
+            "Comment": "ghostscript-tools-printing is earlier than 0:tools-printing-9.54.0-11.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230994004"
+          },
+          {
+            "Comment": "ghostscript-x11 is earlier than 0:x11-9.54.0-11.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230994005"
+          },
+          {
+            "Comment": "libgs is earlier than 0:9.54.0-11.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230994006"
+          },
+          {
+            "Comment": "libgs-devel is earlier than 0:devel-9.54.0-11.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230994007"
+          },
+          {
+            "Comment": "ghostscript-doc is earlier than 0:doc-9.54.0-11.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230994008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

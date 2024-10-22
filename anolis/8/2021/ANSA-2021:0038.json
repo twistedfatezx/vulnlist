@@ -1,0 +1,129 @@
+{
+  "ID": "oval:cn.openanolis:def:20210038",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0038: rpm security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0038",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0038",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-20271:\nA flaw was found in RPM's signature check functionality when reading a package file. This flaw allows an attacker who can convince a victim to install a seemingly verifiable package, whose signature header was modified, to cause RPM database corruption and execute code. The highest threat from this vulnerability is to data integrity, confidentiality, and system availability.\n\nCVE-2021-3421:\nA flaw was found in the RPM package in the read functionality. This flaw allows an attacker who can convince a victim to install a seemingly verifiable package or compromise an RPM repository, to cause RPM database corruption. The highest threat from this vulnerability is to data integrity. This flaw affects RPM versions before 4.17.0-alpha.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2021-07-20"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-20271",
+          "CVSS3": "6.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-20271",
+          "CWE": "CWE-345",
+          "Public": "20210818"
+        },
+        {
+          "ID": "CVE-2021-3421",
+          "CVSS3": "4.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3421",
+          "CWE": "CWE-347",
+          "Public": "20210818"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python3-rpm is earlier than 0:rpm-4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038001"
+          },
+          {
+            "Comment": "rpm is earlier than 0:4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038002"
+          },
+          {
+            "Comment": "rpm-build is earlier than 0:build-4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038003"
+          },
+          {
+            "Comment": "rpm-build-libs is earlier than 0:build-libs-4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038004"
+          },
+          {
+            "Comment": "rpm-devel is earlier than 0:devel-4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038005"
+          },
+          {
+            "Comment": "rpm-libs is earlier than 0:libs-4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038006"
+          },
+          {
+            "Comment": "rpm-plugin-ima is earlier than 0:plugin-ima-4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038007"
+          },
+          {
+            "Comment": "rpm-plugin-prioreset is earlier than 0:plugin-prioreset-4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038008"
+          },
+          {
+            "Comment": "rpm-plugin-selinux is earlier than 0:plugin-selinux-4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038009"
+          },
+          {
+            "Comment": "rpm-plugin-syslog is earlier than 0:plugin-syslog-4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038010"
+          },
+          {
+            "Comment": "rpm-plugin-systemd-inhibit is earlier than 0:plugin-systemd-inhibit-4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038011"
+          },
+          {
+            "Comment": "rpm-sign is earlier than 0:sign-4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038012"
+          },
+          {
+            "Comment": "rpm (Anolis OS 8.4) is earlier than 0:4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038013"
+          },
+          {
+            "Comment": "rpm-apidocs is earlier than 0:apidocs-4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038014"
+          },
+          {
+            "Comment": "rpm-cron is earlier than 0:cron-4.14.3-14.0.1.an8_4",
+            "TestRef": "oval:cn.openanolis:tst:20210038015"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

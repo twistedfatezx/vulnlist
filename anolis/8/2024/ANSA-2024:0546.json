@@ -1,0 +1,89 @@
+{
+  "ID": "oval:cn.openanolis:def:20240546",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0546: gnutls security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0546",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0546",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-0553:\nA vulnerability was found in GnuTLS. The response times to malformed ciphertexts in RSA-PSK ClientKeyExchange differ from the response times of ciphertexts with correct PKCS#1 v1.5 padding. This issue may allow a remote attacker to perform a timing side-channel attack in the RSA-PSK key exchange, potentially leading to the leakage of sensitive data. CVE-2024-0553 is designated as an incomplete resolution for CVE-2023-5981.\n\nCVE-2024-28834:\nA flaw was found in GnuTLS. The Minerva attack is a cryptographic vulnerability that exploits deterministic behavior in systems like GnuTLS, leading to side-channel leaks. In specific scenarios, such as when using the GNUTLS_PRIVKEY_FLAG_REPRODUCIBLE flag, it can result in a noticeable step in nonce size from 513 to 512 bits, exposing a potential timing side-channel.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-28"
+      },
+      "Updated": {
+        "Date": "2024-07-01"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-0553",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-0553",
+          "CWE": "CWE-1300-\u003eCWE-203",
+          "Public": "20240116"
+        },
+        {
+          "ID": "CVE-2024-28834",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-28834",
+          "CWE": "CWE-200",
+          "Public": "20240321"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "gnutls is earlier than 0:3.6.16-8.0.1.an8.3",
+            "TestRef": "oval:cn.openanolis:tst:20240546001"
+          },
+          {
+            "Comment": "gnutls-c++ is earlier than 0:c++-3.6.16-8.0.1.an8.3",
+            "TestRef": "oval:cn.openanolis:tst:20240546002"
+          },
+          {
+            "Comment": "gnutls-dane is earlier than 0:dane-3.6.16-8.0.1.an8.3",
+            "TestRef": "oval:cn.openanolis:tst:20240546003"
+          },
+          {
+            "Comment": "gnutls-devel is earlier than 0:devel-3.6.16-8.0.1.an8.3",
+            "TestRef": "oval:cn.openanolis:tst:20240546004"
+          },
+          {
+            "Comment": "gnutls-utils is earlier than 0:utils-3.6.16-8.0.1.an8.3",
+            "TestRef": "oval:cn.openanolis:tst:20240546005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

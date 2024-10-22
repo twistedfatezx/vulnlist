@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20220798",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0798: php-pear security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0798",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0798",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2020-28948:\nArchive_Tar through 1.4.10 allows an unserialization attack because phar: is blocked but PHAR: is not blocked.\n\nCVE-2020-28949:\nArchive_Tar through 1.4.10 has :// filename sanitization only to address phar attacks, and thus any other stream-wrapper attack (such as file:// to overwrite files) can still succeed.\n\nCVE-2020-36193:\nTar.php in Archive_Tar through 1.4.11 allows write operations with Directory Traversal due to inadequate checking of symbolic links, a related issue to CVE-2020-28948.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-11-08"
+      },
+      "Updated": {
+        "Date": "2022-11-08"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-28948",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-28948",
+          "CWE": "CWE-502",
+          "Public": "20220920"
+        },
+        {
+          "ID": "CVE-2020-28949",
+          "CVSS3": "5.0/CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-28949",
+          "CWE": "CWE-20",
+          "Public": "20220920"
+        },
+        {
+          "ID": "CVE-2020-36193",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-36193",
+          "CWE": "CWE-22",
+          "Public": "20220920"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "php-pear is earlier than 1:pear-1.9.4-23.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220798001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

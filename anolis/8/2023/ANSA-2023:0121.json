@@ -1,0 +1,145 @@
+{
+  "ID": "oval:cn.openanolis:def:20230121",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0121: nodejs:16 security, bug fix, and enhancement update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0121",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0121",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-35065:\nThe glob-parent package before 6.0.1 for Node.js allows ReDoS (regular expression denial of service) attacks against the enclosure regular expression.\n\nCVE-2022-25881:\nThis affects versions of the package http-cache-semantics before 4.1.1. The issue can be exploited via malicious request header values sent to a server, when that server reads the cache policy from the request using this library.\n\nCVE-2022-4904:\nA flaw was found in the c-ares package. The ares_set_sortlist is missing checks about the validity of the input string, which allows a possible arbitrary length stack overflow. This issue may cause a denial of service or a limited impact on confidentiality and integrity.\n\nCVE-2023-23918:\nA privilege escalation vulnerability exists in Node.js \u003c19.6.1, \u003c18.14.1, \u003c16.19.1 and \u003c14.21.3 that made it possible to bypass the experimental Permissions (https://nodejs.org/api/permissions.html) feature in Node.js and access non authorized modules by using process.mainModule.require(). This only affects users who had enabled the experimental permissions option with --experimental-policy.\n\nCVE-2023-23919:\nA cryptographic vulnerability exists in Node.js \u003c19.2.0, \u003c18.14.1, \u003c16.19.1, \u003c14.21.3 that in some cases did does not clear the OpenSSL error stack after operations that may set it. This may lead to false positive errors during subsequent cryptographic operations that happen to be on the same thread. This in turn could be used to cause a denial of service.\n\nCVE-2023-23920:\nAn untrusted search path vulnerability exists in Node.js. \u003c19.6.1, \u003c18.14.1, \u003c16.19.1, and \u003c14.21.3 that could allow an attacker to search and potentially load ICU data when running with elevated privileges.\n\nCVE-2023-23936:\nUndici is an HTTP/1.1 client for Node.js. Starting with version 2.0.0 and prior to version 5.19.1, the undici library does not protect `host` HTTP header from CRLF injection vulnerabilities. This issue is patched in Undici v5.19.1. As a workaround, sanitize the `headers.host` string before passing to undici.\n\nCVE-2023-24807:\nUndici is an HTTP/1.1 client for Node.js. Prior to version 5.19.1, the `Headers.set()` and `Headers.append()` methods are vulnerable to Regular Expression Denial of Service (ReDoS) attacks when untrusted values are passed into the functions. This is due to the inefficient regular expression used to normalize the values in the `headerValueNormalize()` utility function. This vulnerability was patched in v5.19.1. No known workarounds are available.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-04-18"
+      },
+      "Updated": {
+        "Date": "2023-04-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-35065",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-35065",
+          "CWE": "CWE-400",
+          "Public": "20221226"
+        },
+        {
+          "ID": "CVE-2022-25881",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-25881",
+          "CWE": "CWE-1333",
+          "Public": "20230131"
+        },
+        {
+          "ID": "CVE-2022-4904",
+          "CVSS3": "8.6/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-4904",
+          "CWE": "CWE-20-\u003eCWE-119",
+          "Public": "20230307"
+        },
+        {
+          "ID": "CVE-2023-23918",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-23918",
+          "CWE": "CWE-863",
+          "Public": "20230224"
+        },
+        {
+          "ID": "CVE-2023-23919",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-23919",
+          "CWE": "",
+          "Public": "20230224"
+        },
+        {
+          "ID": "CVE-2023-23920",
+          "CVSS3": "4.2/CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-23920",
+          "CWE": "CWE-426",
+          "Public": "20230224"
+        },
+        {
+          "ID": "CVE-2023-23936",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-23936",
+          "CWE": "CWE-93",
+          "Public": "20230217"
+        },
+        {
+          "ID": "CVE-2023-24807",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-24807",
+          "CWE": "CWE-1333",
+          "Public": "20230217"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "nodejs is earlier than 1:16.19.1-1.0.2.module+an8.7.0+11034+893d2e11",
+            "TestRef": "oval:cn.openanolis:tst:20230121001"
+          },
+          {
+            "Comment": "nodejs-devel is earlier than 1:devel-16.19.1-1.0.2.module+an8.7.0+11034+893d2e11",
+            "TestRef": "oval:cn.openanolis:tst:20230121002"
+          },
+          {
+            "Comment": "nodejs-full-i18n is earlier than 1:full-i18n-16.19.1-1.0.2.module+an8.7.0+11034+893d2e11",
+            "TestRef": "oval:cn.openanolis:tst:20230121003"
+          },
+          {
+            "Comment": "npm is earlier than 1:8.19.3-1.16.19.1.1.0.2.module+an8.7.0+11034+893d2e11",
+            "TestRef": "oval:cn.openanolis:tst:20230121004"
+          },
+          {
+            "Comment": "nodejs-nodemon is earlier than 0:nodemon-2.0.20-3.0.1.module+an8.7.0+11034+893d2e11",
+            "TestRef": "oval:cn.openanolis:tst:20230121005"
+          },
+          {
+            "Comment": "nodejs-packaging is earlier than 0:packaging-25-1.0.1.module+an8.7.0+11034+893d2e11",
+            "TestRef": "oval:cn.openanolis:tst:20230121006"
+          },
+          {
+            "Comment": "nodejs-docs is earlier than 1:docs-16.19.1-1.0.2.module+an8.7.0+11034+893d2e11",
+            "TestRef": "oval:cn.openanolis:tst:20230121007"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

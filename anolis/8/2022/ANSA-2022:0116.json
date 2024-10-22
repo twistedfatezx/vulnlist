@@ -1,0 +1,157 @@
+{
+  "ID": "oval:cn.openanolis:def:20220116",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0116: container-tools:2.0 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0116",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0116",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-27649:\nA flaw was found in Podman, where containers were started incorrectly with non-empty default permissions. A vulnerability was found in Moby (Docker Engine), where containers were started incorrectly with non-empty inheritable Linux process capabilities. This flaw allows an attacker with access to programs with inheritable file capabilities to elevate those capabilities to the permitted set when execve(2) runs.\n\nCVE-2022-27651:\nA flaw was found in buildah where containers were incorrectly started with non-empty default permissions. A bug was found in Moby (Docker Engine) where containers were incorrectly started with non-empty inheritable Linux process capabilities, enabling an attacker with access to programs with inheritable file capabilities to elevate those capabilities to the permitted set when execve(2) runs. This has the potential to impact confidentiality and integrity.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-04-28"
+      },
+      "Updated": {
+        "Date": "2022-10-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-27649",
+          "CVSS3": "4.8/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-27649",
+          "CWE": "CWE-276",
+          "Public": "20220428"
+        },
+        {
+          "ID": "CVE-2022-27651",
+          "CVSS3": "4.8/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-27651",
+          "CWE": "CWE-276",
+          "Public": "20220428"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "buildah is earlier than 0:1.11.6-10.module+an8.5.0+10717+1be7e5f5",
+            "TestRef": "oval:cn.openanolis:tst:20220116001"
+          },
+          {
+            "Comment": "buildah-tests is earlier than 0:tests-1.11.6-10.module+an8.5.0+10717+1be7e5f5",
+            "TestRef": "oval:cn.openanolis:tst:20220116002"
+          },
+          {
+            "Comment": "conmon is earlier than 2:2.0.15-1.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116003"
+          },
+          {
+            "Comment": "containernetworking-plugins is earlier than 0:plugins-0.8.3-4.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116004"
+          },
+          {
+            "Comment": "containers-common is earlier than 1:common-0.1.41-4.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116005"
+          },
+          {
+            "Comment": "crit is earlier than 0:3.12-9.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116006"
+          },
+          {
+            "Comment": "criu is earlier than 0:3.12-9.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116007"
+          },
+          {
+            "Comment": "fuse-overlayfs is earlier than 0:overlayfs-0.7.8-1.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116008"
+          },
+          {
+            "Comment": "podman is earlier than 0:1.6.4-28.module+an8.5.0+10717+1be7e5f5",
+            "TestRef": "oval:cn.openanolis:tst:20220116009"
+          },
+          {
+            "Comment": "podman-remote is earlier than 0:remote-1.6.4-28.module+an8.5.0+10717+1be7e5f5",
+            "TestRef": "oval:cn.openanolis:tst:20220116010"
+          },
+          {
+            "Comment": "podman-tests is earlier than 0:tests-1.6.4-28.module+an8.5.0+10717+1be7e5f5",
+            "TestRef": "oval:cn.openanolis:tst:20220116011"
+          },
+          {
+            "Comment": "python3-criu is earlier than 0:criu-3.12-9.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116012"
+          },
+          {
+            "Comment": "runc is earlier than 0:1.0.0-66.rc10.module+an8.4.0+10551+0624d0f7",
+            "TestRef": "oval:cn.openanolis:tst:20220116013"
+          },
+          {
+            "Comment": "skopeo is earlier than 1:0.1.41-4.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116014"
+          },
+          {
+            "Comment": "skopeo-tests is earlier than 1:tests-0.1.41-4.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116015"
+          },
+          {
+            "Comment": "slirp4netns is earlier than 0:0.4.2-3.git21fdece.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116016"
+          },
+          {
+            "Comment": "cockpit-podman is earlier than 0:podman-11-1.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116017"
+          },
+          {
+            "Comment": "container-selinux is earlier than 2:selinux-2.130.0-1.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116018"
+          },
+          {
+            "Comment": "python-podman-api is earlier than 0:podman-api-1.2.0-0.2.gitd0a45fe.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116019"
+          },
+          {
+            "Comment": "toolbox is earlier than 0:0.0.7-1.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116020"
+          },
+          {
+            "Comment": "udica is earlier than 0:0.2.1-2.module+an8.4.0+10229+9cf968c0",
+            "TestRef": "oval:cn.openanolis:tst:20220116021"
+          },
+          {
+            "Comment": "podman-docker is earlier than 0:docker-1.6.4-28.module+an8.5.0+10717+1be7e5f5",
+            "TestRef": "oval:cn.openanolis:tst:20220116022"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "ID": "oval:cn.openanolis:def:20240813",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0813: ghostscript security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0813",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0813",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2024-29510:\nArtifex Ghostscript before 10.03.1 allows memory corruption, and SAFER sandbox bypass, via format string injection with a uniprint device.\n\nCVE-2024-33869:\nAn issue was discovered in Artifex Ghostscript before 10.03.1. Path traversal and command execution can occur (via a crafted PostScript document) because of path reduction in base/gpmisc.c. For example, restrictions on use of %pipe% can be bypassed via the aa/../%pipe%command# output filename.\n\nCVE-2024-33870:\nAn issue was discovered in Artifex Ghostscript before 10.03.1. There is path traversal (via a crafted PostScript document) to arbitrary files if the current directory is in the permitted paths. For example, there can be a transformation of ../../foo to ./../../foo and this will grant access if ./ is permitted.\n\nCVE-2024-33871:\nAn issue was discovered in Artifex Ghostscript before 10.03.1. contrib/opvp/gdevopvp.c allows arbitrary code execution via a custom Driver library, exploitable via a crafted PostScript document. This occurs because the Driver parameter for opvp (and oprp) devices can have an arbitrary name for a dynamic library; this library is then loaded.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-08-15"
+      },
+      "Updated": {
+        "Date": "2024-08-16"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-29510",
+          "CVSS3": "6.3/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-29510",
+          "CWE": "CWE-20",
+          "Public": "20240703"
+        },
+        {
+          "ID": "CVE-2024-33869",
+          "CVSS3": "5.3/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-33869",
+          "CWE": "CWE-23",
+          "Public": "20240815"
+        },
+        {
+          "ID": "CVE-2024-33870",
+          "CVSS3": "6.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-33870",
+          "CWE": "CWE-23",
+          "Public": "20240815"
+        },
+        {
+          "ID": "CVE-2024-33871",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-33871",
+          "CWE": "CWE-20",
+          "Public": "20240626"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "ghostscript is earlier than 0:10.02.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240813001"
+          },
+          {
+            "Comment": "ghostscript-gtk is earlier than 0:gtk-10.02.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240813002"
+          },
+          {
+            "Comment": "ghostscript-tools-dvipdf is earlier than 0:tools-dvipdf-10.02.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240813003"
+          },
+          {
+            "Comment": "ghostscript-tools-fonts is earlier than 0:tools-fonts-10.02.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240813004"
+          },
+          {
+            "Comment": "ghostscript-tools-printing is earlier than 0:tools-printing-10.02.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240813005"
+          },
+          {
+            "Comment": "ghostscript-x11 is earlier than 0:x11-10.02.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240813006"
+          },
+          {
+            "Comment": "libgs is earlier than 0:10.02.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240813007"
+          },
+          {
+            "Comment": "libgs-devel is earlier than 0:devel-10.02.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240813008"
+          },
+          {
+            "Comment": "ghostscript-doc is earlier than 0:doc-10.02.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240813009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

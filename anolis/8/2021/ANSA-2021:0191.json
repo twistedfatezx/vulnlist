@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20210191",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0191: curl security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0191",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0191",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-22946:\nA user can tell curl \u0026gt;= 7.20.0 and \u0026lt;= 7.78.0 to require a successful upgrade to TLS when speaking to an IMAP, POP3 or FTP server (`--ssl-reqd` on the command line or`CURLOPT_USE_SSL` set to `CURLUSESSL_CONTROL` or `CURLUSESSL_ALL` withlibcurl). This requirement could be bypassed if the server would return a properly crafted but perfectly legitimate response.This flaw would then make curl silently continue its operations **withoutTLS** contrary to the instructions and expectations, exposing possibly sensitive data in clear text over the network.\n\nCVE-2021-22947:\nWhen curl \u0026gt;= 7.20.0 and \u0026lt;= 7.78.0 connects to an IMAP or POP3 server to retrieve data using STARTTLS to upgrade to TLS security, the server can respond and send back multiple responses at once that curl caches. curl would then upgrade to TLS but not flush the in-queue of cached responses but instead continue using and trustingthe responses it got *before* the TLS handshake as if they were authenticated.Using this flaw, it allows a Man-In-The-Middle attacker to first inject the fake responses, then pass-through the TLS traffic from the legitimate server and trick curl into sending data back to the user thinking the attacker's injected data comes from the TLS-protected server.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2021-11-08"
+      },
+      "Updated": {
+        "Date": "2022-03-28"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-22946",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-22946",
+          "CWE": "CWE-319",
+          "Public": "20211108"
+        },
+        {
+          "ID": "CVE-2021-22947",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-22947",
+          "CWE": "CWE-319",
+          "Public": "20211108"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "curl is earlier than 0:7.61.1-18.an8_4.2",
+            "TestRef": "oval:cn.openanolis:tst:20210191001"
+          },
+          {
+            "Comment": "libcurl is earlier than 0:7.61.1-18.an8_4.2",
+            "TestRef": "oval:cn.openanolis:tst:20210191002"
+          },
+          {
+            "Comment": "libcurl-devel is earlier than 0:devel-7.61.1-18.an8_4.2",
+            "TestRef": "oval:cn.openanolis:tst:20210191003"
+          },
+          {
+            "Comment": "libcurl-minimal is earlier than 0:minimal-7.61.1-18.an8_4.2",
+            "TestRef": "oval:cn.openanolis:tst:20210191004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

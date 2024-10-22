@@ -1,0 +1,101 @@
+{
+  "ID": "oval:cn.openanolis:def:20240745",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0745: qt5-qtbase security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0745",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0745",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-39936:\nAn issue was discovered in HTTP2 in Qt before 5.15.18, 6.x before 6.2.13, 6.3.x through 6.5.x before 6.5.7, and 6.6.x through 6.7.x before 6.7.3. Code to make security-relevant decisions about an established connection may execute too early, because the encrypted() signal has not yet been emitted and processed..",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-07-29"
+      },
+      "Updated": {
+        "Date": "2024-07-29"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-39936",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-39936",
+          "CWE": "CWE-367",
+          "Public": "20240729"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "qt5-qtbase is earlier than 0:qtbase-5.15.3-6.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240745001"
+          },
+          {
+            "Comment": "qt5-qtbase-devel is earlier than 0:qtbase-devel-5.15.3-6.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240745002"
+          },
+          {
+            "Comment": "qt5-qtbase-examples is earlier than 0:qtbase-examples-5.15.3-6.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240745003"
+          },
+          {
+            "Comment": "qt5-qtbase-gui is earlier than 0:qtbase-gui-5.15.3-6.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240745004"
+          },
+          {
+            "Comment": "qt5-qtbase-mysql is earlier than 0:qtbase-mysql-5.15.3-6.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240745005"
+          },
+          {
+            "Comment": "qt5-qtbase-odbc is earlier than 0:qtbase-odbc-5.15.3-6.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240745006"
+          },
+          {
+            "Comment": "qt5-qtbase-postgresql is earlier than 0:qtbase-postgresql-5.15.3-6.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240745007"
+          },
+          {
+            "Comment": "qt5-qtbase-private-devel is earlier than 0:qtbase-private-devel-5.15.3-6.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240745008"
+          },
+          {
+            "Comment": "qt5-qtbase-static is earlier than 0:qtbase-static-5.15.3-6.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240745009"
+          },
+          {
+            "Comment": "qt5-qtbase-common is earlier than 0:qtbase-common-5.15.3-6.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240745010"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

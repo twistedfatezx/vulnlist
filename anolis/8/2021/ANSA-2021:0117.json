@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20210117",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0117: squid:4 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0117",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0117",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-25097:\nAn issue was discovered in Squid through 4.13 and 5.x through 5.0.4. Due to improper input validation, it allows a trusted client to perform HTTP Request Smuggling and access services otherwise forbidden by the security controls. This occurs for certain uri_whitespace configuration settings.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-06-01"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-25097",
+          "CVSS3": "8.6/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-25097",
+          "CWE": "CWE-444",
+          "Public": "20210601"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libecap is earlier than 0:1.0.1-2.module+el8.2.0+10173+efc8c15c",
+            "TestRef": "oval:cn.openanolis:tst:20210117001"
+          },
+          {
+            "Comment": "libecap-devel is earlier than 0:devel-1.0.1-2.module+el8.2.0+10173+efc8c15c",
+            "TestRef": "oval:cn.openanolis:tst:20210117002"
+          },
+          {
+            "Comment": "squid is earlier than 7:4.4-8.module+el8.2.0+10195+482a7e29.3",
+            "TestRef": "oval:cn.openanolis:tst:20210117003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

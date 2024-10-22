@@ -1,0 +1,161 @@
+{
+  "ID": "oval:cn.openanolis:def:20240043",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0043: virt:an and virt-devel:an security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0043",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0043",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-3750:\nA DMA reentrancy issue was found in the USB EHCI controller emulation of QEMU. EHCI does not verify if the Buffer Pointer overlaps with its MMIO region when it transfers the USB packets. Crafted content may be written to the controller's registers and trigger undesirable actions (such as reset) while the device is still transferring packets. This can ultimately lead to a use-after-free issue. A malicious guest could use this flaw to crash the QEMU process on the host, resulting in a denial of service condition, or potentially execute arbitrary code within the context of the QEMU process on the host. This flaw affects QEMU versions before 7.0.0.\n\nCVE-2023-3019:\nA DMA reentrancy issue leading to a use-after-free error was found in the e1000e NIC emulation code in QEMU. This issue could allow a privileged guest user to crash the QEMU process on the host, resulting in a denial of service.\n\nCVE-2023-3301:\nA flaw was found in QEMU. The async nature of hot-unplug enables a race scenario where the net device backend is cleared before the virtio-net pci frontend has been unplugged. A malicious guest could use this time window to trigger an assertion and cause a denial of service.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-02-02"
+      },
+      "Updated": {
+        "Date": "2024-02-02"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-3750",
+          "CVSS3": "7.5/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3750",
+          "CWE": "CWE-416",
+          "Public": "20240202"
+        },
+        {
+          "ID": "CVE-2023-3019",
+          "CVSS3": "6.0/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-3019",
+          "CWE": "CWE-416",
+          "Public": "20230724"
+        },
+        {
+          "ID": "CVE-2023-3301",
+          "CVSS3": "5.6/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-3301",
+          "CWE": "CWE-362-\u003eCWE-617",
+          "Public": "20230731"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "qemu-guest-agent is earlier than 15:guest-agent-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043001"
+          },
+          {
+            "Comment": "qemu-img is earlier than 15:img-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043002"
+          },
+          {
+            "Comment": "qemu-kvm is earlier than 15:kvm-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043003"
+          },
+          {
+            "Comment": "qemu-kvm-block-curl is earlier than 15:kvm-block-curl-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043004"
+          },
+          {
+            "Comment": "qemu-kvm-block-iscsi is earlier than 15:kvm-block-iscsi-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043005"
+          },
+          {
+            "Comment": "qemu-kvm-block-rbd is earlier than 15:kvm-block-rbd-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043006"
+          },
+          {
+            "Comment": "qemu-kvm-block-ssh is earlier than 15:kvm-block-ssh-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043007"
+          },
+          {
+            "Comment": "qemu-kvm-common is earlier than 15:kvm-common-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043008"
+          },
+          {
+            "Comment": "qemu-kvm-core is earlier than 15:kvm-core-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043009"
+          },
+          {
+            "Comment": "qemu-kvm-docs is earlier than 15:kvm-docs-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043010"
+          },
+          {
+            "Comment": "qemu-kvm-tests is earlier than 15:kvm-tests-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043011"
+          },
+          {
+            "Comment": "qemu-kvm-block-gluster is earlier than 15:kvm-block-gluster-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043012"
+          },
+          {
+            "Comment": "qemu-kvm-hw-usbredir is earlier than 15:kvm-hw-usbredir-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043013"
+          },
+          {
+            "Comment": "qemu-kvm-ui-opengl is earlier than 15:kvm-ui-opengl-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043014"
+          },
+          {
+            "Comment": "qemu-kvm-ui-spice is earlier than 15:kvm-ui-spice-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043015"
+          },
+          {
+            "Comment": "qemu-user-static is earlier than 15:user-static-6.2.0-41.0.1.module+an8.9.0+11168+98c7cfc6.1",
+            "TestRef": "oval:cn.openanolis:tst:20240043016"
+          },
+          {
+            "Comment": "seabios is earlier than 0:1.16.0-4.module+an8.8.0+11106+f187d0fd",
+            "TestRef": "oval:cn.openanolis:tst:20240043017"
+          },
+          {
+            "Comment": "sgabios is earlier than 1:0.20170427git-3.module+an8.4.0+10287+3be9aa75",
+            "TestRef": "oval:cn.openanolis:tst:20240043018"
+          },
+          {
+            "Comment": "seabios-bin is earlier than 0:bin-1.16.0-4.module+an8.8.0+11106+f187d0fd",
+            "TestRef": "oval:cn.openanolis:tst:20240043019"
+          },
+          {
+            "Comment": "seavgabios-bin is earlier than 0:bin-1.16.0-4.module+an8.8.0+11106+f187d0fd",
+            "TestRef": "oval:cn.openanolis:tst:20240043020"
+          },
+          {
+            "Comment": "sgabios-bin is earlier than 1:bin-0.20170427git-3.module+an8.4.0+10287+3be9aa75",
+            "TestRef": "oval:cn.openanolis:tst:20240043021"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

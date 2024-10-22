@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20210181",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0181: nss and nspr security, bug fix, and enhancement update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0181",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0181",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-25648:\nA flaw was found in the way NSS handled CCS (ChangeCipherSpec) messages in TLS 1.3. This flaw allows a remote attacker to send multiple CCS messages, causing a denial of service for servers compiled with the NSS library. The highest threat from this vulnerability is to system availability. This flaw affects NSS versions before 3.58.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2021-10-11"
+      },
+      "Updated": {
+        "Date": "2022-03-28"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-25648",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-25648",
+          "CWE": "CWE-770",
+          "Public": "20211011"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "nspr is earlier than 0:4.32.0-1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210181001"
+          },
+          {
+            "Comment": "nspr-devel is earlier than 0:devel-4.32.0-1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210181002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

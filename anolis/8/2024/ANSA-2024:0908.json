@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20240908",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0908: 389-ds:1.4 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0908",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0908",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-5953:\nA denial of service vulnerability was found in the 389-ds-base LDAP server. This issue may allow an authenticated user to cause a server denial of service while attempting to log in with a user with a malformed hash in their password.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-09-20"
+      },
+      "Updated": {
+        "Date": "2024-09-20"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-5953",
+          "CVSS3": "5.7/CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-5953",
+          "CWE": "CWE-1288",
+          "Public": "20240618"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "389-ds-base is earlier than 0:ds-base-1.4.3.39-8.0.1.module+an8.9.0+11252+216fb9e9",
+            "TestRef": "oval:cn.openanolis:tst:20240908001"
+          },
+          {
+            "Comment": "389-ds-base-devel is earlier than 0:ds-base-devel-1.4.3.39-8.0.1.module+an8.9.0+11252+216fb9e9",
+            "TestRef": "oval:cn.openanolis:tst:20240908002"
+          },
+          {
+            "Comment": "389-ds-base-legacy-tools is earlier than 0:ds-base-legacy-tools-1.4.3.39-8.0.1.module+an8.9.0+11252+216fb9e9",
+            "TestRef": "oval:cn.openanolis:tst:20240908003"
+          },
+          {
+            "Comment": "389-ds-base-libs is earlier than 0:ds-base-libs-1.4.3.39-8.0.1.module+an8.9.0+11252+216fb9e9",
+            "TestRef": "oval:cn.openanolis:tst:20240908004"
+          },
+          {
+            "Comment": "389-ds-base-snmp is earlier than 0:ds-base-snmp-1.4.3.39-8.0.1.module+an8.9.0+11252+216fb9e9",
+            "TestRef": "oval:cn.openanolis:tst:20240908005"
+          },
+          {
+            "Comment": "python3-lib389 is earlier than 0:lib389-1.4.3.39-8.0.1.module+an8.9.0+11252+216fb9e9",
+            "TestRef": "oval:cn.openanolis:tst:20240908006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

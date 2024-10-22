@@ -1,0 +1,161 @@
+{
+  "ID": "oval:cn.openanolis:def:20230040",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0040: firefox security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0040",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0040",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-45403:\nService Workers should not be able to infer information about opaque cross-origin responses; but timing information for cross-origin media combined with Range requests might have allowed them to determine the presence or length of a media file. This vulnerability affects Firefox ESR \u003c 102.5, Thunderbird \u003c 102.5, and Firefox \u003c 107.\n\nCVE-2022-45404:\nThrough a series of popup and \u003ccode\u003ewindow.print()\u003c/code\u003e calls, an attacker can cause a window to go fullscreen without the user seeing the notification prompt, resulting in potential user confusion or spoofing attacks. This vulnerability affects Firefox ESR \u003c 102.5, Thunderbird \u003c 102.5, and Firefox \u003c 107.\n\nCVE-2022-45405:\nFreeing arbitrary \u003ccode\u003ensIInputStream\u003c/code\u003e's on a different thread than creation could have led to a use-after-free and potentially exploitable crash. This vulnerability affects Firefox ESR \u003c 102.5, Thunderbird \u003c 102.5, and Firefox \u003c 107.\n\nCVE-2022-45406:\nIf an out-of-memory condition occurred when creating a JavaScript global, a JavaScript realm may be deleted while references to it lived on in a BaseShape. This could lead to a use-after-free causing a potentially exploitable crash. This vulnerability affects Firefox ESR \u003c 102.5, Thunderbird \u003c 102.5, and Firefox \u003c 107.\n\nCVE-2022-45408:\nThrough a series of popups that reuse windowName, an attacker can cause a window to go fullscreen without the user seeing the notification prompt, resulting in potential user confusion or spoofing attacks. This vulnerability affects Firefox ESR \u003c 102.5, Thunderbird \u003c 102.5, and Firefox \u003c 107.\n\nCVE-2022-45409:\nThe garbage collector could have been aborted in several states and zones and \u003ccode\u003eGCRuntime::finishCollection\u003c/code\u003e may not have been called, leading to a use-after-free and potentially exploitable crash. This vulnerability affects Firefox ESR \u003c 102.5, Thunderbird \u003c 102.5, and Firefox \u003c 107.\n\nCVE-2022-45410:\nWhen a ServiceWorker intercepted a request with \u003ccode\u003eFetchEvent\u003c/code\u003e, the origin of the request was lost after the ServiceWorker took ownership of it. This had the effect of negating SameSite cookie protections. This was addressed in the spec and then in browsers. This vulnerability affects Firefox ESR \u003c 102.5, Thunderbird \u003c 102.5, and Firefox \u003c 107.\n\nCVE-2022-45411:\nCross-Site Tracing occurs when a server will echo a request back via the Trace method, allowing an XSS attack to access to authorization headers and cookies inaccessible to JavaScript (such as cookies protected by HTTPOnly). To mitigate this attack, browsers placed limits on \u003ccode\u003efetch()\u003c/code\u003e and XMLHttpRequest; however some webservers have implemented non-standard headers such as \u003ccode\u003eX-Http-Method-Override\u003c/code\u003e that override the HTTP method, and made this attack possible again. Thunderbird has applied the same mitigations to the use of this and similar headers. This vulnerability affects Firefox ESR \u003c 102.5, Thunderbird \u003c 102.5, and Firefox \u003c 107.\n\nCVE-2022-45412:\nWhen resolving a symlink such as \u003ccode\u003efile:///proc/self/fd/1\u003c/code\u003e, an error message may be produced where the symlink was resolved to a string containing unitialized memory in the buffer. \u003cbr\u003e*This bug only affects Thunderbird on Unix-based operated systems (Android, Linux, MacOS). Windows is unaffected.*. This vulnerability affects Firefox ESR \u003c 102.5, Thunderbird \u003c 102.5, and Firefox \u003c 107.\n\nCVE-2022-45416:\nKeyboard events reference strings like \"KeyA\" that were at fixed, known, and widely-spread addresses. Cache-based timing attacks such as Prime+Probe could have possibly figured out which keys were being pressed. This vulnerability affects Firefox ESR \u003c 102.5, Thunderbird \u003c 102.5, and Firefox \u003c 107.\n\nCVE-2022-45418:\nIf a custom mouse cursor is specified in CSS, under certain circumstances the cursor could have been drawn over the browser UI, resulting in potential user confusion or spoofing attacks. This vulnerability affects Firefox ESR \u003c 102.5, Thunderbird \u003c 102.5, and Firefox \u003c 107.\n\nCVE-2022-45420:\nUse tables inside of an iframe, an attacker could have caused iframe contents to be rendered outside the boundaries of the iframe, resulting in potential user confusion or spoofing attacks. This vulnerability affects Firefox ESR \u003c 102.5, Thunderbird \u003c 102.5, and Firefox \u003c 107.\n\nCVE-2022-45421:\nMozilla developers Andrew McCreight and Gabriele Svelto reported memory safety bugs present in Thunderbird 102.4. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code. This vulnerability affects Firefox ESR \u003c 102.5, Thunderbird \u003c 102.5, and Firefox \u003c 107.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-02-20"
+      },
+      "Updated": {
+        "Date": "2023-02-21"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-45403",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45403",
+          "CWE": "CWE-829",
+          "Public": "20221123"
+        },
+        {
+          "ID": "CVE-2022-45404",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45404",
+          "CWE": "CWE-1021",
+          "Public": "20221123"
+        },
+        {
+          "ID": "CVE-2022-45405",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45405",
+          "CWE": "CWE-416",
+          "Public": "20221123"
+        },
+        {
+          "ID": "CVE-2022-45406",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45406",
+          "CWE": "CWE-416",
+          "Public": "20221123"
+        },
+        {
+          "ID": "CVE-2022-45408",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45408",
+          "CWE": "CWE-1021",
+          "Public": "20221123"
+        },
+        {
+          "ID": "CVE-2022-45409",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45409",
+          "CWE": "CWE-416",
+          "Public": "20221123"
+        },
+        {
+          "ID": "CVE-2022-45410",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45410",
+          "CWE": "CWE-1275",
+          "Public": "20221123"
+        },
+        {
+          "ID": "CVE-2022-45411",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45411",
+          "CWE": "CWE-79",
+          "Public": "20221123"
+        },
+        {
+          "ID": "CVE-2022-45412",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45412",
+          "CWE": "CWE-200",
+          "Public": "20221123"
+        },
+        {
+          "ID": "CVE-2022-45416",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45416",
+          "CWE": "",
+          "Public": "20221123"
+        },
+        {
+          "ID": "CVE-2022-45418",
+          "CVSS3": "6.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45418",
+          "CWE": "",
+          "Public": "20221123"
+        },
+        {
+          "ID": "CVE-2022-45420",
+          "CVSS3": "4.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45420",
+          "CWE": "",
+          "Public": "20221123"
+        },
+        {
+          "ID": "CVE-2022-45421",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-45421",
+          "CWE": "CWE-120",
+          "Public": "20221123"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "firefox is earlier than 0:102.5.0-1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20230040001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

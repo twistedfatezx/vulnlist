@@ -1,0 +1,181 @@
+{
+  "ID": "oval:cn.openanolis:def:20240497",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0497: sssd security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0497",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0497",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-3758:\nA race condition flaw was found in sssd where the GPO policy is not consistently applied for authenticated users. This may lead to improper authorization issues, granting or denying access to resources inappropriately.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-19"
+      },
+      "Updated": {
+        "Date": "2024-06-20"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-3758",
+          "CVSS3": "7.1/CVSS:3.1/AV:A/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-3758",
+          "CWE": "CWE-362-\u003eCWE-285",
+          "Public": "20240619"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libipa_hbac is earlier than 0:2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497001"
+          },
+          {
+            "Comment": "libsss_autofs is earlier than 0:2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497002"
+          },
+          {
+            "Comment": "libsss_certmap is earlier than 0:2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497003"
+          },
+          {
+            "Comment": "libsss_idmap is earlier than 0:2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497004"
+          },
+          {
+            "Comment": "libsss_nss_idmap is earlier than 0:2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497005"
+          },
+          {
+            "Comment": "libsss_nss_idmap-devel is earlier than 0:devel-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497006"
+          },
+          {
+            "Comment": "libsss_simpleifp is earlier than 0:2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497007"
+          },
+          {
+            "Comment": "libsss_sudo is earlier than 0:2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497008"
+          },
+          {
+            "Comment": "python3-libipa_hbac is earlier than 0:libipa_hbac-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497009"
+          },
+          {
+            "Comment": "python3-libsss_nss_idmap is earlier than 0:libsss_nss_idmap-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497010"
+          },
+          {
+            "Comment": "python3-sss is earlier than 0:sss-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497011"
+          },
+          {
+            "Comment": "python3-sss-murmur is earlier than 0:sss-murmur-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497012"
+          },
+          {
+            "Comment": "sssd is earlier than 0:2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497013"
+          },
+          {
+            "Comment": "sssd-ad is earlier than 0:ad-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497014"
+          },
+          {
+            "Comment": "sssd-client is earlier than 0:client-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497015"
+          },
+          {
+            "Comment": "sssd-common is earlier than 0:common-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497016"
+          },
+          {
+            "Comment": "sssd-common-pac is earlier than 0:common-pac-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497017"
+          },
+          {
+            "Comment": "sssd-dbus is earlier than 0:dbus-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497018"
+          },
+          {
+            "Comment": "sssd-idp is earlier than 0:idp-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497019"
+          },
+          {
+            "Comment": "sssd-ipa is earlier than 0:ipa-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497020"
+          },
+          {
+            "Comment": "sssd-kcm is earlier than 0:kcm-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497021"
+          },
+          {
+            "Comment": "sssd-krb5 is earlier than 0:krb5-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497022"
+          },
+          {
+            "Comment": "sssd-krb5-common is earlier than 0:krb5-common-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497023"
+          },
+          {
+            "Comment": "sssd-ldap is earlier than 0:ldap-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497024"
+          },
+          {
+            "Comment": "sssd-nfs-idmap is earlier than 0:nfs-idmap-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497025"
+          },
+          {
+            "Comment": "sssd-polkit-rules is earlier than 0:polkit-rules-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497026"
+          },
+          {
+            "Comment": "sssd-proxy is earlier than 0:proxy-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497027"
+          },
+          {
+            "Comment": "sssd-tools is earlier than 0:tools-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497028"
+          },
+          {
+            "Comment": "sssd-winbind-idmap is earlier than 0:winbind-idmap-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497029"
+          },
+          {
+            "Comment": "python3-sssdconfig is earlier than 0:sssdconfig-2.9.4-3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240497030"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "ID": "oval:cn.openanolis:def:20220458",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0458: php:7.4 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0458",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0458",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-21703:\nIn PHP versions 7.3.x up to and including 7.3.31, 7.4.x below 7.4.25 and 8.0.x below 8.0.12, when running PHP FPM SAPI with main FPM daemon process running as root and child worker processes running as lower-privileged users, it is possible for the child processes to access memory shared with the main process and write to it, modifying it in a way that would cause the root process to conduct invalid memory reads and writes, which can be used to escalate privileges from local unprivileged user to the root user.\n\nCVE-2021-21705:\nIn PHP versions 7.3.x below 7.3.29, 7.4.x below 7.4.21 and 8.0.x below 8.0.8, when using URL validation functionality via filter_var() function with FILTER_VALIDATE_URL parameter, an URL with invalid password field can be accepted as valid. This can lead to the code incorrectly parsing the URL and potentially leading to other security implications - like contacting a wrong server or making a wrong access decision.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-06-15"
+      },
+      "Updated": {
+        "Date": "2022-10-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-21703",
+          "CVSS3": "6.4/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-21703",
+          "CWE": "CWE-119",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-21705",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-21705",
+          "CWE": "CWE-20-\u003eCWE-918",
+          "Public": "20220615"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "apcu-panel is earlier than 0:panel-5.1.18-1.module+an8.4.0+10552+beef7cec",
+            "TestRef": "oval:cn.openanolis:tst:20220458001"
+          },
+          {
+            "Comment": "php-pear is earlier than 1:pear-1.10.12-1.module+an8.4.0+10552+beef7cec",
+            "TestRef": "oval:cn.openanolis:tst:20220458002"
+          },
+          {
+            "Comment": "libzip is earlier than 0:1.6.1-1.module+an8.4.0+10220+df3cebc0",
+            "TestRef": "oval:cn.openanolis:tst:20220458003"
+          },
+          {
+            "Comment": "libzip-devel is earlier than 0:devel-1.6.1-1.module+an8.4.0+10220+df3cebc0",
+            "TestRef": "oval:cn.openanolis:tst:20220458004"
+          },
+          {
+            "Comment": "libzip-tools is earlier than 0:tools-1.6.1-1.module+an8.4.0+10220+df3cebc0",
+            "TestRef": "oval:cn.openanolis:tst:20220458005"
+          },
+          {
+            "Comment": "php is earlier than 0:7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458006"
+          },
+          {
+            "Comment": "php-bcmath is earlier than 0:bcmath-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458007"
+          },
+          {
+            "Comment": "php-cli is earlier than 0:cli-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458008"
+          },
+          {
+            "Comment": "php-common is earlier than 0:common-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458009"
+          },
+          {
+            "Comment": "php-dba is earlier than 0:dba-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458010"
+          },
+          {
+            "Comment": "php-dbg is earlier than 0:dbg-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458011"
+          },
+          {
+            "Comment": "php-devel is earlier than 0:devel-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458012"
+          },
+          {
+            "Comment": "php-embedded is earlier than 0:embedded-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458013"
+          },
+          {
+            "Comment": "php-enchant is earlier than 0:enchant-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458014"
+          },
+          {
+            "Comment": "php-ffi is earlier than 0:ffi-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458015"
+          },
+          {
+            "Comment": "php-fpm is earlier than 0:fpm-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458016"
+          },
+          {
+            "Comment": "php-gd is earlier than 0:gd-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458017"
+          },
+          {
+            "Comment": "php-gmp is earlier than 0:gmp-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458018"
+          },
+          {
+            "Comment": "php-intl is earlier than 0:intl-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458019"
+          },
+          {
+            "Comment": "php-json is earlier than 0:json-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458020"
+          },
+          {
+            "Comment": "php-ldap is earlier than 0:ldap-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458021"
+          },
+          {
+            "Comment": "php-mbstring is earlier than 0:mbstring-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458022"
+          },
+          {
+            "Comment": "php-mysqlnd is earlier than 0:mysqlnd-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458023"
+          },
+          {
+            "Comment": "php-odbc is earlier than 0:odbc-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458024"
+          },
+          {
+            "Comment": "php-opcache is earlier than 0:opcache-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458025"
+          },
+          {
+            "Comment": "php-pdo is earlier than 0:pdo-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458026"
+          },
+          {
+            "Comment": "php-pecl-apcu is earlier than 0:pecl-apcu-5.1.18-1.module+an8.4.0+10552+beef7cec",
+            "TestRef": "oval:cn.openanolis:tst:20220458027"
+          },
+          {
+            "Comment": "php-pecl-apcu-devel is earlier than 0:pecl-apcu-devel-5.1.18-1.module+an8.4.0+10552+beef7cec",
+            "TestRef": "oval:cn.openanolis:tst:20220458028"
+          },
+          {
+            "Comment": "php-pecl-rrd is earlier than 0:pecl-rrd-2.0.1-1.module+an8.4.0+10552+beef7cec",
+            "TestRef": "oval:cn.openanolis:tst:20220458029"
+          },
+          {
+            "Comment": "php-pecl-xdebug is earlier than 0:pecl-xdebug-2.9.5-1.module+an8.4.0+10552+beef7cec",
+            "TestRef": "oval:cn.openanolis:tst:20220458030"
+          },
+          {
+            "Comment": "php-pecl-zip is earlier than 0:pecl-zip-1.18.2-1.module+an8.4.0+10552+beef7cec",
+            "TestRef": "oval:cn.openanolis:tst:20220458031"
+          },
+          {
+            "Comment": "php-pgsql is earlier than 0:pgsql-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458032"
+          },
+          {
+            "Comment": "php-process is earlier than 0:process-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458033"
+          },
+          {
+            "Comment": "php-snmp is earlier than 0:snmp-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458034"
+          },
+          {
+            "Comment": "php-soap is earlier than 0:soap-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458035"
+          },
+          {
+            "Comment": "php-xml is earlier than 0:xml-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458036"
+          },
+          {
+            "Comment": "php-xmlrpc is earlier than 0:xmlrpc-7.4.19-2.0.1.module+an8.5.0+10690+45814b04",
+            "TestRef": "oval:cn.openanolis:tst:20220458037"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

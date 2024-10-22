@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20240836",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0836: gtk2 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0836",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0836",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2024-6655:\nA flaw was found in the GTK library. Under certain conditions, it is possible for a library to be injected into a GTK application from the current working directory.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-08-20"
+      },
+      "Updated": {
+        "Date": "2024-08-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-6655",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-6655",
+          "CWE": "CWE-94",
+          "Public": "20240820"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "gtk2 is earlier than 0:2.24.33-6.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240836001"
+          },
+          {
+            "Comment": "gtk2-devel is earlier than 0:devel-2.24.33-6.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240836002"
+          },
+          {
+            "Comment": "gtk2-devel-docs is earlier than 0:devel-docs-2.24.33-6.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240836003"
+          },
+          {
+            "Comment": "gtk2-immodule-xim is earlier than 0:immodule-xim-2.24.33-6.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240836004"
+          },
+          {
+            "Comment": "gtk2-immodules is earlier than 0:immodules-2.24.33-6.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240836005"
+          },
+          {
+            "Comment": "gtk2-doc is earlier than 0:doc-2.24.33-6.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240836006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "ID": "oval:cn.openanolis:def:20210182",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0182: kernel security, bug fix, and enhancement update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0182",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0182",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-3653:\nA flaw was found in the KVM's AMD code for supporting SVM nested virtualization. The flaw occurs when processing the VMCB (virtual machine control block) provided by the L1 guest to spawn/handle a nested guest (L2). Due to improper validation of the \"int_ctl\" field, this issue could allow a malicious L1 to enable AVIC support (Advanced Virtual Interrupt Controller) for the L2 guest. As a result, the L2 guest would be allowed to read/write physical pages of the host, resulting in a crash of the entire system, leak of sensitive data or potential guest-to-host escape. This flaw affects Linux kernel versions prior to 5.14-rc7.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2021-10-11"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-3653",
+          "CVSS3": "8.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3653",
+          "CWE": "CWE-862",
+          "Public": "20211126"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182001"
+          },
+          {
+            "Comment": "kernel is earlier than 0:4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182002"
+          },
+          {
+            "Comment": "kernel-core is earlier than 0:core-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182003"
+          },
+          {
+            "Comment": "kernel-cross-headers is earlier than 0:cross-headers-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182004"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182005"
+          },
+          {
+            "Comment": "kernel-debug-core is earlier than 0:debug-core-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182006"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182007"
+          },
+          {
+            "Comment": "kernel-debug-modules is earlier than 0:debug-modules-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182008"
+          },
+          {
+            "Comment": "kernel-debug-modules-extra is earlier than 0:debug-modules-extra-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182009"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182010"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182011"
+          },
+          {
+            "Comment": "kernel-modules is earlier than 0:modules-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182012"
+          },
+          {
+            "Comment": "kernel-modules-extra is earlier than 0:modules-extra-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182013"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182014"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182015"
+          },
+          {
+            "Comment": "perf is earlier than 0:4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182016"
+          },
+          {
+            "Comment": "python3-perf is earlier than 0:perf-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182017"
+          },
+          {
+            "Comment": "kernel(RHCK)4.18 (Anolis OS 8.4) is earlier than 0:4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182018"
+          },
+          {
+            "Comment": "kernel-doc is earlier than 0:doc-4.18.0-305.19.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20210182019"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "ID": "oval:cn.openanolis:def:20230643",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0643: bind security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0643",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0643",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2023-3341:\nThe code that processes control channel messages sent to `named` calls certain functions recursively during packet parsing. Recursion depth is only limited by the maximum accepted packet size; depending on the environment, this may cause the packet-parsing code to run out of available stack memory, causing `named` to terminate unexpectedly. Since each incoming control channel message is fully parsed before its contents are authenticated, exploiting this flaw does not require the attacker to hold a valid RNDC key; only network access to the control channel's configured TCP port is necessary. This issue affects BIND 9 versions 9.2.0 through 9.16.43, 9.18.0 through 9.18.18, 9.19.0 through 9.19.16, 9.9.3-S1 through 9.16.43-S1, and 9.18.0-S1 through 9.18.18-S1.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-11-01"
+      },
+      "Updated": {
+        "Date": "2023-11-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-3341",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-3341",
+          "CWE": "CWE-20",
+          "Public": "20230920"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bind is earlier than 32:9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643001"
+          },
+          {
+            "Comment": "bind-chroot is earlier than 32:chroot-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643002"
+          },
+          {
+            "Comment": "bind-devel is earlier than 32:devel-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643003"
+          },
+          {
+            "Comment": "bind-export-devel is earlier than 32:export-devel-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643004"
+          },
+          {
+            "Comment": "bind-export-libs is earlier than 32:export-libs-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643005"
+          },
+          {
+            "Comment": "bind-libs is earlier than 32:libs-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643006"
+          },
+          {
+            "Comment": "bind-libs-lite is earlier than 32:libs-lite-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643007"
+          },
+          {
+            "Comment": "bind-lite-devel is earlier than 32:lite-devel-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643008"
+          },
+          {
+            "Comment": "bind-pkcs11 is earlier than 32:pkcs11-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643009"
+          },
+          {
+            "Comment": "bind-pkcs11-devel is earlier than 32:pkcs11-devel-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643010"
+          },
+          {
+            "Comment": "bind-pkcs11-libs is earlier than 32:pkcs11-libs-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643011"
+          },
+          {
+            "Comment": "bind-pkcs11-utils is earlier than 32:pkcs11-utils-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643012"
+          },
+          {
+            "Comment": "bind-sdb is earlier than 32:sdb-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643013"
+          },
+          {
+            "Comment": "bind-sdb-chroot is earlier than 32:sdb-chroot-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643014"
+          },
+          {
+            "Comment": "bind-utils is earlier than 32:utils-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643015"
+          },
+          {
+            "Comment": "bind-license is earlier than 32:license-9.11.4-26.P2.an7.15",
+            "TestRef": "oval:cn.openanolis:tst:20230643016"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

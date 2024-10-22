@@ -1,0 +1,153 @@
+{
+  "ID": "oval:cn.openanolis:def:20220670",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0670: python security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0670",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0670",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2014-4650:\nIt was discovered that the CGIHTTPServer module incorrectly handled URL encoded paths. A remote attacker could use this flaw to execute scripts outside of the cgi-bin directory, or disclose source of scripts in the cgi-bin directory.\n\nCVE-2014-9365:\nThe HTTP clients in the (1) httplib, (2) urllib, (3) urllib2, and (4) xmlrpclib libraries in CPython (aka Python) 2.x before 2.7.9 and 3.x before 3.4.3, when accessing an HTTPS URL, do not (a) check the certificate against a trust store or verify that the server hostname matches a domain name in the subject's (b) Common Name or (c) subjectAltName field of the X.509 certificate, which allows man-in-the-middle attackers to spoof SSL servers via an arbitrary valid certificate.\n\nCVE-2016-0772:\nThe smtplib library in CPython (aka Python) before 2.7.12, 3.x before 3.4.5, and 3.5.x before 3.5.2 does not return an error when StartTLS fails, which might allow man-in-the-middle attackers to bypass the TLS protections by leveraging a network position between the client and the registry to block the StartTLS command, aka a \"StartTLS stripping attack.\"\n\nCVE-2016-1000110:\nThe CGIHandler class in Python before 2.7.12 does not protect against the HTTP_PROXY variable name clash in a CGI script, which could allow a remote attacker to redirect HTTP requests.\n\nCVE-2016-5636:\nInteger overflow in the get_data function in zipimport.c in CPython (aka Python) before 2.7.12, 3.x before 3.4.5, and 3.5.x before 3.5.2 allows remote attackers to have unspecified impact via a negative data size value, which triggers a heap-based buffer overflow.\n\nCVE-2016-5699:\nCRLF injection vulnerability in the HTTPConnection.putheader function in urllib2 and urllib in CPython (aka Python) before 2.7.10 and 3.x before 3.4.4 allows remote attackers to inject arbitrary HTTP headers via CRLF sequences in a URL.\n\nCVE-2020-26116:\nhttp.client in Python 3.x before 3.5.10, 3.6.x before 3.6.12, 3.7.x before 3.7.9, and 3.8.x before 3.8.5 allows CRLF injection if the attacker controls the HTTP request method, as demonstrated by inserting CR and LF control characters in the first argument of HTTPConnection.request.\n\nCVE-2020-26137:\nurllib3 before 1.25.9 allows CRLF injection if the attacker controls the HTTP request method, as demonstrated by inserting CR and LF control characters in the first argument of putrequest(). NOTE: this is similar to CVE-2020-26116.\n\nCVE-2021-3177:\nPython 3.x through 3.9.1 has a buffer overflow in PyCArg_repr in _ctypes/callproc.c, which may lead to remote code execution in certain Python applications that accept floating-point numbers as untrusted input, as demonstrated by a 1e300 argument to c_double.from_param. This occurs because sprintf is used unsafely.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-08-30"
+      },
+      "Updated": {
+        "Date": "2022-11-28"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2014-4650",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2014-4650",
+          "CWE": "CWE-138",
+          "Public": "20220830"
+        },
+        {
+          "ID": "CVE-2014-9365",
+          "CVSS3": "4.7/CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2014-9365",
+          "CWE": "CWE-345",
+          "Public": "20220830"
+        },
+        {
+          "ID": "CVE-2016-0772",
+          "CVSS3": "4.8/CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2016-0772",
+          "CWE": "",
+          "Public": "20220830"
+        },
+        {
+          "ID": "CVE-2016-1000110",
+          "CVSS3": "5.0/CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2016-1000110",
+          "CWE": "CWE-20",
+          "Public": "20220830"
+        },
+        {
+          "ID": "CVE-2016-5699",
+          "CVSS3": "5.3/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2016-5699",
+          "CWE": "CWE-20",
+          "Public": "20220830"
+        },
+        {
+          "ID": "CVE-2016-5636",
+          "CVSS3": "4.5/CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2016-5636",
+          "CWE": "CWE-20-\u003eCWE-190-\u003eCWE-122",
+          "Public": "20220830"
+        },
+        {
+          "ID": "CVE-2020-26116",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-26116",
+          "CWE": "CWE-113",
+          "Public": "20220830"
+        },
+        {
+          "ID": "CVE-2020-26137",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-26137",
+          "CWE": "CWE-113",
+          "Public": "20220830"
+        },
+        {
+          "ID": "CVE-2021-3177",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3177",
+          "CWE": "CWE-120",
+          "Public": "20220921"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python is earlier than 0:2.7.5-92.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220670001"
+          },
+          {
+            "Comment": "python-debug is earlier than 0:debug-2.7.5-92.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220670002"
+          },
+          {
+            "Comment": "python-devel is earlier than 0:devel-2.7.5-92.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220670003"
+          },
+          {
+            "Comment": "python-libs is earlier than 0:libs-2.7.5-92.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220670004"
+          },
+          {
+            "Comment": "python-test is earlier than 0:test-2.7.5-92.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220670005"
+          },
+          {
+            "Comment": "python-tools is earlier than 0:tools-2.7.5-92.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220670006"
+          },
+          {
+            "Comment": "tkinter is earlier than 0:2.7.5-92.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220670007"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

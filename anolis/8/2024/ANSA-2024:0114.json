@@ -1,0 +1,129 @@
+{
+  "ID": "oval:cn.openanolis:def:20240114",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0114: avahi security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0114",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0114",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-1981:\nA vulnerability was found in the avahi library. This flaw allows an unprivileged user to make a dbus call, causing the avahi daemon to crash.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-04-03"
+      },
+      "Updated": {
+        "Date": "2024-04-03"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-1981",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-1981",
+          "CWE": "CWE-400",
+          "Public": "20230526"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "avahi is earlier than 0:0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114001"
+          },
+          {
+            "Comment": "avahi-autoipd is earlier than 0:autoipd-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114002"
+          },
+          {
+            "Comment": "avahi-compat-howl is earlier than 0:compat-howl-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114003"
+          },
+          {
+            "Comment": "avahi-compat-howl-devel is earlier than 0:compat-howl-devel-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114004"
+          },
+          {
+            "Comment": "avahi-compat-libdns_sd is earlier than 0:compat-libdns_sd-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114005"
+          },
+          {
+            "Comment": "avahi-compat-libdns_sd-devel is earlier than 0:compat-libdns_sd-devel-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114006"
+          },
+          {
+            "Comment": "avahi-devel is earlier than 0:devel-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114007"
+          },
+          {
+            "Comment": "avahi-glib is earlier than 0:glib-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114008"
+          },
+          {
+            "Comment": "avahi-glib-devel is earlier than 0:glib-devel-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114009"
+          },
+          {
+            "Comment": "avahi-gobject is earlier than 0:gobject-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114010"
+          },
+          {
+            "Comment": "avahi-gobject-devel is earlier than 0:gobject-devel-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114011"
+          },
+          {
+            "Comment": "avahi-libs is earlier than 0:libs-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114012"
+          },
+          {
+            "Comment": "avahi-ui is earlier than 0:ui-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114013"
+          },
+          {
+            "Comment": "avahi-ui-devel is earlier than 0:ui-devel-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114014"
+          },
+          {
+            "Comment": "avahi-ui-gtk3 is earlier than 0:ui-gtk3-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114015"
+          },
+          {
+            "Comment": "python3-avahi is earlier than 0:avahi-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114016"
+          },
+          {
+            "Comment": "avahi-doc is earlier than 0:doc-0.7-21.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240114017"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

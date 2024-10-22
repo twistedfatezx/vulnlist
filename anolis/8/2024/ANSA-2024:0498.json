@@ -1,0 +1,293 @@
+{
+  "ID": "oval:cn.openanolis:def:20240498",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0498: pki-core:10.6 and pki-deps:10.6 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0498",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0498",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-36518:\njackson-databind before 2.13.0 allows a Java StackOverflow exception and denial of service via a large depth of nested objects.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-19"
+      },
+      "Updated": {
+        "Date": "2024-06-20"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-36518",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-36518",
+          "CWE": "CWE-400",
+          "Public": "20240619"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "idm-jss is earlier than 0:jss-4.11.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498001"
+          },
+          {
+            "Comment": "idm-jss-javadoc is earlier than 0:jss-javadoc-4.11.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498002"
+          },
+          {
+            "Comment": "idm-pki-symkey is earlier than 0:pki-symkey-10.15.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498003"
+          },
+          {
+            "Comment": "idm-pki-tools is earlier than 0:pki-tools-10.15.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498004"
+          },
+          {
+            "Comment": "apache-commons-collections is earlier than 0:commons-collections-3.2.2-10.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498005"
+          },
+          {
+            "Comment": "apache-commons-lang is earlier than 0:commons-lang-2.6-21.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498006"
+          },
+          {
+            "Comment": "apache-commons-net is earlier than 0:commons-net-3.6-3.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498007"
+          },
+          {
+            "Comment": "bea-stax is earlier than 0:stax-1.2.0-16.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498008"
+          },
+          {
+            "Comment": "fasterxml-oss-parent is earlier than 0:oss-parent-49-1.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498009"
+          },
+          {
+            "Comment": "glassfish-fastinfoset is earlier than 0:fastinfoset-1.2.13-9.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498010"
+          },
+          {
+            "Comment": "glassfish-jax-rs-api is earlier than 0:jax-rs-api-2.0.1-6.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498011"
+          },
+          {
+            "Comment": "glassfish-jaxb is earlier than 0:jaxb-2.2.11-12.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498012"
+          },
+          {
+            "Comment": "glassfish-jaxb-api is earlier than 0:jaxb-api-2.2.12-8.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498013"
+          },
+          {
+            "Comment": "jackson-annotations is earlier than 0:annotations-2.14.2-1.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498014"
+          },
+          {
+            "Comment": "jackson-bom is earlier than 0:bom-2.14.2-1.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498015"
+          },
+          {
+            "Comment": "jackson-core is earlier than 0:core-2.14.2-1.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498016"
+          },
+          {
+            "Comment": "jackson-databind is earlier than 0:databind-2.14.2-1.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498017"
+          },
+          {
+            "Comment": "jackson-jaxrs-providers is earlier than 0:jaxrs-providers-2.14.2-1.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498018"
+          },
+          {
+            "Comment": "jackson-module-jaxb-annotations is earlier than 0:module-jaxb-annotations-2.7.6-4.module+an8.9.0+11217+f7469009",
+            "TestRef": "oval:cn.openanolis:tst:20240498019"
+          },
+          {
+            "Comment": "jackson-parent is earlier than 0:parent-2.14-1.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498020"
+          },
+          {
+            "Comment": "jakarta-commons-httpclient is earlier than 1:commons-httpclient-3.1-28.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498021"
+          },
+          {
+            "Comment": "javassist is earlier than 0:3.18.1-8.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498022"
+          },
+          {
+            "Comment": "jss is earlier than 0:4.11.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498023"
+          },
+          {
+            "Comment": "ldapjdk is earlier than 0:4.24.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498024"
+          },
+          {
+            "Comment": "msv is earlier than 1:2013.6.1-10.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498025"
+          },
+          {
+            "Comment": "pki-core is earlier than 0:core-10.15.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498026"
+          },
+          {
+            "Comment": "pki-servlet-engine is earlier than 1:servlet-engine-9.0.62-1.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498027"
+          },
+          {
+            "Comment": "relaxngDatatype is earlier than 0:2011.1-7.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498028"
+          },
+          {
+            "Comment": "relaxngcc is earlier than 0:1.12-14.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498029"
+          },
+          {
+            "Comment": "resteasy is earlier than 0:3.0.26-7.module+an8.9.0+11217+f7469009",
+            "TestRef": "oval:cn.openanolis:tst:20240498030"
+          },
+          {
+            "Comment": "slf4j is earlier than 0:1.7.25-4.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498031"
+          },
+          {
+            "Comment": "stax-ex is earlier than 0:ex-1.7.7-8.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498032"
+          },
+          {
+            "Comment": "tomcatjss is earlier than 0:7.8.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498033"
+          },
+          {
+            "Comment": "velocity is earlier than 0:1.7-24.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498034"
+          },
+          {
+            "Comment": "xalan-j2 is earlier than 0:j2-2.7.1-38.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498035"
+          },
+          {
+            "Comment": "xerces-j2 is earlier than 0:j2-2.11.0-34.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498036"
+          },
+          {
+            "Comment": "xml-commons-apis is earlier than 0:commons-apis-1.4.01-25.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498037"
+          },
+          {
+            "Comment": "xml-commons-resolver is earlier than 0:commons-resolver-1.2-26.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498038"
+          },
+          {
+            "Comment": "xml-stylebook is earlier than 0:stylebook-1.0-0.25.b3_xalan2.svn313293.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498039"
+          },
+          {
+            "Comment": "xmlstreambuffer is earlier than 0:1.5.4-8.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498040"
+          },
+          {
+            "Comment": "xsom is earlier than 0:0-19.20110809svn.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498041"
+          },
+          {
+            "Comment": "bea-stax-api is earlier than 0:stax-api-1.2.0-16.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498042"
+          },
+          {
+            "Comment": "glassfish-jaxb-core is earlier than 0:jaxb-core-2.2.11-12.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498043"
+          },
+          {
+            "Comment": "glassfish-jaxb-runtime is earlier than 0:jaxb-runtime-2.2.11-12.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498044"
+          },
+          {
+            "Comment": "glassfish-jaxb-txw2 is earlier than 0:jaxb-txw2-2.2.11-12.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498045"
+          },
+          {
+            "Comment": "idm-ldapjdk is earlier than 0:ldapjdk-4.24.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498046"
+          },
+          {
+            "Comment": "idm-ldapjdk-javadoc is earlier than 0:ldapjdk-javadoc-4.24.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498047"
+          },
+          {
+            "Comment": "idm-pki-acme is earlier than 0:pki-acme-10.15.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498048"
+          },
+          {
+            "Comment": "idm-pki-base is earlier than 0:pki-base-10.15.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498049"
+          },
+          {
+            "Comment": "idm-pki-base-java is earlier than 0:pki-base-java-10.15.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498050"
+          },
+          {
+            "Comment": "idm-pki-ca is earlier than 0:pki-ca-10.15.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498051"
+          },
+          {
+            "Comment": "idm-pki-kra is earlier than 0:pki-kra-10.15.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498052"
+          },
+          {
+            "Comment": "idm-pki-server is earlier than 0:pki-server-10.15.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498053"
+          },
+          {
+            "Comment": "idm-tomcatjss is earlier than 0:tomcatjss-7.8.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498054"
+          },
+          {
+            "Comment": "jackson-jaxrs-json-provider is earlier than 0:jaxrs-json-provider-2.14.2-1.module+an8.9.0+11213+b6347663",
+            "TestRef": "oval:cn.openanolis:tst:20240498055"
+          },
+          {
+            "Comment": "javassist-javadoc is earlier than 0:javadoc-3.18.1-8.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498056"
+          },
+          {
+            "Comment": "python3-idm-pki is earlier than 0:idm-pki-10.15.0-1.module+an8.9.0+11212+437b8601",
+            "TestRef": "oval:cn.openanolis:tst:20240498057"
+          },
+          {
+            "Comment": "slf4j-jdk14 is earlier than 0:jdk14-1.7.25-4.module+an8.7.0+10955+1d65c34e",
+            "TestRef": "oval:cn.openanolis:tst:20240498058"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

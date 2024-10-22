@@ -1,0 +1,101 @@
+{
+  "ID": "oval:cn.openanolis:def:20230325",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0325: systemd security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0325",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0325",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-26604:\nsystemd before 247 does not adequately block local privilege escalation for some Sudo configurations, e.g., plausible sudoers files in which the \"systemctl status\" command may be executed. Specifically, systemd does not set LESSSECURE to 1, and thus other programs may be launched from the less program. This presents a substantial security risk when running systemctl from Sudo, because less executes as root when the terminal size is too small to show the complete systemctl output.\n\nCVE-2022-3821：\nAn off-by-one Error issue was discovered in Systemd in format_timespan() function of time-util.c. An attacker could supply specific values for time and accuracy that leads to buffer overrun in format_timespan(), leading to a Denial of Service.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-07-01"
+      },
+      "Updated": {
+        "Date": "2023-07-25"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-26604",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-26604",
+          "CWE": "",
+          "Public": "20230304"
+        },
+        {
+          "ID": "CVE-2022-3821",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-3821",
+          "CWE": "CWE-193",
+          "Public": "20221108"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "systemd is earlier than 0:239-74.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230325001"
+          },
+          {
+            "Comment": "systemd-container is earlier than 0:container-239-74.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230325002"
+          },
+          {
+            "Comment": "systemd-devel is earlier than 0:devel-239-74.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230325003"
+          },
+          {
+            "Comment": "systemd-journal-remote is earlier than 0:journal-remote-239-74.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230325004"
+          },
+          {
+            "Comment": "systemd-libs is earlier than 0:libs-239-74.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230325005"
+          },
+          {
+            "Comment": "systemd-pam is earlier than 0:pam-239-74.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230325006"
+          },
+          {
+            "Comment": "systemd-tests is earlier than 0:tests-239-74.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230325007"
+          },
+          {
+            "Comment": "systemd-udev is earlier than 0:udev-239-74.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230325008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

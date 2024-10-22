@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20240512",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0512: osbuild-composer bug fix, enhancement and security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0512",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0512",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-2307:\nA flaw was found in osbuild-composer. A condition can be triggered that disables GPG verification for package repositories, which can expose the build phase to a Man-in-the-Middle attack, allowing untrusted code to be installed into an image being built.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-26"
+      },
+      "Updated": {
+        "Date": "2024-06-26"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-2307",
+          "CVSS3": "6.1/CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-2307",
+          "CWE": "CWE-362-\u003eCWE-347",
+          "Public": "20240621"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "osbuild-composer is earlier than 0:composer-101-2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240512001"
+          },
+          {
+            "Comment": "osbuild-composer-core is earlier than 0:composer-core-101-2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240512002"
+          },
+          {
+            "Comment": "osbuild-composer-worker is earlier than 0:composer-worker-101-2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240512003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

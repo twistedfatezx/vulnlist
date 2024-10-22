@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20210114",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0114: 389-ds:1.4 security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0114",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0114",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-35518:\nWhen binding against a DN during authentication, the reply from 389-ds-base will be different whether the DN exists or not. This can be used by an unauthenticated attacker to check the existence of an entry in the LDAP database.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2021-05-31"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-35518",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-35518",
+          "CWE": "CWE-200",
+          "Public": "20210531"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "389-ds-base is earlier than 0:ds-base-1.4.2.4-13.module+el8.2.0+10191+a119edc4",
+            "TestRef": "oval:cn.openanolis:tst:20210114001"
+          },
+          {
+            "Comment": "389-ds-base-devel is earlier than 0:ds-base-devel-1.4.2.4-13.module+el8.2.0+10191+a119edc4",
+            "TestRef": "oval:cn.openanolis:tst:20210114002"
+          },
+          {
+            "Comment": "389-ds-base-legacy-tools is earlier than 0:ds-base-legacy-tools-1.4.2.4-13.module+el8.2.0+10191+a119edc4",
+            "TestRef": "oval:cn.openanolis:tst:20210114003"
+          },
+          {
+            "Comment": "389-ds-base-libs is earlier than 0:ds-base-libs-1.4.2.4-13.module+el8.2.0+10191+a119edc4",
+            "TestRef": "oval:cn.openanolis:tst:20210114004"
+          },
+          {
+            "Comment": "389-ds-base-snmp is earlier than 0:ds-base-snmp-1.4.2.4-13.module+el8.2.0+10191+a119edc4",
+            "TestRef": "oval:cn.openanolis:tst:20210114005"
+          },
+          {
+            "Comment": "python3-lib389 is earlier than 0:lib389-1.4.2.4-13.module+el8.2.0+10191+a119edc4",
+            "TestRef": "oval:cn.openanolis:tst:20210114006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

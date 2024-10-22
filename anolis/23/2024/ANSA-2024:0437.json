@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20240437",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0437: aom security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0437",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0437",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-6879:\nIncreasing the resolution of video frames, while performing a multi-threaded encode, can result in a heap overflow in av1_loop_restoration_dealloc().",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-05"
+      },
+      "Updated": {
+        "Date": "2024-06-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-6879",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-6879",
+          "CWE": "CWE-122-\u003eCWE-125",
+          "Public": "20240605"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "aom is earlier than 0:3.7.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240437001"
+          },
+          {
+            "Comment": "libaom is earlier than 0:3.7.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240437002"
+          },
+          {
+            "Comment": "libaom-devel is earlier than 0:devel-3.7.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240437003"
+          },
+          {
+            "Comment": "aom-doc is earlier than 0:doc-3.7.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240437004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

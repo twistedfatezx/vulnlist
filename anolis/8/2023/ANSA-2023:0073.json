@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20230073",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0073: tar security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0073",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0073",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-48303:\nGNU Tar through 1.34 has a one-byte out-of-bounds read that results in use of uninitialized memory for a conditional jump. Exploitation to change the flow of control has not been demonstrated. The issue occurs in from_header in list.c via a V7 archive in which mtime has approximately 11 whitespace characters.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-03-07"
+      },
+      "Updated": {
+        "Date": "2023-03-07"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-48303",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-48303",
+          "CWE": "CWE-119",
+          "Public": "20230130"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "tar is earlier than 2:1.30-6.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230073001"
+          },
+          {
+            "Comment": "tar-doc is earlier than 2:doc-1.30-6.0.1.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230073002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

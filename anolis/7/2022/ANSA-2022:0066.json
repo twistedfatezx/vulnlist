@@ -1,0 +1,113 @@
+{
+  "ID": "oval:cn.openanolis:def:20220066",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0066: firefox security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0066",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0066",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2022-22754:\n** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.\n\nCVE-2022-22756:\n** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.\n\nCVE-2022-22759:\n** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.\n\nCVE-2022-22760:\n** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.\n\nCVE-2022-22761:\n** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.\n\nCVE-2022-22763:\n** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.\n\nCVE-2022-22764:\n** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-02-16"
+      },
+      "Updated": {
+        "Date": "2022-04-02"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-22760",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-22760",
+          "CWE": "CWE-829",
+          "Public": "20220216"
+        },
+        {
+          "ID": "CVE-2022-22761",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-22761",
+          "CWE": "CWE-829",
+          "Public": "20220216"
+        },
+        {
+          "ID": "CVE-2022-22763",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-22763",
+          "CWE": "CWE-94",
+          "Public": "20220216"
+        },
+        {
+          "ID": "CVE-2022-22764",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-22764",
+          "CWE": "CWE-120",
+          "Public": "20220216"
+        },
+        {
+          "ID": "CVE-2022-22754",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-22754",
+          "CWE": "CWE-1021",
+          "Public": "20220216"
+        },
+        {
+          "ID": "CVE-2022-22756",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-22756",
+          "CWE": "CWE-1021",
+          "Public": "20220216"
+        },
+        {
+          "ID": "CVE-2022-22759",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-22759",
+          "CWE": "CWE-829",
+          "Public": "20220216"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "firefox is earlier than 0:91.6.0-1.0.1.an7",
+            "TestRef": "oval:cn.openanolis:tst:20220066001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "ID": "oval:cn.openanolis:def:20230023",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0023: bind security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0023",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0023",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2021-25220:\nBIND 9.11.0 -\u003e 9.11.36 9.12.0 -\u003e 9.16.26 9.17.0 -\u003e 9.18.0 BIND Supported Preview Editions: 9.11.4-S1 -\u003e 9.11.36-S1 9.16.8-S1 -\u003e 9.16.26-S1 Versions of BIND 9 earlier than those shown - back to 9.1.0, including Supported Preview Editions - are also believed to be affected but have not been tested as they are EOL. The cache could become poisoned with incorrect records leading to queries being made to the wrong servers, which might also result in false information being returned to clients.\n\nCVE-2022-2795:\nBy flooding the target resolver with queries exploiting this flaw an attacker can significantly impair the resolver's performance, effectively denying legitimate clients access to the DNS resolution service.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-02-03"
+      },
+      "Updated": {
+        "Date": "2023-02-07"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-25220",
+          "CVSS3": "6.8/CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-25220",
+          "CWE": "CWE-444",
+          "Public": "20220323"
+        },
+        {
+          "ID": "CVE-2022-2795",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-2795",
+          "CWE": "CWE-20-\u003eCWE-400",
+          "Public": "20220921"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bind is earlier than 32:9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023001"
+          },
+          {
+            "Comment": "bind-chroot is earlier than 32:chroot-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023002"
+          },
+          {
+            "Comment": "bind-devel is earlier than 32:devel-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023003"
+          },
+          {
+            "Comment": "bind-export-devel is earlier than 32:export-devel-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023004"
+          },
+          {
+            "Comment": "bind-export-libs is earlier than 32:export-libs-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023005"
+          },
+          {
+            "Comment": "bind-libs is earlier than 32:libs-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023006"
+          },
+          {
+            "Comment": "bind-libs-lite is earlier than 32:libs-lite-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023007"
+          },
+          {
+            "Comment": "bind-lite-devel is earlier than 32:lite-devel-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023008"
+          },
+          {
+            "Comment": "bind-pkcs11 is earlier than 32:pkcs11-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023009"
+          },
+          {
+            "Comment": "bind-pkcs11-devel is earlier than 32:pkcs11-devel-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023010"
+          },
+          {
+            "Comment": "bind-pkcs11-libs is earlier than 32:pkcs11-libs-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023011"
+          },
+          {
+            "Comment": "bind-pkcs11-utils is earlier than 32:pkcs11-utils-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023012"
+          },
+          {
+            "Comment": "bind-sdb is earlier than 32:sdb-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023013"
+          },
+          {
+            "Comment": "bind-sdb-chroot is earlier than 32:sdb-chroot-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023014"
+          },
+          {
+            "Comment": "bind-utils is earlier than 32:utils-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023015"
+          },
+          {
+            "Comment": "bind-license is earlier than 32:license-9.11.4-26.P2.an7.13",
+            "TestRef": "oval:cn.openanolis:tst:20230023016"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

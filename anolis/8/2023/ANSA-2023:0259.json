@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20230259",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0259: libtar security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0259",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0259",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-33643:\nAn attacker who submits a crafted tar file with size in header struct being 0 may be able to trigger an calling of malloc(0) for a variable gnu_longlink, causing an out-of-bounds read.\n\nCVE-2021-33644:\nAn attacker who submits a crafted tar file with size in header struct being 0 may be able to trigger an calling of malloc(0) for a variable gnu_longname, causing an out-of-bounds read.\n\nCVE-2021-33645:\nThe th_read() function doesn’t free a variable t-\u003eth_buf.gnu_longlink after allocating memory, which may cause a memory leak.\n\nCVE-2021-33646:\nThe th_read() function doesn’t free a variable t-\u003eth_buf.gnu_longname after allocating memory, which may cause a memory leak.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-06-01"
+      },
+      "Updated": {
+        "Date": "2023-06-02"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-33643",
+          "CVSS3": "7.4/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-33643",
+          "CWE": "CWE-125",
+          "Public": "20230601"
+        },
+        {
+          "ID": "CVE-2021-33644",
+          "CVSS3": "6.8/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-33644",
+          "CWE": "CWE-125",
+          "Public": "20230601"
+        },
+        {
+          "ID": "CVE-2021-33645",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-33645",
+          "CWE": "CWE-401",
+          "Public": "20230601"
+        },
+        {
+          "ID": "CVE-2021-33646",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-33646",
+          "CWE": "CWE-401",
+          "Public": "20230601"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libtar is earlier than 0:1.2.20-17.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230259001"
+          },
+          {
+            "Comment": "libtar-doc is earlier than 0:doc-1.2.20-17.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230259002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

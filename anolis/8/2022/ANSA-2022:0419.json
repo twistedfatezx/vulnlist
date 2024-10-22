@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20220419",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0419: cairo and pixman security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0419",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0419",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-35492:\nA flaw was found in cairo's image-compositor.c in all versions prior to 1.17.4. This flaw allows an attacker who can provide a crafted input file to cairo's image-compositor (for example, by convincing a user to open a file in an application using cairo, or if an application uses cairo on untrusted input) to cause a stack buffer overflow -\u003e out-of-bounds WRITE. The highest impact from this vulnerability is to confidentiality, integrity, as well as system availability.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-06-15"
+      },
+      "Updated": {
+        "Date": "2022-06-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-35492",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-35492",
+          "CWE": "CWE-121-\u003eCWE-787",
+          "Public": "20220615"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "cairo is earlier than 0:1.15.12-6.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220419001"
+          },
+          {
+            "Comment": "cairo-devel is earlier than 0:devel-1.15.12-6.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220419002"
+          },
+          {
+            "Comment": "cairo-gobject is earlier than 0:gobject-1.15.12-6.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220419003"
+          },
+          {
+            "Comment": "cairo-gobject-devel is earlier than 0:gobject-devel-1.15.12-6.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220419004"
+          },
+          {
+            "Comment": "pixman is earlier than 0:0.38.4-2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220419005"
+          },
+          {
+            "Comment": "pixman-devel is earlier than 0:devel-0.38.4-2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20220419006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

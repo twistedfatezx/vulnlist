@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20240411",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0411: go-toolset:an8 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0411",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0411",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-45288:\nAn attacker may cause an HTTP/2 endpoint to read arbitrary amounts of header data by sending an excessive number of CONTINUATION frames. Maintaining HPACK state requires parsing and processing all HEADERS and CONTINUATION frames on a connection. When a request's headers exceed MaxHeaderBytes, no memory is allocated to store the excess headers, but they are still parsed. This permits an attacker to cause an HTTP/2 endpoint to read arbitrary amounts of header data, all associated with a request which is going to be rejected. These headers can include Huffman-encoded data which is significantly more expensive for the receiver to decode than for an attacker to send. The fix sets a limit on the amount of excess header frames we will process before closing a connection.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-05-28"
+      },
+      "Updated": {
+        "Date": "2024-05-30"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-45288",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45288",
+          "CWE": "CWE-400",
+          "Public": "20240528"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "go-toolset is earlier than 0:toolset-1.20.12-1.module+an8.9.0+11191+9537a002",
+            "TestRef": "oval:cn.openanolis:tst:20240411001"
+          },
+          {
+            "Comment": "golang is earlier than 0:1.20.12-8.0.1.module+an8.9.0+11202+9458aa69",
+            "TestRef": "oval:cn.openanolis:tst:20240411002"
+          },
+          {
+            "Comment": "golang-bin is earlier than 0:bin-1.20.12-8.0.1.module+an8.9.0+11202+9458aa69",
+            "TestRef": "oval:cn.openanolis:tst:20240411003"
+          },
+          {
+            "Comment": "delve is earlier than 0:1.20.2-1.0.1.module+an8.9.0+11191+9537a002",
+            "TestRef": "oval:cn.openanolis:tst:20240411004"
+          },
+          {
+            "Comment": "golang-docs is earlier than 0:docs-1.20.12-8.0.1.module+an8.9.0+11202+9458aa69",
+            "TestRef": "oval:cn.openanolis:tst:20240411005"
+          },
+          {
+            "Comment": "golang-misc is earlier than 0:misc-1.20.12-8.0.1.module+an8.9.0+11202+9458aa69",
+            "TestRef": "oval:cn.openanolis:tst:20240411006"
+          },
+          {
+            "Comment": "golang-src is earlier than 0:src-1.20.12-8.0.1.module+an8.9.0+11202+9458aa69",
+            "TestRef": "oval:cn.openanolis:tst:20240411007"
+          },
+          {
+            "Comment": "golang-tests is earlier than 0:tests-1.20.12-8.0.1.module+an8.9.0+11202+9458aa69",
+            "TestRef": "oval:cn.openanolis:tst:20240411008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

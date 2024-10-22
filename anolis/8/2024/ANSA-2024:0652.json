@@ -1,0 +1,101 @@
+{
+  "ID": "oval:cn.openanolis:def:20240652",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0652: go-toolset:an8 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0652",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0652",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-24789:\nThe archive/zip package's handling of certain types of invalid zip files differs from the behavior of most zip implementations. This misalignment could be exploited to create an zip file with contents that vary depending on the implementation reading the file. The archive/zip package now rejects files containing these errors.\n\nCVE-2024-24790:\nThe various Is methods (IsPrivate, IsLoopback, etc) did not work as expected for IPv4-mapped IPv6 addresses, returning false for addresses which would return true in their traditional IPv4 forms.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-07-16"
+      },
+      "Updated": {
+        "Date": "2024-07-16"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-24789",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-24789",
+          "CWE": "CWE-20",
+          "Public": "20240716"
+        },
+        {
+          "ID": "CVE-2024-24790",
+          "CVSS3": "6.7/CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-24790",
+          "CWE": "CWE-115",
+          "Public": "20240716"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "delve is earlier than 0:1.21.2-3.module+an8.9.0+11227+22824d5d",
+            "TestRef": "oval:cn.openanolis:tst:20240652001"
+          },
+          {
+            "Comment": "go-toolset is earlier than 0:toolset-1.21.11-1.module+an8.9.0+11227+22824d5d",
+            "TestRef": "oval:cn.openanolis:tst:20240652002"
+          },
+          {
+            "Comment": "golang is earlier than 0:1.21.11-1.0.1.module+an8.9.0+11227+22824d5d",
+            "TestRef": "oval:cn.openanolis:tst:20240652003"
+          },
+          {
+            "Comment": "golang-bin is earlier than 0:bin-1.21.11-1.0.1.module+an8.9.0+11227+22824d5d",
+            "TestRef": "oval:cn.openanolis:tst:20240652004"
+          },
+          {
+            "Comment": "golang-docs is earlier than 0:docs-1.21.11-1.0.1.module+an8.9.0+11227+22824d5d",
+            "TestRef": "oval:cn.openanolis:tst:20240652005"
+          },
+          {
+            "Comment": "golang-misc is earlier than 0:misc-1.21.11-1.0.1.module+an8.9.0+11227+22824d5d",
+            "TestRef": "oval:cn.openanolis:tst:20240652006"
+          },
+          {
+            "Comment": "golang-src is earlier than 0:src-1.21.11-1.0.1.module+an8.9.0+11227+22824d5d",
+            "TestRef": "oval:cn.openanolis:tst:20240652007"
+          },
+          {
+            "Comment": "golang-tests is earlier than 0:tests-1.21.11-1.0.1.module+an8.9.0+11227+22824d5d",
+            "TestRef": "oval:cn.openanolis:tst:20240652008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

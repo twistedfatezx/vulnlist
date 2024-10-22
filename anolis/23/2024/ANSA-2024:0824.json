@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20240824",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0824: giflib security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0824",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0824",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-48161:\nBuffer Overflow vulnerability in GifLib Project GifLib v.5.2.1 allows a local attacker to obtain sensitive information via the DumpSCreen2RGB function in gif2rgb.c",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-08-20"
+      },
+      "Updated": {
+        "Date": "2024-08-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-48161",
+          "CVSS3": "7.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-48161",
+          "CWE": "CWE-119",
+          "Public": "20240820"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "giflib is earlier than 0:5.2.2-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240824001"
+          },
+          {
+            "Comment": "giflib-devel is earlier than 0:devel-5.2.2-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240824002"
+          },
+          {
+            "Comment": "giflib-utils is earlier than 0:utils-5.2.2-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240824003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

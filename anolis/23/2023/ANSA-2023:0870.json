@@ -1,0 +1,121 @@
+{
+  "ID": "oval:cn.openanolis:def:20230870",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0870: tomcat security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0870",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0870",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-42794:\nIncomplete Cleanup vulnerability in Apache Tomcat. The internal fork of Commons FileUpload packaged with Apache Tomcat 9.0.70 through 9.0.80 and 8.5.85 through 8.5.93 included an unreleased, in progress refactoring that exposed a potential denial of service on Windows if a web application opened a stream for an uploaded file but failed to close the stream. The file would never be deleted from disk creating the possibility of an eventual denial of service due to the disk being full. Users are recommended to upgrade to version 9.0.81 onwards or 8.5.94 onwards, which fixes the issue.\n\nCVE-2023-42795:\nIncomplete Cleanup vulnerability in Apache Tomcat.When recycling various internal objects in Apache Tomcat from 11.0.0-M1 through 11.0.0-M11, from 10.1.0-M1 through 10.1.13, from 9.0.0-M1 through 9.0.80 and from 8.5.0 through 8.5.93, an error could cause Tomcat to skip some parts of the recycling process leading to information leaking from the current request/response to the next. Users are recommended to upgrade to version 11.0.0-M12 onwards, 10.1.14 onwards, 9.0.81 onwards or 8.5.94 onwards, which fixes the issue.\n\nCVE-2023-45648:\nImproper Input Validation vulnerability in Apache Tomcat.Tomcat from 11.0.0-M1 through 11.0.0-M11, from 10.1.0-M1 through 10.1.13, from 9.0.0-M1 through 9.0.81 and from 8.5.0 through 8.5.93 did not correctly parse HTTP trailer headers. A specially crafted, invalid trailer header could cause Tomcat to treat a single request as multiple requests leading to the possibility of request smuggling when behind a reverse proxy. Users are recommended to upgrade to version 11.0.0-M12 onwards, 10.1.14 onwards, 9.0.81 onwards or 8.5.94 onwards, which fix the issue.\n\nCVE-2023-46589:\nImproper Input Validation vulnerability in Apache Tomcat.Tomcat from 11.0.0-M1 through 11.0.0-M10, from 10.1.0-M1 through 10.1.15, from 9.0.0-M1 through 9.0.82 and from 8.5.0 through 8.5.95 did not correctly parse HTTP trailer headers. A trailer header that exceeded the header size limit could cause Tomcat to treat a single request as multiple requests leading to the possibility of request smuggling when behind a reverse proxy. Users are recommended to upgrade to version 11.0.0-M11 onwards, 10.1.16 onwards, 9.0.83 onwards or 8.5.96 onwards, which fix the issue.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-12-19"
+      },
+      "Updated": {
+        "Date": "2023-12-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-42794",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-42794",
+          "CWE": "CWE-459",
+          "Public": "20231010"
+        },
+        {
+          "ID": "CVE-2023-42795",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-42795",
+          "CWE": "CWE-459",
+          "Public": "20231010"
+        },
+        {
+          "ID": "CVE-2023-45648",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-45648",
+          "CWE": "CWE-20",
+          "Public": "20231010"
+        },
+        {
+          "ID": "CVE-2023-46589",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-46589",
+          "CWE": "CWE-444",
+          "Public": "20231128"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "tomcat is earlier than 1:9.0.84-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230870001"
+          },
+          {
+            "Comment": "tomcat-admin-webapps is earlier than 1:admin-webapps-9.0.84-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230870002"
+          },
+          {
+            "Comment": "tomcat-doc is earlier than 1:doc-9.0.84-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230870003"
+          },
+          {
+            "Comment": "tomcat-docs-webapp is earlier than 1:docs-webapp-9.0.84-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230870004"
+          },
+          {
+            "Comment": "tomcat-el-3.0-api is earlier than 1:el-3.0-api-9.0.84-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230870005"
+          },
+          {
+            "Comment": "tomcat-jsp-2.3-api is earlier than 1:jsp-2.3-api-9.0.84-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230870006"
+          },
+          {
+            "Comment": "tomcat-lib is earlier than 1:lib-9.0.84-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230870007"
+          },
+          {
+            "Comment": "tomcat-servlet-4.0-api is earlier than 1:servlet-4.0-api-9.0.84-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230870008"
+          },
+          {
+            "Comment": "tomcat-webapps is earlier than 1:webapps-9.0.84-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230870009"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

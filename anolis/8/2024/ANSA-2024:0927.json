@@ -1,0 +1,89 @@
+{
+  "ID": "oval:cn.openanolis:def:20240927",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0927: emacs security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0927",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0927",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-39331:\nIn Emacs before 29.4, org-link-expand-abbrev in lisp/ol.el expands a %(...) link abbrev even when it specifies an unsafe function, such as shell-command-to-string. This affects Org Mode before 9.7.5.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-09-27"
+      },
+      "Updated": {
+        "Date": "2024-09-27"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-39331",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-39331",
+          "CWE": "CWE-95",
+          "Public": "20240624"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "emacs is earlier than 1:27.2-9.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240927001"
+          },
+          {
+            "Comment": "emacs-common is earlier than 1:common-27.2-9.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240927002"
+          },
+          {
+            "Comment": "emacs-lucid is earlier than 1:lucid-27.2-9.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240927003"
+          },
+          {
+            "Comment": "emacs-nox is earlier than 1:nox-27.2-9.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240927004"
+          },
+          {
+            "Comment": "emacs-doc is earlier than 1:doc-27.2-9.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240927005"
+          },
+          {
+            "Comment": "emacs-filesystem is earlier than 1:filesystem-27.2-9.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240927006"
+          },
+          {
+            "Comment": "emacs-terminal is earlier than 1:terminal-27.2-9.0.3.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240927007"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

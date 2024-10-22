@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20240482",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0482: libsndfile security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0482",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0482",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-33065:\nMultiple signed integers overflow in function au_read_header in src/au.c and in functions mat4_open and mat4_read_header in src/mat4.c in Libsndfile, allows an attacker to cause Denial of Service or other unspecified impacts.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-18"
+      },
+      "Updated": {
+        "Date": "2024-06-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-33065",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-33065",
+          "CWE": "CWE-190",
+          "Public": "20230718"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libsndfile is earlier than 0:1.0.28-13.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240482001"
+          },
+          {
+            "Comment": "libsndfile-devel is earlier than 0:devel-1.0.28-13.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240482002"
+          },
+          {
+            "Comment": "libsndfile-doc is earlier than 0:doc-1.0.28-13.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240482003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

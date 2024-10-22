@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20230942",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0942: c-ares security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0942",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0942",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2020-22217:\nBuffer overflow vulnerability in c-ares before 1_16_1 thru 1_17_0 via function ares_parse_soa_reply in ares_parse_soa_reply.c.\n\nCVE-2023-31130:\nc-ares is an asynchronous resolver library. ares_inet_net_pton() is vulnerable to a buffer underflow for certain ipv6 addresses, in particular \"0::00:00:00/2\" was found to cause an issue. C-ares only uses this function internally for configuration purposes which would require an administrator to configure such an address via ares_set_sortlist(). However, users may externally use ares_inet_net_pton() for other purposes and thus be vulnerable to more severe issues. This issue has been fixed in 1.19.1.\n\nCVE-2022-4904:\nA flaw was found in the c-ares package. The ares_set_sortlist is missing checks about the validity of the input string, which allows a possible arbitrary length stack overflow. This issue may cause a denial of service or a limited impact on confidentiality and integrity.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-12-21"
+      },
+      "Updated": {
+        "Date": "2024-07-01"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2020-22217",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-22217",
+          "CWE": "CWE-126",
+          "Public": "20230822"
+        },
+        {
+          "ID": "CVE-2023-31130",
+          "CVSS3": "5.7/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-31130",
+          "CWE": "",
+          "Public": "20230714"
+        },
+        {
+          "ID": "CVE-2022-4904",
+          "CVSS3": "8.6/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-4904",
+          "CWE": "CWE-20-\u003eCWE-119",
+          "Public": "20230307"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "c-ares is earlier than 0:ares-1.13.0-9.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230942001"
+          },
+          {
+            "Comment": "c-ares-devel is earlier than 0:ares-devel-1.13.0-9.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20230942002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

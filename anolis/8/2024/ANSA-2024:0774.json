@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20240774",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0774: cups security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0774",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0774",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2024-35235:\nOpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. In versions 2.4.8 and earlier, when starting the cupsd server with a Listen configuration item pointing to a symbolic link, the cupsd process can be caused to perform an arbitrary chmod of the provided argument, providing world-writable access to the target. Given that cupsd is often running as root, this can result in the change of permission of any user or system files to be world writable. Given the aforementioned Ubuntu AppArmor context, on such systems this vulnerability is limited to those files modifiable by the cupsd process. In that specific case it was found to be possible to turn the configuration of the Listen argument into full control over the cupsd.conf and cups-files.conf configuration files. By later setting the User and Group arguments in cups-files.conf, and printing with a printer configured by PPD with a `FoomaticRIPCommandLine` argument, arbitrary user and group (not root) command execution could be achieved, which can further be used on Ubuntu systems to achieve full root command execution. Commit ff1f8a623e090dee8a8aadf12a6a4b25efac143d contains a patch for the issue.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-08-07"
+      },
+      "Updated": {
+        "Date": "2024-08-08"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-35235",
+          "CVSS3": "4.4/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-35235",
+          "CWE": "CWE-277",
+          "Public": "20240807"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "cups is earlier than 1:2.2.6-60.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240774001"
+          },
+          {
+            "Comment": "cups-client is earlier than 1:client-2.2.6-60.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240774002"
+          },
+          {
+            "Comment": "cups-devel is earlier than 1:devel-2.2.6-60.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240774003"
+          },
+          {
+            "Comment": "cups-ipptool is earlier than 1:ipptool-2.2.6-60.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240774004"
+          },
+          {
+            "Comment": "cups-libs is earlier than 1:libs-2.2.6-60.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240774005"
+          },
+          {
+            "Comment": "cups-lpd is earlier than 1:lpd-2.2.6-60.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240774006"
+          },
+          {
+            "Comment": "cups-doc is earlier than 1:doc-2.2.6-60.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240774007"
+          },
+          {
+            "Comment": "cups-filesystem is earlier than 1:filesystem-2.2.6-60.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240774008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

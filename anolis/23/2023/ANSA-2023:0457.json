@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20230457",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0457: ImageMagick  security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0457",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0457",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-3428:\nNo description is available for this CVE.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-08-02"
+      },
+      "Updated": {
+        "Date": "2023-08-03"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-3428",
+          "CVSS3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-3428",
+          "CWE": "CWE-122",
+          "Public": "20230802"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "ImageMagick is earlier than 0:7.1.1.11-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230457001"
+          },
+          {
+            "Comment": "ImageMagick-c++ is earlier than 0:c++-7.1.1.11-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230457002"
+          },
+          {
+            "Comment": "ImageMagick-c++-devel is earlier than 0:c++-devel-7.1.1.11-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230457003"
+          },
+          {
+            "Comment": "ImageMagick-devel is earlier than 0:devel-7.1.1.11-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230457004"
+          },
+          {
+            "Comment": "ImageMagick-djvu is earlier than 0:djvu-7.1.1.11-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230457005"
+          },
+          {
+            "Comment": "ImageMagick-doc is earlier than 0:doc-7.1.1.11-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230457006"
+          },
+          {
+            "Comment": "ImageMagick-libs is earlier than 0:libs-7.1.1.11-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230457007"
+          },
+          {
+            "Comment": "ImageMagick-perl is earlier than 0:perl-7.1.1.11-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20230457008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

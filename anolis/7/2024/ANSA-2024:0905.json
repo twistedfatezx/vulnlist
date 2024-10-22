@@ -1,0 +1,129 @@
+{
+  "ID": "oval:cn.openanolis:def:20240905",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0905: linux-firmware security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0905",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0905",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2023-31315:\nImproper validation in a model specific register (MSR) could allow a malicious program with ring0 access to modify SMM configuration while SMI lock is enabled, potentially leading to arbitrary code execution.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-09-19"
+      },
+      "Updated": {
+        "Date": "2024-09-23"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-31315",
+          "CVSS3": "7.5/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-31315",
+          "CWE": "",
+          "Public": "20240919"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "linux-firmware is earlier than 0:firmware-20200421-84.git78c0348.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905001"
+          },
+          {
+            "Comment": "iwl100-firmware is earlier than 0:firmware-39.31.5.1-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905002"
+          },
+          {
+            "Comment": "iwl1000-firmware is earlier than 0:firmware-39.31.5.1-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905003"
+          },
+          {
+            "Comment": "iwl105-firmware is earlier than 0:firmware-18.168.6.1-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905004"
+          },
+          {
+            "Comment": "iwl135-firmware is earlier than 0:firmware-18.168.6.1-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905005"
+          },
+          {
+            "Comment": "iwl2000-firmware is earlier than 0:firmware-18.168.6.1-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905006"
+          },
+          {
+            "Comment": "iwl2030-firmware is earlier than 0:firmware-18.168.6.1-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905007"
+          },
+          {
+            "Comment": "iwl3160-firmware is earlier than 0:firmware-25.30.13.0-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905008"
+          },
+          {
+            "Comment": "iwl3945-firmware is earlier than 0:firmware-15.32.2.9-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905009"
+          },
+          {
+            "Comment": "iwl4965-firmware is earlier than 0:firmware-228.61.2.24-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905010"
+          },
+          {
+            "Comment": "iwl5000-firmware is earlier than 0:firmware-8.83.5.1_1-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905011"
+          },
+          {
+            "Comment": "iwl5150-firmware is earlier than 0:firmware-8.24.2.2-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905012"
+          },
+          {
+            "Comment": "iwl6000-firmware is earlier than 0:firmware-9.221.4.1-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905013"
+          },
+          {
+            "Comment": "iwl6000g2a-firmware is earlier than 0:firmware-18.168.6.1-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905014"
+          },
+          {
+            "Comment": "iwl6000g2b-firmware is earlier than 0:firmware-18.168.6.1-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905015"
+          },
+          {
+            "Comment": "iwl6050-firmware is earlier than 0:firmware-41.28.5.1-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905016"
+          },
+          {
+            "Comment": "iwl7260-firmware is earlier than 0:firmware-25.30.13.0-84.an7",
+            "TestRef": "oval:cn.openanolis:tst:20240905017"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

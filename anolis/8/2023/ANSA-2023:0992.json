@@ -1,0 +1,121 @@
+{
+  "ID": "oval:cn.openanolis:def:20230992",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0992: dotnet6.0 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0992",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0992",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-36049:\n.NET, .NET Framework, and Visual Studio Elevation of Privilege Vulnerability\n\nCVE-2023-36558:\nASP.NET Core - Security Feature Bypass Vulnerability",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-12-26"
+      },
+      "Updated": {
+        "Date": "2023-12-26"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-36049",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-36049",
+          "CWE": "CWE-94",
+          "Public": "20231114"
+        },
+        {
+          "ID": "CVE-2023-36558",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-36558",
+          "CWE": "",
+          "Public": "20231114"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "aspnetcore-runtime-6.0 is earlier than 0:runtime-6.0-6.0.25-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230992001"
+          },
+          {
+            "Comment": "aspnetcore-targeting-pack-6.0 is earlier than 0:targeting-pack-6.0-6.0.25-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230992002"
+          },
+          {
+            "Comment": "dotnet is earlier than 0:6.0.125-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230992003"
+          },
+          {
+            "Comment": "dotnet-apphost-pack-6.0 is earlier than 0:apphost-pack-6.0-6.0.25-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230992004"
+          },
+          {
+            "Comment": "dotnet-host is earlier than 0:host-6.0.25-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230992005"
+          },
+          {
+            "Comment": "dotnet-hostfxr-6.0 is earlier than 0:hostfxr-6.0-6.0.25-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230992006"
+          },
+          {
+            "Comment": "dotnet-runtime-6.0 is earlier than 0:runtime-6.0-6.0.25-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230992007"
+          },
+          {
+            "Comment": "dotnet-sdk-6.0 is earlier than 0:sdk-6.0-6.0.125-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230992008"
+          },
+          {
+            "Comment": "dotnet-sdk-6.0-source-built-artifacts is earlier than 0:sdk-6.0-source-built-artifacts-6.0.125-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230992009"
+          },
+          {
+            "Comment": "dotnet-targeting-pack-6.0 is earlier than 0:targeting-pack-6.0-6.0.25-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230992010"
+          },
+          {
+            "Comment": "dotnet-templates-6.0 is earlier than 0:templates-6.0-6.0.125-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230992011"
+          },
+          {
+            "Comment": "netstandard-targeting-pack-2.1 is earlier than 0:targeting-pack-2.1-6.0.125-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230992012"
+          },
+          {
+            "Comment": "dotnet6.0 is earlier than 0:6.0.125-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230992013"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

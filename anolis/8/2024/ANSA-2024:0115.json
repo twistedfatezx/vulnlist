@@ -1,0 +1,77 @@
+{
+  "ID": "oval:cn.openanolis:def:20240115",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0115: edk2 security and bug fix update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0115",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0115",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2019-14560:\nThis CVE ID has been rejected or withdrawn by its CVE Numbering Authority for the following reason: DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: none. Reason: This candidate was in a CNA pool that was not assigned to any issues during 2019. Notes: none.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-04-03"
+      },
+      "Updated": {
+        "Date": "2024-05-13"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2019-14560",
+          "CVSS3": "6.1/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:C/C:N/I:H/A:L",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-14560",
+          "CWE": "CWE-252",
+          "Public": "20200630"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "edk2 is earlier than 0:20220126gitbb1bba3d77-6.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240115001"
+          },
+          {
+            "Comment": "edk2-aarch64 is earlier than 0:aarch64-20220126gitbb1bba3d77-6.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240115002"
+          },
+          {
+            "Comment": "edk2-ovmf is earlier than 0:ovmf-20220126gitbb1bba3d77-6.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240115003"
+          },
+          {
+            "Comment": "edk2-tools-doc is earlier than 0:tools-doc-20220126gitbb1bba3d77-6.0.2.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240115004"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

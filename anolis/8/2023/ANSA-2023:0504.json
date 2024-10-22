@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20230504",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0504: curl security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0504",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0504",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-27536:\nAn authentication bypass vulnerability exists libcurl \u003c8.0.0 in the connection reuse feature which can reuse previously established connections with incorrect user permissions due to a failure to check for changes in the CURLOPT_GSSAPI_DELEGATION option. This vulnerability affects krb5/kerberos/negotiate/GSSAPI transfers and could potentially result in unauthorized access to sensitive information. The safest option is to not reuse connections if the CURLOPT_GSSAPI_DELEGATION option has been changed.\n\nCVE-2023-28321:\nAn improper certificate validation vulnerability exists in curl \u003cv8.1.0 in the way it supports matching of wildcard patterns when listed as \"Subject Alternative Name\" in TLS server certificates. curl can be built to use its own name matching function for TLS rather than one provided by a TLS library. This private wildcard matching function would match IDN (International Domain Name) hosts incorrectly and could as a result accept patterns that otherwise should mismatch. IDN hostnames are converted to puny code before used for certificate checks. Puny coded names always start with `xn--` and should not be allowed to pattern match, but the wildcard check in curl could still check for `x*`, which would match even though the IDN name most likely contained nothing even resembling an `x`.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-09-08"
+      },
+      "Updated": {
+        "Date": "2023-09-08"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-27536",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-27536",
+          "CWE": "CWE-305",
+          "Public": "20230320"
+        },
+        {
+          "ID": "CVE-2023-28321",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-28321",
+          "CWE": "CWE-295",
+          "Public": "20230526"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "curl is earlier than 0:7.61.1-31.0.3.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20230504001"
+          },
+          {
+            "Comment": "curl-minimal is earlier than 0:minimal-7.61.1-31.0.3.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20230504002"
+          },
+          {
+            "Comment": "libcurl is earlier than 0:7.61.1-31.0.3.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20230504003"
+          },
+          {
+            "Comment": "libcurl-devel is earlier than 0:devel-7.61.1-31.0.3.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20230504004"
+          },
+          {
+            "Comment": "libcurl-minimal is earlier than 0:minimal-7.61.1-31.0.3.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20230504005"
+          },
+          {
+            "Comment": "curl-doc is earlier than 0:doc-7.61.1-31.0.3.an8.2",
+            "TestRef": "oval:cn.openanolis:tst:20230504006"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

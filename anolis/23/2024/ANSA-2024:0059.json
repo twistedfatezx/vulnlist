@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20240059",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0059: python-gevent security update (Critical)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0059",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0059",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-41419:\nAn issue in Gevent before version 23.9.0 allows a remote attacker to escalate privileges via a crafted script to the WSGIServer component.",
+    "Advisory": {
+      "Severity": "Critical",
+      "Issued": {
+        "Date": "2024-02-06"
+      },
+      "Updated": {
+        "Date": "2024-02-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-41419",
+          "CVSS3": "9.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-41419",
+          "CWE": "CWE-269",
+          "Public": "20240206"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python3-gevent is earlier than 0:gevent-23.9.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240059001"
+          },
+          {
+            "Comment": "python-gevent is earlier than 0:gevent-23.9.1-1.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240059002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

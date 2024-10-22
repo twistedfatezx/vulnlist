@@ -1,0 +1,113 @@
+{
+  "ID": "oval:cn.openanolis:def:20220462",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0462: postgresql:10 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0462",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0462",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-23214:\nWhen the server is configured to use trust authentication with a clientcert requirement or to use cert authentication, a man-in-the-middle attacker can inject arbitrary SQL queries when a connection is first established, despite the use of SSL certificate verification and encryption.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-06-15"
+      },
+      "Updated": {
+        "Date": "2022-10-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-23214",
+          "CVSS3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-23214",
+          "CWE": "CWE-89",
+          "Public": "20220304"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "postgresql is earlier than 0:10.19-1.0.1.module+an8.6.0+10708+7a92d693",
+            "TestRef": "oval:cn.openanolis:tst:20220462001"
+          },
+          {
+            "Comment": "postgresql-contrib is earlier than 0:contrib-10.19-1.0.1.module+an8.6.0+10708+7a92d693",
+            "TestRef": "oval:cn.openanolis:tst:20220462002"
+          },
+          {
+            "Comment": "postgresql-docs is earlier than 0:docs-10.19-1.0.1.module+an8.6.0+10708+7a92d693",
+            "TestRef": "oval:cn.openanolis:tst:20220462003"
+          },
+          {
+            "Comment": "postgresql-plperl is earlier than 0:plperl-10.19-1.0.1.module+an8.6.0+10708+7a92d693",
+            "TestRef": "oval:cn.openanolis:tst:20220462004"
+          },
+          {
+            "Comment": "postgresql-plpython3 is earlier than 0:plpython3-10.19-1.0.1.module+an8.6.0+10708+7a92d693",
+            "TestRef": "oval:cn.openanolis:tst:20220462005"
+          },
+          {
+            "Comment": "postgresql-pltcl is earlier than 0:pltcl-10.19-1.0.1.module+an8.6.0+10708+7a92d693",
+            "TestRef": "oval:cn.openanolis:tst:20220462006"
+          },
+          {
+            "Comment": "postgresql-server is earlier than 0:server-10.19-1.0.1.module+an8.6.0+10708+7a92d693",
+            "TestRef": "oval:cn.openanolis:tst:20220462007"
+          },
+          {
+            "Comment": "postgresql-server-devel is earlier than 0:server-devel-10.19-1.0.1.module+an8.6.0+10708+7a92d693",
+            "TestRef": "oval:cn.openanolis:tst:20220462008"
+          },
+          {
+            "Comment": "postgresql-static is earlier than 0:static-10.19-1.0.1.module+an8.6.0+10708+7a92d693",
+            "TestRef": "oval:cn.openanolis:tst:20220462009"
+          },
+          {
+            "Comment": "postgresql-test is earlier than 0:test-10.19-1.0.1.module+an8.6.0+10708+7a92d693",
+            "TestRef": "oval:cn.openanolis:tst:20220462010"
+          },
+          {
+            "Comment": "postgresql-test-rpm-macros is earlier than 0:test-rpm-macros-10.19-1.0.1.module+an8.6.0+10708+7a92d693",
+            "TestRef": "oval:cn.openanolis:tst:20220462011"
+          },
+          {
+            "Comment": "postgresql-upgrade is earlier than 0:upgrade-10.19-1.0.1.module+an8.6.0+10708+7a92d693",
+            "TestRef": "oval:cn.openanolis:tst:20220462012"
+          },
+          {
+            "Comment": "postgresql-upgrade-devel is earlier than 0:upgrade-devel-10.19-1.0.1.module+an8.6.0+10708+7a92d693",
+            "TestRef": "oval:cn.openanolis:tst:20220462013"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "ID": "oval:cn.openanolis:def:20240948",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0948: linux-firmware security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0948",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0948",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-20584:\nIOMMU improperly handles certain special address\nranges with invalid device table entries (DTEs), which may allow an attacker\nwith privileges and a compromised Hypervisor to\ninduce DTE faults to bypass RMP checks in SEV-SNP, potentially leading to a\nloss of guest integrity.\n\nCVE-2023-31315:\nImproper validation in a model specific register (MSR) could allow a malicious program with ring0 access to modify SMM configuration while SMI lock is enabled, potentially leading to arbitrary code execution.\n\nCVE-2023-31356:\nIncomplete system memory cleanup in SEV firmware could\nallow a privileged attacker to corrupt guest private memory, potentially\nresulting in a loss of data integrity.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-10-08"
+      },
+      "Updated": {
+        "Date": "2024-10-09"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-20584",
+          "CVSS3": "5.3/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:C/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-20584",
+          "CWE": "",
+          "Public": "20241008"
+        },
+        {
+          "ID": "CVE-2023-31315",
+          "CVSS3": "7.5/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-31315",
+          "CWE": "",
+          "Public": "20240919"
+        },
+        {
+          "ID": "CVE-2023-31356",
+          "CVSS3": "4.4/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-31356",
+          "CWE": "",
+          "Public": "20240813"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "linux-firmware is earlier than 0:firmware-20240827-124.git3cff7109.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240948001"
+          },
+          {
+            "Comment": "iwl100-firmware is earlier than 0:firmware-39.31.5.1-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948002"
+          },
+          {
+            "Comment": "iwl1000-firmware is earlier than 1:firmware-39.31.5.1-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948003"
+          },
+          {
+            "Comment": "iwl105-firmware is earlier than 0:firmware-18.168.6.1-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948004"
+          },
+          {
+            "Comment": "iwl135-firmware is earlier than 0:firmware-18.168.6.1-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948005"
+          },
+          {
+            "Comment": "iwl2000-firmware is earlier than 0:firmware-18.168.6.1-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948006"
+          },
+          {
+            "Comment": "iwl2030-firmware is earlier than 0:firmware-18.168.6.1-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948007"
+          },
+          {
+            "Comment": "iwl3160-firmware is earlier than 1:firmware-25.30.13.0-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948008"
+          },
+          {
+            "Comment": "iwl3945-firmware is earlier than 0:firmware-15.32.2.9-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948009"
+          },
+          {
+            "Comment": "iwl4965-firmware is earlier than 0:firmware-228.61.2.24-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948010"
+          },
+          {
+            "Comment": "iwl5000-firmware is earlier than 0:firmware-8.83.5.1_1-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948011"
+          },
+          {
+            "Comment": "iwl5150-firmware is earlier than 0:firmware-8.24.2.2-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948012"
+          },
+          {
+            "Comment": "iwl6000-firmware is earlier than 0:firmware-9.221.4.1-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948013"
+          },
+          {
+            "Comment": "iwl6000g2a-firmware is earlier than 0:firmware-18.168.6.1-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948014"
+          },
+          {
+            "Comment": "iwl6000g2b-firmware is earlier than 0:firmware-18.168.6.1-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948015"
+          },
+          {
+            "Comment": "iwl6050-firmware is earlier than 0:firmware-41.28.5.1-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948016"
+          },
+          {
+            "Comment": "iwl7260-firmware is earlier than 1:firmware-25.30.13.0-124.an8.1",
+            "TestRef": "oval:cn.openanolis:tst:20240948017"
+          },
+          {
+            "Comment": "libertas-sd8686-firmware is earlier than 0:sd8686-firmware-20240827-124.git3cff7109.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240948018"
+          },
+          {
+            "Comment": "libertas-sd8787-firmware is earlier than 0:sd8787-firmware-20240827-124.git3cff7109.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240948019"
+          },
+          {
+            "Comment": "libertas-usb8388-firmware is earlier than 2:usb8388-firmware-20240827-124.git3cff7109.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240948020"
+          },
+          {
+            "Comment": "libertas-usb8388-olpc-firmware is earlier than 0:usb8388-olpc-firmware-20240827-124.git3cff7109.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240948021"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

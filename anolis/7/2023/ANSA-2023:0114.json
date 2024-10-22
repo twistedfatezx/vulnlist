@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20230114",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0114: httpd security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 7"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0114",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0114",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 7 that fix the following vulnerabilities:\n\nCVE-2023-25690:\nSome mod_proxy configurations on Apache HTTP Server versions 2.4.0 through 2.4.55 allow a HTTP Request Smuggling attack. Configurations are affected when mod_proxy is enabled along with some form of RewriteRule or ProxyPassMatch in which a non-specific pattern matches some portion of the user-supplied request-target (URL) data and is then re-inserted into the proxied request-target using variable substitution. For example, something like: RewriteEngine on RewriteRule \"^/here/(.*)\" \"http://example.com:8080/elsewhere?$1\"; [P] ProxyPassReverse /here/ http://example.com:8080/ Request splitting/smuggling could result in bypass of access controls in the proxy server, proxying unintended URLs to existing origin servers, and cache poisoning. Users are recommended to update to at least version 2.4.56 of Apache HTTP Server.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-04-12"
+      },
+      "Updated": {
+        "Date": "2023-04-13"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-25690",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-25690",
+          "CWE": "CWE-113",
+          "Public": "20230308"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:7:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "httpd is earlier than 0:2.4.6-98.an7.7",
+            "TestRef": "oval:cn.openanolis:tst:20230114001"
+          },
+          {
+            "Comment": "httpd-devel is earlier than 0:devel-2.4.6-98.an7.7",
+            "TestRef": "oval:cn.openanolis:tst:20230114002"
+          },
+          {
+            "Comment": "httpd-tools is earlier than 0:tools-2.4.6-98.an7.7",
+            "TestRef": "oval:cn.openanolis:tst:20230114003"
+          },
+          {
+            "Comment": "mod_ldap is earlier than 0:2.4.6-98.an7.7",
+            "TestRef": "oval:cn.openanolis:tst:20230114004"
+          },
+          {
+            "Comment": "mod_proxy_html is earlier than 1:2.4.6-98.an7.7",
+            "TestRef": "oval:cn.openanolis:tst:20230114005"
+          },
+          {
+            "Comment": "mod_session is earlier than 0:2.4.6-98.an7.7",
+            "TestRef": "oval:cn.openanolis:tst:20230114006"
+          },
+          {
+            "Comment": "mod_ssl is earlier than 1:2.4.6-98.an7.7",
+            "TestRef": "oval:cn.openanolis:tst:20230114007"
+          },
+          {
+            "Comment": "httpd-manual is earlier than 0:manual-2.4.6-98.an7.7",
+            "TestRef": "oval:cn.openanolis:tst:20230114008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 7 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

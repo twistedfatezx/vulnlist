@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20230261",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0261: ctags security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0261",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0261",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-4515:\nA flaw was found in Exuberant Ctags in the way it handles the \"-o\" option. This option specifies the tag filename. A crafted tag filename specified in the command line or in the configuration file results in arbitrary command execution because the externalSortTags() in sort.c calls the system(3) function in an unsafe way.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2023-06-01"
+      },
+      "Updated": {
+        "Date": "2023-06-02"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-4515",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-4515",
+          "CWE": "CWE-78",
+          "Public": "20221219"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "ctags is earlier than 0:5.8-23.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230261001"
+          },
+          {
+            "Comment": "ctags-etags is earlier than 0:etags-5.8-23.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230261002"
+          },
+          {
+            "Comment": "ctags-doc is earlier than 0:doc-5.8-23.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230261003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20210064",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0064: edk2 security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0064",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0064",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-38575:\n** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-08-25"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-38575",
+          "CVSS3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-38575",
+          "CWE": "CWE-119",
+          "Public": "20211009"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "edk2 (Anolis OS 8.4) is earlier than 0:20200602gitca407c7246bf-4.an8_4.2",
+            "TestRef": "oval:cn.openanolis:tst:20210064001"
+          },
+          {
+            "Comment": "edk2-aarch64 is earlier than 0:aarch64-20200602gitca407c7246bf-4.an8_4.2",
+            "TestRef": "oval:cn.openanolis:tst:20210064002"
+          },
+          {
+            "Comment": "edk2-ovmf is earlier than 0:ovmf-20200602gitca407c7246bf-4.an8_4.2",
+            "TestRef": "oval:cn.openanolis:tst:20210064003"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

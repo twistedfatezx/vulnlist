@@ -1,0 +1,69 @@
+{
+  "ID": "oval:cn.openanolis:def:20220129",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0129: zlib security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0129",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0129",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2018-25032:\nzlib before 1.2.12 allows memory corruption when deflating (i.e., when compressing) if the input has many distant matches.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2022-04-29"
+      },
+      "Updated": {
+        "Date": "2022-05-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2018-25032",
+          "CVSS3": "8.2/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2018-25032",
+          "CWE": "CWE-119",
+          "Public": "20220429"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "zlib is earlier than 0:1.2.11-18.0.1.an8_5",
+            "TestRef": "oval:cn.openanolis:tst:20220129001"
+          },
+          {
+            "Comment": "zlib-devel is earlier than 0:devel-1.2.11-18.0.1.an8_5",
+            "TestRef": "oval:cn.openanolis:tst:20220129002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

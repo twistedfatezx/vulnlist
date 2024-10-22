@@ -1,0 +1,645 @@
+{
+  "ID": "oval:cn.openanolis:def:20220460",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2022:0460: python27:2.7 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2022:0460",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2022:0460",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2019-11236:\nIn the urllib3 library through 1.24.1 for Python, CRLF injection is possible if the attacker controls the request parameter.\n\nCVE-2019-11324:\nThe urllib3 library before 1.24.2 for Python mishandles certain cases where the desired set of CA certificates is different from the OS store of CA certificates, which results in SSL connections succeeding in situations where a verification failure is the correct outcome. This is related to use of the ssl_context, ca_certs, or ca_certs_dir argument.\n\nCVE-2019-16056:\nAn issue was discovered in Python through 2.7.16, 3.x through 3.5.7, 3.6.x through 3.6.9, and 3.7.x through 3.7.4. The email module wrongly parses email addresses that contain multiple @ characters. An application that uses the email module and implements some kind of checks on the From/To headers of a message could be tricked into accepting an email address that should be denied. An attack may be the same as in CVE-2019-11340; however, this CVE applies to Python more generally.\n\nCVE-2019-16935:\nThe documentation XML-RPC server in Python through 2.7.16, 3.x through 3.6.9, and 3.7.x through 3.7.4 has XSS via the server_title field. This occurs in Lib/DocXMLRPCServer.py in Python 2.x, and in Lib/xmlrpc/server.py in Python 3.x. If set_server_title is called with untrusted input, arbitrary JavaScript can be delivered to clients that visit the http URL for this server.\nA reflected cross-site scripting (XSS) vulnerability was found in Python XML-RPC server. The `server_title` field is not sufficiently sanitized allowing malicious JavaScript to be injected. Successful exploitation would allow a remote attacker to execute JavaScript code within the context of the affected user.\n\nCVE-2019-6446:\n** DISPUTED **   An issue was discovered in NumPy 1.16.0 and earlier. It uses the pickle Python module unsafely, which allows remote attackers to execute arbitrary code via a crafted serialized object, as demonstrated by a numpy.load call. NOTE: third parties dispute this issue because it is  a behavior that might have legitimate applications in (for example)  loading serialized Python object arrays from trusted and authenticated  sources.\n\nCVE-2019-7164:\nSQLAlchemy through 1.2.17 and 1.3.x through 1.3.0b2 allows SQL Injection via the order_by parameter.\n\nCVE-2019-7548:\nSQLAlchemy 1.2.17 has SQL Injection when the group_by parameter can be controlled.\n\nCVE-2019-9636:\nPython 2.7.x through 2.7.16 and 3.x through 3.7.2 is affected by: Improper Handling of Unicode Encoding (with an incorrect netloc) during NFKC normalization. The impact is: Information disclosure (credentials, cookies, etc. that are cached against a given hostname). The components are: urllib.parse.urlsplit, urllib.parse.urlparse. The attack vector is: A specially crafted URL could be incorrectly parsed to locate cookies or authentication data and send that information to a different host than when parsed correctly. This is fixed in: v2.7.17, v2.7.17rc1, v2.7.18, v2.7.18rc1; v3.5.10, v3.5.10rc1, v3.5.7, v3.5.8, v3.5.8rc1, v3.5.8rc2, v3.5.9; v3.6.10, v3.6.10rc1, v3.6.11, v3.6.11rc1, v3.6.12, v3.6.9, v3.6.9rc1; v3.7.3, v3.7.3rc1, v3.7.4, v3.7.4rc1, v3.7.4rc2, v3.7.5, v3.7.5rc1, v3.7.6, v3.7.6rc1, v3.7.7, v3.7.7rc1, v3.7.8, v3.7.8rc1, v3.7.9.\nIt was discovered that python's functions urllib.parse.urlsplit and urllib.parse.urlparse do not properly handle URLs encoded with Punycode/Internationalizing Domain Names in Applications (IDNA), which may result in a wrong domain name (specifically the netloc component of URL - user@domain:port) being returned by those functions. When an application parses user-supplied URLs to store cookies, authentication credentials, or other kind of information, it is possible for an attacker to provide specially crafted URLs to make the application locate host-related information (e.g. cookies, authentication data) and send them to a different host than where it should, unlike if the URLs had been correctly parsed. The result of an attack may vary based on the application.\n\nCVE-2019-9740:\nAn issue was discovered in urllib2 in Python 2.x through 2.7.16 and urllib in Python 3.x through 3.7.3. CRLF injection is possible if the attacker controls a url parameter, as demonstrated by the first argument to urllib.request.urlopen with \\r\\n (specifically in the query string after a ? character) followed by an HTTP header or a Redis command. This is fixed in: v2.7.17, v2.7.17rc1, v2.7.18, v2.7.18rc1; v3.5.10, v3.5.10rc1, v3.5.8, v3.5.8rc1, v3.5.8rc2, v3.5.9; v3.6.10, v3.6.10rc1, v3.6.11, v3.6.11rc1, v3.6.12, v3.6.9, v3.6.9rc1; v3.7.4, v3.7.4rc1, v3.7.4rc2, v3.7.5, v3.7.5rc1, v3.7.6, v3.7.6rc1, v3.7.7, v3.7.7rc1, v3.7.8, v3.7.8rc1, v3.7.9.\n\nCVE-2019-9947:\nAn issue was discovered in urllib2 in Python 2.x through 2.7.16 and urllib in Python 3.x through 3.7.3. CRLF injection is possible if the attacker controls a url parameter, as demonstrated by the first argument to urllib.request.urlopen with \\r\\n (specifically in the path component of a URL that lacks a ? character) followed by an HTTP header or a Redis command. This is similar to the CVE-2019-9740 query string issue. This is fixed in: v2.7.17, v2.7.17rc1, v2.7.18, v2.7.18rc1; v3.5.10, v3.5.10rc1, v3.5.8, v3.5.8rc1, v3.5.8rc2, v3.5.9; v3.6.10, v3.6.10rc1, v3.6.11, v3.6.11rc1, v3.6.12, v3.6.9, v3.6.9rc1; v3.7.4, v3.7.4rc1, v3.7.4rc2, v3.7.5, v3.7.5rc1, v3.7.6, v3.7.6rc1, v3.7.7, v3.7.7rc1, v3.7.8, v3.7.8rc1, v3.7.9.\n\nCVE-2019-9948:\nurllib in Python 2.x through 2.7.16 supports the local_file: scheme, which makes it easier for remote attackers to bypass protection mechanisms that blacklist file: URIs, as demonstrated by triggering a urllib.urlopen('local_file:///etc/passwd') call.\n\nCVE-2020-26137:\nurllib3 before 1.25.9 allows CRLF injection if the attacker controls the HTTP request method, as demonstrated by inserting CR and LF control characters in the first argument of putrequest(). NOTE: this is similar to CVE-2020-26116.\nA flaw was found in python-urllib3. The HTTPConnection.request() does not properly validate CRLF sequences in the HTTP request method, potentially allowing manipulation of the request by injecting additional HTTP headers. The highest threat from this vulnerability is to confidentiality and integrity.\n\nCVE-2020-27783:\nA XSS vulnerability was discovered in python-lxml's clean module. The module's parser didn't properly imitate browsers, which caused different behaviors between the sanitizer and the user's page. A remote attacker could exploit this flaw to run arbitrary HTML/JS code.\nA Cross-site Scripting (XSS) vulnerability was found in the python-lxml's clean module. The module's parser did not properly imitate browsers, causing different behaviors between the sanitizer and the user's page. This flaw allows a remote attacker to run arbitrary HTML/JS code. The highest threat from this vulnerability is to confidentiality and integrity.\n\nCVE-2020-28493:\nThis affects the package jinja2 from 0.0.0 and before 2.11.3. The ReDoS vulnerability is mainly due to the `_punctuation_re regex` operator and its use of multiple wildcards. The last wildcard is the most exploitable as it searches for trailing punctuation. This issue can be mitigated by Markdown to format user content instead of the urlize filter, or by implementing request timeouts and limiting process memory.\nA flaw was found in python-jinja2. The ReDOS vulnerability of the regex is mainly due to the sub-pattern [a-zA-Z0-9._-]+.[a-zA-Z0-9._-]+. This issue can be mitigated by Markdown to format user content instead of the urlize filter, or by implementing request timeouts and limiting process memory.\n\nCVE-2021-20095:\n** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: none. Reason: This candidate was withdrawn by its CNA. Notes: none.\nA flaw was found in python-babel. A path traversal vulnerability was found in how locale data files are checked and loaded within python-babel, allowing a local attacker to trick an application that uses python-babel to load a file outside of the intended locale directory. The highest threat from this vulnerability is to data confidentiality and integrity as well as service availability.\n\nCVE-2021-23336:\nThe package python/cpython from 0 and before 3.6.13, from 3.7.0 and before 3.7.10, from 3.8.0 and before 3.8.8, from 3.9.0 and before 3.9.2 are vulnerable to Web Cache Poisoning via urllib.parse.parse_qsl and urllib.parse.parse_qs by using a vector called parameter cloaking. When the attacker can separate query parameters using a semicolon (;), they can cause a difference in the interpretation of the request between the proxy (running with default configuration) and the server. This can result in malicious requests being cached as completely safe ones, as the proxy would usually not see the semicolon as a separator, and therefore would not include it in a cache key of an unkeyed parameter.\nThe package python/cpython is vulnerable to Web Cache Poisoning via urllib.parse.parse_qsl and urllib.parse.parse_qs by using a vector called parameter cloaking. When the attacker can separate query parameters using a semicolon (;), they can cause a difference in the interpretation of the request between the proxy (running with default configuration) and the server. This can result in malicious requests being cached as completely safe ones, as the proxy would usually not see the semicolon as a separator, and therefore would not include it in a cache key of an unkeyed parameter.\n\nCVE-2021-28957:\nAn XSS vulnerability was discovered in python-lxml's clean module versions before 4.6.3. When disabling the safe_attrs_only and forms arguments, the Cleaner class does not remove the formaction attribute allowing for JS to bypass the sanitizer. A remote attacker could exploit this flaw to run arbitrary JS code on users who interact with incorrectly sanitized HTML. This issue is patched in lxml 4.6.3.\nA flaw was found in python-lxml. The HTML5 formaction attribute is not input sanitized like the HTML action attribute is which can lead to a Cross-Site Scripting attack (XSS) when an application uses python-lxml to sanitize user inputs. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.\n\nCVE-2021-42771:\nBabel.Locale in Babel before 2.9.1 allows attackers to load arbitrary locale .dat files (containing serialized Python objects) via directory traversal, leading to code execution.\nA flaw was found in python-babel. A path traversal vulnerability was found in how locale data files are checked and loaded within python-babel, allowing a local attacker to trick an application that uses python-babel to load a file outside of the intended locale directory. The highest threat from this vulnerability is to data confidentiality and integrity as well as service availability.\n\nCVE-2021-3733:\nThere's a flaw in urllib's AbstractBasicAuthHandler class. An attacker who controls a malicious HTTP server that an HTTP client (such as web browser) connects to, could trigger a Regular Expression Denial of Service (ReDOS) during an authentication request with a specially crafted payload that is sent by the server to the client. The greatest threat that this flaw poses is to application availability.\n\nCVE-2021-3737:\nA flaw was found in python. An improperly handled HTTP response in the HTTP client code of python may allow a remote attacker, who controls the HTTP server, to make the client script enter an infinite loop, consuming CPU time. The highest threat from this vulnerability is to system availability.\n\nCVE-2021-4189:\nA flaw was found in Python, specifically in the FTP (File Transfer Protocol) client library in PASV (passive) mode. The issue is how the FTP client trusts the host from the PASV response by default. This flaw allows an attacker to set up a malicious FTP server that can trick FTP clients into connecting back to a given IP address and port. This vulnerability could lead to FTP client scanning ports, which otherwise would not have been possible.\n\nCVE-2021-43818:\nlxml is a library for processing XML and HTML in the Python language. Prior to version 4.6.5, the HTML Cleaner in lxml.html lets certain crafted script content pass through, as well as script content in SVG files embedded using data URIs. Users that employ the HTML cleaner in a security relevant context should upgrade to lxml 4.6.5 to receive a patch. There are no known workarounds available.\n\nCVE-2022-0391:\nA flaw was found in Python, specifically within the urllib.parse module. This module helps break Uniform Resource Locator (URL) strings into components. The issue involves how the urlparse method does not sanitize input and allows characters like '\\r' and '\\n' in the URL path. This flaw allows an attacker to input a crafted URL, leading to injection attacks. This flaw affects Python versions prior to 3.10.0b1, 3.9.5, 3.8.11, 3.7.11 and 3.6.14.\n\nCVE-2021-3177:\nPython 3.x through 3.9.1 has a buffer overflow in PyCArg_repr in _ctypes/callproc.c, which may lead to remote code execution in certain Python applications that accept floating-point numbers as untrusted input, as demonstrated by a 1e300 argument to c_double.from_param. This occurs because sprintf is used unsafely.\n\nCVE-2020-27619:\nIn Python 3 through 3.9.0, the Lib/test/multibytecodec_support.py CJK codec tests call eval() on content retrieved via HTTP.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2022-06-15"
+      },
+      "Updated": {
+        "Date": "2022-11-30"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-43818",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:H/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-43818",
+          "CWE": "(CWE-77|CWE-79)",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-3733",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3733",
+          "CWE": "CWE-400",
+          "Public": "20211125"
+        },
+        {
+          "ID": "CVE-2022-0391",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-0391",
+          "CWE": "CWE-74",
+          "Public": "20220921"
+        },
+        {
+          "ID": "CVE-2021-3737",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3737",
+          "CWE": "CWE-835-\u003eCWE-400",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2021-4189",
+          "CVSS3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-4189",
+          "CWE": "CWE-252",
+          "Public": "20220615"
+        },
+        {
+          "ID": "CVE-2019-11236",
+          "CVSS3": "6.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-11236",
+          "CWE": "CWE-113",
+          "Public": "20190313"
+        },
+        {
+          "ID": "CVE-2019-11324",
+          "CVSS3": "7.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-11324",
+          "CWE": "CWE-295",
+          "Public": "20190417"
+        },
+        {
+          "ID": "CVE-2019-16056",
+          "CVSS3": "7.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-16056",
+          "CWE": "CWE-20",
+          "Public": "20220921"
+        },
+        {
+          "ID": "CVE-2019-16935",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-16935",
+          "CWE": "CWE-79",
+          "Public": "20220921"
+        },
+        {
+          "ID": "CVE-2019-6446",
+          "CVSS3": "8.8/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-6446",
+          "CWE": "CWE-358-\u003eCWE-20",
+          "Public": "20190116"
+        },
+        {
+          "ID": "CVE-2019-7164",
+          "CVSS3": "7.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-7164",
+          "CWE": "",
+          "Public": "20190201"
+        },
+        {
+          "ID": "CVE-2019-7548",
+          "CVSS3": "7.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-7548",
+          "CWE": "CWE-89",
+          "Public": "20190201"
+        },
+        {
+          "ID": "CVE-2019-9636",
+          "CVSS3": "9.8/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-9636",
+          "CWE": "CWE-172",
+          "Public": "20220921"
+        },
+        {
+          "ID": "CVE-2019-9740",
+          "CVSS3": "6.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-9740",
+          "CWE": "CWE-113",
+          "Public": "20220921"
+        },
+        {
+          "ID": "CVE-2019-9947",
+          "CVSS3": "6.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-9947",
+          "CWE": "CWE-113",
+          "Public": "20220921"
+        },
+        {
+          "ID": "CVE-2019-9948",
+          "CVSS3": "7.4/CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2019-9948",
+          "CWE": "CWE-749",
+          "Public": "20220921"
+        },
+        {
+          "ID": "CVE-2020-26137",
+          "CVSS3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-26137",
+          "CWE": "CWE-113",
+          "Public": "20220830"
+        },
+        {
+          "ID": "CVE-2020-27783",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-27783",
+          "CWE": "CWE-79",
+          "Public": "20201018"
+        },
+        {
+          "ID": "CVE-2020-28493",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-28493",
+          "CWE": "CWE-20-\u003eCWE-400",
+          "Public": "20210201"
+        },
+        {
+          "ID": "CVE-2021-20095",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-20095",
+          "CWE": "CWE-22",
+          "Public": "20210428"
+        },
+        {
+          "ID": "CVE-2021-23336",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-23336",
+          "CWE": "CWE-444",
+          "Public": "20220921"
+        },
+        {
+          "ID": "CVE-2021-28957",
+          "CVSS3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-28957",
+          "CWE": "CWE-79",
+          "Public": "20210321"
+        },
+        {
+          "ID": "CVE-2021-42771",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-42771",
+          "CWE": "CWE-22",
+          "Public": "20210428"
+        },
+        {
+          "ID": "CVE-2021-3177",
+          "CVSS3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-3177",
+          "CWE": "CWE-120",
+          "Public": "20220921"
+        },
+        {
+          "ID": "CVE-2020-27619",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2020-27619",
+          "CWE": "CWE-95",
+          "Public": "20201022"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python-psycopg2-doc is earlier than 0:psycopg2-doc-2.7.5-7.0.1.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460001"
+          },
+          {
+            "Comment": "python2 is earlier than 0:2.7.18-10.0.1.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460002"
+          },
+          {
+            "Comment": "python2-Cython is earlier than 0:Cython-0.28.1-7.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460003"
+          },
+          {
+            "Comment": "python2-backports is earlier than 0:backports-1.0-16.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460004"
+          },
+          {
+            "Comment": "python2-bson is earlier than 0:bson-3.7.0-1.0.1.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460005"
+          },
+          {
+            "Comment": "python2-coverage is earlier than 0:coverage-4.5.1-4.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460006"
+          },
+          {
+            "Comment": "python2-debug is earlier than 0:debug-2.7.18-10.0.1.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460007"
+          },
+          {
+            "Comment": "python2-devel is earlier than 0:devel-2.7.18-10.0.1.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460008"
+          },
+          {
+            "Comment": "python2-libs is earlier than 0:libs-2.7.18-10.0.1.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460009"
+          },
+          {
+            "Comment": "python2-lxml is earlier than 0:lxml-4.2.3-6.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460010"
+          },
+          {
+            "Comment": "python2-markupsafe is earlier than 0:markupsafe-0.23-19.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460011"
+          },
+          {
+            "Comment": "python2-numpy is earlier than 1:numpy-1.14.2-16.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460012"
+          },
+          {
+            "Comment": "python2-numpy-f2py is earlier than 1:numpy-f2py-1.14.2-16.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460013"
+          },
+          {
+            "Comment": "python2-psycopg2 is earlier than 0:psycopg2-2.7.5-7.0.1.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460014"
+          },
+          {
+            "Comment": "python2-psycopg2-debug is earlier than 0:psycopg2-debug-2.7.5-7.0.1.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460015"
+          },
+          {
+            "Comment": "python2-psycopg2-tests is earlier than 0:psycopg2-tests-2.7.5-7.0.1.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460016"
+          },
+          {
+            "Comment": "python2-pymongo is earlier than 0:pymongo-3.7.0-1.0.1.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460017"
+          },
+          {
+            "Comment": "python2-pymongo-gridfs is earlier than 0:pymongo-gridfs-3.7.0-1.0.1.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460018"
+          },
+          {
+            "Comment": "python2-pyyaml is earlier than 0:pyyaml-3.12-16.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460019"
+          },
+          {
+            "Comment": "python2-scipy is earlier than 0:scipy-1.0.0-21.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460020"
+          },
+          {
+            "Comment": "python2-sqlalchemy is earlier than 0:sqlalchemy-1.3.2-2.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460021"
+          },
+          {
+            "Comment": "python2-test is earlier than 0:test-2.7.18-10.0.1.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460022"
+          },
+          {
+            "Comment": "python2-tkinter is earlier than 0:tkinter-2.7.18-10.0.1.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460023"
+          },
+          {
+            "Comment": "python2-tools is earlier than 0:tools-2.7.18-10.0.1.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460024"
+          },
+          {
+            "Comment": "Cython is earlier than 0:0.28.1-7.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460025"
+          },
+          {
+            "Comment": "PyYAML is earlier than 0:3.12-16.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460026"
+          },
+          {
+            "Comment": "babel is earlier than 0:2.5.1-10.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460027"
+          },
+          {
+            "Comment": "numpy is earlier than 1:1.14.2-16.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460028"
+          },
+          {
+            "Comment": "pytest is earlier than 0:3.4.2-13.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460029"
+          },
+          {
+            "Comment": "python-PyMySQL is earlier than 0:PyMySQL-0.8.0-10.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460030"
+          },
+          {
+            "Comment": "python-attrs is earlier than 0:attrs-17.4.0-10.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460031"
+          },
+          {
+            "Comment": "python-backports is earlier than 0:backports-1.0-16.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460032"
+          },
+          {
+            "Comment": "python-backports-ssl_match_hostname is earlier than 0:backports-ssl_match_hostname-3.5.0.1-12.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460033"
+          },
+          {
+            "Comment": "python-chardet is earlier than 0:chardet-3.0.4-10.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460034"
+          },
+          {
+            "Comment": "python-coverage is earlier than 0:coverage-4.5.1-4.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460035"
+          },
+          {
+            "Comment": "python-dns is earlier than 0:dns-1.15.0-10.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460036"
+          },
+          {
+            "Comment": "python-docs is earlier than 0:docs-2.7.16-2.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460037"
+          },
+          {
+            "Comment": "python-docutils is earlier than 0:docutils-0.14-12.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460038"
+          },
+          {
+            "Comment": "python-funcsigs is earlier than 0:funcsigs-1.0.2-13.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460039"
+          },
+          {
+            "Comment": "python-idna is earlier than 0:idna-2.5-7.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460040"
+          },
+          {
+            "Comment": "python-ipaddress is earlier than 0:ipaddress-1.0.18-6.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460041"
+          },
+          {
+            "Comment": "python-jinja2 is earlier than 0:jinja2-2.10-9.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460042"
+          },
+          {
+            "Comment": "python-lxml is earlier than 0:lxml-4.2.3-6.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460043"
+          },
+          {
+            "Comment": "python-markupsafe is earlier than 0:markupsafe-0.23-19.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460044"
+          },
+          {
+            "Comment": "python-mock is earlier than 0:mock-2.0.0-13.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460045"
+          },
+          {
+            "Comment": "python-nose is earlier than 0:nose-1.3.7-31.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460046"
+          },
+          {
+            "Comment": "python-pluggy is earlier than 0:pluggy-0.6.0-8.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460047"
+          },
+          {
+            "Comment": "python-psycopg2 is earlier than 0:psycopg2-2.7.5-7.0.1.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460048"
+          },
+          {
+            "Comment": "python-py is earlier than 0:py-1.5.3-6.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460049"
+          },
+          {
+            "Comment": "python-pygments is earlier than 0:pygments-2.2.0-22.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460050"
+          },
+          {
+            "Comment": "python-pymongo is earlier than 0:pymongo-3.7.0-1.0.1.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460051"
+          },
+          {
+            "Comment": "python-pysocks is earlier than 0:pysocks-1.6.8-6.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460052"
+          },
+          {
+            "Comment": "python-pytest-mock is earlier than 0:pytest-mock-1.9.0-4.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460053"
+          },
+          {
+            "Comment": "python-requests is earlier than 0:requests-2.20.0-3.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460054"
+          },
+          {
+            "Comment": "python-setuptools_scm is earlier than 0:setuptools_scm-1.15.7-6.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460055"
+          },
+          {
+            "Comment": "python-sqlalchemy is earlier than 0:sqlalchemy-1.3.2-2.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460056"
+          },
+          {
+            "Comment": "python-urllib3 is earlier than 0:urllib3-1.24.2-3.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460057"
+          },
+          {
+            "Comment": "python-virtualenv is earlier than 0:virtualenv-15.1.0-21.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460058"
+          },
+          {
+            "Comment": "python-wheel is earlier than 1:wheel-0.31.1-3.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460059"
+          },
+          {
+            "Comment": "python2-pip is earlier than 0:pip-9.0.3-19.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460060"
+          },
+          {
+            "Comment": "python2-rpm-macros is earlier than 0:rpm-macros-3-38.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460061"
+          },
+          {
+            "Comment": "python2-setuptools is earlier than 0:setuptools-39.0.1-13.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460062"
+          },
+          {
+            "Comment": "python2-six is earlier than 0:six-1.11.0-6.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460063"
+          },
+          {
+            "Comment": "pytz is earlier than 0:2017.2-12.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460064"
+          },
+          {
+            "Comment": "scipy is earlier than 0:1.0.0-21.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460065"
+          },
+          {
+            "Comment": "python-nose-docs is earlier than 0:nose-docs-1.3.7-31.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460066"
+          },
+          {
+            "Comment": "python-sqlalchemy-doc is earlier than 0:sqlalchemy-doc-1.3.2-2.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460067"
+          },
+          {
+            "Comment": "python2-PyMySQL is earlier than 0:PyMySQL-0.8.0-10.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460068"
+          },
+          {
+            "Comment": "python2-attrs is earlier than 0:attrs-17.4.0-10.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460069"
+          },
+          {
+            "Comment": "python2-babel is earlier than 0:babel-2.5.1-10.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460070"
+          },
+          {
+            "Comment": "python2-backports-ssl_match_hostname is earlier than 0:backports-ssl_match_hostname-3.5.0.1-12.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460071"
+          },
+          {
+            "Comment": "python2-chardet is earlier than 0:chardet-3.0.4-10.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460072"
+          },
+          {
+            "Comment": "python2-dns is earlier than 0:dns-1.15.0-10.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460073"
+          },
+          {
+            "Comment": "python2-docs is earlier than 0:docs-2.7.16-2.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460074"
+          },
+          {
+            "Comment": "python2-docs-info is earlier than 0:docs-info-2.7.16-2.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460075"
+          },
+          {
+            "Comment": "python2-docutils is earlier than 0:docutils-0.14-12.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460076"
+          },
+          {
+            "Comment": "python2-funcsigs is earlier than 0:funcsigs-1.0.2-13.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460077"
+          },
+          {
+            "Comment": "python2-idna is earlier than 0:idna-2.5-7.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460078"
+          },
+          {
+            "Comment": "python2-ipaddress is earlier than 0:ipaddress-1.0.18-6.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460079"
+          },
+          {
+            "Comment": "python2-jinja2 is earlier than 0:jinja2-2.10-9.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460080"
+          },
+          {
+            "Comment": "python2-mock is earlier than 0:mock-2.0.0-13.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460081"
+          },
+          {
+            "Comment": "python2-nose is earlier than 0:nose-1.3.7-31.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460082"
+          },
+          {
+            "Comment": "python2-numpy-doc is earlier than 1:numpy-doc-1.14.2-16.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460083"
+          },
+          {
+            "Comment": "python2-pip-wheel is earlier than 0:pip-wheel-9.0.3-19.module+an8.6.0+10711+f6069741",
+            "TestRef": "oval:cn.openanolis:tst:20220460084"
+          },
+          {
+            "Comment": "python2-pluggy is earlier than 0:pluggy-0.6.0-8.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460085"
+          },
+          {
+            "Comment": "python2-py is earlier than 0:py-1.5.3-6.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460086"
+          },
+          {
+            "Comment": "python2-pygments is earlier than 0:pygments-2.2.0-22.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460087"
+          },
+          {
+            "Comment": "python2-pysocks is earlier than 0:pysocks-1.6.8-6.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460088"
+          },
+          {
+            "Comment": "python2-pytest is earlier than 0:pytest-3.4.2-13.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460089"
+          },
+          {
+            "Comment": "python2-pytest-mock is earlier than 0:pytest-mock-1.9.0-4.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460090"
+          },
+          {
+            "Comment": "python2-pytz is earlier than 0:pytz-2017.2-12.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460091"
+          },
+          {
+            "Comment": "python2-requests is earlier than 0:requests-2.20.0-3.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460092"
+          },
+          {
+            "Comment": "python2-setuptools-wheel is earlier than 0:setuptools-wheel-39.0.1-13.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460093"
+          },
+          {
+            "Comment": "python2-setuptools_scm is earlier than 0:setuptools_scm-1.15.7-6.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460094"
+          },
+          {
+            "Comment": "python2-urllib3 is earlier than 0:urllib3-1.24.2-3.module+an8.4.0+10255+fabd275d",
+            "TestRef": "oval:cn.openanolis:tst:20220460095"
+          },
+          {
+            "Comment": "python2-virtualenv is earlier than 0:virtualenv-15.1.0-21.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460096"
+          },
+          {
+            "Comment": "python2-wheel is earlier than 1:wheel-0.31.1-3.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460097"
+          },
+          {
+            "Comment": "python2-wheel-wheel is earlier than 1:wheel-wheel-0.31.1-3.module+an8.5.0+10603+4287d14e",
+            "TestRef": "oval:cn.openanolis:tst:20220460098"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

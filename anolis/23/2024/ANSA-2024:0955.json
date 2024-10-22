@@ -1,0 +1,93 @@
+{
+  "ID": "oval:cn.openanolis:def:20240955",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0955: security update sqlite (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0955",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0955",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2023-7104:\nA vulnerability was found in SQLite SQLite3 up to 3.43.0 and classified as critical. This issue affects the function sessionReadRecord of the file ext/session/sqlite3session.c of the component make alltest Handler. The manipulation leads to heap-based buffer overflow. It is recommended to apply a patch to fix this issue. The associated identifier of this vulnerability is VDB-248999.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-10-09"
+      },
+      "Updated": {
+        "Date": "2024-10-09"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-7104",
+          "CVSS3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Critical",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-7104",
+          "CWE": "CWE-122",
+          "Public": "20231229"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "lemon is earlier than 1:3.42.0-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240955001"
+          },
+          {
+            "Comment": "sqlite is earlier than 1:3.42.0-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240955002"
+          },
+          {
+            "Comment": "sqlite-analyzer is earlier than 1:analyzer-3.42.0-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240955003"
+          },
+          {
+            "Comment": "sqlite-devel is earlier than 1:devel-3.42.0-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240955004"
+          },
+          {
+            "Comment": "sqlite-libs is earlier than 1:libs-3.42.0-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240955005"
+          },
+          {
+            "Comment": "sqlite-tcl is earlier than 1:tcl-3.42.0-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240955006"
+          },
+          {
+            "Comment": "sqlite-tools is earlier than 1:tools-3.42.0-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240955007"
+          },
+          {
+            "Comment": "sqlite-doc is earlier than 1:doc-3.42.0-4.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240955008"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

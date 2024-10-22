@@ -1,0 +1,949 @@
+{
+  "ID": "oval:cn.openanolis:def:20240478",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0478: perl:5.32 security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0478",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0478",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-47038:\nA vulnerability was found in perl 5.30.0 through 5.38.0. This issue occurs when a crafted regular expression is compiled by perl, which can allow an attacker controlled byte buffer overflow in a heap allocated buffer.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-06-18"
+      },
+      "Updated": {
+        "Date": "2024-06-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-47038",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-47038",
+          "CWE": "CWE-122",
+          "Public": "20231125"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "perl is earlier than 4:5.32.1-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478001"
+          },
+          {
+            "Comment": "perl-B is earlier than 0:B-1.80-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478002"
+          },
+          {
+            "Comment": "perl-Compress-Bzip2 is earlier than 0:Compress-Bzip2-2.28-2.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478003"
+          },
+          {
+            "Comment": "perl-Compress-Raw-Bzip2 is earlier than 0:Compress-Raw-Bzip2-2.096-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478004"
+          },
+          {
+            "Comment": "perl-Compress-Raw-Lzma is earlier than 0:Compress-Raw-Lzma-2.096-1.0.1.module+an8.9.0+11187+5cf36de4",
+            "TestRef": "oval:cn.openanolis:tst:20240478005"
+          },
+          {
+            "Comment": "perl-Compress-Raw-Zlib is earlier than 0:Compress-Raw-Zlib-2.096-2.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478006"
+          },
+          {
+            "Comment": "perl-DB_File is earlier than 0:DB_File-1.855-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478007"
+          },
+          {
+            "Comment": "perl-Data-Dumper is earlier than 0:Data-Dumper-2.174-440.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478008"
+          },
+          {
+            "Comment": "perl-Devel-PPPort is earlier than 0:Devel-PPPort-3.62-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478009"
+          },
+          {
+            "Comment": "perl-Devel-Peek is earlier than 0:Devel-Peek-1.28-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478010"
+          },
+          {
+            "Comment": "perl-Devel-Size is earlier than 0:Devel-Size-0.83-3.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478011"
+          },
+          {
+            "Comment": "perl-Digest-MD5 is earlier than 0:Digest-MD5-2.58-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478012"
+          },
+          {
+            "Comment": "perl-Digest-SHA is earlier than 1:Digest-SHA-6.02-2.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478013"
+          },
+          {
+            "Comment": "perl-DynaLoader is earlier than 0:DynaLoader-1.47-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478014"
+          },
+          {
+            "Comment": "perl-Encode is earlier than 4:Encode-3.08-461.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478015"
+          },
+          {
+            "Comment": "perl-Encode-devel is earlier than 4:Encode-devel-3.08-461.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478016"
+          },
+          {
+            "Comment": "perl-Errno is earlier than 0:Errno-1.30-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478017"
+          },
+          {
+            "Comment": "perl-Fcntl is earlier than 0:Fcntl-1.13-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478018"
+          },
+          {
+            "Comment": "perl-File-DosGlob is earlier than 0:File-DosGlob-1.12-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478019"
+          },
+          {
+            "Comment": "perl-Filter is earlier than 2:Filter-1.60-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478020"
+          },
+          {
+            "Comment": "perl-GDBM_File is earlier than 0:GDBM_File-1.18-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478021"
+          },
+          {
+            "Comment": "perl-Hash-Util is earlier than 0:Hash-Util-0.23-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478022"
+          },
+          {
+            "Comment": "perl-Hash-Util-FieldHash is earlier than 0:Hash-Util-FieldHash-1.20-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478023"
+          },
+          {
+            "Comment": "perl-I18N-Langinfo is earlier than 0:I18N-Langinfo-0.19-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478024"
+          },
+          {
+            "Comment": "perl-IO is earlier than 0:IO-1.43-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478025"
+          },
+          {
+            "Comment": "perl-IPC-SysV is earlier than 0:IPC-SysV-2.09-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478026"
+          },
+          {
+            "Comment": "perl-MIME-Base64 is earlier than 0:MIME-Base64-3.15-1001.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478027"
+          },
+          {
+            "Comment": "perl-Math-BigInt-FastCalc is earlier than 0:Math-BigInt-FastCalc-0.500.900-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478028"
+          },
+          {
+            "Comment": "perl-NDBM_File is earlier than 0:NDBM_File-1.15-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478029"
+          },
+          {
+            "Comment": "perl-ODBM_File is earlier than 0:ODBM_File-1.16-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478030"
+          },
+          {
+            "Comment": "perl-Opcode is earlier than 0:Opcode-1.48-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478031"
+          },
+          {
+            "Comment": "perl-POSIX is earlier than 0:POSIX-1.94-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478032"
+          },
+          {
+            "Comment": "perl-Params-Util is earlier than 0:Params-Util-1.102-2.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478033"
+          },
+          {
+            "Comment": "perl-PathTools is earlier than 0:PathTools-3.78-439.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478034"
+          },
+          {
+            "Comment": "perl-Scalar-List-Utils is earlier than 4:Scalar-List-Utils-1.55-457.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478035"
+          },
+          {
+            "Comment": "perl-Socket is earlier than 4:Socket-2.031-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478036"
+          },
+          {
+            "Comment": "perl-Storable is earlier than 1:Storable-3.21-457.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478037"
+          },
+          {
+            "Comment": "perl-Sys-Hostname is earlier than 0:Sys-Hostname-1.23-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478038"
+          },
+          {
+            "Comment": "perl-Sys-Syslog is earlier than 0:Sys-Syslog-0.36-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478039"
+          },
+          {
+            "Comment": "perl-Time-HiRes is earlier than 4:Time-HiRes-1.9764-459.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478040"
+          },
+          {
+            "Comment": "perl-Time-Piece is earlier than 0:Time-Piece-1.3401-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478041"
+          },
+          {
+            "Comment": "perl-Unicode-Collate is earlier than 0:Unicode-Collate-1.29-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478042"
+          },
+          {
+            "Comment": "perl-Unicode-Normalize is earlier than 0:Unicode-Normalize-1.27-458.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478043"
+          },
+          {
+            "Comment": "perl-devel is earlier than 4:devel-5.32.1-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478044"
+          },
+          {
+            "Comment": "perl-encoding is earlier than 4:encoding-3.00-461.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478045"
+          },
+          {
+            "Comment": "perl-interpreter is earlier than 4:interpreter-5.32.1-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478046"
+          },
+          {
+            "Comment": "perl-lib is earlier than 0:lib-0.65-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478047"
+          },
+          {
+            "Comment": "perl-libs is earlier than 4:libs-5.32.1-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478048"
+          },
+          {
+            "Comment": "perl-mro is earlier than 0:mro-1.23-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478049"
+          },
+          {
+            "Comment": "perl-ph is earlier than 0:ph-5.32.1-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478050"
+          },
+          {
+            "Comment": "perl-threads is earlier than 1:threads-2.25-457.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478051"
+          },
+          {
+            "Comment": "perl-threads-shared is earlier than 0:threads-shared-1.61-457.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478052"
+          },
+          {
+            "Comment": "perl-version is earlier than 7:version-0.99.29-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478053"
+          },
+          {
+            "Comment": "perl-Algorithm-Diff is earlier than 0:Algorithm-Diff-1.1903-10.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478054"
+          },
+          {
+            "Comment": "perl-Archive-Tar is earlier than 0:Archive-Tar-2.38-3.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478055"
+          },
+          {
+            "Comment": "perl-Archive-Zip is earlier than 0:Archive-Zip-1.68-3.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478056"
+          },
+          {
+            "Comment": "perl-CPAN is earlier than 0:CPAN-2.28-5.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478057"
+          },
+          {
+            "Comment": "perl-CPAN-DistnameInfo is earlier than 0:CPAN-DistnameInfo-0.12-13.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478058"
+          },
+          {
+            "Comment": "perl-CPAN-Meta is earlier than 0:CPAN-Meta-2.150010-397.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478059"
+          },
+          {
+            "Comment": "perl-CPAN-Meta-Requirements is earlier than 0:CPAN-Meta-Requirements-2.140-397.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478060"
+          },
+          {
+            "Comment": "perl-CPAN-Meta-YAML is earlier than 0:CPAN-Meta-YAML-0.018-1001.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478061"
+          },
+          {
+            "Comment": "perl-Carp is earlier than 0:Carp-1.50-439.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478062"
+          },
+          {
+            "Comment": "perl-Config-Perl-V is earlier than 0:Config-Perl-V-0.32-441.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478063"
+          },
+          {
+            "Comment": "perl-Data-OptList is earlier than 0:Data-OptList-0.110-7.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478064"
+          },
+          {
+            "Comment": "perl-Data-Section is earlier than 0:Data-Section-0.200007-8.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478065"
+          },
+          {
+            "Comment": "perl-Digest is earlier than 0:Digest-1.20-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478066"
+          },
+          {
+            "Comment": "perl-Encode-Locale is earlier than 0:Encode-Locale-1.05-10.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478067"
+          },
+          {
+            "Comment": "perl-Env is earlier than 0:Env-1.04-396.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478068"
+          },
+          {
+            "Comment": "perl-Exporter is earlier than 0:Exporter-5.74-458.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478069"
+          },
+          {
+            "Comment": "perl-ExtUtils-CBuilder is earlier than 1:ExtUtils-CBuilder-0.280236-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478070"
+          },
+          {
+            "Comment": "perl-ExtUtils-Install is earlier than 0:ExtUtils-Install-2.20-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478071"
+          },
+          {
+            "Comment": "perl-ExtUtils-MakeMaker is earlier than 2:ExtUtils-MakeMaker-7.46-3.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478072"
+          },
+          {
+            "Comment": "perl-ExtUtils-Manifest is earlier than 1:ExtUtils-Manifest-1.73-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478073"
+          },
+          {
+            "Comment": "perl-ExtUtils-ParseXS is earlier than 1:ExtUtils-ParseXS-3.40-439.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478074"
+          },
+          {
+            "Comment": "perl-Fedora-VSP is earlier than 0:Fedora-VSP-0.001-10.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478075"
+          },
+          {
+            "Comment": "perl-File-Fetch is earlier than 0:File-Fetch-1.00-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478076"
+          },
+          {
+            "Comment": "perl-File-HomeDir is earlier than 0:File-HomeDir-1.004-6.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478077"
+          },
+          {
+            "Comment": "perl-File-Path is earlier than 0:File-Path-2.16-439.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478078"
+          },
+          {
+            "Comment": "perl-File-Temp is earlier than 1:File-Temp-0.231.100-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478079"
+          },
+          {
+            "Comment": "perl-File-Which is earlier than 0:File-Which-1.23-4.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478080"
+          },
+          {
+            "Comment": "perl-Filter-Simple is earlier than 0:Filter-Simple-0.96-457.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478081"
+          },
+          {
+            "Comment": "perl-Getopt-Long is earlier than 1:Getopt-Long-2.52-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478082"
+          },
+          {
+            "Comment": "perl-HTTP-Tiny is earlier than 0:HTTP-Tiny-0.078-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478083"
+          },
+          {
+            "Comment": "perl-IO-Compress is earlier than 0:IO-Compress-2.096-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478084"
+          },
+          {
+            "Comment": "perl-IO-Compress-Lzma is earlier than 0:IO-Compress-Lzma-2.096-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478085"
+          },
+          {
+            "Comment": "perl-IO-Socket-IP is earlier than 0:IO-Socket-IP-0.41-2.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478086"
+          },
+          {
+            "Comment": "perl-IPC-Cmd is earlier than 2:IPC-Cmd-1.04-2.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478087"
+          },
+          {
+            "Comment": "perl-IPC-System-Simple is earlier than 0:IPC-System-Simple-1.30-3.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478088"
+          },
+          {
+            "Comment": "perl-Importer is earlier than 0:Importer-0.025-6.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478089"
+          },
+          {
+            "Comment": "perl-JSON-PP is earlier than 1:JSON-PP-4.04-2.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478090"
+          },
+          {
+            "Comment": "perl-Locale-Maketext is earlier than 0:Locale-Maketext-1.29-440.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478091"
+          },
+          {
+            "Comment": "perl-MRO-Compat is earlier than 0:MRO-Compat-0.13-5.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478092"
+          },
+          {
+            "Comment": "perl-Math-BigInt is earlier than 1:Math-BigInt-1.9998.18-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478093"
+          },
+          {
+            "Comment": "perl-Math-BigRat is earlier than 0:Math-BigRat-0.2614-2.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478094"
+          },
+          {
+            "Comment": "perl-Module-Build is earlier than 2:Module-Build-0.42.31-5.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478095"
+          },
+          {
+            "Comment": "perl-Module-CoreList is earlier than 1:Module-CoreList-5.20211020-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478096"
+          },
+          {
+            "Comment": "perl-Module-Load is earlier than 1:Module-Load-0.36-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478097"
+          },
+          {
+            "Comment": "perl-Module-Load-Conditional is earlier than 0:Module-Load-Conditional-0.74-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478098"
+          },
+          {
+            "Comment": "perl-Module-Metadata is earlier than 0:Module-Metadata-1.000037-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478099"
+          },
+          {
+            "Comment": "perl-Object-HashBase is earlier than 0:Object-HashBase-0.009-4.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478100"
+          },
+          {
+            "Comment": "perl-Package-Generator is earlier than 0:Package-Generator-1.106-12.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478101"
+          },
+          {
+            "Comment": "perl-Params-Check is earlier than 1:Params-Check-0.38-396.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478102"
+          },
+          {
+            "Comment": "perl-Perl-OSType is earlier than 0:Perl-OSType-1.010-397.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478103"
+          },
+          {
+            "Comment": "perl-PerlIO-via-QuotedPrint is earlier than 0:PerlIO-via-QuotedPrint-0.09-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478104"
+          },
+          {
+            "Comment": "perl-Pod-Checker is earlier than 4:Pod-Checker-1.74-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478105"
+          },
+          {
+            "Comment": "perl-Pod-Escapes is earlier than 1:Pod-Escapes-1.07-396.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478106"
+          },
+          {
+            "Comment": "perl-Pod-Parser is earlier than 0:Pod-Parser-1.63-1001.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478107"
+          },
+          {
+            "Comment": "perl-Pod-Perldoc is earlier than 0:Pod-Perldoc-3.28.01-443.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478108"
+          },
+          {
+            "Comment": "perl-Pod-Simple is earlier than 1:Pod-Simple-3.42-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478109"
+          },
+          {
+            "Comment": "perl-Pod-Usage is earlier than 4:Pod-Usage-2.01-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478110"
+          },
+          {
+            "Comment": "perl-Software-License is earlier than 0:Software-License-0.103014-5.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478111"
+          },
+          {
+            "Comment": "perl-Sub-Exporter is earlier than 0:Sub-Exporter-0.987-17.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478112"
+          },
+          {
+            "Comment": "perl-Sub-Install is earlier than 0:Sub-Install-0.928-15.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478113"
+          },
+          {
+            "Comment": "perl-Term-ANSIColor is earlier than 0:Term-ANSIColor-5.01-458.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478114"
+          },
+          {
+            "Comment": "perl-Term-Cap is earlier than 0:Term-Cap-1.17-396.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478115"
+          },
+          {
+            "Comment": "perl-Term-Table is earlier than 0:Term-Table-0.015-2.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478116"
+          },
+          {
+            "Comment": "perl-Test-Harness is earlier than 1:Test-Harness-3.42-2.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478117"
+          },
+          {
+            "Comment": "perl-Test-Simple is earlier than 3:Test-Simple-1.302181-2.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478118"
+          },
+          {
+            "Comment": "perl-Text-Balanced is earlier than 0:Text-Balanced-2.04-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478119"
+          },
+          {
+            "Comment": "perl-Text-Diff is earlier than 0:Text-Diff-1.45-7.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478120"
+          },
+          {
+            "Comment": "perl-Text-Glob is earlier than 0:Text-Glob-0.11-5.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478121"
+          },
+          {
+            "Comment": "perl-Text-ParseWords is earlier than 0:Text-ParseWords-3.30-396.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478122"
+          },
+          {
+            "Comment": "perl-Text-Tabs+Wrap is earlier than 0:Text-Tabs+Wrap-2013.0523-396.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478123"
+          },
+          {
+            "Comment": "perl-Text-Template is earlier than 0:Text-Template-1.58-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478124"
+          },
+          {
+            "Comment": "perl-Thread-Queue is earlier than 0:Thread-Queue-3.14-457.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478125"
+          },
+          {
+            "Comment": "perl-Time-Local is earlier than 2:Time-Local-1.300-4.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478126"
+          },
+          {
+            "Comment": "perl-URI is earlier than 0:URI-1.76-5.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478127"
+          },
+          {
+            "Comment": "perl-autodie is earlier than 0:autodie-2.34-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478128"
+          },
+          {
+            "Comment": "perl-bignum is earlier than 0:bignum-0.51-439.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478129"
+          },
+          {
+            "Comment": "perl-constant is earlier than 0:constant-1.33-1001.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478130"
+          },
+          {
+            "Comment": "perl-experimental is earlier than 0:experimental-0.025-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478131"
+          },
+          {
+            "Comment": "perl-generators is earlier than 0:generators-1.13-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478132"
+          },
+          {
+            "Comment": "perl-inc-latest is earlier than 2:inc-latest-0.500-10.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478133"
+          },
+          {
+            "Comment": "perl-libnet is earlier than 0:libnet-3.13-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478134"
+          },
+          {
+            "Comment": "perl-local-lib is earlier than 0:local-lib-2.000024-7.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478135"
+          },
+          {
+            "Comment": "perl-parent is earlier than 1:parent-0.238-457.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478136"
+          },
+          {
+            "Comment": "perl-perlfaq is earlier than 0:perlfaq-5.20210520-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478137"
+          },
+          {
+            "Comment": "perl-podlators is earlier than 1:podlators-4.14-457.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478138"
+          },
+          {
+            "Comment": "perl-Attribute-Handlers is earlier than 0:Attribute-Handlers-1.01-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478139"
+          },
+          {
+            "Comment": "perl-AutoLoader is earlier than 0:AutoLoader-5.74-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478140"
+          },
+          {
+            "Comment": "perl-AutoSplit is earlier than 0:AutoSplit-5.74-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478141"
+          },
+          {
+            "Comment": "perl-Benchmark is earlier than 0:Benchmark-1.23-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478142"
+          },
+          {
+            "Comment": "perl-Class-Struct is earlier than 0:Class-Struct-0.66-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478143"
+          },
+          {
+            "Comment": "perl-Config-Extensions is earlier than 0:Config-Extensions-0.03-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478144"
+          },
+          {
+            "Comment": "perl-DBM_Filter is earlier than 0:DBM_Filter-0.06-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478145"
+          },
+          {
+            "Comment": "perl-Devel-SelfStubber is earlier than 0:Devel-SelfStubber-1.06-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478146"
+          },
+          {
+            "Comment": "perl-DirHandle is earlier than 0:DirHandle-1.05-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478147"
+          },
+          {
+            "Comment": "perl-Dumpvalue is earlier than 0:Dumpvalue-2.27-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478148"
+          },
+          {
+            "Comment": "perl-English is earlier than 0:English-1.11-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478149"
+          },
+          {
+            "Comment": "perl-ExtUtils-Command is earlier than 2:ExtUtils-Command-7.46-3.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478150"
+          },
+          {
+            "Comment": "perl-ExtUtils-Constant is earlier than 0:ExtUtils-Constant-0.25-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478151"
+          },
+          {
+            "Comment": "perl-ExtUtils-Embed is earlier than 0:ExtUtils-Embed-1.35-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478152"
+          },
+          {
+            "Comment": "perl-ExtUtils-MM-Utils is earlier than 2:ExtUtils-MM-Utils-7.46-3.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478153"
+          },
+          {
+            "Comment": "perl-ExtUtils-Miniperl is earlier than 0:ExtUtils-Miniperl-1.09-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478154"
+          },
+          {
+            "Comment": "perl-File-Basename is earlier than 0:File-Basename-2.85-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478155"
+          },
+          {
+            "Comment": "perl-File-Compare is earlier than 0:File-Compare-1.100.600-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478156"
+          },
+          {
+            "Comment": "perl-File-Copy is earlier than 0:File-Copy-2.34-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478157"
+          },
+          {
+            "Comment": "perl-File-Find is earlier than 0:File-Find-1.37-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478158"
+          },
+          {
+            "Comment": "perl-File-stat is earlier than 0:File-stat-1.09-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478159"
+          },
+          {
+            "Comment": "perl-FileCache is earlier than 0:FileCache-1.10-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478160"
+          },
+          {
+            "Comment": "perl-FileHandle is earlier than 0:FileHandle-2.03-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478161"
+          },
+          {
+            "Comment": "perl-FindBin is earlier than 0:FindBin-1.51-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478162"
+          },
+          {
+            "Comment": "perl-Getopt-Std is earlier than 0:Getopt-Std-1.12-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478163"
+          },
+          {
+            "Comment": "perl-I18N-Collate is earlier than 0:I18N-Collate-1.02-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478164"
+          },
+          {
+            "Comment": "perl-I18N-LangTags is earlier than 0:I18N-LangTags-0.44-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478165"
+          },
+          {
+            "Comment": "perl-IO-Zlib is earlier than 1:IO-Zlib-1.10-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478166"
+          },
+          {
+            "Comment": "perl-IPC-Open3 is earlier than 0:IPC-Open3-1.21-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478167"
+          },
+          {
+            "Comment": "perl-Locale-Maketext-Simple is earlier than 1:Locale-Maketext-Simple-0.21-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478168"
+          },
+          {
+            "Comment": "perl-Math-Complex is earlier than 0:Math-Complex-1.59-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478169"
+          },
+          {
+            "Comment": "perl-Memoize is earlier than 0:Memoize-1.03-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478170"
+          },
+          {
+            "Comment": "perl-Module-CoreList-tools is earlier than 1:Module-CoreList-tools-5.20211020-1.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478171"
+          },
+          {
+            "Comment": "perl-Module-Loaded is earlier than 1:Module-Loaded-0.08-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478172"
+          },
+          {
+            "Comment": "perl-NEXT is earlier than 0:NEXT-0.67-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478173"
+          },
+          {
+            "Comment": "perl-Net is earlier than 0:Net-1.02-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478174"
+          },
+          {
+            "Comment": "perl-Net-Ping is earlier than 0:Net-Ping-2.72-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478175"
+          },
+          {
+            "Comment": "perl-Object-HashBase-tools is earlier than 0:Object-HashBase-tools-0.009-4.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478176"
+          },
+          {
+            "Comment": "perl-Pod-Functions is earlier than 0:Pod-Functions-1.13-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478177"
+          },
+          {
+            "Comment": "perl-Pod-Html is earlier than 0:Pod-Html-1.25-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478178"
+          },
+          {
+            "Comment": "perl-Safe is earlier than 0:Safe-2.41-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478179"
+          },
+          {
+            "Comment": "perl-Search-Dict is earlier than 0:Search-Dict-1.07-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478180"
+          },
+          {
+            "Comment": "perl-SelectSaver is earlier than 0:SelectSaver-1.02-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478181"
+          },
+          {
+            "Comment": "perl-SelfLoader is earlier than 0:SelfLoader-1.26-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478182"
+          },
+          {
+            "Comment": "perl-Symbol is earlier than 0:Symbol-1.08-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478183"
+          },
+          {
+            "Comment": "perl-Term-Complete is earlier than 0:Term-Complete-1.403-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478184"
+          },
+          {
+            "Comment": "perl-Term-ReadLine is earlier than 0:Term-ReadLine-1.17-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478185"
+          },
+          {
+            "Comment": "perl-Test is earlier than 0:Test-1.31-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478186"
+          },
+          {
+            "Comment": "perl-Text-Abbrev is earlier than 0:Text-Abbrev-1.02-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478187"
+          },
+          {
+            "Comment": "perl-Thread is earlier than 0:Thread-3.05-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478188"
+          },
+          {
+            "Comment": "perl-Thread-Semaphore is earlier than 0:Thread-Semaphore-2.13-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478189"
+          },
+          {
+            "Comment": "perl-Tie is earlier than 0:Tie-4.6-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478190"
+          },
+          {
+            "Comment": "perl-Tie-File is earlier than 0:Tie-File-1.06-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478191"
+          },
+          {
+            "Comment": "perl-Tie-Memoize is earlier than 0:Tie-Memoize-1.1-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478192"
+          },
+          {
+            "Comment": "perl-Tie-RefHash is earlier than 0:Tie-RefHash-1.39-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478193"
+          },
+          {
+            "Comment": "perl-Time is earlier than 0:Time-1.03-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478194"
+          },
+          {
+            "Comment": "perl-Unicode-UCD is earlier than 0:Unicode-UCD-0.75-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478195"
+          },
+          {
+            "Comment": "perl-User-pwent is earlier than 0:User-pwent-1.03-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478196"
+          },
+          {
+            "Comment": "perl-autouse is earlier than 0:autouse-1.11-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478197"
+          },
+          {
+            "Comment": "perl-base is earlier than 0:base-2.27-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478198"
+          },
+          {
+            "Comment": "perl-blib is earlier than 0:blib-1.07-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478199"
+          },
+          {
+            "Comment": "perl-debugger is earlier than 0:debugger-1.56-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478200"
+          },
+          {
+            "Comment": "perl-deprecate is earlier than 0:deprecate-0.04-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478201"
+          },
+          {
+            "Comment": "perl-diagnostics is earlier than 0:diagnostics-1.37-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478202"
+          },
+          {
+            "Comment": "perl-doc is earlier than 0:doc-5.32.1-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478203"
+          },
+          {
+            "Comment": "perl-encoding-warnings is earlier than 0:encoding-warnings-0.13-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478204"
+          },
+          {
+            "Comment": "perl-fields is earlier than 0:fields-2.27-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478205"
+          },
+          {
+            "Comment": "perl-filetest is earlier than 0:filetest-1.03-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478206"
+          },
+          {
+            "Comment": "perl-homedir is earlier than 0:homedir-2.000024-7.module+an8.7.0+10891+5eaf0303",
+            "TestRef": "oval:cn.openanolis:tst:20240478207"
+          },
+          {
+            "Comment": "perl-if is earlier than 0:if-0.60.800-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478208"
+          },
+          {
+            "Comment": "perl-less is earlier than 0:less-0.03-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478209"
+          },
+          {
+            "Comment": "perl-libnetcfg is earlier than 4:libnetcfg-5.32.1-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478210"
+          },
+          {
+            "Comment": "perl-locale is earlier than 0:locale-1.09-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478211"
+          },
+          {
+            "Comment": "perl-macros is earlier than 4:macros-5.32.1-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478212"
+          },
+          {
+            "Comment": "perl-meta-notation is earlier than 0:meta-notation-5.32.1-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478213"
+          },
+          {
+            "Comment": "perl-open is earlier than 0:open-1.12-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478214"
+          },
+          {
+            "Comment": "perl-overload is earlier than 0:overload-1.31-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478215"
+          },
+          {
+            "Comment": "perl-overloading is earlier than 0:overloading-0.02-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478216"
+          },
+          {
+            "Comment": "perl-sigtrap is earlier than 0:sigtrap-1.09-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478217"
+          },
+          {
+            "Comment": "perl-sort is earlier than 0:sort-2.04-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478218"
+          },
+          {
+            "Comment": "perl-subs is earlier than 0:subs-1.03-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478219"
+          },
+          {
+            "Comment": "perl-utils is earlier than 0:utils-5.32.1-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478220"
+          },
+          {
+            "Comment": "perl-vars is earlier than 0:vars-1.05-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478221"
+          },
+          {
+            "Comment": "perl-vmsish is earlier than 0:vmsish-1.04-473.module+an8.9.0+11219+2044e3d0",
+            "TestRef": "oval:cn.openanolis:tst:20240478222"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

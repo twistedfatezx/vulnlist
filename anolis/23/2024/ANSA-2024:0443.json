@@ -1,0 +1,117 @@
+{
+  "ID": "oval:cn.openanolis:def:20240443",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0443: util-linux security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 23"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0443",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0443",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 23 that fix the following vulnerabilities:\n\nCVE-2024-28085:\nwall in util-linux through 2.40, often installed with setgid tty permissions, allows escape sequences to be sent to other users' terminals through argv. (Specifically, escape sequences received from stdin are blocked, but escape sequences received from argv are not blocked.) There may be plausible scenarios where this leads to account takeover.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2024-06-05"
+      },
+      "Updated": {
+        "Date": "2024-06-06"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2024-28085",
+          "CVSS3": "8.4/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:N",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2024-28085",
+          "CWE": "CWE-268",
+          "Public": "20240327"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:23:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "libblkid is earlier than 0:2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443001"
+          },
+          {
+            "Comment": "libblkid-devel is earlier than 0:devel-2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443002"
+          },
+          {
+            "Comment": "libfdisk is earlier than 0:2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443003"
+          },
+          {
+            "Comment": "libfdisk-devel is earlier than 0:devel-2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443004"
+          },
+          {
+            "Comment": "libmount is earlier than 0:2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443005"
+          },
+          {
+            "Comment": "libmount-devel is earlier than 0:devel-2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443006"
+          },
+          {
+            "Comment": "libsmartcols is earlier than 0:2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443007"
+          },
+          {
+            "Comment": "libsmartcols-devel is earlier than 0:devel-2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443008"
+          },
+          {
+            "Comment": "libuuid is earlier than 0:2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443009"
+          },
+          {
+            "Comment": "libuuid-devel is earlier than 0:devel-2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443010"
+          },
+          {
+            "Comment": "python3-libmount is earlier than 0:libmount-2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443011"
+          },
+          {
+            "Comment": "util-linux is earlier than 0:linux-2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443012"
+          },
+          {
+            "Comment": "util-linux-core is earlier than 0:linux-core-2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443013"
+          },
+          {
+            "Comment": "uuidd is earlier than 0:2.39.1-2.an23",
+            "TestRef": "oval:cn.openanolis:tst:20240443014"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 23 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

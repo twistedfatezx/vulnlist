@@ -1,0 +1,185 @@
+{
+  "ID": "oval:cn.openanolis:def:20230482",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0482: kernel security and bug fix update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0482",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0482",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2022-42896:\nThere are use-after-free vulnerabilities in the Linux kernel's net/bluetooth/l2cap_core.c's l2cap_connect and l2cap_le_connect_req functions which may allow code execution and leaking kernel memory (respectively) remotely via Bluetooth. A remote attacker could execute code leaking kernel memory via Bluetooth if within proximity of the victim. We recommend upgrading past commit https://www.google.com/url https://github.com/torvalds/linux/commit/711f8c3fb3db61897080468586b970c87c61d9e4 https://www.google.com/url\n\nCVE-2023-1281:\nUse After Free vulnerability in Linux kernel traffic control index filter (tcindex) allows Privilege Escalation. The imperfect hash area can be updated while packets are traversing, which will cause a use-after-free when 'tcf_exts_exec()' is called with the destroyed tcf_ext. A local attacker user can use this vulnerability to elevate its privileges to root. This issue affects Linux Kernel: from 4.14 before git commit ee059170b1f7e94e55fa6cadee544e176a6e59c2.\n\nCVE-2023-1829:\nA use-after-free vulnerability in the Linux Kernel traffic control index filter (tcindex) can be exploited to achieve local privilege escalation. The tcindex_delete function which does not properly deactivate filters in case of a perfect hashes while deleting the underlying structure which can later lead to double freeing the structure. A local attacker user can use this vulnerability to elevate its privileges to root. We recommend upgrading past commit 8c710f75256bb3cf05ac7b1672c82b92c43f3d28.\n\nCVE-2023-2124:\nAn out-of-bounds memory access flaw was found in the Linux kernel’s XFS file system in how a user restores an XFS image after failure (with a dirty log journal). This flaw allows a local user to crash or potentially escalate their privileges on the system.\n\nCVE-2023-2194:\nAn out-of-bounds write vulnerability was found in the Linux kernel's SLIMpro I2C device driver. The userspace \"data-\u003eblock[0]\" variable was not capped to a number between 0-255 and was used as the size of a memcpy, possibly writing beyond the end of dma_buffer. This flaw could allow a local privileged user to crash the system or potentially achieve code execution.\n\nCVE-2023-2235:\nA use-after-free vulnerability in the Linux Kernel Performance Events system can be exploited to achieve local privilege escalation. The perf_group_detach function did not check the event's siblings' attach_state before calling add_event_to_groups(), but remove_on_exec made it possible to call list_del_event() on before detaching from their group, making it possible to use a dangling pointer causing a use-after-free vulnerability. We recommend upgrading past commit fd0815f632c24878e325821943edccc7fde947a2.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-08-25"
+      },
+      "Updated": {
+        "Date": "2023-08-25"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2022-42896",
+          "CVSS3": "6.8/CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2022-42896",
+          "CWE": "CWE-416",
+          "Public": "20230110"
+        },
+        {
+          "ID": "CVE-2023-1281",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-1281",
+          "CWE": "CWE-416",
+          "Public": "20230322"
+        },
+        {
+          "ID": "CVE-2023-1829",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-1829",
+          "CWE": "CWE-119",
+          "Public": "20230411"
+        },
+        {
+          "ID": "CVE-2023-2124",
+          "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-2124",
+          "CWE": "CWE-125",
+          "Public": "20230515"
+        },
+        {
+          "ID": "CVE-2023-2194",
+          "CVSS3": "6.7/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-2194",
+          "CWE": "CWE-787",
+          "Public": "20230420"
+        },
+        {
+          "ID": "CVE-2023-2235",
+          "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-2235",
+          "CWE": "CWE-416",
+          "Public": "20230825"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "bpftool is earlier than 0:4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482001"
+          },
+          {
+            "Comment": "kernel is earlier than 0:4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482002"
+          },
+          {
+            "Comment": "kernel-core is earlier than 0:core-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482003"
+          },
+          {
+            "Comment": "kernel-cross-headers is earlier than 0:cross-headers-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482004"
+          },
+          {
+            "Comment": "kernel-debug is earlier than 0:debug-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482005"
+          },
+          {
+            "Comment": "kernel-debug-core is earlier than 0:debug-core-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482006"
+          },
+          {
+            "Comment": "kernel-debug-devel is earlier than 0:debug-devel-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482007"
+          },
+          {
+            "Comment": "kernel-debug-modules is earlier than 0:debug-modules-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482008"
+          },
+          {
+            "Comment": "kernel-debug-modules-extra is earlier than 0:debug-modules-extra-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482009"
+          },
+          {
+            "Comment": "kernel-devel is earlier than 0:devel-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482010"
+          },
+          {
+            "Comment": "kernel-headers is earlier than 0:headers-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482011"
+          },
+          {
+            "Comment": "kernel-modules is earlier than 0:modules-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482012"
+          },
+          {
+            "Comment": "kernel-modules-extra is earlier than 0:modules-extra-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482013"
+          },
+          {
+            "Comment": "kernel-tools is earlier than 0:tools-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482014"
+          },
+          {
+            "Comment": "kernel-tools-libs is earlier than 0:tools-libs-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482015"
+          },
+          {
+            "Comment": "kernel-tools-libs-devel is earlier than 0:tools-libs-devel-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482016"
+          },
+          {
+            "Comment": "perf is earlier than 0:4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482017"
+          },
+          {
+            "Comment": "python3-perf is earlier than 0:perf-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482018"
+          },
+          {
+            "Comment": "kernel(RHCK)4.18 is earlier than 0:4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482019"
+          },
+          {
+            "Comment": "kernel-abi-stablelists is earlier than 0:abi-stablelists-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482020"
+          },
+          {
+            "Comment": "kernel-doc is earlier than 0:doc-4.18.0-477.21.1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230482021"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

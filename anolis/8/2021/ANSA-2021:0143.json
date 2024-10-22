@@ -1,0 +1,85 @@
+{
+  "ID": "oval:cn.openanolis:def:20210143",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2021:0143: firefox security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2021:0143",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2021:0143",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2021-29970:\nA malicious webpage could have triggered a use-after-free, memory corruption, and a potentially exploitable crash. *This bug could only be triggered when accessibility was enabled.*. This vulnerability affects Thunderbird \u0026lt; 78.12, Firefox ESR \u0026lt; 78.12, and Firefox \u0026lt; 90.\n\nCVE-2021-29976:\nMozilla developers reported memory safety bugs present in code shared between Firefox and Thunderbird. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code. This vulnerability affects Thunderbird \u0026lt; 78.12, Firefox ESR \u0026lt; 78.12, and Firefox \u0026lt; 90.\n\nCVE-2021-30547:\nOut of bounds write in ANGLE in Google Chrome prior to 91.0.4472.101 allowed a remote attacker to potentially perform out of bounds memory access via a crafted HTML page.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2021-08-23"
+      },
+      "Updated": {
+        "Date": "2023-02-14"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2021-29970",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-29970",
+          "CWE": "CWE-416",
+          "Public": "20210823"
+        },
+        {
+          "ID": "CVE-2021-29976",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-29976",
+          "CWE": "CWE-120",
+          "Public": "20210823"
+        },
+        {
+          "ID": "CVE-2021-30547",
+          "CVSS3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2021-30547",
+          "CWE": "",
+          "Public": "20210823"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "firefox is earlier than 0:78.12.0-1.0.1.an8_2",
+            "TestRef": "oval:cn.openanolis:tst:20210143001"
+          },
+          {
+            "Comment": "firefox (Anolis OS 8.2) is earlier than 0:78.12.0-1.0.1.an8_2",
+            "TestRef": "oval:cn.openanolis:tst:20210143002"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

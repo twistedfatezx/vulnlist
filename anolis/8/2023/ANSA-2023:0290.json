@@ -1,0 +1,73 @@
+{
+  "ID": "oval:cn.openanolis:def:20230290",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2023:0290: thunderbird security update (Important)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2023:0290",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2023:0290",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2023-34414:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nThe error page for sites with invalid TLS certificates was missing the activation-delay Firefox uses to protect prompts and permission dialogs from attacks that exploit human response time delays. If a malicious page elicited user clicks in precise locations immediately before navigating to a site with a certificate error and made the renderer extremely busy at the same time, it could create a gap between when the error page was loaded and when the display actually refreshed. With the right timing the elicited clicks could land in that gap and activate the button that overrides the certificate error for that site.\n\nCVE-2023-34416:\nThe Mozilla Foundation Security Advisory describes this flaw as:\nMozilla developers and community members Gabriele Svelto, Andrew McCreight, the Mozilla Fuzzing Team, Sean Feng, and Sebastian Hengst reported memory safety bugs present in Firefox 113 and Firefox ESR 102.11. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code.",
+    "Advisory": {
+      "Severity": "Important",
+      "Issued": {
+        "Date": "2023-06-16"
+      },
+      "Updated": {
+        "Date": "2023-06-19"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2023-34414",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-34414",
+          "CWE": "CWE-449",
+          "Public": "20230616"
+        },
+        {
+          "ID": "CVE-2023-34416",
+          "CVSS3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Impact": "Important",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2023-34416",
+          "CWE": "CWE-120",
+          "Public": "20230616"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "thunderbird is earlier than 0:102.12.0-1.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20230290001"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}

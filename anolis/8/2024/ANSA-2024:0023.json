@@ -1,0 +1,81 @@
+{
+  "ID": "oval:cn.openanolis:def:20240023",
+  "Version": "1",
+  "Class": "patch",
+  "Metadata": {
+    "Title": "ANSA-2024:0023: python-pip security update (Moderate)",
+    "Affected": {
+      "Family": "unix",
+      "Platform": [
+        "Anolis OS 8"
+      ]
+    },
+    "References": [
+      {
+        "RefID": "ANSA-2024:0023",
+        "RefURL": "https://anas.openanolis.cn/errata/detail/ANSA-2024:0023",
+        "Source": "ANSA"
+      }
+    ],
+    "Description": "Package updates are available for Anolis 8 that fix the following vulnerabilities:\n\nCVE-2007-4559:\nDirectory traversal vulnerability in the (1) extract and (2) extractall functions in the tarfile module in Python allows user-assisted remote attackers to overwrite arbitrary files via a .. (dot dot) sequence in filenames in a TAR archive, a related issue to CVE-2001-1267.",
+    "Advisory": {
+      "Severity": "Moderate",
+      "Issued": {
+        "Date": "2024-01-09"
+      },
+      "Updated": {
+        "Date": "2024-01-10"
+      },
+      "Cves": [
+        {
+          "ID": "CVE-2007-4559",
+          "CVSS3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N",
+          "Impact": "Moderate",
+          "Href": "https://anas.openanolis.cn/cves/detail/CVE-2007-4559",
+          "CWE": "CWE-22",
+          "Public": "20070823"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:2.3:o:openanolis:anolis_os:8:*:*:*:*:*:*:* "
+      ]
+    }
+  },
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": null,
+        "Criterions": [
+          {
+            "Comment": "python-pip is earlier than 0:pip-9.0.3-23.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240023001"
+          },
+          {
+            "Comment": "platform-python-pip is earlier than 0:python-pip-9.0.3-23.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240023002"
+          },
+          {
+            "Comment": "python-pip-doc is earlier than 0:pip-doc-9.0.3-23.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240023003"
+          },
+          {
+            "Comment": "python3-pip is earlier than 0:pip-9.0.3-23.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240023004"
+          },
+          {
+            "Comment": "python3-pip-wheel is earlier than 0:pip-wheel-9.0.3-23.0.1.an8",
+            "TestRef": "oval:cn.openanolis:tst:20240023005"
+          }
+        ]
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Anolis OS 8 is installed",
+        "TestRef": "oval:cn.openanolis:tst:1"
+      }
+    ]
+  }
+}
